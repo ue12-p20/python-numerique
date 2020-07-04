@@ -8,6 +8,7 @@ Index
    :numbered:
    :caption: Sommaire:
 
+   0-01-intro
    1-01-environnement
    1-02-rudiments
    1-03-operateurs
