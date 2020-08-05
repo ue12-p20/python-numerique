@@ -20,4 +20,4 @@ Index
    1-09-modules
    1-10-classes
 
-Licence CC BY-NC-ND - Thierry Parmentelat - Inria 
+Licence CC BY-NC-ND - Thierry Parmentelat & Valérie Roy

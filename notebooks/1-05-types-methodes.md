@@ -7,8 +7,8 @@ ipub:
     toggle_output: true
     toggle_output_all: true
 jupytext:
-  cell_metadata_filter: all
-  formats: ipynb
+  cell_metadata_filter: all,-hidden,-heading_collapsed
+  formats: md:myst
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md

@@ -14,20 +14,25 @@ def tracks(coursedir):
     """
 
     track_specs = [
-        ('python' , 'survol langage',
+        ('cours #1: intro & install' , 'survol & mise en place des outils', 'intro',
          [ 
-           ('intro', 'notebooks/0-[0-9]*.ipynb'),
-           ('python', 'notebooks/1-[0-9]*.ipynb'),
+           ('introduction', 'notebooks/0-[0-8]*.md'),
+           ('checklist', 'notebooks/0-9*.md'),
          ]),
-#        ('numpy' , 'numpy',
+        ('cours #2: python' , 'survol du langage Python', 'python',
+         [ 
+           ('les bases', 'notebooks/1-[0-8]*.md'),
+           ('quiz', 'notebooks/1-9*.md'),
+         ]),
+#        ('numpy' , 'numpy', 'numpy'
 #         [ ('numpy', 'notebooks/2-[0-9]*.ipynb'), 
 #        ]),
-#        ('dataviz & pandas' , 'dataviz & pandas',
+#        ('dataviz & pandas' , 'dataviz & pandas', 'dataviz',
 #         [ ('dataviz & pandas', 'notebooks/3-[0-9]*.ipynb'),
 #         ]),
-#        ('évaluation', 'évaluation',
+#        ('évaluation', 'évaluation', 'eval',
 #         [ ('évaluation', 'notebooks/4-[0-9]*.ipynb'),
-         ])
+#         ])
         ]
 
     return [Track(coursedir, 
@@ -37,5 +42,6 @@ def tracks(coursedir):
                                coursedir, pattern))
                    for section_name, pattern in section_specs],
                   name=track_name,
-                  description=track_description)
-            for track_name, track_description, section_specs in track_specs]
+                  description=track_description,
+                  id=track_id)
+            for (track_name, track_description, track_id, section_specs) in track_specs]

@@ -73,6 +73,10 @@
       {
         "class": "custom.outlinenotes.OutlineNotes",
         "args": {}
+      },
+      {
+        "class": "custom.courselevels.CourseLevels",
+        "args": {}
       }
     ],
     "other_args": {

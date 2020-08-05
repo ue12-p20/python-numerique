@@ -14,7 +14,11 @@ needs_sphinx = "1.6"
 
 master_doc = "index"
 
-source_suffix = ['.rst']
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.ipynb': 'jupyter_notebook',
+    '.md': 'jupyter_notebook'
+}
 
 exclude_patterns = ['_build', 'build', '**.ipynb_checkpoints']
 
@@ -40,7 +44,7 @@ ipysphinx_input_toggle = True
 ipysphinx_output_toggle = True
 html_theme = "sphinx_rtd_theme" 
 html_title = "intro à Python" 
-project = "intro à Python & numérique"
+project = "Python numérique"
 author = "Thierry Parmentelat & Valérie Roy"
 html_theme_options = {
     'display_version': False,

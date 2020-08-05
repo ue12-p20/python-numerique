@@ -4,13 +4,10 @@
 # (*) fore cleaning things up (only locally for profs)
 #     pip install nbstripout
 
-NOTEBOOKS := $(shell git ls-files *.ipynb)
+NOTEBOOKS := $(shell git ls-files *.md)
 
-# normalize before committing to git
-all:: norm
-
-norm:
-	nbstripout $(NOTEBOOKS)	
+all: sphinx
+clean: sphinx-clean
 
 #########################################################################
 # publication

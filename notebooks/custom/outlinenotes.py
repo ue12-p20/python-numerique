@@ -1,7 +1,5 @@
 from IPython.nbconvert.preprocessors import *
 
-count = 4
-
 # quick and dirty - that must exist some place else
 def indent(text, space=4):
     sep = space * ' '
@@ -16,7 +14,7 @@ class OutlineNotes(Preprocessor):
 
     def preprocess_cell(self, cell, resources, index):
         """
-        embed notes cells with a css class
+        embed 'notes' cells as a ReST note
         """
         # leave code unchanged
         if cell.cell_type != "markdown":
