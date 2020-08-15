@@ -986,9 +986,11 @@ $$
 
 ceux qui veulent creuser peuvent 
 
-* commencer par cet article https://www.physicsoverflow.org/15329/mathjax-basic-tutorial-and-quick-reference
+* s'exercer avec un outil en ligne <https://www.codecogs.com/latex/eqneditor.php>
 
-* approfondir avec celui-ci https://en.wikibooks.org/wiki/LaTeX/Mathematics
+* commencer par cet article <https://www.physicsoverflow.org/15329/mathjax-basic-tutorial-and-quick-reference>
+
+* approfondir avec celui-ci <https://en.wikibooks.org/wiki/LaTeX/Mathematics>
 
 +++
 
