@@ -767,8 +767,12 @@ pour pouvoir facilement modifier le contenu de nos fichiers texte, comme tout à
 ***
 
 * de retour dans vs-code, montrer la palette :
-  * `⇧ ⌘ P` (mac)
-  * `⇧ ` (windows)
+  * `⇧ ⌘ P` Shift-Command-P (mac)
+  * `⇧ ⌃ P` Shift-Control-P (windows)
+  
+* sur Windows, pour choisir 'bash' comme terminal
+  * utiliser la palette et taper  
+  * `Select Default Shell`
 
 +++
 

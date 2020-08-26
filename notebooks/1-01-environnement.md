@@ -67,13 +67,21 @@ Dans ce qui suit, nous envisageons surtout deux programmes, le terminal et l'int
 
 ## démos d'utilisation de Python
 
-1. lancer un programme tout fait
-1. lancer un interpréteur interactif
-1. mode 'mixte' comme ce notebook
+1. lancer un programme tout fait  
+  `$ python monprogramme.py`
+1. lancer un interpréteur interactif  
+  `$ python`  
+  ou encore mieux  
+  `$ ipython`
+1. mode 'mixte' comme ce notebook  
+  `$ jupyter notebook`
 
 +++ {"cell_style": "split"}
 
- [vidéo introductive](https://youtu.be/ULzWaZQa1Dc)
+**illustration**
+
+ces usages sont explicités dans cette
+[vidéo introductive](https://youtu.be/ULzWaZQa1Dc)
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -217,20 +225,17 @@ c'est pourquoi
 
 ## testez votre installation
 
-+++ {"cell_style": "split"}
++++ {"cell_style": "center"}
 
 * avec votre navigateur allez visiter [le cours sur github](https://github.com/ue12/python-numerique/tree/master/demo)
-* téléchargez les deux fichiers (dans `demo/`)
-  * `fact.py`
-  * `users.py`
-* pensez à utiliser le mode `Raw` 
-* ou utilisez `git clone`
+* si ce n'est pas déjà fait, utilisez `git clone` pour dupliquer le repo sur votre oridinateur  
+  `$ git clone https://github.com/ue12/python-numerique`  
+  ou encore si vous voulez choisir le nom du dossier créé par le clone 
+  `$ git clone https://github.com/ue12/python-numerique ue12-python-numerique`  
+* déplacez-vous dans le sous-dossier `demo`  
+  `$ cd ue12-python-numerique/demo`
 
-+++ {"cell_style": "split"}
-
-![](media/github-raw-mode.png)
-
-+++ {"slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}, "cell_style": "center"}
 
 ### lancez les deux programmes
 
@@ -248,7 +253,7 @@ Emilie (Lambert), 25 ans
 Julien (Masson), 30 ans
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_intermediate"]}
 
 ## options : Jupyter et VScode
 
