@@ -30,12 +30,14 @@ pour vous évaluer sur
 * le quiz est contenu dans **une cellule de code**, le plus souvent celle-ci est **vide au départ**, vous devez **l'évaluer** pour faire **apparaitre les questions**
 
 * toutes les questions ont au moins une réponse valable, si vous ne cochez aucune réponse on considère que vous préférez ne pas répondre
+* le signe ♧ indique que plusieurs réponses sont possibles
 * le barême est indiqué pour chaque question; par exemple `4 pts / -1 pt / 0 pt` signifie
   * 4 points pour une **bonne réponse**
   * -1 point en cas de **réponse fausse**
   * 0 point si vous ne répondez **pas du tout** (à nouveau : si vous ne cochez aucune option)
-* le signe ♧  indique que plusieurs réponses sont possibles
-* vous avez plusieurs essais pour y répondre; le résultat final correspond exactement à votre meilleur essai;  
+* les questions marquées ♧ fonctionnent sur le même principe, mais la note est progressive en fonction du nombre de réponses justes; par exemple avec une question à 6 cases, après la correction vous pourriez voir `4 pts` / **`1 pt`** / `-2 pts` / `0 pt`, ce qui signifie que vous avez obtenu 1 point : le barême pour toutes les réponses justes est de 4pts, toutes les réponses fausses vaut -2pts, et vous avez obtenu 1pt parce que vous avez 3 réponses justes sur 6, et donc vous obtenez le milieu entre les deux notes extrêmes
+* vous avez plusieurs essais pour répondre à un quiz; une fois votre nombre d'essais épuisé - ou plus tôt si vous avez tout juste - la correction vous montre (en rouge vif) les cases où vous vous êtes trompé ; les cases avec un ☛ donnent des explications supplémentaires
+* le résultat final correspond à votre meilleur essai;  
   les essais sont notés indépendamment les uns des autres, il n'y a pas d'effet cumulatif : si par exemple vous obtenez 10/20 au premier essai en ayant juste à la question 1, et 12/20 au deuxième essai en ayant faux à la question 1, on retient le 12/20, la bonne réponse à l'essai #1 n'affecte pas l'essai #2
   
 * **horaires :** vous avez un temps limité pour répondre, qui vous est indiqué pendant la séance  
@@ -59,8 +61,4 @@ la cellule suivante semble vide au départ, mais **évaluez-la** pour faire appa
 
 from nbautoeval import run_yaml_quiz
 run_yaml_quiz("python", "quiz")
-```
-
-```{code-cell} ipython3
-
 ```

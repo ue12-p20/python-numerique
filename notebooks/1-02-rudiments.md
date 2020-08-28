@@ -233,6 +233,7 @@ on peut aussi faire comme ceci
 ```{code-cell}
 :cell_style: split
 
+# si on ne veut pas taper math.pi à chaque fois
 from math import pi, sin
 
 pi
@@ -275,8 +276,9 @@ qui est efficace car supporté par le processeur
 
 +++ {"slideshow": {"slide_type": ""}}
 
-pour faire court - dans le cas le plus courant (`binary64`)  
-la précision des calculs est de l'ordre de $10^{-15}$ 
+**pour faire court :**  
+le plus souvent avec les ordis actuels (64 bits)  
+la précision des calculs est de l'ordre de **$10^{-15}$**
 
 
 voir un [convertisseur en ligne](http://www.binaryconvert.com/convert_double.html) pour visuels
@@ -304,7 +306,8 @@ False
 ```{code-cell}
 :cell_style: split
 
-# un texte est entre deux '
+# pour créer un texte, on peut
+# le mettre en deux simple-quote '
 
 texte1 = 'bonjour le monde'
 print(texte1)
@@ -313,7 +316,8 @@ print(texte1)
 ```{code-cell}
 :cell_style: split
 
-# ou si on préfère entre "
+# ou encore, si c'est plus pratique
+# entre deux double-quote "
 
 texte2 = "bonjour le monde"
 print(texte2)
@@ -389,6 +393,9 @@ utilisez `"""` au lieu de `"`  -- (ou `'''`)
 ```{code-cell}
 :cell_style: split
 
+# ici je mets un \ pour couper 
+# la ligne et continuer sur la ligne en dessous
+
 bafouille = \
 """To be, or not to be: that is the question:
 Whether 'tis nobler in the mind to suffer
@@ -402,11 +409,9 @@ print(bafouille)
 ```
 
 ```{code-cell}
-:cell_style: split
+:cell_style: center
 
 # idem avec '''
-# le changement de ligne compte 
-# pour un caractère (newline) 
 court = '''a
 b'''
 ```
@@ -420,6 +425,8 @@ print(court)
 ```{code-cell}
 :cell_style: split
 
+# le changement de ligne compte 
+# pour un caractère (newline) 
 # les caractères sont 'a', '\n', et 'b'
 len(court)
 ```
@@ -437,7 +444,7 @@ le plus simple est la *f-string*
 # une f-string se présente comme une chaine 
 # mais préfixée par un f collé
 # avant le guillement ouvrant
-# qui peut être ' ou " 
+# (qui peut être ' ou " ou """ ou ''')
 f"une f-string"
 ```
 
@@ -453,11 +460,13 @@ print(f'pi = {pi}')
 ```
 
 ```{code-cell}
-# à l'intérieur des {} on peut faire des calculs
+# en fait j'ai dit 'variable' mais on peut mettre n'importe quelle expression
+# c'est à dire qu'à l'intérieur des {} on peut faire des calculs, ici sin(pi)
+
 print(f"pi = {pi} et sin(pi) = {sin(pi)}")
 ```
 
-+++ {"slideshow": {"slide_type": "slide"}}
++++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_intermediate"]}
 
 ## formatage - suite
 
@@ -468,11 +477,12 @@ par exemple pour afficher deux chiffres après la virgule :
 
 ```{code-cell}
 :cell_style: split
+:tags: [level_intermediate]
 
 print(f"bla {2*math.pi:.2f} bla")
 ```
 
-+++ {"cell_style": "split"}
++++ {"cell_style": "split", "tags": ["level_intermediate"]}
 
 ![](media/f-string.svg)
 
@@ -481,35 +491,7 @@ print(f"bla {2*math.pi:.2f} bla")
 ## méthodes sur les chaines
 
 on reviendra plus tard sur la notion de méthode  
-mais pour l'instant vous pouvez aller consulter la doc  
-  https://docs.python.org/3/library/stdtypes.html#string-methods
-qui donne la liste des méthodes disponibles sur les chaines
-
-```{code-cell}
-:cell_style: split
-
-# une méthode s'utilise comme ceci
-
-chaine = "bonjour"
-
-chaine.capitalize()
-```
-
-```{code-cell}
-:cell_style: split
-
-# avec paramètres si besoin
-
-# par exemple, cette méthode 
-# sert à centrer en précisant
-# avec quoi remplir
-
-chaine.center(13, '-')
-```
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-deux méthodes très utiles sur les chaines : `split` et `join`
+mais pour l'instant voici deux méthodes très utiles sur les chaines : `split` et `join`
 
 ```{code-cell}
 longue_chaine = "une liste de mots à découper"
@@ -531,4 +513,34 @@ mots
 # et avec join on peut réassembler
 
 "+".join(mots)
+```
+
++++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_intermediate"]}
+
+pour une liste complète des méthodes sur les chaines  
+vous pouvez aller consulter la doc  
+https://docs.python.org/3/library/stdtypes.html#string-methods
+
+```{code-cell}
+:cell_style: split
+:tags: [level_intermediate]
+
+# une méthode s'utilise comme ceci
+
+chaine = "bonjour"
+
+chaine.capitalize()
+```
+
+```{code-cell}
+:cell_style: split
+:tags: [level_intermediate]
+
+# avec paramètres si besoin
+
+# par exemple, cette méthode 
+# sert à centrer en précisant
+# avec quoi remplir
+
+chaine.center(13, '-')
 ```

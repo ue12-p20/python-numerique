@@ -10,6 +10,12 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+rise:
+  autolaunch: true
+  slideNumber: c/t
+  start_slideshow_at: selected
+  theme: sky
+  transition: cube
 ---
 
 <div class="licence">
