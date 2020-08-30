@@ -8,5 +8,4 @@ FROM nbhosting/minimal-notebook
 RUN true \
  && pip install -U nb-courselevels nbautoeval rise \
  && pip install calysto_bash \
- && jupyter nbextension enable hide_input/main \
  && true
