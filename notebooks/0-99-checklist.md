@@ -95,7 +95,7 @@ idéalement à la fin de cette leçon vous devriez être capable
 
 * de cloner les supports de cours qui sont ici  
   <https://github.com/ue12/python-numerique>
-* d'ouvrir sous jupyter le notebook principal `notebooks/0-02-demonstration.md`  
+* d'ouvrir sous jupyter le notebook principal `notebooks/0-10-demonstration.md`  
 * de le modifier, ajouter de nouvelles cellules, le sauver, ...
 * en option, regarder les différences entre votre dépôt et le cours d'origine avec `git status` et `git diff`
 
