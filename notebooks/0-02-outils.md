@@ -708,25 +708,25 @@ vous avez maintenant tout le bagage pour pouvoir copier le dépôt du cours
 
 il vous suffit pour ça de faire 
 
-    git clone https://github.com/ue12/intro
+    git clone https://github.com/ue12/python-numerique
     
 **Attention toutefois**
 
-* cette commande va créer sur votre disque tout un répertoire, dont le nom est `intro`
+* cette commande va créer sur votre disque tout un répertoire, dont le nom est `python-numerique`
 * notez qu'il sera créé **dans votre répertoire de travail** (`pwd`)
 * donc commencez par **vous mettre au bon endroit** 
-* le nom `intro` est déduit de la dernière partie de l'URL  
+* le nom `python-numerique` est déduit de la dernière partie de l'URL  
   et si cela ne vous convient pas comme nom vous pouvez en choisir un autre :
   
-      git clone https://github.com/ue12/intro ue12-intro
+      git clone https://github.com/ue12/python-numerique ue12-python-numerique
 
 +++
 
 pour vérifier que tout s'est bien passé :
 
     # si vous avez utilisé la deuxième forme
-    # votre répertoire local s'appelle ue12-intro et pas juste intro
-    cd ue12-intro 
+    # votre répertoire local s'appelle ue12-python-numerique et pas juste python-numerique
+    cd ue12-python-numerique 
     
     # le répertoire est rempli avec la dernière version du cours
     cat README.md

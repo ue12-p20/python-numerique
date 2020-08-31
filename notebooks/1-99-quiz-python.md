@@ -18,7 +18,7 @@ version: 1
 
 pour vous évaluer sur 
 
-* la séance d'installation et introduction aux outilds
+* la séance d'installation et introduction aux outils
 * le cours de survol du langage Python
 
 +++

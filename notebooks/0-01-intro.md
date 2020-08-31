@@ -41,7 +41,7 @@ notebookname: introduction
 
 pour que vous puissiez lire ce premier cours, alors que vous n'avez encore rien installé sur votre ordi, vous pouvez le suivre en ligne sur le serveur de notebooks 
 
-https://nbhosting.inria.fr/auditor/notebook/ue12-intro
+https://nbhosting.inria.fr/auditor/notebook/ue12-python-numerique
 
 +++
 
@@ -534,7 +534,7 @@ cat foo.txt
 
 ```{code-cell}
 # comme je suis dans le répertoire
-# /Users/tparment/git/ue12-intro/notebooks
+# /Users/tparment/git/ue12-python-numerique/notebooks
 pwd
 ```
 
@@ -542,16 +542,16 @@ pwd
 # je pourrais faire aussi
 # (à modifier éventuellement selon votre environnement)
 
-cat /Users/tparment/git/ue12-intro/notebooks/foo.txt
+cat /Users/tparment/git/ue12-python-numerique/notebooks/foo.txt
 ```
 
 et donc pour moi, parce que je suis dans le répertoire
-`/Users/tparment/git/ue12-intro/notebooks/`
+`/Users/tparment/git/ue12-python-numerique/notebooks/`
 
 c'est pareil de faire
 
 ```console
-cat /Users/tparment/git/ue12-intro/notebooks/foo.txt
+cat /Users/tparment/git/ue12-python-numerique/notebooks/foo.txt
 ```
 
 ou tout simplement 
@@ -656,20 +656,20 @@ quelques conseils pour organiser votre travail en dossiers
 
 évitez de couper les cheveux en 4 en créant plein de sous-répertoires, genre :
 
-~~`/User/dupont/mines/première-année/info/ue12/intro`~~
+~~`/User/dupont/mines/première-année/info/ue12/python-numerique`~~
 
 au contraire :
 
 * si vous créez un dossier par sujet avec un nom explicite
-  * par exemple ce cours pourrait s'appeler `ue12-intro`
+  * par exemple ce cours pourrait s'appeler `ue12-python-numerique`
 * et que vous regroupez tous ces dossiers dans un répertoire,
 * ça peut largement suffire
 
 du coup créez plutôt un dossier  
-`/User/dupont/git/ue12-intro`  
+`/User/dupont/git/ue12-python-numerique`  
 
 ou éventuellement pour une navigation plus facile  
-`/User/dupont/Desktop/git/ue12-intro`
+`/User/dupont/Desktop/git/ue12-python-numerique`
 
 +++
 
