@@ -18,6 +18,8 @@ jupyter-contrib-nbextensions
 
 # this part is for readthedocs
 #
+# hopefully tmp once 1.6.0 makes it to release
+jupytext==1.6.0rc0
 ipypublish[sphinx]
 sphinx-rtd-theme
 jupyter_client
