@@ -102,8 +102,21 @@ et à la limite d'ailleurs, une matrice (1, 1) est de dimension 2:
 
 ```python tags=["level_intermediate"]
 mat = np.array([1]).reshape(1, 1)
-print(f'{mat=} est de dimension {mat.ndim} !') # utilisation d'un f-string (super pratique)
+# utilisation d'un f-string (super pratique)
+print(f'mat={mat} est de dimension {mat.ndim} !')
 ```
+
+<!-- #region {"tags": ["level_advanced"]} -->
+et, parlant de *f-string* d'ailleurs, je vous signale en passant que lorsqu'on a Python-3.8, on peut même raccourcir et transformer
+
+    print(f'mat={mat}')
+
+par tout simplement
+
+    print(f'{mat=}')
+
+mais reprenons...
+<!-- #endregion -->
 
 Revenons à notre problème d'opérations sur des tableaux de formes différentes. Les opérations dont nous parlons ici sont les opérations qui agissent élément par élément, comme des opérations arithmétiques.
 
