@@ -107,6 +107,17 @@ vous pouvez en principe activer la tables des matières en cliquant sur ce bouto
 
 ![](media/fig-jupyter-toc2.png)
 
++++
+
+### *readthedocs*
+
++++
+
+je vous signale enfin que les supports du cours sont disponibles également sur  
+https://ue12-python-numerique.readthedocs.io/
+
+ce site est accessible depuis Internet sans authentification, mais par contre le contenu est *statique*, on ne peut pas modifier le contenu des cellules de code, ni rien exécuter
+
 +++ {"slideshow": {"slide_type": ""}}
 
 ## objectifs
@@ -714,6 +725,3 @@ voici comment on peut changer ce comportement, pour voir les noms de fichier en 
 
 ![](media/fig-show-extensions-1.png)
 ![](media/fig-show-extensions-2.png)
-
-+++ {"tags": ["level_basic"]}
-
