@@ -515,6 +515,8 @@ Que c'est joli !
 
 ```python hide_input=true
 # hidden code
+import matplotlib.pyplot as plt
+import numpy as np
 random_image = np.random.randint(0, 255, (10, 10))
 plt.imshow(random_image);
 ```
