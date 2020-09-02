@@ -1,16 +1,17 @@
 ---
 jupyter:
   jupytext:
+    cell_metadata_filter: all,-hidden,-heading_collapsed
     cell_metadata_json: true
+    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.5.2
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
+  notebookname: "agr\xE9gation selon les axes"
 ---
 
 <div class="licence">
@@ -19,10 +20,13 @@ jupyter:
 <span><img src="../media/ensmp-25-alpha.png" /></span>
 </div>
 
+<!-- #region {"tags": []} -->
+# agrégation
 
-# Python et le numérique avec `numpy`: agréger les valeurs d'un tableau
+ou comment consolider les données dans un tableau, selon certains axes
+<!-- #endregion -->
 
-```python
+```python tags=[]
 import numpy as np
 ```
 

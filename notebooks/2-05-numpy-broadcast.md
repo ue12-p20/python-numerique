@@ -1,16 +1,17 @@
 ---
 jupyter:
   jupytext:
+    cell_metadata_filter: all,-hidden,-heading_collapsed
     cell_metadata_json: true
+    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.5.2
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
+  notebookname: broadcasting
 ---
 
 <div class="licence">
@@ -28,9 +29,11 @@ import numpy as np
 
 
 
+<!-- #region {"tags": []} -->
+# broadcasting
 
-# introduction à Python numérique: opérations sur des tableaux qui ont des formes différentes
-
+ou comment faire des opérations sur des tableaux qui ont des formes différentes
+<!-- #endregion -->
 
 ## opération sur des tableaux de même forme
 
@@ -102,8 +105,21 @@ et à la limite d'ailleurs, une matrice (1, 1) est de dimension 2:
 
 ```python tags=["level_intermediate"]
 mat = np.array([1]).reshape(1, 1)
-print(f'{mat=} est de dimension {mat.ndim} !') # utilisation d'un f-string (super pratique)
+# utilisation d'un f-string (super pratique)
+print(f'mat={mat} est de dimension {mat.ndim} !')
 ```
+
+<!-- #region {"tags": ["level_advanced"]} -->
+et, parlant de *f-string* d'ailleurs, je vous signale en passant que lorsqu'on a Python-3.8, on peut même raccourcir et transformer
+
+    print(f'mat={mat}')
+
+par tout simplement
+
+    print(f'{mat=}')
+
+mais reprenons...
+<!-- #endregion -->
 
 Revenons à notre problème d'opérations sur des tableaux de formes différentes. Les opérations dont nous parlons ici sont les opérations qui agissent élément par élément, comme des opérations arithmétiques.
 

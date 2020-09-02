@@ -1,16 +1,17 @@
 ---
 jupyter:
   jupytext:
+    cell_metadata_filter: all,-hidden,-heading_collapsed
     cell_metadata_json: true
+    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.5.2
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
+  notebookname: "alg\xE8bre lin\xE9aire"
 ---
 
 <div class="licence">
@@ -23,7 +24,7 @@ jupyter:
 import numpy as np
 ```
 
-# Python et le numérique: des rudiments d'algèbre linéaire
+# algèbre linéaire
 
 
 Un des premières utilisations de la librarie `numpy` sera faite dans le cadre des cours de mathématiques et de la manipulation de matrices.
@@ -46,7 +47,7 @@ import numpy as np
 La première chose à savoir c'est que naturellement les fonctions `numpy` vont s'appliquer sur des tableaux de dimensions supérieures à 2 mais, nous n'allons voir ici, que les bases donc rester en dimension < à 3. 
 
 
-Nous n'avons vu pour l'instant que des opérations élément par élément. Comme par exemple le `np.mult` ou encore \*, qui est le *produit matriciel de Hadamard*. Voyons maintenant les fonctions dédiées à l'algèbre linéaire.
+Nous n'avons vu pour l'instant que des opérations élément par élément. Comme par exemple le `np.mult` ou encore `*`, qui est le *produit matriciel de Hadamard*. Voyons maintenant les fonctions dédiées à l'algèbre linéaire.
 
 ## application linéaire
 

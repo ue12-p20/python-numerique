@@ -1,5 +1,21 @@
-# -*- coding: utf-8 -*-
-# Python et le numérique: rapidité des calculs par *vectorisation*
+---
+jupyter:
+  jupytext:
+    cell_metadata_filter: all,-hidden,-heading_collapsed
+    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+    text_representation:
+      extension: .md
+      format_name: markdown
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+  notebookname: programmation vectorielle
+---
+
+# la vectorisation
+
+ou comment écrire du code efficace; ou encore comment **ne jamais faire de boucle `for`** sur un tableau `numpy`.
 
 
 Nous avons appris que la librairie numpy est utilisée pour la création et la manipulation de tableaux.
@@ -125,7 +141,7 @@ def scalar_function(x):
     pass
 ```
 
-```python
+```python tags=["raises-exception"]
 scalar_function(np.array((10, 20)))
 ```
 
@@ -266,7 +282,7 @@ Vous savez que ça existe. Vous y penserez si, dans un de vos codes numériques,
 ## on vectorise sa fonction
 
 
-A vous de jouer, vous allez écrire la fonction *my_absolute* qui calcule la valeur absolue d'un scalaire x sans utiliser  `numpy` ni *abs* de Python.
+A vous de jouer, vous allez écrire la fonction `my_absolute` qui calcule la valeur absolue d'un scalaire x sans utiliser  `numpy` ni `abs` de Python.
 
 ```python
 #votre code ici
@@ -300,8 +316,8 @@ np.array([-10, -20, 30]) < 0
 
 Mais ensuite vous testez chacun des éléments de votre tableau afin de n'appliquer le changement de signe qu'aux négatifs.
 
-```python
-if (np.array([10, 20, 30])):
+```python tags=["raises-exception"]
+if np.array([10, 20, 30]):
     pass
 ```
 
@@ -321,29 +337,36 @@ C'est la fonction `np.vectorize`. On l'applique:
 
 
 ```python
+# d'abord je définis la fonction 
+# "normale" ou simple, qui travaille sur un scalaire
 def my_absolute (x):
     if x < 0:
         return -x
     else:
         return x
-    
+```
+
+```python
+# et de là je peux créer la fonction vectorisée correspondante   
 my_absolute_vectorised = np.vectorize(my_absolute)
 ```
 
 ```python
+# que je peux appeler sur un tableau !
 my_absolute_vectorised(np.array([-10, -20, 30]))
 ```
 
-Et voilà c'est magique ! La fonction s'applique désormais parfaitement à votre tableau `numpy` ou tout tableau Python d'ailleurs ...
+Et voilà c'est magique ! La fonction s'applique désormais parfaitement à votre tableau `numpy`, ou même à une simple liste Python d'ailleurs ...
 
 ```python
+# elle marche même sur une simple liste !
 my_absolute_vectorised([-10, -20, 30])
 ```
 
-Pour les avancés et les curieux: afficher le type de la fonction Python *abs* et celui de la fonction `numpy` `np.abs`. Que constatez-vous ?
+Pour les avancés et les curieux: afficher le type de la fonction Python `abs` et celui de la fonction `numpy` `np.abs`. Que constatez-vous ?
 
 
-Oui `np.abs` est bien vectorielles alors que *abs* ne l'est pas. Essayez !
+Oui `np.abs` est bien vectorielle alors que `abs` ne l'est pas. Essayez !
 
 
 ## Exercices
@@ -352,11 +375,11 @@ Oui `np.abs` est bien vectorielles alors que *abs* ne l'est pas. Essayez !
 ### calcul du temps d'exécution de l'élévation d'un tableau à la puissance 2
 
 
-Vous allez prendre un tableau *a* des entiers de 1 à 10000 et les élever à la puissance 2 de plusieurs manière en calculant le temps d'exécution. Pour calculer $e^2$, vous pouvez essayer: *e*\**e*, *e*\*\**2*, `np.power(e,2)` ou `np.square(e)`:
+Vous allez prendre un tableau *a* des entiers de 1 à 10000 et les élever à la puissance 2 de plusieurs manière en calculant le temps d'exécution. Pour calculer $e^2$, vous pouvez essayer: `e*e`, `e**2`, `np.power(e, 2)` ou `np.square(e)`:
 
    1. Vous créer une liste Python vide. Vous itérez sur les éléments du tableau *a*, avec un for-Python, en ajoutant chaque élément élévé à la puissance 2 **dans la liste**.   
    
-   1. Vous créez un *`np.ndarray`*, non initialisé, pour stocker les éléments. Vous itérez sur les éléments du tableau *a* avec un for-Python, en ajoutant chaque élément élevé à la puissance 2 (**2) dans le `np.ndarray`
+   1. Vous créez un *`np.ndarray`*, non initialisé, pour stocker les éléments. Vous itérez sur les éléments du tableau *a* avec un for-Python, en ajoutant chaque élément élevé à la puissance 2 (`x**2`) dans le `np.ndarray`
       
    1. Vous construisez la liste Python, initialisée avec les puissances 2 des éléments de *a*, avec une compréhension Python.
    
@@ -411,7 +434,7 @@ for e, i in zip(a, range(a.shape[0])):
 
 ```python
 %%timeit
-np.power(a)
+np.power(a, 2)
 ```
 
 

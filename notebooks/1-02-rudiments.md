@@ -37,7 +37,7 @@ version: '1.0'
 
 +++ {"slideshow": {"slide_type": ""}}
 
-# le langage Python
+# rudiments de Python
 
 +++ {"slideshow": {"slide_type": "slide"}}
 

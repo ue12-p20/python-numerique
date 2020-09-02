@@ -29,7 +29,7 @@ def tracks(coursedir):
            ('numpy', 'notebooks/2-[0-8]*.md'), 
            ('quiz', 'notebooks/2-9*.md'), 
         ]),
-        ('dataviz & pandas' , 'outils pour la data science', 'dataviz',
+        ('cours #4: dataviz & pandas' , 'outils pour la data science', 'dataviz',
          [ 
            ('dataviz & pandas', 'notebooks/3-[0-8]*.md'),
            ('quiz', 'notebooks/3-9*.md'),

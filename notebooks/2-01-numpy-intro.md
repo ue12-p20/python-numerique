@@ -1,15 +1,16 @@
 ---
 jupyter:
   jupytext:
+    cell_metadata_filter: all,-hidden,-heading_collapsed
+    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.5.2
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
+  notebookname: "intro \xE0 numpy"
 ---
 
 <div class="licence">
@@ -19,7 +20,10 @@ jupyter:
 </div>
 
 
-# Python et le numérique avec `numpy`
+# UE12 - numpy : introduction
+
+
+Cours #3 : Python et le numérique avec `numpy`
 
 
 ## contextualisons un peu Python et le numérique
@@ -55,7 +59,7 @@ Alors ces données quelle forme vont-elles prendre ? Vous allez avoir des matric
 
 Vous avez là une très jolie matrice (4 x 5) et sa transposée (5 x 4).
 
-<img src='matrice.png'></img>
+<img src='media/matrice.png'></img>
 
 
 Comment pourrions nous représenter cette matrice en Python ? Une idée ? Essayez ? 
@@ -100,7 +104,7 @@ Vous voyez en ligne les passages et en colonnes les quelques informations que no
 
 heu ... *SibSp* et *Parch* ? Vous ne comprennez pas ce que c'est ? Oui nous sommes bien d'accord, ils auraient quand même pu choisir des noms un peu plus parlants (comme vous le faites sûrement toujours dans vos codes). Des indices ? SiblingsSpouse et ParentChildren. Et pour plus de details regardez là https://www.kaggle.com/c/titanic/data (mais pas pendant le cours).
 
-<img src='titanic.png' width="1000"></img>
+<img src='media/titanic.png' width="1000"></img>
 
 
 ### un exemple de série temporelle
@@ -110,7 +114,7 @@ Cédons là à l'actualité. Voici la courbe des valeurs cumulées du nombre d'i
 
 Vous remarquez dans cette figure les abcisses qui sont des dates.
 
-<img src='corona-france.jpg' width="500"></img>
+<img src='media/corona-france.jpg' width="500"></img>
 
 
 ### un exemple d'image
@@ -118,7 +122,7 @@ Vous remarquez dans cette figure les abcisses qui sont des dates.
 
 Encore un exemple de données ? Voici une belle photo, d'un endroit que vous allez apprendre à connaître (si on ne confine pas trop souvent ...)
 
-<img src='les-mines.jpg' width="500">
+<img src='media/les-mines.jpg' width="500">
 
 
 ### que sont ces données ?
@@ -515,6 +519,8 @@ Que c'est joli !
 
 ```python hide_input=true
 # hidden code
+import matplotlib.pyplot as plt
+import numpy as np
 random_image = np.random.randint(0, 255, (10, 10))
 plt.imshow(random_image);
 ```

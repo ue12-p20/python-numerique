@@ -1,15 +1,16 @@
 ---
 jupyter:
   jupytext:
+    cell_metadata_filter: all,-hidden,-heading_collapsed
+    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.5.2
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
+  notebookname: les types en numpy
 ---
 
 <div class="licence">
@@ -18,11 +19,8 @@ jupyter:
 <span><img src="../media/ensmp-25-alpha.png" /></span>
 </div>
 
-```python
-import numpy as np
-```
 
-# Python et le numérique avec `numpy` où on parle de la mémoire
+# numpy et la mémoire
 
 
 | les méthodes             | ce qu'elles font                                 |
@@ -36,6 +34,10 @@ import numpy as np
 
 
 Reprenons notre matrice du notebook précédent:
+
+```python
+import numpy as np
+```
 
 ```python
 matrice = [
@@ -356,7 +358,7 @@ On remarque que les flottants pour devenir des entiers ont été modifiés forte
 
 C'est peut être ce que vous vouliez mais au cas où vous voulez interdire ce genre de conversions (casting) ... la fonction possède un paramètre qui interdit la création du nouveau tableau si la conversion n'est pas *safe*: 
 
-```python
+```python tags=["raises-exception"]
 tab1.astype(np.int, casting='safe')
 ```
 

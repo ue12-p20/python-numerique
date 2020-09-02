@@ -17,7 +17,7 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-notebookname: Primer programmation Python
+notebookname: primer programmation Python
 rise:
   autolaunch: true
   slideNumber: c/t
@@ -35,7 +35,7 @@ version: '1.0'
 
 +++ {"slideshow": {"slide_type": ""}}
 
-# généralités sur l'utilisation de l'interprête Python
+# UE12 - Python : généralités
 
 ce notebook reprend très rapidement quelques informations  
 issues de la partie initiale de ce cours `intro & install`

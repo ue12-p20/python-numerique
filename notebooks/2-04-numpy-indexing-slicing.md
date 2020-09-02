@@ -1,16 +1,17 @@
 ---
 jupyter:
   jupytext:
+    cell_metadata_filter: all,-hidden,-heading_collapsed
     cell_metadata_json: true
+    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.5.2
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
+  notebookname: indexation & slicing
 ---
 
 <div class="licence">
@@ -33,7 +34,9 @@ Une dernière raison, afin d'avoir une petite culture informatique technique bie
 
 
 
-# introduction à Python numérique: où on accède aux éléments et à des sous-tableaux
+# indexation et slicing
+
+où on accède aux éléments, et à des sous-tableaux
 
 ```python
 import numpy as np
@@ -583,7 +586,7 @@ Oui il l'a fait.
 
 On essaie de le tromper ? si je ne lui donne pas assez d'éléments pour remplir sa slice : 
 
-```python
+```python tags=["raises-exception"]
 vec[1::2] = [2, 4]
 ```
 
@@ -663,6 +666,9 @@ On y reviendra. Oublions pour le moment le broadcasting,
 Un damier a 100 cases.
 
 
+https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x1-checkers
+
+
 ### les escaliers
 
 
@@ -670,6 +676,9 @@ Un damier a 100 cases.
    - aux quatre coins du tableau on trouve la valeur *0*
    - dans la case centrale on trouve la valeur *2n*
    - et si vous partez de n'importe quelle case  et que vous vous déplacez d'une case (horizontalement ou verticalement), en vous dirigeant vers une case plus proche du centre, la valeur que vous trouvez est *1* de plus que la valeur de la case où vous étiez.
+
+
+https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x3-stairs
 
 
 ### les dès (difficile)
@@ -706,3 +715,6 @@ Dans ce cas-là par exemple, on voit, en comptant la longueur des diagonales sur
 À nouveau, on demande explicitement ici un parcours de type force brute.
 
 Faites le en np.
+
+
+https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x4-dice
