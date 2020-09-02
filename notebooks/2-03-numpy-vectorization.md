@@ -300,8 +300,8 @@ np.array([-10, -20, 30]) < 0
 
 Mais ensuite vous testez chacun des éléments de votre tableau afin de n'appliquer le changement de signe qu'aux négatifs.
 
-```python
-if (np.array([10, 20, 30])):
+```python tags=["raises-exception"]
+if np.array([10, 20, 30]):
     pass
 ```
 
@@ -411,7 +411,7 @@ for e, i in zip(a, range(a.shape[0])):
 
 ```python
 %%timeit
-np.power(a)
+np.power(a, 2)
 ```
 
 
