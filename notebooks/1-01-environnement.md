@@ -35,7 +35,7 @@ version: '1.0'
 
 +++ {"slideshow": {"slide_type": ""}}
 
-# généralités
+# UE12 - Python : généralités
 
 comment utiliser le langage
 
