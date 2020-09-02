@@ -93,8 +93,7 @@ pour les images enfin, c'est un peu la même syntaxe que les liens, mais avec un
     
 par exemple comme ceci 
 
-* on peut insérer une image au format vectoriel (ici du svg)
-![](https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/atom.svg)
+* on peut insérer une image au format vectoriel (ici du svg) ![](https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/atom.svg)
 * en format bitmap (ici du jpg) ![](media/pexels-markus-spiske-1089440.jpg)
 
 ***

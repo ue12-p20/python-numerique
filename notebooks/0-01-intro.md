@@ -80,7 +80,7 @@ on utilisera alors un code de couleur, c'est comme pour les pistes de ski :
 
 +++ {"tags": ["level_basic"]}
 
-* vert : niveau de base
+* vert : niveau de base (mode par défaut)
 
 +++ {"tags": ["level_intermediate"]}
 
@@ -116,7 +116,7 @@ vous pouvez en principe activer la tables des matières en cliquant sur ce bouto
 je vous signale enfin que les supports du cours sont disponibles également sur  
 https://ue12-python-numerique.readthedocs.io/
 
-ce site est accessible depuis Internet sans authentification, mais par contre le contenu est *statique*, on ne peut pas modifier le contenu des cellules de code, ni rien exécuter
+ce site est accessible depuis Internet sans authentification, son contenu est *statique* (i.e. on ne peut pas modifier le contenu des cellules de code, ni rien exécuter) ... mais on peut y faire des recherches qui s'appliqueront sur tous les notebooks d'un coup et ainsi retrouver des informations.
 
 +++ {"slideshow": {"slide_type": ""}}
 
@@ -124,7 +124,7 @@ ce site est accessible depuis Internet sans authentification, mais par contre le
 
 +++
 
-l'approche pédagogique vise en premier lieu **à vous mener à l'autonomie** en ce qui concerne l'utilisation des ressources digitales; c'est pourquoi nous ne disposons **pas de salle informatique** comme ça a pu se faire à une époque; l'objectif est que vous sachiez à terme utiliser **uniquement votre ordinateur** pour travailler
+l'approche pédagogique vise en premier lieu **à vous mener à l'autonomie** en ce qui concerne l'utilisation des ressources digitales; c'est pourquoi nous ne sommes **pas en salle informatique** comme ça a pu se faire à une époque; l'objectif est que vous sachiez à terme utiliser **uniquement votre ordinateur** pour travailler (ce qui a été très pratique lors du *confinement surprise* l'année dernière).
 
 +++
 
@@ -137,22 +137,27 @@ ce cours d'introduction vise à présenter, et à vous faire installer, les outi
 pour le cours d'informatique de 1ère année :
 
 * prise d'**autonomie**  
+  * par rapport à un ordinateur personnel
   * par rapport au numérique et à la programmation
-  * focus sur quelques outils
-* pour les mathématiques  
+  * focus sur quelques outils (du moment)
+* pour les mathématiques, le machine-learning et autres enseignements
   * Python - numpy - pandas - matplotlib  
   * notebooks Jupyter
-* workflow
+* workflow de gestion de projets de développement
   * git & github
-* approfondissement langage
+* approfondissement langage (un parmi 3)
   * Python
   * C++
   * Java
 * culture informatique
-  * notions sur l'OS   
+  * notions d'algorithmique et de complexité
+  * notions sur les systèmes d'exploitation des ordinateurs (OS)   
   * rudiments de programmation Web
   * rudiments sur programmation parallèle
   * rudiments sur l'utilisation du réseau
+* projet informatique
+  * en équipe
+  * posé par une personne extérieure à l'équipe d'enseignants
 
 +++
 
@@ -163,7 +168,7 @@ pour le cours d'informatique de 1ère année :
 s'agissant du premier bloc de 4 x 3h :
 
 * c'est un pré-requis pour autres cours  
- (notamment mathématiques)
+ (notamment mathématiques et machine-learning)
 * 4 parties
   * installations (ce cours-ci)
   * le langage Python 
@@ -189,7 +194,7 @@ Notez que
 
 * le cours est **coopératif**, et pas compétitif   
   ceux qui savent déjà **aident leurs camarades**
-* voyez la checklist des compétences requises
+* voyez la checklist des compétences requises (notebook `0-99-checklist.md`)
   * à terminer pour la prochaine fois si nécessaire
   * posez vos questions sur [discourse.mines-paristech.fr](https://discourse-mines-paristech.fr)
 
@@ -255,9 +260,12 @@ forum de discussion pour
 * permettre la **concurrence**
   * faire tourner plusieurs programmes en même temps  
     sur un nombre fini de processeurs  
-  * démo Activity Monitor  
+  * démo Activity Monitor (\*)  
     typiquement **plusieurs dizaines** de programmes
 * fournir de l'**isolation** entre les utilisateurs
+
+
+(\*) comme: *top* sous linux, *Activity Monitor* sous macos et *Task Manager* sous Windows
 
 +++ {"slideshow": {"slide_type": ""}, "tags": ["level_advanced"]}
 
@@ -277,7 +285,7 @@ forum de discussion pour
 
 le terme *OS* - *Operating System* a plein de significations différentes dans le langage courant
 
-* Windows et MacOS : inclut une interface graphique 
+* Windows et MacOS : incluent une interface graphique 
 * linux : l'interface graphique est plus clairement séparée, on a le choix
 
 **mais** nous ici lorsqu'on parle d'OS, on désigne **seulement** ce qu'on appelle aussi le **noyau**
@@ -315,7 +323,7 @@ dans beaucoup d'institutions / compagnies c'est la *DSI* (Direction des Système
 +++
 
 jusque récemment, le modèle mental était que, pour faire une installation, il faut les droits d'administrateur  
-de cette façon on peut faire des économies d'échelle (installation = processus compliqué, autant le faire 1 bonee fois pour tous les utilisateurs)
+de cette façon on peut faire des économies d'échelle (installation = processus compliqué, autant le faire 1 bonne fois pour tous les utilisateurs)
 
 +++
 
@@ -344,9 +352,9 @@ si bien que la notion d'installation unique pour 1 ordi n'a **que des inconvéni
 
 c'est pourquoi je vous recommande de choisir, lorsque c'est possible, un mode d'installation **dans l'espace utilisateur** plutôt qu'une installation dans la zone système
 
-ainsi vos installation seront plus simples, et plus extensibles : vous pourrez plus facilement jongler entre les environnements lorsque vous serez plus agiles avex tout ceci
+ainsi vos installation seront plus simples, et plus extensibles : vous pourrez plus facilement jongler entre les environnements lorsque vous serez plus agiles avec tout ceci
 
-pour anticiper un peu, c'est la raison pour laquelle on vous recommandera d'installer Python avec miniconda, dans la section qui traite de Python
+pour anticiper un peu, c'est la raison pour laquelle on vous recommandera d'installer Python avec miniconda (dans la section qui traite de Python)
 
 +++ {"slideshow": {"slide_type": ""}, "tags": []}
 
@@ -374,8 +382,8 @@ pwd
 il y a plein de types de terminal selon les systèmes d'exploitation, mais pour que nous travaillions tous ensemble sur le même objet, nous allons choisir un terminal qui s'appelle ``bash``
 
 * `bash` vient avec l'installation de base sur MacOS et linux
-* sur Windows, il faut l'installer séparément : je vous invite à installer une app qui s'appelle ***git for windows***  <https://gitforwindows.org/>,  
- qui fait d'une pierre deux coups (on parlera de git bientôt)
+* sur Windows, il faut l'installer séparément. Nous allons bientôt vous guider dans l'installation d'une app qui s'appelle ***git for windows***  <https://gitforwindows.org/> mais qui contient `bash`  
+elle fait d'une pierre deux coups, on parlera de git bientôt
  
 mais avant de voir cette installation, on va faire une digression sur la façon dont le terminal recherche ses commandes
 
@@ -422,11 +430,25 @@ echo $PATH
 
 +++ {"tags": []}
 
-### installation de *git for windows*
+### installation de  ***git for windows***
 
 +++
 
-> installation en live de gitforwindows sur une virtualbox 
+Vous êtes sous linux ou sur MacOs donc vous avez déjà `bash`.
+
+Poutr installer `git`
+* MacOs: voyez ce lien <https://www.atlassian.com/git/tutorials/install-git#mac-os-x>
+* linux : voyez ce lien <https://www.atlassian.com/git/tutorials/install-git#linux>
+
++++
+
+Vous êtes sous Windows
+* il est important que vous installiez ***git for windows*** et pas un autre !
+* allez sur le site là  <https://gitforwindows.org/> on va vous guider (en vous montrant son installation pas à pas)
+
++++
+
+> le professeur fait une installation en live de gitforwindows (éventuellement sur une virtualbox)
 
 à la question ***Adjusting your PATH environment*** :  
 choisissez au moins l'option recommandée (#2), idéalement l'option #3
@@ -587,7 +609,7 @@ car le répertoire `.` désigne justement le répertoire courant
 
 +++ {"tags": []}
 
-par convention, `..` désigne le répertoire "au dessus" du répertoire courant  
+par convention `..` désigne le répertoire "au dessus" du répertoire courant  
 on l'utilise pour fabriquer des chemins du genre de 
 
     cat ../frere/neveu

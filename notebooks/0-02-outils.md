@@ -35,9 +35,41 @@ notebookname: outils de base
 
 pour pouvoir facilement modifier le contenu de nos fichiers texte, comme tout à l'heure le fichier `foo.txt`, on va utiliser un programme qui s'appelle un **éditeur de code**
 
+en effet, il ne faut **pas** utiliser un outil comme Word pour éditer des programmes: c'est un éditeur de texte pas un éditeur de code !
+
+> l'enseignant lance Visual Studio Code et le montre très très rapidement
+
++++
+
+### installation éditeur de code
+
++++
+
+forts de notre expérience de l'année dernière, cette année 2020-2021, nous demandons à **tous** les élèves d'installer et de savoir utiliser vs-code
+
+et **ATTENTION** il y a eu **beaucoup de problèmes** l'an passé avec les éditeurs de type *pyzo*, ne les utilisez surtout pas dans nos cours, vous allez perdre un temps précieux et en faire perdre à vos enseignants pour des raisons inintéressantes et extérieures à Python
+
++++
+
+On y va. Le site est là <https://code.visualstudio.com/>. Vous voulez installer donc il va falloir que vous alliez dans une section *download* ... vous la voyez ? à vous de jouer maintenant, l'enseignant va montrer les étapes pour les élèves sous Windows. Lisez bien les messages et posez nous vos questions.
+
++++
+
+**conseil**
+
+en cochant ces cases lors de l'installation, vous pourrez lancer vs-code avec un clic droit depuis un dossier ou un fichier
+
+![](media/fig-explorer-vs-code.png)
+
 +++
 
 ### micro-démo vs-code
+
++++
+
+Que vous ayez réussi à installer visual studio code sur votre portable ou pas encore, suivez maintenant ce que montre l'enseignant.
+
+Si vous avez rencontré des problèmes imprévus lors de l'installation (ce qui n'est pas rare en informatique), venez nous voir plus tard pour que nous vous aidions et postez vos problèmes/questions sur *discourse* pour qu'on y regroupe les réponses aux mêmes problèmes.
 
 +++ {"tags": []}
 
@@ -93,30 +125,9 @@ https://code.visualstudio.com/docs/getstarted/userinterface
 
 +++
 
-### installation éditeur de code
-
-+++
-
-* on n'impose pas l'utilisation de vs-code mais c'est **fortement recommandé** si vous êtes débutant
-
-**ATTENTION**
-
-* ne pas utiliser (évidemment) un outil comme Word pour ce type de travail (si vous vous demandez pourquoi : créez sous Word l'équivalent de notre `foo.txt`, puis faites `cat foo.docx`…)
-* beaucoup de soucis l'an passé avec les éditeurs de type *pyzo*, on recommande de **ne pas utiliser** cet environnement
-
-+++
-
-**conseil**
-
-en cochant ces cases lors de l'installation, vous pourrez lancer vs-code avec un clic droit depuis un dossier ou un fichier
-
-![](media/fig-explorer-vs-code.png)
-
-+++
-
 exercice :
 
-* refaire les manipulations vous-mêmes après avoir installé un éditeur de code
+* refaire les manipulations vous-mêmes une fois l'installation de l'éditeur de code terminée.
 
 +++
 
@@ -124,7 +135,7 @@ exercice :
 
 +++
 
-le couteau suisse pour écrire des documents
+c'est un format simple, léger et bien pensé pour mettre en forme facilement vos textes, il est devenu le couteau suisse pour écrire des documents
 
 * avec un minimum de présentation 
   * sections
@@ -175,7 +186,8 @@ cheatsheet <https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf>
 
 on peut aussi écrire des maths en markdown  
 ça se fait en utilisant le langage $\LaTeX$  
-c'est un peu abscons au début mais on s'y habitue vite
+c'est un peu abscons au début mais on s'y habitue vite  
+parce que c'est vraiment très joli
 
 ***
 
@@ -227,6 +239,10 @@ $$
 \forall x \in \mathbb{R}, \forall \epsilon \in \mathbb{R}^+, \exists\alpha\in\mathbb{R}^+ \\
  |x'-x| < \alpha\implies |f(x')-f(x)| < \epsilon
 $$
+
++++
+
+au passage, vous remarquez que les commandes $\LaTeX$  commencent par `\`
 
 +++
 
@@ -317,12 +333,16 @@ ceux qui veulent creuser peuvent
 ### installation de base
 
 * il y a de très nombreuses distributions disponibles
-* notre recommandation : miniconda
+* notre recommandation : miniconda  
   * relativement léger
   * permet d'installer en mode "user" i.e. sans droits administrateur
-* démo installation miniconda sur Windows
-* on écrit un ou deux programmes bidon
-* faire tourner dans le terminal
+* (ca va sans le dire mais surtout pas Python 2.7 !) 
+
+
+Nous allons
+* faire une démostration de l'installation miniconda sur Windows à partir de <https://docs.conda.io/en/latest/miniconda.html> (les linux et les macos le font pour leur OS + architectures)
+* puis écrire un ou deux programmes Python très simples
+* et les exécuter dans un terminal
 
 +++
 
@@ -387,13 +407,13 @@ hello world
 dans le répertoire de votre choix, ouvrez *vs-code* et créez un fichier qui s'appelle `fact.py` contenant ce texte (n'hésitez pas à copier-coller) :
 
 ```{code-cell}
-cat fact.py
+cat ../demo/fact.py
 ```
 
 et dans le même répertoire lancez python pour calculer le factoriel d'un nombre
 
 ```{code-cell}
-python fact.py 10
+python ../demo/fact.py 10
 ```
 
 #### afficher le numéro de version de Python
@@ -428,6 +448,10 @@ pip list
 #### installer d'autres librairies avec `pip install`
 
 nous allons utliser `pip install` pour installer IPython, et pour ça vous allez taper (dans un terminal)
+
+```console
+pip install ipython
+```
 
 ```{code-cell}
 # la première fois qu'on installe une librairie, ça peut prendre 
@@ -493,7 +517,7 @@ qui vous montrera en plus le numéro de version de `numpy`
 
 +++
 
-vous pouvez aussi importer la librairie depuis `ipython`, ça donne une session qui ressemble à ceci (vous ne devez pas avoir d'erreur du type `ModuleNotFound`)
+vous pouvez aussi importer la librairie `numpy` depuis `ipython`, ça donne une session qui ressemble à ceci (vous ne devez pas avoir d'erreur du type `ModuleNotFound`)
 
 ```
 $ ipython
@@ -547,13 +571,13 @@ voici le code, et ce qui se produit si on essaie de le faire tourner
 ```{code-cell}
 :cell_style: split
 
-cat fact-broken.py
+cat ../demo/fact-broken.py
 ```
 
 ```{code-cell}
 :cell_style: split
 
-python fact-broken.py
+python ../demo/fact-broken.py
 ```
 
 je vous demande en exercice de trouver l'erreur en question
@@ -573,9 +597,11 @@ en pratique il arrive qu'on se trouve face à des erreurs plus difficiles à dia
 
 +++
 
-git fait partie des outils dits de "SCM" *source code management*
+`git` fait partie des outils dits de "SCM" *source code management*
 
-son rôle est d'aider les développeurs à s'y retrouver dans la gestion des versions
+son rôle est d'aider les développeurs à s'y retrouver dans la gestion des versions d'un projet
+
+un projet est constitué d'un ensemble de fichiers dont vous souhaitez conserver un historique des modifications 
 
 +++
 
@@ -600,7 +626,7 @@ en première approximation, on peut se servir de `git` pour :
 * lorsqu'on travaille sur plusieurs améliorations en même temps  
   on peut facilement créer **des branches**  
   pour traiter les améliorations séparément  
-  avant de tout mettre ensemble
+  avant de tout (re)mettre ensemble
 
 +++
 
@@ -627,7 +653,7 @@ on peut l'adapter à tous les cas d'usage (un seule personne, un petit groupe, p
   * ça ressemble à **un répertoire** avec **tout son contenu**
   * mais ça contient aussi **toutes les versions** successives
 * un *commit* :
-  * ça correspond à une version particulière du dépôt
+  * ça correspond à une version particulière du dépôt (de tous les fichiers du dépôt)
   
 et donc un dépôt contient autant de commits que de versions successives
 
@@ -637,10 +663,26 @@ et donc un dépôt contient autant de commits que de versions successives
 
 +++
 
-un exemple de workflow [sous forme de présentation pdf](../filmedia/git-workflow-animations.pdf)
+un exemple de workflow [sous forme de présentation pdf](media/git-workflow-animations.pdf)
 
 (le pdf fait partie du dépôt git,  
 dans `media/git-workflow-animations.pdf`)
+
++++
+
+### compte sous github
+
++++
+
+Dans la petite présentation alice a choisi `GitHub` pour rendre son travail disponible à tout le monde en open-source sur Internet.
+
+En effet, `GitHub` est un service web dédié à l'hébergement et à la gestion du développement de logiciels (open source ou pas). Il utilise le logiciel de gestion de versions `Git`. Il est actuellement le plus grand hébergeur de code source au monde aussi c'est celui que nous allons vous demander d'utiliser.
+
+Vous devrez (pas tout de suite) allez sur <https://github.com/join> pour y créez un compte. Il va naturellement vous falloir un nom d'utilisateur ... attention depuis janvier 2020, il y a plus de 40 millions d'utilisateurs donc il se peut que le nom que vous vouliez soit déjà pris.
+
+Nous vous demanderons de nous *faire passer* vos identifiants `GitHub` vu que c'est le moyen que plusieurs UE vont employer pour *relever* vos projets.
+
+Pour prendre des projets dans `GitHub` vous n'avez pas besoin d'un nom d'utilisateur, c'est pour y mettre des projets que vous en avez besoin. 
 
 +++
 
@@ -648,9 +690,10 @@ dans `media/git-workflow-animations.pdf`)
 
 +++
 
-* Windows : normalement à ce stade vous avez déjà installé *git for windows*
-* MacOS: voyez ce lien <https://www.atlassian.com/git/tutorials/install-git#mac-os-x>
-* linux : voyez ce lien <https://www.atlassian.com/git/tutorials/install-git#linux>
+normalement à ce stade 
+* les Windows : vous avez déjà installé *git for windows*
+* les MacOS: vous avez déjà installé `git`à partir de ce lien <https://www.atlassian.com/git/tutorials/install-git#mac-os-x>
+* les linux : vous avez déjà installé `git`à partir de ce lien <https://www.atlassian.com/git/tutorials/install-git#linux>
 
 +++
 
@@ -676,12 +719,11 @@ pour ça il a besoin [d'une URL (Uniform Resource Locator)](https://en.wikipedia
 
 c'est quoi une URL ? vous en connaissez déjà plein d'exemples, comme  
 http://google.com/  
-https:/google.com/  
 https://en.wikipedia.org/wiki/URL
 
 * le premier terme (`http` ou `https`) désigne **le protocole** à utiliser pour joindre la ressource
-* le second morceau (`google.com` ou `en..wikipedia.org`) désigne le *hostname* qu'il faut joindre; en fait on utilise un service réseau [qui s'appelle le DNS (Domain Name Server](https://en.wikipedia.org/wiki/Domain_Name_System) pour traduire le nom `www.google.com` en une adresse réseau (et c'est comme ça qu'en fait deux requêtes n'aboutissent pas forcément sur le même serveur, heureusement d'ailleurs)
-* la suite est optionnellea permet de désigner un item particulier à l'intérieur de ce serveur; c'est comme ça qu'on peut ranger des milliers de page à l'intérieur du serveur wikipedia
+* le second morceau (`google.com` ou `en.wikipedia.org`) désigne le *hostname* qu'il faut joindre; en fait on utilise un service réseau [qui s'appelle le DNS (Domain Name Server](https://en.wikipedia.org/wiki/Domain_Name_System) pour traduire le nom `www.google.com` en une adresse réseau (et c'est comme ça qu'en fait deux requêtes n'aboutissent pas forcément sur le même serveur, heureusement d'ailleurs)
+* la suite est optionnelle et permet de désigner un item particulier à l'intérieur de ce serveur; c'est comme ça qu'on peut ranger des milliers de pages à l'intérieur du serveur wikipedia
 
 +++
 
@@ -753,6 +795,12 @@ on creusera tout ceci dans le cours dédié à git dans quelques semaines
 +++
 
 ## notebooks Jupyter
+
++++
+
+Les notebooks sont de petits *cahiers* d'exercices exécutables. Ils sont très pratiques pour expliquer pas à pas ce qu'on fait, comme dans ces cours mais ils ne servent pas uniquement aux cours.
+
+Nous allons vous montrer dans cette section comment installer et lancer `jupyter`, créer des notebooks avec des cellules de texte et des cellules de code...
 
 +++
 
@@ -828,7 +876,7 @@ du coup ça signifie que **le serveur Jupyter doit tourner en permanence**
 * nos supports de cours :
   * le plus souvent le langage est **Python**
   * le présent notebook est une exception, son langage est **bash** 
-* chaque cellule est *typée* comme **markdown** ou **code*
+* chaque cellule est *typée* comme **markdown** ou **code**
 * et bien sûr celles typées **code** sont exécutées par … le langage du notebook
 
 +++ {"tags": ["level_intermediate"]}
@@ -843,7 +891,7 @@ pour créer un nouveau notebook
 
 +++
 
-pour renommer le notebook
+pour renommer le notebook menu  *File* → *Rename*
 
 ![](media/notebooks-004-renaming.png)
 
@@ -920,7 +968,7 @@ du coup on peut par exemple les déplacer toutes ensemble
 
 +++
 
-## lire le cours localement
+## lire le cours localement (sur votre portable)
 
 +++
 
@@ -961,7 +1009,7 @@ pour pouvoir exécuter les notebooks en bash (dont celui-ci, donc), il vous faut
 
 puis vous pouvez
 
-* ouvrir le notebook de démonstration  
+* ouvrir le notebook de démonstration  (*0-10-demonstration.md*)  
   (je ne recommande pas forcément de commencer avec le présent notebook, car il utilise un kernel `bash` qui n'est pas standard…)
 * l'exécuter localement
 * et vous amuser à le modifier
@@ -1153,7 +1201,7 @@ il existe plusieurs solutions pour gérer cela, notamment la solution `virtualen
 c'est un des points forts de miniconda, que de permettre de facilement créer/activer/détruire des environnements multiples; on entend par environnement :
 
 * un socle `Python` accessible par les commandes `python` et `pip`
-* installé au départ sans aucune librairie tierce (enfin si, disons pliutôt le strict minimum, comme `pip`), pour que vous puissiez construire votre environnement de scratch
+* installé au départ sans aucune librairie tierce (enfin si, disons plutôt le strict minimum, comme `pip`), pour que vous puissiez construire votre environnement de scratch
 
 +++
 
@@ -1180,7 +1228,7 @@ et pour gérer tout cela, on dispose de commandes pour changer d'environnement; 
 
 +++
 
-voici à titre indicatif une session sous macos pour illustrer tout ceci
+voici à titre indicatif une session sous MacOS pour illustrer tout ceci
 
 vous remarquerez comme le *prompt* bash reflète **l'environnement dans lequel on se trouve**, ça semble **relativement impératif** si on ne veut pas s'emmêler les pinceaux; surtout n'utilisez pas cette technologie si votre prompt ne montre pas l'environnement courant, c'est beaucoup trop facile de se tirer une balle dans le pied si on n'a pas cet aide-mémoire
 

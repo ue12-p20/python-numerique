@@ -40,9 +40,9 @@ un résumé des compétences attendues pour commencer les cours d'info
 
 +++
 
-## éditeur de code
+## éditeur de code *vs-code*
 
-* avoir installé un éditeur de code, savoir :
+* après avoir installé l'éditeur vscode, savoir :
 * le lancer rapidement dans le dossier principal
   * à partir de l'explorateur de fichiers
   * à partir du terminal
@@ -50,7 +50,7 @@ un résumé des compétences attendues pour commencer les cours d'info
 * couper l'écran en 2 pour travailler sur deux fichiers en même temps
   * verticalement et horizontalement
   * revenir à une vue unique
-* avoir installé l'extension pour Python (vscode) 
+* avoir installé l'extension pour Python
   * n'hésitez pas à essayer d'autres extensions
 
 +++
@@ -72,6 +72,7 @@ un résumé des compétences attendues pour commencer les cours d'info
 
 * avoir installé `git`; savoir :
 * cloner un dépôt trouvé sur github
+* créer un compte sous <https://github.com/join>
 * mettre à jour un dépôt cloné, après que son auteur a publié des modifications
 
 +++
