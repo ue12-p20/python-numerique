@@ -35,33 +35,10 @@ version: '1.0'
 
 +++ {"slideshow": {"slide_type": ""}}
 
-# généralités
+# généralités sur l'utilisation de l'interprête Python
 
-comment utiliser le langage
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-## notion de programme
-
-+++
-
-dans un ordinateur coexistent plusieurs programmes 
-
-* qui partagent les ressources matérielles
-* c'est le rôle de l'OS que de garantir leur cloisonnement
-
-parmi ces programmes
-
-* explorateur de fichiers
-* navigateur Internet
-* éditeur de code : Visual Studio code (vscode), atom, emacs, vim, pycharm, ...
-* et plein d'autres naturellement (mail, pdf, spotify, vlc, ...)
-* terminal
-* interpréteur Python
-
-+++ {"slideshow": {"slide_type": "notes"}}
-
-Dans ce qui suit, nous envisageons surtout deux programmes, le terminal et l'interpréteur Python.
+ce notebook reprend très rapidement quelques informations  
+issues de la partie initiale de ce cours `intro & install`
 
 +++ {"cell_style": "split", "slideshow": {"slide_type": "slide"}}
 
