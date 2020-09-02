@@ -356,7 +356,7 @@ On remarque que les flottants pour devenir des entiers ont été modifiés forte
 
 C'est peut être ce que vous vouliez mais au cas où vous voulez interdire ce genre de conversions (casting) ... la fonction possède un paramètre qui interdit la création du nouveau tableau si la conversion n'est pas *safe*: 
 
-```python
+```python tags=["raises-exception"]
 tab1.astype(np.int, casting='safe')
 ```
 

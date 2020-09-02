@@ -583,7 +583,7 @@ Oui il l'a fait.
 
 On essaie de le tromper ? si je ne lui donne pas assez d'éléments pour remplir sa slice : 
 
-```python
+```python tags=["raises-exception"]
 vec[1::2] = [2, 4]
 ```
 
@@ -663,6 +663,9 @@ On y reviendra. Oublions pour le moment le broadcasting,
 Un damier a 100 cases.
 
 
+https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x1-checkers
+
+
 ### les escaliers
 
 
@@ -670,6 +673,9 @@ Un damier a 100 cases.
    - aux quatre coins du tableau on trouve la valeur *0*
    - dans la case centrale on trouve la valeur *2n*
    - et si vous partez de n'importe quelle case  et que vous vous déplacez d'une case (horizontalement ou verticalement), en vous dirigeant vers une case plus proche du centre, la valeur que vous trouvez est *1* de plus que la valeur de la case où vous étiez.
+
+
+https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x3-stairs
 
 
 ### les dès (difficile)
@@ -706,3 +712,6 @@ Dans ce cas-là par exemple, on voit, en comptant la longueur des diagonales sur
 À nouveau, on demande explicitement ici un parcours de type force brute.
 
 Faites le en np.
+
+
+https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x4-dice

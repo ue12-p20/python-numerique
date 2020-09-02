@@ -125,7 +125,7 @@ def scalar_function(x):
     pass
 ```
 
-```python
+```python tags=["raises-exception"]
 scalar_function(np.array((10, 20)))
 ```
 
