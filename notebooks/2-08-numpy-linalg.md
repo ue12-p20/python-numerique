@@ -36,7 +36,7 @@ Il faut savoir que les fonctions d'algèbre linéaire des libraries `np.linalg` 
    1. ensuite ces fonctions sont codées dans des langages de *bas niveau* très proches de la mémoire donc rapides
    1. enfin les implémentations tirent parti du multithreading (où un programme est découpé en sous-programmes s'exécutant *en même temps*) qui permet de grandement améliorer les temps de calculs.
 
-Il existe des différences entre les fonctions de `numpy` et de `scipy` mais nous n'en dirons pas plus référez vous aux explications des concepteurs de ces libraries comme là  https://docs.scipy.org/doc/numpy/reference/routines.linalg.html
+Il existe des différences entre les fonctions de `numpy` et de `scipy` mais nous n'en dirons pas plus référez vous aux explications des concepteurs de ces librairies comme là  https://docs.scipy.org/doc/numpy/reference/routines.linalg.html
    
 
 ```python
@@ -46,7 +46,7 @@ import numpy as np
 La première chose à savoir c'est que naturellement les fonctions `numpy` vont s'appliquer sur des tableaux de dimensions supérieures à 2 mais, nous n'allons voir ici, que les bases donc rester en dimension < à 3. 
 
 
-Nous n'avons vu pour l'instant que des opérations éléments par éléments. Comme par exemple le `np.mult` ou encore \*, qui est le *produit matriciel de Hadamard*. Voyons maintenant les fonctions dédiées à l'algèbre linéaire.
+Nous n'avons vu pour l'instant que des opérations élément par élément. Comme par exemple le `np.mult` ou encore \*, qui est le *produit matriciel de Hadamard*. Voyons maintenant les fonctions dédiées à l'algèbre linéaire.
 
 ## application linéaire
 
@@ -87,19 +87,25 @@ V
 Le produit $A \times V$ représente $f(V)$.
 
 
-Quel est en `numpy` le produit $\times$ ? C'est la fonction `np.dot` (ou encore la méthode `np.ndarray.dot`.
+Quel est en `numpy` le produit $\times$ ? C'est la fonction `np.dot` (ou encore la méthode `np.ndarray.dot`).
 
 
 Calculons $A \times V$
 
-```python
+```python cell_style="split"
+# la fonction
 np.dot(A, V)
+```
+
+```python cell_style="split"
+# la méthode
+A.dot(V)
 ```
 
 ### le produit de deux matrices
 
 
-Maintenant prenons $A$ et $B$, deux matrices représentant respectivement les applications linéaires $f$ et $g$, le produit de matrices $A \times B$ est la composition des applications $ƒ \circ g$.
+Maintenant prenons $A$ et $B$, deux matrices représentant respectivement les applications linéaires $f$ et $g$, le produit de matrices $A \times B$ est la composition des applications $ƒ ￮ g$.
 
 
 $A$ on l'a déjà, prenons $B$
@@ -109,8 +115,12 @@ B = np.array([[-5, 4], [3, 9], [-4, 2]])
 B
 ```
 
-```python
+```python cell_style="split"
 np.dot(A, B)
+```
+
+```python cell_style="split"
+A.dot(B)
 ```
 
 ### raccourci  *@* pour le produit matriciel
@@ -154,31 +164,43 @@ np.dot(V1, V2)
 
 Pour un vecteur $V1 =[v_1, ..., v_n]$, , la norme `np.linalg.norm` sera la racine carré du produit scalaire par lui-même $\displaystyle \left\|{ {V}}\right\|_{2}={\sqrt {v_{1}^{2}+\cdots +v_{n}^{2}}}$ 
 
-```python
-np.sqrt(V1.dot(V1))
+```python cell_style="split"
+# la fonction idoine
+np.linalg.norm(V1)
 ```
 
-```python
-np.linalg.norm(V1)
+```python cell_style="split"
+# qu'on peut naturellement paraphraser en
+np.sqrt(V1.dot(V1))
 ```
 
 Pour les autres normes de matrices et vecteurs regardez là https://np.org/doc/stable/reference/generated/np.linalg.norm.html#np.linalg.norm
 
 ## la transposée d'une matrice
 
-C'est la fonction `np.transpose`. Elle a une version courte $.T$ pour écrire des codes plus lisibles.
+C'est la fonction `np.transpose`. Elle a une version courte `.T` pour écrire des codes plus lisibles.
 
 ```python
 A = np.arange(1, 13).reshape(4, 3)
 A
 ```
 
-```python
+```python cell_style="split"
 np.transpose(A)
 ```
 
-```python cell_style="center"
+```python cell_style="split"
 A.T
+```
+
+## les matrices identité
+
+
+En `numpy` la fonction porte le très joli nom de `eye` (parce que *eye* et *I* se prononcent pareil), elle renvoie des matrices de type flottant.
+
+```python
+A = np.eye(5)
+A
 ```
 
 ## le déterminant d'une matrice
@@ -186,7 +208,7 @@ A.T
 Il est donné par la fonction `np.linalg.det`
 
 ```python
-A = np.random.random(size=(3, 3))*10
+A = 2*np.eye(3)
 A
 ```
 
@@ -194,7 +216,7 @@ A
 np.linalg.det(A)
 ```
 
-Essayez de l'appliquer à une matrice qui n'est pas carré ? Vous allez recevoir une `np.linalg.LinAlgError` !
+Essayez de l'appliquer à une matrice qui n'est pas carrée ? Vous allez recevoir une `np.linalg.LinAlgError` !
 
 ```python
 B = np.random.random(size=(3, 4))*10
@@ -211,9 +233,9 @@ A vous de jouer. Faites une isométrie (une transformation qui conserve les long
 ```
 
 ```python
-I = np.array([[0, -1], [1, 0]])
+M = np.array([[0, -1], [1, 0]])
 print(M)
-np.linalg.det(I)
+np.linalg.det(M)
 ```
 
 ```python
@@ -248,49 +270,52 @@ np.diag(A)
 np.diag([1, 2, 3])
 ```
 
-## les matrices identité
-
-
-En `numpy` la fonction porte le très joli nom de `eye` donc `np.eye` et elle renvoie des matrices de type flottant.
-
-```python
-A = np.eye(5)
-A
-```
-
 ## la trace d'une matrice
 
 C'est la somme des éléments de sa diagonale.
 
 ```python
-A = np.arange(20).reshape(4, 5)
+A = np.arange(16).reshape(4, 4)
 A
 ```
 
-```python
-np.sum(np.diag(b))
+```python cell_style="split"
+np.trace(A)
 ```
 
-```python
-np.trace(A)
+```python cell_style="split"
+np.sum(np.diag(A))
 ```
 
 ## l'inversion d'une matrice
 
-c'est le calcul de $A^{-1}$ soit en math c'est $A^{-1}A = I$ et en informatique c'est $A^{-1}A \approx I$ (presque égal à cause des approximations) qui se dit `np.close`
-
-
-Voici une matrice de taille n
+c'est le calcul de $A^{-1}$ 
 
 ```python cell_style="center"
+# prenons une rotation
+R = np.array([0, 1, 0, 0, 0, 1, 1, 0, 0]).reshape(3, 3)
+R
+```
+
+```python
+# pour calculer son inverse
+np.linalg.inv(R)
+```
+
+pour nous convaincre que ça fonctionne comme attendu :  
+lorsqu'en maths on écrit $A^{-1}A = I$, en informatique c'est $A^{-1}A \approx I$ (presque égal à cause des approximations)  
+
+c'est l'intérêt de `np.close` que de comparer si deux tableaux sont presque identiques
+
+```python cell_style="center"
+# on prend maintenant une matrice quelconque
 n = 3
 A = np.random.random(size=(n, n))
 A
 ```
 
-Voici son inverse
-
 ```python
+# son inverse
 Ainv = np.linalg.inv(A)
 ```
 
@@ -306,9 +331,7 @@ Et bien oui on a des valeurs approchées.
 np.isclose(  Ainv @ A,  np.eye(n))
 ```
 
-<!-- #region {"cell_style": "center", "slideshow": {"slide_type": "slide"}} -->
 ## les valeurs propres d'une matrice (eigen values)
-<!-- #endregion -->
 
 On va calculer les $v$ tels que:
    - $f(v) = \lambda v$ 
@@ -324,9 +347,7 @@ ls, vs = np.linalg.eig(M)  # eigen_values, eigen_vectors
 ls, vs
 ```
 
-<!-- #region {"cell_style": "center", "slideshow": {"slide_type": "slide"}} -->
 Vérifions qu'on a bien $M \times v = \lambda v$
-<!-- #endregion -->
 
 Attention les vecteurs propres sont dans une matrice (3, 3) et chacun d'eux est une des 3 colonnes de la matrice.
 
@@ -344,7 +365,7 @@ np.all(np.isclose(np.dot(M, v0),  l0*v0))
 # votre code ici
 ```
 
-Prenons la symétrie x=y et calculons ses valeurs et vecteurs propres.
+Prenons la symétrie x↔︎y et calculons ses valeurs et vecteurs propres.
 
 ```python
 S = np.array([[0, 1], [1, 0]])
@@ -352,6 +373,7 @@ values, vectors = np.linalg.eig(S)
 
 print(values)
 
+# les vecteurs sont normés, naturellement
 print(vectors)
 ```
 
@@ -441,7 +463,3 @@ m_{ij} = x_i . x_j
 $$
 
 Indices. Vous pouvez utiliser l'opérateur `@`, la méthode `array.dot()`, le broadcasting, la transposée d'une matrice `.T`.
-
-```python
-
-```
