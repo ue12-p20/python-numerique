@@ -1,15 +1,16 @@
 ---
 jupyter:
   jupytext:
+    cell_metadata_filter: all,-hidden,-heading_collapsed
+    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.5.2
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
+  notebookname: "intro \xE0 numpy"
 ---
 
 <div class="licence">
@@ -19,7 +20,10 @@ jupyter:
 </div>
 
 
-# Python et le numérique avec `numpy`
+# UE12 - numpy : introduction
+
+
+Cours #3 : Python et le numérique avec `numpy`
 
 
 ## contextualisons un peu Python et le numérique

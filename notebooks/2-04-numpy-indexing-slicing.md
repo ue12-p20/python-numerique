@@ -1,16 +1,17 @@
 ---
 jupyter:
   jupytext:
+    cell_metadata_filter: all,-hidden,-heading_collapsed
     cell_metadata_json: true
+    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.5.2
   kernelspec:
     display_name: Python 3
     language: python
     name: python3
+  notebookname: indexation & slicing
 ---
 
 <div class="licence">
@@ -33,7 +34,9 @@ Une dernière raison, afin d'avoir une petite culture informatique technique bie
 
 
 
-# introduction à Python numérique: où on accède aux éléments et à des sous-tableaux
+# indexation et slicing
+
+où on accède aux éléments, et à des sous-tableaux
 
 ```python
 import numpy as np

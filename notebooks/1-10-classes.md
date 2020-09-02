@@ -16,6 +16,7 @@ rise:
   start_slideshow_at: selected
   theme: sky
   transition: cube
+notebookname: classes et objets
 ---
 
 <div class="licence">

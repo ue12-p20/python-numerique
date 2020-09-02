@@ -16,6 +16,7 @@ rise:
   start_slideshow_at: selected
   theme: sky
   transition: cube
+notebookname: fonctions
 ---
 
 +++ {"slideshow": {"slide_type": "slide"}}

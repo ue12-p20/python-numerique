@@ -1,5 +1,21 @@
-# -*- coding: utf-8 -*-
-# Python et le numérique: rapidité des calculs par *vectorisation*
+---
+jupyter:
+  jupytext:
+    cell_metadata_filter: all,-hidden,-heading_collapsed
+    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+    text_representation:
+      extension: .md
+      format_name: markdown
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+  notebookname: programmation vectorielle
+---
+
+# la vectorisation
+
+ou comment écrire du code efficace; ou encore comment **ne jamais faire de boucle `for`** sur un tableau `numpy`.
 
 
 Nous avons appris que la librairie numpy est utilisée pour la création et la manipulation de tableaux.

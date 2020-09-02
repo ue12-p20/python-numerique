@@ -17,7 +17,7 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-notebookname: Primer programmation Python
+notebookname: primer programmation Python
 rise:
   autolaunch: true
   slideNumber: c/t
