@@ -24,14 +24,14 @@ def tracks(coursedir):
            ('les bases', 'notebooks/1-[0-8]*.md'),
            ('quiz', 'notebooks/1-9*.md'),
          ]),
-#        ('numpy' , 'numpy', 'numpy'
-#         [ ('numpy', 'notebooks/2-[0-9]*.ipynb'), 
-#        ]),
+        ('cours #3: numpy' , 'programmation vectorielle', 'numpy'
+         [ ('numpy', 'notebooks/2-[0-9]*.md'), 
+        ]),
 #        ('dataviz & pandas' , 'dataviz & pandas', 'dataviz',
-#         [ ('dataviz & pandas', 'notebooks/3-[0-9]*.ipynb'),
+#         [ ('dataviz & pandas', 'notebooks/3-[0-9]*.md'),
 #         ]),
 #        ('évaluation', 'évaluation', 'eval',
-#         [ ('évaluation', 'notebooks/4-[0-9]*.ipynb'),
+#         [ ('évaluation', 'notebooks/4-[0-9]*.md'),
 #         ])
         ]
 
