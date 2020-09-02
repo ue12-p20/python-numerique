@@ -46,7 +46,7 @@ import numpy as np
 La première chose à savoir c'est que naturellement les fonctions `numpy` vont s'appliquer sur des tableaux de dimensions supérieures à 2 mais, nous n'allons voir ici, que les bases donc rester en dimension < à 3. 
 
 
-Nous n'avons vu pour l'instant que des opérations élément par élément. Comme par exemple le `np.mult` ou encore \*, qui est le *produit matriciel de Hadamard*. Voyons maintenant les fonctions dédiées à l'algèbre linéaire.
+Nous n'avons vu pour l'instant que des opérations élément par élément. Comme par exemple le `np.mult` ou encore `*`, qui est le *produit matriciel de Hadamard*. Voyons maintenant les fonctions dédiées à l'algèbre linéaire.
 
 ## application linéaire
 
