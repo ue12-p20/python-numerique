@@ -22,7 +22,7 @@ cloner le cours, exécuter les notebooks, et *a fortiori* écrire et exécuter u
 
 ## cours 3
 * Python numérique (numpy)
-* dataviz (matplotlib)
 
 ## cours 4 
 * pandas
+* dataviz (matplotlib)
