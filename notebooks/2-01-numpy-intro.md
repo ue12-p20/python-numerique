@@ -19,9 +19,33 @@ jupyter:
 <span><img src="../media/ensmp-25-alpha.png" /></span>
 </div>
 
+<!-- #region tags=[] -->
+<div style="background-color:LightYellow; padding:20px 50px; font-size:120%"> 
+    
+**Avertissement pour les lecteurs: élèves et enseignants**
 
+Après l'introduction à *Python* viennent les cours d'introduction à python-numérique en *numpy*, aux tables de données sous *pandas* et à leur visualisation avec *matplotlib*.
+
+Mais ces cours ne sont pas sous forme de diaporamas (comme ceux sur *Python* que vous venez d'avoir).
+
+Cette année nous tentons une expérience, un nouveau format de cours, où les noteboooks prennent la forme de petites histoires ...
+
+Les notebooks parlent aux élèves en déroulant des explications détaillées, qui soulèvent des questions (en vert pour les simples, en mauve pour les intermédiaires et en saumon pour les avancées dans les notebooks) et y répondent, le tout entrecoupés, parfois, de toutes petites choses à faire.
+
+Ces notebooks jouent deux rôles: celui de *poly exécutable* (que les élèves peuvent relire en autonomie à-la-Meuh) et celui d'un scénario de base lors des cours en présentiel.
+
+L'idée serait que l'enseignant déroule les notebooks avec les élèves d'une manière très interactive en instaurant un dialogue avec la classe autour, par exemple, des questions en bleu qui jalonnent les notebooks mais toutes autres interrogations sont les bienvenus. Les élèves vont donner leur avis et formuler d'autres questions. Des réponses sont proposées dans les notebooks que l'enseignant peut naturellement compléter ou modifier. Et l'histoire continue.
+
+Une des difficultés est de savoir si l'enseignant lit le texte, ou le paraphrase, ou le fait lire aux élèves chacun à son tour ...
+
+Mais l'idée n'est pas que les notebooks soient lus en autonomie par les élèves lors des cours en présentiel. Les élèves déjà avancés sur le sujet peuvent aider les autres élèves avec leurs explications.
+
+</div>
+<!-- #endregion -->
+
+<!-- #region tags=["level_advanced"] -->
 # UE12 - numpy : introduction
-
+<!-- #endregion -->
 
 Cours #3 : Python et le numérique avec `numpy`
 
@@ -31,7 +55,7 @@ Cours #3 : Python et le numérique avec `numpy`
 
 Alors maintenant vous avez des rudiments du langage de programmation Python, que ce soit grâce à vos années de prépa ou à l'introduction (rapide) que nous venons de faire ou pour toute autre raison.
 
-Ce langage est plutôt élégant, simple à utiliser, il comporte tout un tas de structures de base pour ranger des données: dictionnaires, ensembles, listes, tuples ... et les fonctions afférantes pour les manipuler.
+Ce langage est plutôt élégant, simple à utiliser, il comporte tout un tas de structures de base pour ranger des données: dictionnaires, ensembles, listes, tuples ... et les fonctions afférantes pour les manipuler. On essaie ?
 
 ```python
 l = [124, 1, 45, 67, 23, -17, 90, 45, -65]
@@ -42,7 +66,8 @@ print(l)
 La liste ressort triée, c'est beau ! Tout ceci est top: vous allez pouvoir réaliser les super TP de math1 et de data science en math2.
 
 
-Qui dit data science dit données, jusque là vous nous suivez. Toutes ces données il va donc falloir les stocker dans des programmes écrits en Python, pour les manipuler.
+Qui dit data science dit données, jusque là vous nous suivez. Toutes ces données il va donc falloir les stocker quelque part à l'intérieur des programmes écrits en Python, pour les manipuler.
+
 
 Si vous avez une grande, voire une très grande, quantité de données, il serait judicieux:
    1. que leur stockage soit bien optimisé en espace mémoire et en temps d'accès à cet espace mémoire
@@ -50,8 +75,11 @@ Si vous avez une grande, voire une très grande, quantité de données, il serai
 
 Nous sommes tous d'accord.
 
+<!-- #region tags=["level_basic"] -->
+Alors ces données quelle forme vont-elles prendre ? Des idées ? 
+<!-- #endregion -->
 
-Alors ces données quelle forme vont-elles prendre ? Vous allez avoir des matrices, des tables décrivant des individus, des séries de mesurse temporelles, des images ... on regarde des exemples ?
+Oui vous pouvez avoir des matrices, des tables d'observations, des séries de mesures (par exemple temporelles), des images ... on regarde des exemples ?
 
 
 ### un exemple de matrice
@@ -61,8 +89,9 @@ Vous avez là une très jolie matrice (4 x 5) et sa transposée (5 x 4).
 
 <img src='media/matrice.png'></img>
 
-
+<!-- #region tags=["level_basic"] -->
 Comment pourrions nous représenter cette matrice en Python ? Une idée ? Essayez ? 
+<!-- #endregion -->
 
 ```python
 # votre code ici (ne regardez pas dessous)
@@ -90,17 +119,28 @@ matrice = [
 ]
 ```
 
-Si nous avions besoin de transposer cette matrice. Naturellement nous serions capable de coder la fonction, mais franchement quand une fonction est à ce point utile, il doit bien exister une version déjà codée par d'autres qui sera de plus sera débuggée, testée par de nombreuses personnes ...  donc sûrement plus fiable que vôtre version.
+<!-- #region tags=["level_basic"] -->
+Quelle est la différence entre les deux solutions ?
+<!-- #endregion -->
 
-Premier principe de programmation: être le plus paresseux possible et toujours chercher avant de la coder si la fonction dont vous avez besoin n'existe pas déjà !
+Oui les tuples ne sont pas mutables.
+
+
+Maintenant, si nous avions besoin de transposer cette matrice.
+
+Naturellement nous serions capable de coder la fonction, mais franchement quand une fonction est à ce point utile, il doit bien exister une version, déjà codée par d'autres, qui de plus sera débuggée, testée par de nombreux autres utilisateurs ...  donc sûrement plus fiable que votre version et plus rapide à utiliser !
+
+
+Premier principe de programmation: être le plus paresseux possible et toujours toujours toujours chercher avant de la coder si la fonction dont vous avez besoin n'existe pas déjà !
 
 
 ### un exemple de table de données
 
 
-Maintenant un autre exemple de données. Voici ci-dessous la table de passagers du (pourtant *unsinkable*) titanic. Oui oui cette table est disponible en domaine public (comme des tas de données), par exemple, là https://public.opendatasoft.com/explore/dataset/titanic-passengers/table).
+Maintenant un autre exemple de données. Voici ci-dessous la table de passagers du (pourtant *unsinkable*) titanic. Oui oui cette table est disponible dans le domaine public (comme des tas de données), par exemple, là https://public.opendatasoft.com/explore/dataset/titanic-passengers/table).
 
-Vous voyez en ligne les passages et en colonnes les quelques informations que nous avons sur eux: numéro, survie à l'accident, classe (première, seconde, troisième), nom, genre, age, *SibSp*, *Parch*, ...
+
+Vous voyez en ligne les passagers et en colonnes les quelques informations que nous avons sur eux: numéro d'idenmtification, survie à l'accident, classe (première, seconde, troisième), nom, genre, age, *SibSp*, *Parch*, ...
 
 heu ... *SibSp* et *Parch* ? Vous ne comprennez pas ce que c'est ? Oui nous sommes bien d'accord, ils auraient quand même pu choisir des noms un peu plus parlants (comme vous le faites sûrement toujours dans vos codes). Des indices ? SiblingsSpouse et ParentChildren. Et pour plus de details regardez là https://www.kaggle.com/c/titanic/data (mais pas pendant le cours).
 
@@ -110,9 +150,9 @@ heu ... *SibSp* et *Parch* ? Vous ne comprennez pas ce que c'est ? Oui nous somm
 ### un exemple de série temporelle
 
 
-Cédons là à l'actualité. Voici la courbe des valeurs cumulées du nombre d'infections* au covid en France entre janvier et août. Où trouve-t-on ce genre d'information ? Nous avons pris nos données là https://www.data.gouv.fr/fr/datasets/coronavirus-covid19-evolution-par-pays-et-dans-le-monde-maj-quotidienne/
+Cédons là à l'actualité. Voici la courbe des valeurs cumulées du *nombre d'infections* au covid en France entre janvier et août. Où trouve-t-on ce genre d'information ? Nous avons pris nos données là https://www.data.gouv.fr/fr/datasets/coronavirus-covid19-evolution-par-pays-et-dans-le-monde-maj-quotidienne/
 
-Vous remarquez dans cette figure les abcisses qui sont des dates.
+Vous remarquez dans cette figure les abcisses qui sont des dates c'est bien une série temporelle.
 
 <img src='media/corona-france.jpg' width="500"></img>
 
@@ -128,52 +168,57 @@ Encore un exemple de données ? Voici une belle photo, d'un endroit que vous all
 ### que sont ces données ?
 
 
-Notre premier problème est de stocker ces données en mémoire afin de leur appliquer des fonctions. Ces données semblent (à première vue) très différentes, mais nous allons souvent vouloir leur appliquer le même genre de fonctions (comme rechercher le passager le plus agé du titanic, les pixels de la couleur la plus foncée, les maxima des lignes de la matrice).
-
-Ces données vous font-elles penser à quelque chose ? oui bien sûr à des tableaux :
-   - la matrice est un tableau de taille 5 x 4 (ligne x colonne);
-   - la table des passagers du Titanic est un tableau de taille 891 x 8 (ligne x colonne);
-   - la série temporelle sera une suite de valeurs indexées par une date;
-   - l'image couleur, en codage RGB rouge-vert-bleu, est constituée de trois tables de couleurs primaires de taille 533 x 800 (ligne x colonne) grâce auxquelles votre écran va reconstituer une image en couleur.
+Je rappelle notre problème qui est de stocker ces données en mémoire afin de leur appliquer des fonctions.
 
 
-Les structures de données de Python sont très bien mais elles ne sont pas du tout adaptées à stocker et manipuler les tableaux de ce genre.
+ Ces données semblent (à première vue) très différentes, mais nous allons souvent vouloir leur appliquer le même genre de fonctions (comme rechercher le passager le plus agé du titanic, les pixels de la couleur la plus foncée, les maxima des lignes de la matrice).
+
+<!-- #region tags=["level_basic"] -->
+Ces données vous font-elles penser à quelque chose ? Des idéees ? 
+<!-- #endregion -->
+
+Oui bien sûr à des tableaux !
+   - la matrice est un tableau de 5 lignes et 4 colonnes, donc une taille (4 x 5)
+   - la table des passagers du Titanic est un tableau de 891 lignes et de 9 colonnes (891 x 9)
+   - l'image couleur, en codage RGB rouge-vert-bleu, est constituée de trois tables de couleurs primaires de 533 lignes et de 800 colonnes (grâce auxquelles votre écran va reconstituer une jolie image en couleur).
+   - la série temporelle sera une suite de valeurs chacune repérée par une date
+
+
+Les structures de données de Python sont très bien mais, malheureusement, elles ne sont pas du tout adaptées à stocker et manipuler les tableaux de ce genre.
 
 Pour pallier à ce problème, depuis 2006 une librairie numérique appelée `numpy` est développée.
 
-Il a même été proposé au concepteur de Python de l'intégrer dans son langage, comme la structure de données de tableau Python, mais celui-ci a refusé pour des soucis de maintenance de code.
+Il a même été proposé au concepteur de Python de l'intégrer dans son langage, comme la structure de données de tableaux Python, mais celui-ci a refusé pour des soucis de maintenance de code.
 
+<!-- #region -->
+`numpy` est une très bonne librarie numérique de manipulation de tableaux multi-dimensionnels qui, elle, comporte *toutes* les fonctionnalités numériques dont vous avez besoin.
 
-`numpy` est une très bonne librarie numérique de manipulation de tableaux multi-dimensionnels qui, elle, comporte *toutes* les fonctionnalités numériques dont vous avez besoin.  
 `numpy` n'est (définitivement) pas très facile à utiliser contrairement à Python, et si elle s'est imposée comme LA librarie numérique incontournable de Python, c'est parce qu'il n'en existe pas (encore) de meilleure, donc c'est naturellement celle-ci que les mines ont choisi de vous apprendre.
 
-`numpy` est donc considérée comme **LA** bibliothèque qui permet d'étendre le langage de programmation Python avec la manipulation de tableaux multidimensionnels.  
+
+`numpy` est donc considérée comme **LA** bibliothèque qui permet d'étendre le langage de programmation Python avec la manipulation de tableaux multidimensionnels.
+
+
 C'est une bibliothèque logicielle libre et open source. Elle va vous fournir des tas de fonctions de création et manipulation de tableaux.
 
-`numpy` est la base de SciPy (ScientificPython) qui est un regroupement de bibliothèques Python pour le calcul scientifique.
 
+`numpy` est la base de SciPy (ScientificPython) qui est un regroupement de bibliothèques Python pour le calcul scientifique.
+<!-- #endregion -->
 
 ## apprenons à faire des tableaux `numpy`
 
 
-Puisque nous allons parler ici de la librarie `numpy`, importons là. Et donnons lui, par convention, son petit-nom `np` qui est son petit-nom standard pour `numpy`: c'est sous ce nom que l'utiliseront la plupart des codes existants.
+Puisque nous allons parler ici de la librarie `numpy`, importons là. Et donnons lui, par convention, son petit-nom `np` qui est le petit-nom standard pour `numpy`: c'est sous ce nom que l'utiliseront la plupart des codes existants, donc utilisez-le aussi !
 
 ```python
 import numpy as np
 ```
 
-Maintenant tout ce qui est défini dans `numpy` sera accessible par `np.` - par exemple le type `int64`.
+Maintenant tout ce qui est défini dans `numpy` sera accessible par `np.` - par exemple le type `int64` est `np.int64`.
 
-<!-- #region tags=["level_intermediate"] -->
-Et ne jamais jamais jamais jamais jamais jamais jamais jamais jamais faire ceci :
 ```python
-from numpy import *
+np.int64
 ```
-
-Pourquoi ? parce que si vous faites cela, tout ce qui est défini dans `numpy` devient accessible sans préciser `np.` ce qui est le meilleur moyen d'écrire un code:
-   1. super difficile à maintenir : puisque vous ne saurez plus dans quelques temps (disons demain matin) d'où proviennent les fonctions que vous utilisez, sachant qu'un code en vraie grandeur va importer des tas de libraries (mais d'où donc vient la fonction `machin_chose` que j'utilise là ?)
-   1. comportant des bugs : puisque des fonctions homononymes pouvant exister dans plusieurs libraries, la dernière librarie importée imposera sa version de la fonction...   
-<!-- #endregion -->
 
 Maintenant nous allons créer un tableau et regarder les informations qu'il contient.
 
@@ -195,16 +240,30 @@ Ce type est une structure de donnée, qui va comporter toutes les fonctions nous
 
 ### création de notre premier `np.ndarray`
 
+<!-- #region tags=["level_basic"] -->
+Pour construire un tableau, de quelles informations peut-t-on avoir besoin ?
+<!-- #endregion -->
 
-Pour construire un tableau on va avoir besoin naturellement de plusieurs informations:
-   - déjà sa forme, disons par exemple que le tableau est une matrice 4 x 5
-   - ensuite le type des éléments, disons que cette matrice contient des entiers
-   - ensuite des valeurs, disons que cette matrice est celle que nous avons vu en début du notebook
+Oui de sa forme, disons par exemple que le tableau est une matrice 4 x 5.
+
+Oui du type des éléments. Oui aussi `nunpy` va pouvoir l'inférer i.e. le *deviner* à partir des valeurs initiales. Disons que cette matrice contient des entiers.
+
+Oui des valeurs, disons que cette matrice est celle que nous avons vu en début du notebook et qui s'appelle `matrice`
 
 
-Pour construire un tableau on n'utilise pas directement la fonction de bas niveau (le constructeur) `numpy.ndarray`. D'autres fonctions sont définies pour cela, comme `numpy.array`, `numpy.zeros` et `numpy.empty`.
+La voila:
 
-La première fonction va initialiser ses éléments à partir de tout objet décrivant un tableau, par exemple la liste de listes décrivant la matrice 4 x 5 que nous avons vue auparavant. Comment savons nous tout cela ? Grâce au help sur `numpy.ndarray` ! 
+```python
+matrice
+```
+
+Pour construire un tableau on n'utilise pas directement la fonction de bas niveau (le constructeur) `numpy.ndarray`.
+
+D'autres fonctions sont définies pour cela, comme `numpy.array`, `numpy.zeros` et `numpy.empty`.
+
+Par exemple, la première fonction va initialiser ses éléments à partir de tout objet décrivant un tableau, par exemple la liste de listes décrivant la matrice 4 x 5 ci-dessus.
+
+Comment savons nous tout cela ? Grâce au help sur `numpy.ndarray` ! 
 
 ```python
 # pour avoir de l'aide dans un notebook,
@@ -215,7 +274,10 @@ np.array?
 # cliquez sur la croix en haut à droite pour effacer le pop-up
 ```
 
-Disons que cette fonction peut être vue comme la manière de convertir un tableau Python en une structure de donnée de type `numpy.ndarray`.
+Dès que vous avez un doute sur quelque chose, utilisez le help !
+
+
+Disons que la fonction `numpy.array` peut être vue comme la manière de convertir "quelque chose qui en Python décrit un tableau" en une structure de donnée de type `numpy.ndarray`.
 
 ```python
 mat = np.array(matrice)
@@ -227,19 +289,34 @@ et voilà à quoi ressemble le résultat
 mat
 ```
 
-Il est super ! Et nous n'avons même pas eu à indiquer ni la forme du tableau, `numpy` l'a déduite de la forme de la liste de listes passée en argument) ni le type des éléments, `numpy` l'a déterminé à partir des valeurs initiales.
+Voila `mat`. Elle est super ! Et nous n'avons même pas eu à indiquer ni la forme du tableau, `numpy` l'a déduite de la forme de la liste de listes passée en argument (heureusement) ni le type des éléments, `numpy` l'a déterminé à partir des valeurs initiales (ouf).
 
-
+<!-- #region tags=["level_basic"] -->
 Maintenant à vous de jouer. Créer la matrice $\begin{pmatrix} 5.2 & 9 & 2 \\ 6 & 8 & 1 \\ 0 & 3 & -7 \\ -5 & -8 & 7 \end{pmatrix}$. Appelez la `ma_mat`
+<!-- #endregion -->
+
+```python
+# votre code ici (correction ci-dessous)
+```
+
+```python
+ma_mat = np.array([[5.2, 9, 2], [6, 8, 1], [0, 3, -7], [-5, -8, 7]])
+ma_mat
+```
+
+<!-- #region tags=["level_basic"] -->
+Essayer de créer un tableau unidimensionnel que vous appelez `vec`. Mettez lui les entiers pairs de 0 à 12 compris. 
+<!-- #endregion -->
 
 ```python
 # votre code ici
 ```
 
-On peut bien sûr aussi créer un tableau unidimensionnel.
+Oui, on peut bien sûr aussi créer un tableau de dimension 1.
 
 ```python
-vec = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+vec = np.array([i for i in range(13) if i%2==0])
+vec
 ```
 
 ### le type des éléments d'un tableau `numpy.ndarray`
@@ -251,24 +328,51 @@ Alors notre belle matrice `mat` est dans la variable Python `mat` de type `numpy
 mat.dtype
 ```
 
+Ok des entiers codés sur 64 bits (on y reviendra).
+
+<!-- #region tags=["level_basic"] -->
 Maintenant à vous de jouer. Regardez le type des éléments de votre matrice `ma_mat`.
+<!-- #endregion -->
 
 ```python
 # votre code ici
 ```
 
-Bon dans les deux cas `numpy` a vu large ! Il a choisi d'encoder pour `mat` les entiers chacun sur 64 bits et leur permettre d'être négatifs. Et cela pour stocker des nombres tous positifs entre 1 et 20.
+Bon dans les deux cas `numpy` a vu large ! Il a choisi d'encoder ses entiers sur 64 bits et leur permettre d'être négatifs. Et cela pour stocker des nombres tous positifs entre 1 et 20...
 
-Bon alors au cas où, un petit rappel: le plus petit élément de mémoire est le bit (où vous ne pouvez mettre que deux valeurs 1 et 0), la mémoire est exprimée en nombre de bits (vous savez la plus petite mémoire qui ne peut stocker que les deux valeurs 0 et 1) ou en multiples d'octets (un octet ou bytes en anglais c'est 8 bits).
+64 bits ? ca ne vous dit plus grand chose ? au cas où, un petit rappel
+   - le plus petit élément de la mémoire est le bit qui ne prend que deux valeurs 0 et 1
+   - le regroupement de 8 bits forme un `octet` (ou `byte` en anglais)
+   - la quantité de mémoire peut s'exprimer en nombres d'`octets`
 
+<!-- #region tags=["level_basic"] -->
+Combien notre matrice `mat` occupe-t-elle d'octets en mémoire ? 
+<!-- #endregion -->
 
-Si nous comptons bien notre tableau occupe en mémoire 4\*5\*8 soit 160 octets. 
-Si nous sommes sûrs que nos entiers seront toujours positifs et prendront toujours leurs valeurs entre 0 et 255 compris (vous nous voyez venir ?), de combien d'octets aurons-nous besoin ?
+Il y a 4 x 5 éléments, chacun sur 64 bits, donc sur 8 octets. On a 4x5x8=160 octets.
 
-et bien oui il suffira d'avoir des entiers non signés sur 8 bits ! puisque les valeurs iront de `00000000` soit 0 à `11111111` soit 255 ($2^8-1$). Alors ce type s'écrit `numpy.uint8` (*u* pour *u*nsigned).
+<!-- #region tags=["level_advanced"] -->
+Si nous sommes sûrs que nos entiers seront toujours positifs ou nuls et toujours strictements inférieurs à 256 (vous nous voyez venir ?) de combien d'octets aurons-nous besoin ? (la couleur est saumon pas-très-frais: c'est donc une question avancée)
+<!-- #endregion -->
 
+<!-- #region tags=["level_advanced"] -->
+Oui il suffira d'avoir des entiers non signés sur 8 bits ! (non signés afin de récupérer le bit qui sert normalement à indiquer le signe pour stocker un bit de la valeur).
 
-Alors indiquons donc à `numpy.array` que nous voulons ce type très précis pour nos éléments. Nous faisons cela, grâce au paramètre `dtype` de la fonction `numpy.array`
+Les valeurs iront de `00000000` soit 0 à `11111111` soit 255 ($2^8-1$).
+
+Ce type s'appelle `numpy.uint8` (*u* pour *u*nsigned).
+<!-- #endregion -->
+
+<!-- #region tags=["level_advanced"] -->
+**avec n bits**
+   - on représente $2^n$ valeurs entières
+      - soit des entiers signés $\in [ -2^{n-1}$, $2^{n-1}-1]$
+      - soit des entiers non signés $\in [0, 2^n-1]$
+<!-- #endregion -->
+
+Alors indiquons donc à `numpy.array`, à la construction du tableau, que nous voulons ce type précis pour nos éléments.
+
+Nous faisons cela, grâce au paramètre `dtype` de la fonction `numpy.array`
 
 ```python
 mat8 = np.array(matrice, dtype=np.uint8) # vous pouvez aussi dire dtype='uint8' mais c'est moins joli 
@@ -278,13 +382,11 @@ mat8 = np.array(matrice, dtype=np.uint8) # vous pouvez aussi dire dtype='uint8' 
 mat8.dtype
 ```
 
-Combien notre tableau occupe-t-il en mémoire maintenant ?
+Combien notre tableau occupe-t-il en mémoire maintenant ... alors oui on peut le calculer mais nous rappelons la première règle de la programmation *être le plus paresseux possible* donc ne jamais calculer quelque chose qui est déjà connu !
 
-Alors oui on peut le calculer ... mais en informatique, nous rappelons la première règle de la programmation *être le plus paresseux possible* donc ne pas calculer quelque chose qui existe déjà !
+Nous allons donc demander directement à `mat` de nous indiquer sa taille en octets (1 octet = 8 bits) parce que i) on est sûr qu'il la connait parfaitement et ii) il ne fera pas d'erreur en nous l'indiquant alors que nous pourrions faire des erreurs en la calculant (oui en fin de journée un peu fatigué et hop on oublie de multiplier par le nombre de lignes ... et après on a un bug).
 
-Nous allons donc demander directement à `mat` de nous dire sa taille en octets (1 octet = 8 bits) parce que i) on est sûr qu'il la connait parfaitement et ii) il ne fera pas d'erreur en nous la donnant (comme nous pourrions faire en la calculant).
-
-On utilise pour cela le *champ* de l'objet `mat` (ce n'est pas une fonction, juste un champ à consulter) `numpy.ndarray.nbytes` (bytes=octets)
+On utilise pour cela un attribut (ou encore *champ*) de l'objet `mat`. Ce n'est pas une fonction, juste un champ à consulter qui s'appelle `numpy.ndarray.nbytes` (bytes==octets)
 
 ```python
 mat8.nbytes
@@ -292,14 +394,15 @@ mat8.nbytes
 
 Oui 20 octets 1 par élément !
 
-
-Maintenant à vous de jouer: Essayer donc de re-construire votre matrice `ma_mat8` en lui imposant le type `uint8` pour ses éléments. Affichez-là.
+<!-- #region tags=["level_basic"] -->
+Maintenant à vous de jouer: Re-construisez votre matrice `ma_mat8` en lui imposant le type `uint8` pour ses éléments. Affichez-là.
+<!-- #endregion -->
 
 ```python
 # votre code ici
 ```
 
-Vous voyez un problème ? Oui bien sûr ! Ben c'est normal: vous avez demandé que vos éléments soient entre 0 et 255, il vous obéit au doigt et à l'oeil et convertit vos valeurs ! Nous reviendrons là dessus plus tard, mais `numpy` fait en sorte que tous les éléments du tableau aient la même taille quitte à modifier la valeur des éléments pour obéir à cette règle.
+Vous voyez un problème ? Oui bien sûr ! Ben c'est normal: vous avez demandé que vos éléments soient entre 0 et 255, il vous obéit au doigt et à l'oeil et convertit vos valeurs ! Nous reviendrons là dessus plus tard, mais `numpy` fait en sorte que tous les éléments du tableau tiennent dans la taille que vous avez demandé et tous dans la même taille (non pas un int et un float) quitte à modifier la valeur des éléments pour obéir à cette règle.
 
 
 A partir de l'objet `numpy.ndarray` on peut accéder à de nombreuses autres informations sur le tableau.
@@ -320,13 +423,15 @@ Si on veut connaître la taille qu'occupe en mémoire (en octets) chaque éléme
 mat.itemsize
 ```
 
-Si on veut connaître le nombre d'octets total qu'occupe notre tableau en mémoire (non on ne le calcule pas !), on utilise `nbytes`. C'est redondant ? Peut être mais alors autant utiliser ces accesseurs.
+Si on veut connaître le nombre d'octets total qu'occupe notre tableau en mémoire (on l'a déjà vu), on utilise `nbytes`.
 
 ```python
 mat.nbytes
 ```
 
-Maintenant à vous de jouer: consultez la taille, la taille des éléments et le nombre total d'octets de votre matrice `ma_mat` 
+<!-- #region tags=["level_basic"] -->
+Maintenant dégourdissez vous les doigts, consultez (i) la taille, (i) la taille des éléments, (iii) le nombre total d'octets et (iv) le type des éléments de votre matrice `ma_mat` 
+<!-- #endregion -->
 
 ```python
 # votre code ici
@@ -344,10 +449,12 @@ mat.shape
 Et enfin, si on veut connaître la dimension du tableau (non on ne la calcule pas avec la longueur de la liste indiquant la forme) ! On utilise `dim`
 
 ```python
-mat.ndim
+mat.ndim == len(mat.shape)
 ```
 
-Maintenant à vous de jouer: Demandez la forme et la dimension de votre `ma_mat`
+<!-- #region tags=["level_basic"] -->
+Maintenant à vous de jouer: Demandez la forme et la dimension de votre `ma_mat`. Oui je sais c'est juste au dessus mais c'est pour que vous utilisiez au moins une fois ces deux fonctions.
+<!-- #endregion -->
 
 ```python
 # votre code ici
@@ -356,16 +463,16 @@ Maintenant à vous de jouer: Demandez la forme et la dimension de votre `ma_mat`
 ### on récapitule les méthodes des ndarrays
 
 
-Un petit tableau pour récapituler les méthodes des `numpy.ndarray`
+Un petit tableau pour récapituler les méthodes des `numpy.ndarray` (on les a déjà toutes vues, vous pouvez passer très rapidement).
 
 | les méthodes             | ce qu'elles font                                 |
 |--------------------------|--------------------------------------------------|
+| `numpy.ndarray.shape`    | la forme du tableau (tuple)                      |
+| `numpy.ndarray.ndim`     | le nombre de dimensions du tableau               |
+| `numpy.ndarray.dtype`    | le type des éléments                             |
 | `numpy.ndarray.size`     | le nombre d'éléments du tableau                  |
 | `numpy.ndarray.itemsize` | la taille en octet d'un élément                  |
 | `numpy.ndarray.nbytes`   | la taille totale du tableau sous-jacent en octet |
-| `numpy.ndarray.shape`    | la forme du tableau (tuple)                            |
-| `numpy.ndarray.ndim`     | le nombre de dimensions du tableau               |
-| `numpy.ndarray.dtype`    | le type des éléments                             |
 
 
 ### création d'un tableau de zéros
@@ -375,48 +482,65 @@ Il existe une deuxième fonction pour créer des tableaux dont les éléments so
 
 ```python
 zorro = np.zeros(shape=(4, 5))
-```
-
-```python
 zorro
 ```
 
-Quel est le type choisit par défaut par `numpy` ?
+<!-- #region tags=["level_basic"] -->
+Dans votre idée, vu l'affichage de *zorro*, quel est le type choisi ici, par défaut, par `numpy` ?
+<!-- #endregion -->
 
 ```python
 # votre code ici
 ```
 
-Encore à vous de jouer ! Demandez à la variable `zorro`: le nombre de ses éléments, sa forme, sa dimension, sa taille totale ... 
+<!-- #region tags=["level_basic"] -->
+Encore à vous de jouer ! Créer une matrice de 6 lignes et 2 colonnes de zéros entiers de simples `int` et afficher le type choisi.
+<!-- #endregion -->
 
+```python
+# votre code ici
+```
+
+La correction ci-dessous.
+
+```python
+np.zeros(shape=(6, 2), dtype=int).dtype
+```
 
 ### création d'un tableau de *rien*
 
+<!-- #region tags=["level_basic"] -->
+Il existe une fonction qui permet de ne pas initialiser les éléments du tableau. Alors bien sûr on se pose des tas des questions, au moins deux: A quoi ca sert ? Dans quel cas est-il intéressant de l'utiliser ? Qu'en pensez-vous ?
+<!-- #endregion -->
 
-La dernière fonction ne perd pas de temps à initialiser les éléments.
+A quoi ca sert ? À ne pas perdre de temps à initialiser ! Quand votre tableau est très très très grand, faire mettre inutilement une valeur dans chaque case par `numpy` est une très très très grande perte de temps. Bien sûr, en traitement de données, surtout quand on a beaucoup de données, on essaie de ne pas faire de choses qui ne servent à rien.
 
-Pourquoi ? Et bien par exemple vous savez que vous allez initialiser ces éléments par la suite. Alors quand votre tableau est très très très grand, mettre inutilement une valeur dans chaque case est une (très) grande perte de temps. Et oui dans le cas du traitement de données, surtout quand on a beaucoup de données, on veut optimiser le temps d'exećution de nos programmes. Vous allez revoir souvent cela par la suite.
+Dans quels cas ? Et bien par exemple vous savez que vous allez initialiser ces éléments par la suite.
 
 
-Allons-y. Faisons un tableau non-initialisé de taille 3 x 6 et demandons lui comme type des éléments des entiers 64 8 bits signés (par exemple).
+Allons-y. Faisons un tableau non-initialisé de taille 3 x 6 et demandons lui comme type des éléments des entiers 8 bits signés (par exemple).
 
 ```python
 rien = np.empty(shape=(3, 6), dtype=np.int8)
 ```
 
-C'est le moment où vous vous dites, à juste titre, que pourtant ces cases vont exister en mémoire. Oui bien sûr. Donc vous allez pouvoir regarder ce qu'elles contiennent ! Oui tout à fait ! Mais alors que pensez-vous trouver comme valeur dans une case non initialisée ? Ben non pas 0 (sauf si c'est la valeur qui se trouvait dans cette case par hasard). Affichez votre tableau `rien`
+<!-- #region tags=["level_basic"] -->
+C'est le moment où vous vous dites, à juste titre, que pourtant ces cases vont exister en mémoire. Oui bien sûr. Donc vous allez pouvoir regarder ce qu'elles contiennent ! Oui tout à fait ! Mais alors que pensez-vous trouver comme valeur dans une case non initialisée ?
+<!-- #endregion -->
+
+Ben non pas 0, sauf si ... sauf si c'est la valeur qui se trouvait dans la mémoire avant que cette case n'y soit crée, pur hasard.
+
+Affichez votre tableau `rien`
 
 ```python
 rien
 ```
 
-Et oui vous aurez n'importe quoi comme valeurs, c'est ce qui était déjà en mémoire avant la création du tableau (puisque toute case mémoire - bit - contient soit un 0 soit un 1) , simplement le contenu a été mis dans le type des éléments de votre tableau.
+<!-- #region tags=["level_basic"] -->
+Et oui vous voyez que vous avez n'importe quoi comme valeurs: `numpy` laisse simplement la mémoire comme elle était avant la création du tableau. Puisque toute case mémoire contient soit un 0 soit un 1, le contenu des cases est mis dans le type des éléments de votre tableau, avec 8 bits je vais avoir des nombres compris entre -128 à 127.
+<!-- #endregion -->
 
-
-Maintenant que vous avez un appercu des `numpy.ndarray` parlons de la manière dont la mémoire est stockée dans votre ordi.
-
-
-### on récapitule les fonctions pour créer un ndarray
+### on récapitule les fonctions (que nous avons vues) pour créer un ndarray
 
 
 | les méthodes | ce qu'elles font |
@@ -425,11 +549,6 @@ Maintenant que vous avez un appercu des `numpy.ndarray` parlons de la manière d
 | `numpy.empty` | renvoie un ndarray vide i.e. sans initialiser ses éléments |
 | `numpy.zeros` | renvoie un ndarray rempli de *0.* (float) |
 | `numpy.ones` | renvoie un ndarray rempli de *1.* (float) |
-| `numpy.arange` | renvoie un ndarray avec des valeurs régulièrement espacées (step) |
-| `numpy.linspace` | renvoie un ndarray avec des valeurs régulièrement espacées (nb points) |
-||
-| `numpy.random` | renvoie un ndarray initialisé de manière aléatoire |
-| `numpy.logspace` | renvoyer des nombres espacés uniformément sur une échelle logarithmique |
 
 
 ## quiz
@@ -451,6 +570,19 @@ Que donne la méthode `size` d'un `numpy.ndarray` ?
 
 ## quelques petits exercices
 
+
+### on s'échauffe
+
+
+Créez une matrice de 1 de taille 2 x 3 x 4 et affichez là. Qu'est-ce-que vous obtenez ?
+
+```python
+# votre code ici
+```
+
+```python
+np.ones(shape=(2, 3, 4))
+```
 
 ### comparaison des temps de constructions de tableaux initialisés et non
 
@@ -500,56 +632,3 @@ Pour la version Python créez la liste Python avant de calculer le temps de calc
 ```
 
 Qu'en concluez-vous ?
-
-
-### génération aléatoire avec affichage couleur
-
-
-La fonction `numpy.random.randint(min, max, size, dtype)` construit un tableau de forme `size` (et non `shape` mais ca s'utilise de la même manière) rempli avec des nombres aléatoires entre min et max compris de type `dtype`. Mais regardez plutôt le help ! ca sera mieux expliqué !
-
-```python
-np.random.randint?
-```
-
-Construisez une toute petite image RBG de taille 10 x 10 que vous initialisez avec des entiers générés aléatoirement entre 0 et 255 (indiquer le plus petit type entier qui contienne ces nombres). 
-
-Avec la fonction `plt.imshow`  afficher l'image !
-
-Que c'est joli !
-
-```python hide_input=true
-# hidden code
-import matplotlib.pyplot as plt
-import numpy as np
-random_image = np.random.randint(0, 255, (10, 10))
-plt.imshow(random_image);
-```
-
-```python
-# à vous de jouer
-```
-
-<!-- #region tags=["level_intermediate"] -->
-## informations annexes
-<!-- #endregion -->
-
-<!-- #region tags=["level_intermediate"] -->
-### les entiers sur 8, 16, 32, ... n bits
-<!-- #endregion -->
-
-<!-- #region tags=["level_intermediate"] -->
-**avec *8* bits**
-   - on représente $2^{8}$ valeurs entières
-      - si les entiers ne sont pas signés on va de $0$ à $255$
-      - si les entiers sont signés on va de $-128$ à $127$
-      
-      
-**avec n bits**
-   - on représente $2^n$ valeurs entières
-      - entiers signés $\in [ -2^{n-1}$, $2^{n-1}-1]$
-      - entiers non signés $\in [0, 2^n-1]$
-<!-- #endregion -->
-
-```python
-
-```
