@@ -10,13 +10,13 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+notebookname: fonctions
 rise:
   autolaunch: true
   slideNumber: c/t
   start_slideshow_at: selected
   theme: sky
   transition: cube
-notebookname: fonctions
 ---
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -37,7 +37,7 @@ notebookname: fonctions
 
 on définit une fonction avec le mot-clé `def`
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # remarquez: 
@@ -54,20 +54,20 @@ def P(x):
     return x**2 + 3*x + 2
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # un appel
 P(10)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 P(100)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # le docstring est rangé
@@ -142,7 +142,7 @@ else:
     ...
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 note = 14
@@ -156,8 +156,8 @@ else:
     appreciation = 'recalé'
 ```
 
-```{code-cell}
-appreciation
+```{code-cell} ipython3
+ appreciation
 ```
 
 +++ {"cell_style": "split", "slideshow": {"slide_type": "slide"}}
@@ -172,7 +172,7 @@ while exp:
     ...
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 n = 132
@@ -183,7 +183,7 @@ while n >= 1:
     n = n // 2
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 log
@@ -203,7 +203,7 @@ avec `return` on indique ce qui est le résultat
 l'exécution de la fonction **s'arrête** à ce moment-là  
 si pas de `return`, le retour est `None`
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: split
 slideshow:
@@ -215,7 +215,7 @@ def broken_abs(n):
         return -n
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # avec un négatif 
@@ -223,7 +223,7 @@ def broken_abs(n):
 broken_abs(-10)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # ici la fonction retourne None
@@ -231,7 +231,7 @@ broken_abs(-10)
 broken_abs(10)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 def fixed_abs(n):
@@ -240,7 +240,7 @@ def fixed_abs(n):
     return n
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # on ignore la dernière ligne
@@ -248,7 +248,7 @@ def fixed_abs(n):
 fixed_abs(-10)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 fixed_abs(10)
@@ -264,7 +264,7 @@ fixed_abs(10)
 la **portée** de ces variables est **limitée à la fonction**  
 ici les deux variables `var` sont des entités **distinctes**
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 var = "globale"
@@ -285,19 +285,19 @@ def polynom(n):
     return resultat
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 polynom(1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 polynom(10)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 var
@@ -334,7 +334,7 @@ qui conserve la trace des appels imbriqués
 illustrons cela avec https://pythontutor.com/  
 un site qui est très utile pour visualiser l'exécution de code simple
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 # une magie pour créer des cellules sous pythontutor.com
@@ -342,7 +342,7 @@ un site qui est très utile pour visualiser l'exécution de code simple
 %load_ext ipythontutor
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: center
 slideshow:
@@ -372,7 +372,7 @@ cela a pour effet d'interrompre la fonction courante
 et de **dépiler** les appels jusqu'à  
 trouver un `except` qui **attrape l'exception**
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: center
 slideshow:
@@ -388,7 +388,7 @@ def time_bomb(n):
         raise OverflowError("BOOM")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: split
 slideshow:
@@ -397,7 +397,7 @@ tags: [raises-exception]
 ---
 # si personne n'attrape un raise
 # le contrôle retourne à l'OS
-
+# d'une manière très abrupte
 def driver():
     time_bomb(1)
     print("will never pass here")
@@ -409,7 +409,7 @@ driver()
 
 ![uncaught](media/except-stack-uncaught.png)
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: split
 slideshow:
@@ -440,7 +440,7 @@ driver_try()
 * la clause `raise` doit fournir un objet idoine  
   ne peut pas par exemple faire `raise 1`
 
-* doit être une instance de `BaseException`  
+* doit être une instance d'un objet de type `BaseException`  
   (ou de l'une de ses sous-classes)
 
 * la clause `except` permet de n'attraper  
@@ -453,20 +453,20 @@ driver_try()
 les mécanismes de définition et de passage de paramètres sont assez complexes (cf cours avancé)  
 pour cette introduction disons simplement qu'on peut définir des paramètres optionnels :
 
-```{code-cell}
+```{code-cell} ipython3
 # une fonction qui accepte un ou deux arguments
 def foo(obligatoire, optionnel=10):
     print(f"obligatoire={obligatoire} optionnel={optionnel}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # avec deux arguments
 foo(100, 20)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # ou avec un seul
@@ -483,8 +483,8 @@ On verra un peu plus loin comment manipuler un nombre variable d'arguments; mais
 
 +++ {"cell_style": "center"}
 
-https://nbhosting.inria.fr/auditor/notebook/python3-s2:exos/w4/w4-s3-x1-pgcd  
-https://nbhosting.inria.fr/auditor/notebook/python3-s2:exos/w4/w4-s3-x4-power
+https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w4/w4-s3-x1-pgcd  
+https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w4/w4-s3-x4-power
 
 +++ {"cell_style": "split", "slideshow": {"slide_type": ""}}
 

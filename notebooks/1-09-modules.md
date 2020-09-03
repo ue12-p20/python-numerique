@@ -10,13 +10,13 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+notebookname: modules et imports
 rise:
   autolaunch: true
   slideNumber: c/t
   start_slideshow_at: selected
   theme: sky
   transition: cube
-notebookname: modules et imports
 ---
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -27,7 +27,7 @@ notebookname: modules et imports
 <span><img src="media/inria-25-alpha.png" /></span>
 </div>
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 slideshow:
   slide_type: skip
@@ -56,14 +56,14 @@ que l'on peut charger dans son appli grâce au mot-clé `import`
 
 ## `import`
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # import permet de charger un code
 import math
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # cela définit une variable, ici 'math'
@@ -72,13 +72,13 @@ import math
 math
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 type(math)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # cet objet possède des attributs
@@ -92,7 +92,7 @@ math.pi
 
 ## autres formes
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # avec cette forme on ne définit pas la variable math
@@ -102,10 +102,10 @@ from math import pi
 pi
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
-# ici cos n'est pas défini
+# ici cos n'est pas défini, math.cos l'est
 
 math.cos(pi)
 ```
@@ -121,7 +121,7 @@ qui ne fait pas partie de la bibliothèque standard :
 * installation à faire avec l'outil `pip`  
   (se lance depuis le terminal)
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 slideshow:
   slide_type: slide
@@ -129,15 +129,15 @@ slideshow:
 # cette astuce avec le ! me permet 
 # d'appeler une commande normalement destinée au terminal
 # mais depuis Python
-
+  
 !pip search nbautoeval
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 !pip install nbautoeval
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 import nbautoeval
 ```
 
@@ -147,14 +147,14 @@ import nbautoeval
 
 +++
 
-un module est un objet Python qui correspond à un fichier (ou rép.) source  
+un module est un objet Python qui correspond à un fichier (ou répertoire) source  
 depuis cet objet vous pouvez accéder à des **attributs**  
 avec la notation `module.attribut`  
   (qui est la même notion que, par ex., `str.capitalize`)  
 le module a autant d'attributs que d'objets globaux dans le source  
 dans le cas d'un répertoire les attributs référencent d'autres modules
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: split
 slideshow:
@@ -164,16 +164,16 @@ slideshow:
 !cat mod.py
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 import mod
 
-# tous les noms dans le module
+# tous les noms dans le module (y compris les noms "internes")
 dir(mod)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # une fois le bruit éliminé
@@ -253,7 +253,7 @@ permet de faire des calculs sur les fichiers
 * calculs sur les chemins et noms de fichier  
 * accéder aux métadata (taille, date, ...)
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: center
 slideshow:
@@ -263,9 +263,11 @@ slideshow:
 # on verra la théorie très bientôt
 from pathlib import Path
 
+# on recherche dans le répertoire courant '.'
+# les fichiers/répertoires d'extension '.ipynb' 
 local_files = Path('.').glob('*.ipynb')
 
-# observons le premier fichier trouvé
+# observons les fichiers trouvés
 for file in local_files:
     print('name', file.name)
     print('stem', file.stem)
@@ -283,9 +285,10 @@ for file in local_files:
 
 une fois que vous avez le nom du module,  
 il vous suffit de consulter [la doc complète](https://docs.python.org/3/library/random.html)  
-pour cela taper dans google `python random module`
+pour cela taper dans google `python random module`  
+(nous reviendrons sur ce module lors de l'étude des librairies numériques)
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 import random
@@ -294,7 +297,7 @@ import random
 random.random()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # un entier entre deux bornes
@@ -312,7 +315,7 @@ télécharger du contenu depuis une URL
 accéder à l'entête http   
 plus flexible que l'équivalent dans la librairie standard `urllib2`
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 slideshow:
   slide_type: slide
@@ -327,7 +330,7 @@ request = requests.get(url)
 print(f"code de retour HTTP: {request.status_code}") 
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 raw_content = request.text
@@ -335,11 +338,12 @@ raw_content = request.text
 type(raw_content)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # le début de cette chaine
 raw_content[:120]
+# son contenu est en format json (voir slide suivante)
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -351,34 +355,34 @@ JSON est un format texte (compatible réseau donc Internet)
 mais qui conserve un minimum de structure :
 permet de transmettre listes et dictionnaires
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # pour décoder le JSON qu'on a lu
-
+# et qui est dans la str raw_content
 import json
 
 decoded = json.loads(raw_content)
-type(decoded)
+type(decoded) # la chaîne contenait un dict Pyhon
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
-# cette fois on a un peu 
+# cette fois on a un peu
 # de structure
 for k, v in decoded.items():
-    print(f"{k}\n\t{v[:10]}...")
+    print(f"{k}\n\t{v[:20]}...")
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ## gestion de fichiers
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
-# pour écrire dans un fichier 
+# pour écrire dans un fichier
 with open("tutu.txt", "w") as writer:
     for i in range(4):
         print(f"i={i}", file=writer)
@@ -386,17 +390,18 @@ with open("tutu.txt", "w") as writer:
 
 +++ {"cell_style": "center"}
 
-`with` ouvre un fichier `tutu.txt`  
+`with open...` ouvre le fichier `tutu.txt` en écriture `"w"`  
   et crée la variable `writer` de type `File`  
-visible dans le `with`  
-`print()` écrit dans ce fichier  
-`with` ferme le fichier à la sortie
+`writer` n'est visible que dans le `with`  
+`print(..., file=writer)` écrit dans ce fichier  
+`with` ferme le fichier à la sortie  
+(nous allons maintenant lire ce fichier)
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ## fichiers - suite
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # à l'envers, on relit le fichier
@@ -409,7 +414,9 @@ with open('tutu.txt') as reader:
 
 sans préciser le mode d'ouverture  
 `open` ouvre le fichier en lecture  
-l'objet `File` est **itérable**  
+l'objet `reader` est **itérable**  
+
+
 la variable `line` contient une fin de ligne  
 pas besoin que `print` en rajoute une
 
@@ -418,19 +425,16 @@ pas besoin que `print` en rajoute une
 ## exercice
 
 écrire une fonction qui retourne :
-
 * une chaine de caractères 
 * qui correspond à l'encodage en JSON
 * d'une liste contenant - au hasard - entre 2 et 5 valeurs numériques
 * elles-mêmes tirées au hasard dans l'intervalle $[2 .. 5]$
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
-# n'oubliez pas d'importer les modules 
+ # n'oubliez pas d'importer les modules 
 # dont vous avez besoin
-
-
 def random_json():
     """
     returns a JSON-encoded of a list
@@ -440,7 +444,7 @@ def random_json():
     pass
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 from check_random_json import check_random_json
 
 check_random_json(random_json)

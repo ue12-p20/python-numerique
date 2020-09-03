@@ -10,13 +10,13 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+notebookname: classes et objets
 rise:
   autolaunch: true
   slideNumber: c/t
   start_slideshow_at: selected
   theme: sky
   transition: cube
-notebookname: classes et objets
 ---
 
 <div class="licence">
@@ -52,7 +52,7 @@ e.g. un ensemble de personnes, de villes, de compagnies aériennes
 en termes de modèle de données, ce sont des 'enregistrements'  
 c'est-à-dire en fait des données composites
 
-```{code-cell}
+```{code-cell} ipython3
 # une façon naive d'implémenter une donnée composite 
 # est d'utiliser un dictionnaire 
 
@@ -73,7 +73,7 @@ il est plus flexible de se définir **un nouveau type**
 qui permette de créer des objets qui ont les propriétés en question  
 que dans ce contexte on appelle **des attributs**
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # voici comment définir 
@@ -86,7 +86,7 @@ class User:
         self.age = age
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # une fois qu'on a défini une classe, 
@@ -106,12 +106,17 @@ user1 = User("Lambert", 25)
 remarquez qu'ici 
 
 * on a défini la méthode spéciale `__init__` avec **3** paramètres  
-  `def __init__(self, name, age)`
+```
+def __init__(self, name, age)
+```
 
-* ce qui fait qu'on peut appeler la classe avec **2** paramètres  
-  `User("Lambert", 25)`
+* ce qui fait qu'on peut appeler (une fonction du nom de) la classe avec **2** paramètres  
+```
+User("Lambert", 25)`
+```
 
-* car le **premier paramètre** est l'objet en cours de création
+* car le **premier paramètre** est l'objet en cours de création !
+
 * et la phrase `self.name = name`  
   signifie que l'on attache le paramètre `name`  
   dans l'attribut `name` de l'objet en cours de création
@@ -120,19 +125,23 @@ remarquez qu'ici
 
 ## affichage
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # si on ne fait rien de spécial,
 # l'affichage est vraiment vilain
 user1
+# qui vous dit que user1 est un objet dans le module __main__
+# qu'il est de de type User
+# et où il est dans la mémoire de votre ordi
+# mais ce n'est sûrement pas ce que vous voulez voir !
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # pour améliorer cela:
-
+# vous définissez la représentation de vos objets de type User
 class User:
 
     def __init__(self, name, age):
@@ -145,7 +154,7 @@ class User:
         return f"{self.name}, {self.age} ans"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 user2 = User("Martin", 22)
 user2
 ```
@@ -160,7 +169,7 @@ comme on l'a évoqué dans la section "objets, types et méthodes"
 dans une classe on peut définir **des méthodes**  
 qui sont des fonctions qui s'appliquent sur un objet (de cette classe)
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # une implémentation très simple
@@ -182,7 +191,7 @@ class Stack:
         return " > ".join(self.frames)            
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # instance
@@ -195,13 +204,13 @@ stack.push('fact(1)')
 stack
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 stack.pop()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 stack
@@ -267,28 +276,28 @@ exemples, selon le type de `obj` :
 remarquez qu'on peut toujours écrire un test `if` (ou `while`)   
 même si le sujet du test n'est pas un booléen
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 if 0: 
     print('bingo')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 if 2: 
     print('bingo')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 if []:
     print('bingo')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 if [1]:
@@ -324,7 +333,7 @@ il est d'abord converti en booléen par `bool(obj)`
 pour redéfinir ce que cela veut dire sur une classe  
 on peut définir la méthode spéciale `__bool__`
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: split
 slideshow:
@@ -350,7 +359,7 @@ class Fool:
         return not bool(self.value)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # un test sur un objet 
@@ -362,7 +371,7 @@ if fool_true:
     print('bingo')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 if Fool([]):
@@ -400,13 +409,13 @@ Application: une micro-classe qui implémente les quaternions
 * le corps non commutatif engendré sur $\mathbb{R}$  
   par trois éléments $i, j, k$ tels que  
 
-  $i^2 = j^2 = k^2 = ijk = -1$
+  $$i^2 = j^2 = k^2 = ijk = -1$$
 
 * un quaternion s'écrit donc
 
   $q = a + bi + cj + dk$ avec $(a, b, c, d) \in \mathbb{R}^4$
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 slideshow:
   slide_type: slide
@@ -444,7 +453,7 @@ class Quaternion:
         return f"({a}, {b}, {c}, {d})"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: split
 slideshow:
@@ -455,7 +464,7 @@ q1 = Quaternion(1, 0, 0, 0)
 q_1 = Quaternion(-1, 0, 0, 0); q_1
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 i = Quaternion(0, 1, 0, 0)
@@ -464,37 +473,37 @@ k = Quaternion(0, 0, 0, 1)
 k
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 i * i
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 i*i == j*j == k*k == i*j*k == q_1
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 q = Quaternion(1, 2, 3, 4)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 q * q
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 q * i
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 i * q
@@ -510,7 +519,7 @@ limitations pour cette version rustique :
 * affichage 
 * ...
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 slideshow:
   slide_type: skip
