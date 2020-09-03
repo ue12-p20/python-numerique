@@ -31,8 +31,8 @@ def tracks(coursedir):
         ]),
         ('cours #4: dataviz & pandas' , 'outils pour la data science', 'dataviz',
          [ 
-           ('dataviz & pandas', 'notebooks/3-[0-8]*.md'),
-           ('quiz', 'notebooks/3-9*.md'),
+           ('dataviz & pandas', 'notebooks/[34]-[0-8]*.md'),
+           ('quiz', 'notebooks/[34]-9*.md'),
          ]),
 #        ('évaluation', 'évaluation', 'eval',
 #         [ ('évaluation', 'notebooks/4-[0-9]*.md'),
