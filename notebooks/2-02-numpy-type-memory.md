@@ -20,7 +20,7 @@ jupyter:
 </div>
 
 
-# numpy et la mémoire
+Vous avez découverts les tableaux `numpy.ndarray` dont nous vous redonnons quelques méthodes:
 
 
 | les méthodes             | ce qu'elles font                                 |
@@ -33,11 +33,16 @@ jupyter:
 | `np.ndarray.dtype`    | le type des éléments                             |
 
 
-Reprenons notre matrice du notebook précédent:
+Nous allons maintenant rapidement aborder le sujet de la mémoire sur laquelle les tableaux `numpy.ndarray` sont stockés.
 
 ```python
 import numpy as np
 ```
+
+# numpy et la mémoire
+
+
+Reprenons notre matrice du notebook précédent:
 
 ```python
 matrice = [
@@ -50,23 +55,23 @@ mat = np.array(matrice)
 mat
 ```
 
-Nous voyons que la matrice contient 20 éléments:
+Notre matrice contient 20 éléments:
 
 ```python
 mat.size
-```
-
-Que chaque élément est codé sur 8 octets (64 bits puisque ce sont des `int64`)
-
-```python
-mat.itemsize
 ```
 
 ```python
 mat.dtype
 ```
 
-Et que la mémoire qu'occupe la matrice en nombre d'octets est $20 \times 8$
+Chaque élément est codé sur un `numpy.int64` et occupe donc 8 octets:
+
+```python
+mat.itemsize
+```
+
+Donc la mémoire qu'occupe la matrice en nombre d'octets est $20 \times 8$:
 
 ```python
 mat.nbytes # byte = otet
@@ -78,40 +83,108 @@ Nous allons maitenant nous intéresser à la manière dont est représentée cet
 ## organisation de la mémoire des tableaux
 
 
-Si vous lisez le help (en faisant ```help(np.ndarray)```  ou directement  ```np.ndarray?``` dans un notebook), on vous dit que votre `np.ndarray`  est un tableau:
-   1. **homogène**
+Lisons le help (en faisant ```help(np.ndarray)```  ou directement  ```np.ndarray?``` dans un notebook), il vous dit que votre `np.ndarray` est un tableau:
    1. **multidimensionnel**
+   1. **homogène**
    1. d'éléments de **taille fixe**
    1. et que les tableaux doivent être construits en utilisant les méthodes `np.array`,`np.zeros` ou `np.empty`
 
 
-Que les tableaux soient **multidimensionnel**s ça ne nous étonne pas trop: ils sont fait pour cela.
-
-Mais ensuite vous avez là tous les ingrédients qui vont permettre à `numpy` d'être aussi rapide.
-
-Les tableaux sont **homogènes** (vous avez commencé à vous en rendre compte avec les tableaux que nous avons construits)  cela signifie que tous leurs éléments sont du même type de données, donc toutes les cases du tableau occupent la même taille en mémoire. Comme dans nos exemples les éléments avaient tous le même type: `np.int64`, `np.float64`, `np.uint8` ... 
+Bon déjà que les tableaux soient **multidimensionnel**s ça nous rassure: ils sont là pour cela !
 
 
-Tous les éléments sont de **taille fixe** c'est à dire que vous n'allez pas pouvoir modifier la taille d'éléments d'un tableau `numpy` existant.
+Qu'on les crée avec les méthodes `np.array`,`np.zeros` ou `np.empty`, on l'a vu.
+
+<!-- #region tags=["level_basic"] -->
+Mais que veut bien dire que les tableaux sont homogènes ? Une idée ? Dans les exemples que nous avons vus ?
+<!-- #endregion -->
+
+Vous avez commencé à vous en rendre compte avec les tableaux que nous avons construits. Ce qui est homogène c'est le type des éléments. Toutes les cases du tableau ayant le même type, elles occupent la même taille en mémoire.
+
+<!-- #region tags=["level_basic"] -->
+Et que veut-dire que tous les éléments sont de **taille fixe** ?
+<!-- #endregion -->
+
+<!-- #region tags=[] -->
+Ca veut dire qu'une fois le tableau créé, vous n'allez pas pouvoir modifier la taille de ses éléments. Si vous avez besoin de modifier la taille des éléments que contient un tableau, vous devez faire un nouveau tableau. On y revient bientôt.
+<!-- #endregion -->
+
+A quoi servent toutes ces restrictions ?
+
+Vous avez là les ingrédients qui permettent à `numpy` d'être très rapide dans sa mamipulation de tableaux !
+
+<!-- #region tags=["level_advanced"] -->
+### les secrets de la rapidité des tableaux `numpy`  (avancé)
+<!-- #endregion -->
+
+<!-- #region tags=["level_advanced"] -->
+Quels sont les secrets d'un code rapide sur des tableaux ? Des idées ? C'est un peu difficile parce qu'on doit mettre (un peu) les mains dans le cambouis (ici la mémoire) et mais vous pouvez proposer des idées !
+<!-- #endregion -->
+
+<!-- #region -->
+J'en vois déjà un:
+
+C'est la possibilité quand on est sur un élément d'un tableau de passer très rapidement à un autre élément du même tableau.
+
+Comment fait-on cela ?
+
+Et bien si toute la zone mémoire du tableau est composée d'un unique block mémoire continu c-à-d si les cases du tableaux sont contiguës en mémoire ... passer d'une case à une autre (d'un élément à un autre) se fait alors grâce à un simple décalage, appelé *offset*(\*) et les ordis font ca super super vite !
+
+Voici des cases mémoire qui forment un tableau (DESSIN moche).
+
+$\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}$
 
 
-Quel est le secret d'un code rapide sur des tableaux ? C'est un code qui passe très rapidement d'un élément du tableau à un autre élément du même tableau.
+Voici des cases mémoire un peu partout (DESSIN aussi moche).
 
-Comment fait-on cela ? On y arrive si toute la zone mémoire du tableau est crée comme un unique block mémoire. Les cases du tableaux sont contiguëe (continues) en mémoire ! Passer d'une case à une autre, i.e. d'un élément à un autre se fait alors grâce à un simple décalage (offset) et les ordis font ca super super vite !
 
-Beaucoup beaucoup plus rapidement que si les éléments du tableau étaient dissiminés un peu partout dans la mémoire, comme c'est lecas justement pour les listes Python.
+...$\fbox{}$.......$\fbox{}$..$\fbox{}$....$\fbox{}$...  
+$\fbox{}$....$\fbox{}$.....$\fbox{}$.....$\fbox{}$.....  
+......$\fbox{}$...$\fbox{}$.....$\fbox{}$......$\fbox{}$...  
+$\fbox{}$..........$\fbox{}$.......$\fbox{}$...$\fbox{}$....  
 
-<!-- #region tags=["level_intermediate"] -->
+L'ordi va se déplacer beaucoup plus rapidement pour passer d'un élément à un autre si les éléments sont continuës que si les éléments du tableau étaient dissiminés un peu partout dans la mémoire (comme c'est le cas dans certaine stuctures de données, par exemple les listes chaînées).
+
+(\*) Je plagie Wikipédia: *l'offset désigne une adresse de manière relative. C'est une valeur entière représentant le déplacement en mémoire nécessaire, par rapport à une adresse de référence, pour atteindre une autre adresse. Autrement dit, l'offset est la distance séparant deux emplacements mémoire.*
+<!-- #endregion -->
+
+Un second secret, c'est que `numpy` quand il arrive dans une case du tableau, il y trouve la valeur qu'il cherche (du moins dans nos exemples avec des nombres).
+
+<!-- #region tags=[] -->
 Quelques mots sur les listes Python pour ceux qui sont avancés:
 
-Nous dirons que les listes Python sont en fait codées sous la forme de vecteurs (un peu comme des tableaux sauf qu'ils peuvent changer de taille) mais que, comme les éléments sont de type hétérogène, la seule chose que la liste Python peut stocker dans une case du tableau c'est l'adresse de l'élément dans la mémoire. Ainsi pour y aller lire sa valeur, nous n'avons pas un simple offset à faire mais bien une indirection (aller à une adresse en mémoire) et c'est beaucoup beaucoup plus long... cf. NTFS vs ext4 fragmentation
+Les listes Python sont en fait codées sous la forme de tableaux (i) qui peuvent changer de taille, (ii) dont les éléments sont de type hétérogène, (ii) où vous pouvez modifier ou rajouter un élément de n'importe quel type sans que les autres éléments ne soient touchés...
+
+En informatique, un tableau est une zone mémoire qui est continue en mémoire, toujours. Voila un exemple de tableau de 3 cases:
 <!-- #endregion -->
+
+```python tags=[]
+t3 = [ 1, True, np.pi]
+t3[1] = 12345678235234501256848345678901234567890264378034
+t3
+```
+
+<!-- #region tags=["level_advanced"] -->
+Donc, si les cases d'un tableau en informatique ont toujours la même taille, comment vais-je y "*mettre*"  des élément hétérogènes ? Des idées ?
+<!-- #endregion -->
+
+<!-- #region tags=[] -->
+Oui nous allons utiliser des adresses ! on va mettre dans la case, l'adresse de l'endroit où se trouve l'élément en mémoire.
+
+Toutes les adresses sont codées sur le même nombre d'octets. Combien ? J'espère 8 octets (64 bits) ! heu vous avez un ordi 32-bits ... c'est qui qui vous l'a prêté ?
+
+Quand on arrive sur un élément et qu'on *trouve* sur une adresse, pour y aller lire la valeur, nous n'avons pas un simple offset à faire mais bien une indirection et c'est beaucoup beaucoup plus long...
+<!-- #endregion -->
+
+### taille des éléments
+
 
 Pour illustrer le fait que la taille des éléments est fixe dans un tableau `numpy`, vous allez faire un petit exercice: créer un tableau `numpy` de chaînes de caractères.
 
-On va prendre les jours de la semaine (que nous vous donnons dans une liste Python de chaînes de caractères `str`).
 
-Regardez le type que `numpy` a choisi comme type pour les éléments. Rappelez-vous tous les éléments vont-être du même type ! Donc toutes les chaînes de caractères vont avoir le même type.
+À vous de jouer. Voici une liste python des jours de la semaine. Construisez une `numpy.ndarray` avec cette liste.
+
+Affichez le type que `numpy` a choisi comme type pour les éléments. Rappelez-vous tous les éléments vont-être du même type ! Donc toutes les chaînes de caractères vont avoir le même type.
 
 ```python
 les_jours = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche']
@@ -127,36 +200,43 @@ semaine = np.array(les_jours)
 semaine.dtype
 ```
 
-Alors le plus petit type de donné que `numpy` a trouvé pour ce tableau est *'<U8'* mais qu'est-ce que va peut bien pouvoir dire ?
+<!-- #region tags=["level_basic"] -->
+Alors le plus petit type de donné que `numpy` a trouvé pour ce tableau est *'<U8'*.
 
-Oublions *'<'* pour l'instant. Déjà *U* signifie ...  une idée ? oui *Unicode*. Ouf on en a un.
+Oublions `<`
 
-Et bien pourquoi 8 ? Une idée ? ... une chaîne de caractères contient un certain nombre de caractères ... vous me suivez ? quel est le nombre de caractères minimum qui nous permet d'écrire chacun des jours de la semaine ? Bingo c'est 8.
+Que signifie `U` ...  une idée ? (sans regarder sur Internet, en réfléchissant dans votre tête)
 
-Et si vous essayiez de remplacer un des jours du tableau par une chaîne de caractères qui comporte plus de 8 caractères ? Que va-t-il se passer ? Oui `numpy` ne va bien sûr retenir (stocker) que les 8 premiers caractères du nouveau nom ... (taille fixe on vous a dit !)
+<!-- #endregion -->
+
+<!-- #region tags=["level_basic"] -->
+Oui *Unicode*. On en a déjà un. Et pour 8 ? Une idée ? (attention piège !)
+<!-- #endregion -->
+
+Il faut compter le nombre de caractères des chaînes ... vous me suivez ? Quel est le nombre de caractères minimum sur nous permet d'écrire chacun des jours de la semaine ? Bingo c'est 8. Rien à voir avec un octet.
+
+<!-- #region tags=[] -->
+À vous de jouer. Essayez de remplacer un des jours du tableau par une chaîne de caractères qui comporte plus de 8 caractères ? genre `'lundi mais en plus long'`
+<!-- #endregion -->
 
 ```python
-semaine[0] = 'lundi en plus long'
+# votre code ici
+```
+
+```python
+semaine[0] = 'lundi mais en plus long'
 ```
 
 ```python
 semaine
 ```
 
-Au passage vous venez de voir comment on accède à un élément d'un `np.ndarray` oui là c'est de dimension 1 donc on n'a qu'un seul index à donner !
+<!-- #region tags=[] -->
+Que va-t-il se passer ? Oui ! `numpy` ne va bien sûr pas pouvoir stocker tous les caractères mais uniquement les 8 premiers caractères ... taille fixe on vous a dit !
+<!-- #endregion -->
 
+Au passage vous venez de voir comment on accède à un élément d'un `np.ndarray` oui là c'est de dimension 1 donc on n'a qu'un seul index à donner!
 
-Pour les super curieux rapides et les avancés (les autres peuvent passer ou y revenir par la suite). Que signifie *<*  ?
-
-Ca veut dire *little endian* ! Pour expliquer rapidement: ca indique dans quel ordre sont pris (lus) les octets dans lesquels sont stockés nos objets informatique. Par exemple, un entier 64 bits est codé sur 8 octets, et on se demande dans quel ordre l'ordi va considérer ces octets: ceux de poids fort avant ou ceux de poids faible avant.
-
-Poids fort et poids faible ?  expliquons par analogie avec notre numérotation classique: quand vous écrivez 42, 4 est le poids fort (les dizaines) et 2 le poids faible.
-
-Bref *'<8'* dit: poids faible en premier (donc 24 pour notre 42 habituel).
-
-```python
-2**8
-```
 
 Maintenant essayez de créer un tableau `np.ndarray` à partir d'une liste Python avec des éléments numériques de différents types. Mettez les entiers 127 et 128, le flottant `np.pi` (oui pour vous `np.pi` puisque vous avez importé `numpy` avec son petit nom et les booléens python True et False.
 
@@ -205,26 +285,41 @@ Ce qu'il faut en retenir :
 * ces types existent en tant que tels (hors de tableaux).
 
 
-### organisation de la forme des tableaux
+## organisation de la forme des tableaux
 
 
-Vous savez désormais que la mémoire qui stocke le tableau est un segment unidimensionnel continu de cases du même type.
-
-Mais vous avez aussi vu que cette mémoire va être organisée (on dit qu'on va l'indexer) pour lui donner la forme d'un tableau numti-dimensionnel représenté par une liste de dimensions (..., m, n, l, c), donc votre segment unidimensionnel continu fera $... \times m \times n \times l \times c$ cases de long. Chaque case étant de la taille mémoire suffisante pour stocker le type demandé pour les éléments, par exemple 64 bits.
-
-Dans cette multi-indexation, les deux dernières dimensions sont les *lignes* et les *colonnes* d'un tableau en dimension 2 (comme une matrice). Par exemple notre matrice (4, 5) ou notre table du titanic (891, 8).
-
-Ensuite on augmente ls dimension, $n$ serait un nombre de *matrices* comme prendre 2 matrices de 3 lignes et 4 colonnes serait une dimension (2, 3, 4) et ainsi de suite...
+Vous savez désormais que la mémoire qui stocke le tableau est un segment unidimensionnel continu de cases du même type, et que la taille d'un tableau est fixe.
 
 
-Pour les avancés ou les curieux, dans l'exemple de l'image en couleur (avec l'encodage RGB), on voit que la dimension de l'image est (530, 800, 3). C'est à dire que l'image et présentée comme 530 matrices de 800 lignes et 3 colonnes et non pas 3 matrices de 533 lignes et 800 colonnes ! Comme on s'y attendait (peut être)
+Vous avez aussi vu que cette mémoire va être organisée (*indexée*) pour lui donner la forme d'un tableau multi-dimensionnel. Pour l'instant on a vu des matrices donc des tableaux de forme $(d_1, d_2)$. Mais un tableau peut naturellement prendre n'importe quelle dimension.
 
-Pourquoi ? Parce qu'en fait une image est plutôt vue comme une unique matrice où chaque élément (donc chaque pixel de l'image) a trois valeurs une pour chacune des couleurs primaires. Donc on va plutôt la voir comme 530 fois 800 fois 3, puisqu'il est préférable de rapprocher les 3 valeurs RGB de chaque pixel pour les calculs.
+Prenons un tableau de dimension $(d_1, d_2, d_3, d_4)$. Le segment unidimensionnel continu fera donc $d_1 \times d_2 \times d_3 \times d_4$ cases de long.
 
+Chaque case étant de la taille mémoire suffisante pour stocker le type demandé pour les éléments, par exemple 64 bits.
 
-Maintenant créons un segment de, par exemple, 30 éléments. Et ne donnons pas de forme, juste la taille. On en profite pour montrer une nouvelle fonction qui fait des tableaux de 1, la bien-nommée `np.ones`. Heu non y'a pas `np.twos` ... `np.threes` ? non plus
+Dans cette multi-indexation, les deux dernières dimensions sont les *lignes* et les *colonnes* d'une matrice. Dans notre exemple il s'agit de $(d_3, d_4)$. 
 
-Pourquoi avoir une fonction dédiée aux tableaux de 1 ? Parce que cela vous permet de créer très rapidement un tableau où tous les éléments ont la même valeur, il suffit de multiplier un tableau de 1 de la bonne forme par votre valeur, on y reviendra ... mais vous pouvez déjà essayer `np.ones(shape=30)*np.pi`, oh les 30 beaux $\pi$ !
+Ainsi ici $d_2$ serait un nombre de matrices. On a des paquets de $d_2$ matrices. Et $d_1$ serait le nombre de fois où on a ces paquets de matrices.
+
+Ici on aura $d_1$ paquets de $d_2$ matrices de $d_3$ lignes et $d_4$ colonnes.
+
+Ainsi prendre  2 matrices de 3 lignes et 4 colonnes ferait une dimension (2, 3, 4) et ainsi de suite...
+
+<!-- #region tags=["level_advanced"] -->
+Pour les avancés, dans l'exemple de l'image en couleur, en encodage RGB, on voit que la dimension de l'image est (530, 800, 3).
+
+C'est à dire que l'image et présentée comme 530 matrices de 800 lignes et 3 colonnes et non pas 3 matrices de 533 lignes et 800 colonnes ! Comme on s'y attendait (peut être)
+
+Pourquoi ? Parce qu'en fait une image est plutôt vue comme une unique matrice où chaque élément (donc chaque pixel de l'image) a trois valeurs: une pour chacune des couleurs primaireset qu'il est préférable de rapprocher les 3 valeurs RGB de chaque pixel pour ne pas ralentir les calculs.
+<!-- #endregion -->
+
+Maintenant créons un segment de, par exemple, 30 éléments. Et ne donnons pas de forme, juste la taille. On en profite pour réutiliser la fonction qui fait des tableaux de 1 (la bien-nommée `np.ones`, heu non y'a pas `np.twos` ... `np.threes`).
+
+<!-- #region tags=["level_intermediate"] -->
+Pour les avancés. Pourquoi avoir une fonction dédiée aux tableaux de 1 ?
+
+Parce que cela vous permet de créer très rapidement un tableau où tous les éléments ont la même valeur, il suffit de multiplier un tableau de 1 de la bonne forme par votre valeur, on y reviendra ... mais vous pouvez déjà essayer `np.ones(shape=30)*np.pi`, oh les 30 beaux $\pi$ !
+<!-- #endregion -->
 
 ```python
 seg = np.ones(shape=30)
@@ -257,35 +352,42 @@ On a bien le même nombre d'éléments (30) dans les deux formes, simplement dan
 
 Et bien `np.ndarray` comporte deux fonctions pour ré-indexer notre mémoire unidimensionnelle sous-jacente. Ces fonctions sont `np.ndarray.reshape` et `np.ndarray.resize`.
 
-Elles s'appliquent toutes les deux aux objets de type `np.ndarray` (ce sont des méthodes du type `np.ndarray`).
 
-Quelle est leur différence ? Essayez de regarder leur help. Alors ? La voyez-vous ?
+### réindexer un `ndarray`
 
-Le help de `np.ndarray.resize` vous dit "*Change shape and size of array in-place*". **in-place** signifie dans l'objet auquel la fonction est appliquée alors que le help de `np.ndarray.reshape` vous dit "*Returns an array containing the same data with a new shape.*" elle renvoie une nouvelle forme de notre tableau tout en gardant (comme resize) les données (c'est à dire la mémoire sous-jacente).
 
-Leur similitude ? Aucune des deux ne crée de nouveau `np.ndarray`, elle en modifient uniquement la forme, c'est à dire la manière dont le segment unidimensionnel est considéré.
+`np.ndarray.reshape` et `np.ndarray.resize` s'appliquent toutes les deux aux objets de type `np.ndarray` (ce sont des méthodes du type `np.ndarray`).
+
+<!-- #region tags=["level_basic"] -->
+Quelle est leur différence ? Essayez de regarder leur help. Alors ? La voyez-vous ? Elle est petite...
+<!-- #endregion -->
+
+Le help de `np.ndarray.resize` vous dit "*Change shape and size of array in-place*".
+
+**in-place** signifie **dans l'objet** auquel la fonction est appliquée.
+
+Le help de `np.ndarray.reshape` vous dit "*Returns an array containing the same data with a new shape.*"
+
+Elle renvoie une nouvelle manière d'indexer votre tableau mais cette indexation travaille aussi (comme resize) sur la même mémoire sous-jacente.
+
+Leur similitude ? Aucune des deux ne crée de nouveau `np.ndarray`.
 
 
 Naturellement la taille du tableau initial doit correspondre à la taille du tableau re-structuré.
 
 
-Pour les curieux et les avancés, nous dirons que les méthodes pour modifier la forme d'un tableau le feront sous la forme d'une vue sans copie du tableau initial, mais qu'il peut exister des cas où ce n'est pas le cas.
-
-
 On le fait avec resize:
-
-```python
-seg.resize((3, 10)) # vous voyez que l'application de la fonction resize à seg ne renvoie rien et modifie seg
-```
-
-On vérifie sa forme et sa dimension:
 
 ```python
 seg.shape
 ```
 
 ```python
-seg.ndim
+seg.resize((3, 10)) # vous voyez que l'application de la fonction resize à seg ne renvoie rien et modifie seg
+```
+
+```python
+seg.shape
 ```
 
 Ou plus simplement on l'affiche. On voit bien les 3 lignes de 10 éléments.
@@ -294,7 +396,7 @@ Ou plus simplement on l'affiche. On voit bien les 3 lignes de 10 éléments.
 seg
 ```
 
-On le fait avec reshape qui sera plus simple d'utilisation puisqu'il ne nécessitera qu'une ligne de code:
+On le fait avec reshape:
 
 ```python
 seg = np.ones(shape=30).reshape(3, 10) # vous voyez que reshape renvoie 
@@ -302,15 +404,27 @@ seg = np.ones(shape=30).reshape(3, 10) # vous voyez que reshape renvoie
 seg
 ```
 
+### index et décalages 
+
+
 Parlons un peu de ce qu'on a appelé précédemment décalages ou offsets pour les relier à notre problème de forme.
 
-Dans le cas de la matrice 3 x 10. Si je suis sur l'élément en début d'une ligne, pour passer directement à l'élément en début de la ligne suivante, combien me faudra-t-il *sauter*  d'éléments ? I.e. de combien me faudra-t-il me décaler sur mon segment unidimensionnel sous-jacent ? Oui il faudra "sauter" 10 éléments et 10, on le connait ce chiffre ! c'est la valeur de la deuxième dimension de notre forme.
 
-DESSIN (il sera fait ultérieurement, si vous en aviez un perso joli, envoyez le nous, nous sommes très intéressés, et naturellement il vous sera *copyrighté*)
+Pour la matrice 3 x 10.
 
-Et si je voulais passer de l'élément de début d'une colonne à l'élément en début de la colonne suivante ? De combien je dois *sauter* ?  Oui ok 3 ! qui est la taille de la première dimension.
+Si je suis sur un élément en début d'une ligne, pour passer directement à l'élément en début de la ligne suivante, combien me faudra-t-il *sauter*  d'éléments ?
 
-Ah et si je suis en début de la dernière colonne et que je saute 3 éléments ? Et bien je tombe en dehors de la mémoire qui m'a été attribuée et là c'est pas bon du tout du tout du tout du tout ! Vous allez vous attirer les foudres de l'ordi en essayant d'aller dans un segment (une zone mémoire) qui n'est pas à vous ! mais heureusement avant d'en arriver là `numpy` va vérifier que vous restez dans les bornes et vous indiquera que vous en sortez avec une erreur !
+i.e. de combien me faudra-t-il me décaler sur mon segment unidimensionnel sous-jacent ?
+
+Oui il faudra "sauter" 10 éléments et 10, on le connait ce chiffre ! c'est la valeur de la deuxième dimension de notre forme (le nombre de colonnes).
+
+DESSIN (il sera fait ultérieurement, si vous en aviez un joli, envoyez le nous, nous sommes très intéressés, et naturellement il vous sera *copyrighté*)
+
+Si je voulais passer de l'élément de début d'une colonne à l'élément en début de la colonne suivante ? De combien je dois *sauter* ?  Oui ok 3 ! qui est la taille de la première dimension (le nombre de lignes).
+
+Et si je suis en début de la dernière colonne et que je saute 3 éléments ?
+
+Et bien j'arrive en dehors de la mémoire qui m'a été attribuée et là c'est pas bon du tout du tout du tout du tout ! Allez-vous vous attirer les foudres de l'ordi en essayant d'aller dans un segment (une zone mémoire) qui n'est pas à vous ... non heureusement `numpy` va vérifier avant d'y aller, que vous restez dans les bornes et vous indiquera que vous en sortez avec une erreur !
 
 DESSIN
 
@@ -321,48 +435,49 @@ DESSIN
 # votre code ici
 ```
 
-### on change le type d'un tableau
+## on essaie de *changer* le type d'un tableau
 
 
-Comme vous l'avez compris, `np.ndarray` va toujours faire en sorte que i) tous les éléments d'un tableau aient le même type à la création du tableau et ii) que les éléments restent de ce type quoi qu'on leur fasse subir.
+Comme vous l'avez compris, `np.ndarray` va toujours faire en sorte que i) tous les éléments d'un tableau aient le même type à la création du tableau et ii) que les éléments restent de ce type quoi qu'on leur fasse subir. Essayons:
 
-Mais alors comment pouvons-nous "modifier" le type des éléments d'un tableau ? Donc on ne peut pas (on vous a dit) mais on va pouvoir créer un nouveau tableau avec la même forme dont les éléments sont du nouveau type et on recopie les éléments dedans ... rassurez-vous il existe une fonction pour cela ! Elle s'appelle `np.ndarray.astype`. 
-
-
-Allons y: créons un tableau `np.ndarray`  à partir d'une liste de flottants et faisons-en un tableau d'entiers.
+<!-- #region tags=[] -->
+A vous de jouer. Faite un `numpy.ndarray` de 4 entiers `int` (vous êtes grands je vous laisse choisir les 4 entiers mais le tableau doit s'appeler `vec`). Modifier le premier élément par `numpy.pi` et affichez votre tableau.
+<!-- #endregion -->
 
 ```python
-l = [-2.7, 8.45, -0.89, 1.56, -67 ]
+# votre code ici
+vec = np.array([12, 45, 24, 346,])
 ```
 
-```python
-tab1 = np.array(l)
-```
+Bon ok  $\pi$ est devenu `3`.
 
-On appelle la fonction `np.ndarray.astype` avec le type `np.int32` sur notre tableau de flottants
+Mais alors comment pouvons-nous "modifier" le type des éléments d'un tableau ? Et bien: on ne peut pas (on vous dit) ... mais on va pouvoir créer un nouveau tableau avec la même forme mais dont les *case* (donc les éléments) seront du nouveau type et on recopie les éléments dedans ...
+
+Rassurez-vous il existe une fonction pour cela ! Elle s'appelle `np.ndarray.astype`. Voici un exemple où je fais un tableau de flottants que je convertis en un tableau de `int`:
 
 ```python
+tab1 = np.array([-2.7, 8.45, -0.89, 1.56, -67 ])
 tab1.astype(np.int)
 ```
 
-On remarque que la fonction `astype` retourne un tableau. Regardons `tab1`
+Vous remarquez que la fonction `astype` renvoie bien un `numpy.ndarray`. On affiche `tab1`:
 
 ```python
 tab1
 ```
 
-On remarque que `tab1`  n'a pas été modifié ! on s'y attendait: la taille des éléments est fixe. Donc `astype` construit bien un nouveau tableau qu'on aurait pu garder dans une variable comme `tab2`
+On remarque que `tab1`  n'a pas été modifié ! on s'y attendait: la taille des éléments est fixe. Donc `astype` construit bien un nouveau tableau qu'on aurait pu garder dans une variable par exemple `tab2`
 
 
-On remarque que les flottants pour devenir des entiers ont été modifiés fortement, on a perdu de l'information cette conversion est appelée *unsafe* i.e. *non sûre*.
+On remarque aussi que les flottants, pour devenir des entiers, ont été modifiés fortement. On a perdu de l'information cette conversion est appelée *unsafe* i.e. *non sûre*.
 
-C'est peut être ce que vous vouliez mais au cas où vous voulez interdire ce genre de conversions (casting) ... la fonction possède un paramètre qui interdit la création du nouveau tableau si la conversion n'est pas *safe*: 
+<!-- #region tags=["level_intermediate"] -->
+C'est peut être ce que vous vouliez.
 
-```python tags=["raises-exception"]
-tab1.astype(np.int, casting='safe')
-```
+Mais au cas où vous voulez éviter ce genre de conversions peu sûre (unsafe casting - parlons jargon) ... la fonction possède un paramètre qui interdit la création du nouveau tableau si la conversion n'est pas sûre (*safe*): 
 
-Oui cela va se faire par la génération d'une erreur (laquelle ? comme on parle de *type* ca sera une `TypeError`). `numpy` veut prévenir le programmeur de cette tentative de conversion interdite en arrêtant le programme. On doit la rattrapper si on veut continuer ...
+Oui cela va se faire par la génération d'une erreur (laquelle ? comme on parle de *type* ca sera une `TypeError`). `numpy` va prévenir de cette tentative de conversion interdite lancant une exception qu'on doit rattraper sous menace que le programme *plante*
+<!-- #endregion -->
 
 ```python
 try:
@@ -371,15 +486,24 @@ except TypeError as e:
     print("pas content ! ")
 ```
 
-## valeurs régulièrement espacées
+À vous de jouer. Prenez votre tableau `vec`. Transformez-le en tableau de flottants et mettez $\pi$ dans la première case.
+
+```python tags=["raises-exception"]
+# votre code ici
+```
+
+Maintenant que nous avons parlé de mémoire et que ca n'a pas été si facile que cela, détendons-nous avec de nouvelles super fonctions pour initialiser des tableaux...
+
+
+## tableaux de valeurs régulièrement espacées
 
 
 Afin de simplifier les codes, `numpy` fournit des fonctions qui vont générer des points espacés régulièrement sur un intervalle que nous spécifions. On pourra ensuite appliquer des fonctions à ces points.
 
-Il existe pour cela deux fonctions: `np.arange` et `np.linspace`. Pour `arange` vous indiquer l'incrément entre deux valeurs successives (le pas `step`) et pour `linspace` vous donnez le nombre de points.
+Il existe pour cela deux fonctions: `np.arange` et `np.linspace`. Pour `arange` vous indiquez l'incrément entre deux valeurs successives (le pas ou `step`) et pour `linspace` vous donnez le nombre de points.
 
 
-#### la fonction `np.arange`
+### la fonction `np.arange`
 
 
 La fonction `np.arange(from-included, to-excluded, step)` renvoie des nombres distants de la valeur `step` sur l'intervalle spécifié dans lequel seule la borne inférieure est incluse.
@@ -390,7 +514,7 @@ Le help vous dit de ne pas utiliser un incrément non entier, le résultat peut 
 np.arange(0, 10, 2)
 ```
 
-Par défaut le permier point sera 0 et l'incrément 1
+Par défaut le premier point sera 0 et l'incrément 1
 
 ```python
 np.arange(10)
@@ -424,15 +548,16 @@ Et si c'est *absurde*  il va vous donner un tableau vide, ca paraît bien:
 np.arange(start=1, stop=-10)
 ```
 
+<!-- #region tags=["level_intermediate"] -->
 Pour les avancés et les très curieux, oui parfois `np.arange` peut vous retourner des tableaux bizarrement initialisés lorsque vous lui préciser des arguments positionnels ... essayez donc de ne lui passer uniquement `start=10` ... ah oui bizarre n'est-il pas ?
 
 la raison ? demandez donc à stackoverflow (actuellement les meilleurs en réponses sur les problèmes de code tout langage - bon ils parlent anglais et oui il va falloir vous y faire de mener vos recherches sur l'informatique sur Internet en anglais)
+<!-- #endregion -->
+
+### la fonction `np.linspace`
 
 
-#### la fonction `np.linspace`
-
-
-La fonction `np.linspace(from-included, to-included, number)` crée des valeurs flottantes régulièrement espacés dans un intervalle. Vous lui fournissez l'intervalle, dont les deux extrèmes seront inclus dans le tableau, et le nombre de points et `numpy` nous crée un `np.ndarray` avec les bonnes valeurs et le bon type.
+La fonction `np.linspace(from-included, to-included, number)` crée des valeurs flottantes régulièrement espacées dans un intervalle. Vous lui fournissez l'intervalle (les **deux** extrémités seront incluses dans le tableau) et le nombre de points: `numpy` nous crée un `np.ndarray` avec les bonnes valeurs et le bon type.
 
 Notons la différence avec le `np.arange` dont la valeur supérieure de l'intervalle n'est pas incluse dans le tableau.
 
@@ -463,6 +588,10 @@ Quel est le type de ses éléments ?
 # votre code ici
 ```
 
+```python
+x.dtype # oui un flottant
+```
+
 A quoi cela peut-il bien servir ? Voyons rapidement un exemple, calculons et affichons un beau sinus entre $0$ et $2\pi$.
 
 ```python
@@ -472,10 +601,35 @@ import matplotlib.pyplot as plt # une librarie graphique (on la verra)
 ```
 ```python
 x = np.linspace(0, 2*np.pi, 100)
-plt.plot(np.sin(x)); # regardez comment on applique la fonction np.sin à tout x d'un coup ! (on y reviendra bien sûr)
+plt.plot(np.sin(x));
+# oh regardez comment on applique la fonction np.sin à tout x d'un coup !
+# (on y reviendra bien sûr)
+```
+## tableau de valeurs aléatoires
+
+
+### entières avec la fonction `numpy.random.randint`
+
+
+Cette fonction va retourner un nombre entier tiré aléatoirement entre deux bornes (la seconde est exclue).
+
+```python
+np.random.randint(0, 10)
 ```
 
+Si vous ne spécifiez qu'une borne les entiers seront générés entre 0 et la borne.
 
+```python
+np.random.randint(10)
+```
+
+Pour générer plusieurs valeurs, vous pouvez donner une forme qui s'appelle `size` (et pas shape).
+
+```python
+np.random.randint(10, size=(2, 3, 2, 2))
+```
+
+### flottantes avec la fonction `numpy.random.randn`
 
 
 ## quiz
@@ -524,3 +678,33 @@ Utiliser la fonction `getsizeof` de la librarie `sys` de Python pour afficher la
 ```
 
 Que constatez-vous ?
+
+
+### génération aléatoire avec affichage couleur
+
+```python
+
+```
+
+La fonction `numpy.random.randint(min, max, size, dtype)` construit un tableau de forme `size` (et non `shape` mais ca s'utilise de la même manière) rempli avec des nombres aléatoires entre min et max compris de type `dtype`. Mais regardez plutôt le help ! ca sera mieux expliqué !
+
+np.random.randint?
+
+Construisez une toute petite image RBG de taille 10 x 10 que vous initialisez avec des entiers générés aléatoirement entre 0 et 255 (indiquer le plus petit type entier qui contienne ces nombres). 
+
+Avec la fonction `plt.imshow`  afficher l'image !
+
+Que c'est joli !
+
+```python hide_input=true
+# hidden code
+import matplotlib.pyplot as plt
+%matplotlib inline
+import numpy as np
+random_image = np.random.randint(0, 255, (10, 10))
+plt.imshow(random_image);
+```
+
+```python hide_input=false
+
+```
