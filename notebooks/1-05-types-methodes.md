@@ -46,7 +46,7 @@ version: '1.0'
 cela signifie que toutes vos données sont des objets  
 entre autres choses chaque objet a un type
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: split
 slideshow:
@@ -71,25 +71,25 @@ def fact(n):
     return 1 if n <= 1 else n * fact(n-1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 type(x)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 type(texte)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 type(fact)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 type(math)
@@ -118,7 +118,7 @@ ce qui se passe c'est que
 
 ## appel de méthode illustré
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: split
 slideshow:
@@ -128,7 +128,7 @@ chaine = "bonjour"
 chaine
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # la recherche de 'capitalize' 
@@ -140,14 +140,14 @@ la_methode = str.capitalize
 la_methode
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # lorsqu'on écrit ceci
 chaine.capitalize()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # c'est comme si on avait
@@ -155,14 +155,14 @@ chaine.capitalize()
 la_methode(chaine)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # si on passe des arguments
 chaine.center(13, '-')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # ils sont ajoutés après l'objet

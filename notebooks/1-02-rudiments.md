@@ -46,7 +46,7 @@ version: '1.0'
 tout ce qui est après un `#` est un commentaire,  
 et sera ignoré par l'interpréteur Python
 
-```{code-cell}
+```{code-cell} ipython3
 # ceci est un commentaire
 
 10 * 10   # et ici aussi
@@ -56,28 +56,28 @@ et sera ignoré par l'interpréteur Python
 
 ## nombres
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # entiers 
 10
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # flottants
 3.14
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # complexes
 1j * (2+4j)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # booléens True et False
@@ -90,7 +90,7 @@ True
 
 pour définir une variable, il suffit de l'affecter avec le signe `=`
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: split
 slideshow:
@@ -100,7 +100,7 @@ slideshow:
 a = 10
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # l'utilité c'est bien sûr 
@@ -115,7 +115,7 @@ a + a
 
 on définit une fonction avec le mot-clé `def`
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # on définit une fonction en donnant un nom
@@ -126,7 +126,7 @@ def P(x):
     return x**2 + 3*x + 2
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # mais on peut maintenant
@@ -134,7 +134,7 @@ def P(x):
 P(10)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 P(100)
@@ -146,7 +146,7 @@ P(100)
 
 +++ {"cell_style": "center"}
 
-un certain nombre de mots sont réservés ;  
+un certain nombre de mots sont réservés dans `Python`;  
 ce sont les "mots-clé" du langage   
 on ne peut pas les utiliser comme noms de variable
 
@@ -183,11 +183,11 @@ SyntaxError: invalid syntax
 certaines fonctionnalités sont disponibles au travers  
 de bibliothèques, auxquelles on peut accéder en les important
 
-```{code-cell}
+```{code-cell} ipython3
 import math
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # attention cette façon d'obtenir de l'aide est 
 # spécifique à IPython / notebooks
 # avec un interprète Python standard, on ferait 
@@ -207,17 +207,19 @@ par exemple dans `math` on va trouver
 
 pour accéder à ces symboles on utilise la notation `.`
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 math.pi
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # ça devrait être 0 mais ...
 math.sin(math.pi)
+# ... c'est simplement tout petit 
+# 0.00000000000000012246467991473532
 ```
 
 +++ {"slideshow": {"slide_type": "notes"}}
@@ -230,7 +232,7 @@ Remarquez qu'ici on devrait obtenir 0, mais les calculs sur les flottants sont f
 
 on peut aussi faire comme ceci
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # si on ne veut pas taper math.pi à chaque fois
@@ -239,16 +241,17 @@ from math import pi, sin
 pi
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # idem
 sin(pi)
 ```
 
-+++ {"slideshow": {"slide_type": "notes"}}
++++ {"slideshow": {"slide_type": "-"}}
 
-Préférez savoir d'où viennent les fonctions que vous utilisez. C'est pourquoi on recommande plutôt d'utiliser, par exemple, la forme `math.sin` plutôt que `sin`, qui garde la trace du module d'où provient le symbole `sin`.
+Préférez savoir d'où viennent les fonctions que vous utilisez !  
+Utilisez la forme `math.sin` qui garde la trace du module d'où provient le symbole `sin`
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -257,15 +260,19 @@ Préférez savoir d'où viennent les fonctions que vous utilisez. C'est pourquoi
 bien sûr un flottant est représenté comme une suite de bits 0 ou 1  
 cela induit des calculs avec une précision imparfaite
 
-```{code-cell}
+```{code-cell} ipython3
 # sur les architectures actuelles 
 # un flottant est encodé sur 64 bits 
 0.2 + 0.1
 ```
 
+```{code-cell} ipython3
+0.2 + 0.1 == 0.3 # Oups !
+```
+
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## précision des calculs flottants (option)
+## précision des calculs flottants (où trouver l'info)
 
 +++ {"slideshow": {"slide_type": ""}}
 
@@ -287,13 +294,13 @@ voir un [convertisseur en ligne](http://www.binaryconvert.com/convert_double.htm
 
 ## booléens
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 True
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 False
@@ -303,7 +310,7 @@ False
 
 ## texte (chaines)
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # pour créer un texte, on peut
@@ -313,7 +320,7 @@ texte1 = 'bonjour le monde'
 print(texte1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # ou encore, si c'est plus pratique
@@ -323,7 +330,7 @@ texte2 = "bonjour le monde"
 print(texte2)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # comme ça on peut insérer un "
@@ -331,7 +338,7 @@ print(texte2)
 print('Python est un langage "typé"')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # ou un '
@@ -347,7 +354,7 @@ remarquez qu'on a utilisé la fonction `print` qui est prédéfinie
 on peut l'appeler avec autant d'arguments qu'on veut  
   et de n'importe quel type
 
-```{code-cell}
+```{code-cell} ipython3
 # simplement pour illustration des possibilités d'appel de fonction
 # car on va voir plus loin une forme beaucoup plus pratique
 # pour faire ce genre de choses
@@ -364,7 +371,7 @@ print("la somme de", 12, "et", 13, "vaut", 12+13)
 il existe une autre fonction prédéfinie très pratique: `len()`  
 qui retourne la longeur d'un objet
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # sur une chaine len()
@@ -374,7 +381,7 @@ qui retourne la longeur d'un objet
 len("abc")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # on compte les caractères 
@@ -390,7 +397,7 @@ len("été")
 si vous avez besoin d'écrire des textes de plusieurs lignes  
 utilisez `"""` au lieu de `"`  -- (ou `'''`)
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # ici je mets un \ pour couper 
@@ -402,13 +409,13 @@ Whether 'tis nobler in the mind to suffer
 The slings and arrows of outrageous fortune,"""
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 print(bafouille)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 # idem avec '''
@@ -416,13 +423,13 @@ court = '''a
 b'''
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 print(court)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # le changement de ligne compte 
@@ -438,7 +445,7 @@ len(court)
 pour construire des chaines lisibles,  
 le plus simple est la *f-string*
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # une f-string se présente comme une chaine 
@@ -448,7 +455,7 @@ le plus simple est la *f-string*
 f"une f-string"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # l'intérêt est qu'on peut 
@@ -459,7 +466,7 @@ f"une f-string"
 print(f'pi = {pi}')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # en fait j'ai dit 'variable' mais on peut mettre n'importe quelle expression
 # c'est à dire qu'à l'intérieur des {} on peut faire des calculs, ici sin(pi)
 
@@ -475,7 +482,7 @@ dont les données sont mises en forme
 pour cela ajouter un format dans les `{}` avec un `:`  
 par exemple pour afficher deux chiffres après la virgule :
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 :tags: [level_intermediate]
 
@@ -493,11 +500,11 @@ print(f"bla {2*math.pi:.2f} bla")
 on reviendra plus tard sur la notion de méthode  
 mais pour l'instant voici deux méthodes très utiles sur les chaines : `split` et `join`
 
-```{code-cell}
+```{code-cell} ipython3
 longue_chaine = "une liste de mots à découper"
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # sert à découper une chaine 
@@ -507,7 +514,7 @@ mots = longue_chaine.split()
 mots
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # et avec join on peut réassembler
@@ -521,7 +528,7 @@ pour une liste complète des méthodes sur les chaines
 vous pouvez aller consulter la doc  
 https://docs.python.org/3/library/stdtypes.html#string-methods
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 :tags: [level_intermediate]
 
@@ -532,7 +539,7 @@ chaine = "bonjour"
 chaine.capitalize()
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 :tags: [level_intermediate]
 

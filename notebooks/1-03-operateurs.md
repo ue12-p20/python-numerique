@@ -10,13 +10,13 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+notebookname: "op\xE9rateurs"
 rise:
   autolaunch: true
   slideNumber: c/t
   start_slideshow_at: selected
   theme: sky
   transition: cube
-notebookname: opérateurs
 ---
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -35,7 +35,7 @@ notebookname: opérateurs
 
 ## arithmétiques
 
-```{code-cell}
+```{code-cell} ipython3
 # sans surprise, les 4 opérations arithmétiques
 a = 10
 b = 25
@@ -43,7 +43,7 @@ b = 25
 (a + b) * (b - a)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # une petite subtilité 
@@ -54,7 +54,7 @@ b = 25
 25 / 10
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # la division entière 
@@ -71,7 +71,7 @@ b = 25
 en Python tous les objets sont typés  
 le comportement des opérateurs dépend du type
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # ajouter deux chaines permet
@@ -79,7 +79,7 @@ le comportement des opérateurs dépend du type
 'abc' + 'def' 
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # on peut même multiplier 
@@ -91,7 +91,7 @@ le comportement des opérateurs dépend du type
 
 ## arithmétiques - suite
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # division euclidienne
@@ -99,14 +99,14 @@ c = 64
 d = 5
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # le reste 
 c % d
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # le quotient
@@ -114,15 +114,15 @@ c % d
 c // d
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # puissance
 
-d ** c
+d ** c # qu'il est grand !
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # remarque: pas de limite 
@@ -135,43 +135,43 @@ d ** c > 2 ** 64
 
 ## comparaisons
 
-```{code-cell}
+```{code-cell} ipython3
 a = 10
 b = 25
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 a == b
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 a != b
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 a <= b
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 a < b
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # une curiosité
 6 <= a <= 20
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 6 <= a <= 25 <= b <= 30
@@ -181,13 +181,13 @@ a < b
 
 ## logiques
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 6 <= a and b <= 10
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 6 <= a or b <= 10
@@ -203,19 +203,19 @@ sur tous les objets de type 'séquence'
 c'est-à-dire pour nous à ce stade les chaines  
 mais on verra que ça s'applique à d'autres, comme les listes (un peu de patience..)
 
-```{code-cell}
+```{code-cell} ipython3
 chaine = 'abcdefghij'
 len(chaine)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # en python les index commencent à 0
 chaine[0]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # les index négatifs commencent à la fin
@@ -226,21 +226,22 @@ chaine[-1]
 
 ## slices
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # une 'slice' permet de découper un morceau
+# là du caractère d'indice 1 à celui d'indice 4 exclus
 chaine[1:4]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # et même de choisir un pas
 chaine[1:8:2]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # dans un slice on peut omettre
@@ -248,7 +249,7 @@ chaine[1:8:2]
 chaine[3::]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # ce qui serait ici 
@@ -256,7 +257,7 @@ chaine[3::]
 chaine[3:]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # dans un slice on peut omettre
@@ -264,7 +265,7 @@ chaine[3:]
 chaine[:4:]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # ce qui serait ici 
@@ -279,12 +280,12 @@ chaine[:4]
 la forme générale est donc `debut:fin:pas`  
 **ATTENTION** que l'index `fin` **n'est pas inclus**
 
-```{code-cell}
+```{code-cell} ipython3
 # la convention permet de facilement emboiter les résultats
 chaine[0:3] + chaine [3:6] + chaine[6:] == chaine
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # notez enfin que le pas peut être négatif aussi
 # ce qui donne cette forme idiomatique
 # pour renverser une séquence

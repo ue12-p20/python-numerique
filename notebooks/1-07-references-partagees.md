@@ -10,13 +10,13 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+notebookname: "r\xE9f\xE9rences partag\xE9es"
 rise:
   autolaunch: true
   slideNumber: c/t
   start_slideshow_at: selected
   theme: sky
   transition: cube
-notebookname: références partagées
 ---
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -31,7 +31,7 @@ notebookname: références partagées
 
 # références partagées
 
-```{code-cell}
+```{code-cell} ipython3
 # pour visualiser le graphe de références
 %load_ext ipythontutor
 ```
@@ -43,7 +43,7 @@ notebookname: références partagées
 naturellement, les différents types de containers  
 peuvent être combinés à l'infini
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # une liste de dictionnaires
@@ -54,7 +54,7 @@ combo1 = [
 combo1
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # un dictionnaire de listes
@@ -72,7 +72,7 @@ combo2
 du coup on peut construire en mémoire des graphes,  
 et atteindre le même objet par plusieurs chemins
 
-```{code-cell}
+```{code-cell} ipython3
 # créons un objet - ici une liste
 shared = ['a', 'b']
 # si je mentionne cet objet deux fois 
@@ -81,14 +81,14 @@ entry = [shared, shared]
 entry
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # si bien qu'en modifiant l'objet partagé
 shared[0] = 'boom'
 # j'ai en fait modifié les deux morceaux de la liste
 entry
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 slideshow:
   slide_type: slide
@@ -106,12 +106,12 @@ print(shared)
 
 ## quand ?
 
-notamment, référence partagée dès qu'on fait :
+notamment, les références sont partagées dès qu'on fait :
 
 * une affectation
 * un appel de fonction
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 a = [100, 200]
@@ -122,7 +122,7 @@ a[0] = 'boom'
 b
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 :tags: [raises-exception]
 

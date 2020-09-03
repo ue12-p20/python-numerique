@@ -38,19 +38,20 @@ version: '1.0'
 # UE12 - Python : généralités
 
 ce notebook reprend très rapidement quelques informations  
-issues de la partie initiale de ce cours `intro & install`
+issues de la partie initiale de ce cours `intro & install`  
+pour être sûr que vous avez tout ce qu'il faut pour travailler
 
 +++ {"cell_style": "split", "slideshow": {"slide_type": "slide"}}
 
-## démos d'utilisation de Python
+## lancer Python
 
-1. lancer un programme tout fait  
+1. exécuter un programme déjà fait  
   `$ python monprogramme.py`
 1. lancer un interpréteur interactif  
   `$ python`  
   ou encore mieux  
   `$ ipython`
-1. mode 'mixte' comme ce notebook  
+1. mode 'mixte' dans des notebooks  
   `$ jupyter notebook`
 
 +++ {"cell_style": "split"}
@@ -66,28 +67,13 @@ ces usages sont explicités dans cette
 
 +++ {"slideshow": {"slide_type": ""}}
 
-les programmes impliqués dans les différents scénarios
+vous reconnaissez les programmes impliqués dans les différents scénarios:
 
-* terminal : la façon la plus simple/rustique de lancer d'autres programmes
-* interpréteur Python : le programme qui exécute le code Python
-  * (différence avec les langages compilés)
-* interpréteur IPython : une surcouche qui ajoute de la souplesse
-  * complétion
-  * aide en ligne
-  * déplacement et édition dans l'historique
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-### nos cas d'usage (2)
-
-+++ {"slideshow": {"slide_type": ""}}
-
-dans les cas hybrides comme les notebooks, plusieurs programmes collaborent ensemble
-
-  * on écrit du code dans un éditeur / navigateur
-  * qui dialogue avec un serveur Jupyter
-  * qui lui-même dialogue avec un interpréteur Python (ou autre)
-  * le code et les résultats sont échangés de l'un à l'autre
+* le `terminal`: la façon la plus simple de lancer d'autres programmes
+* l'interpréteur `Python` : le programme qui exécute du code Python
+* interpréteur `IPython` : une surcouche qui ajoute de la souplesse
+  * complétion, aide en ligne, déplacement/édition dans l'historique
+* les notebooks `jupyter`: nos petits cahiers cours/exercices  
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -97,15 +83,15 @@ dans les cas hybrides comme les notebooks, plusieurs programmes collaborent ense
 
 **convention**
 
-lorsque c'est ambigu, on notera :
+lorsque c'est ambigu, on préfixera :
 
-* commande à taper dans un terminal, préfixée avec un `$`  
+* la commande à taper dans un terminal, avec un `$`  
 
 ```bash
     $ python
 ```
     
-* commande à taper dans un interpréteur Python
+* la commande à taper dans un interpréteur Python, avec `>>>`
 
 ```python
 >>> a = 100
@@ -117,19 +103,19 @@ lorsque c'est ambigu, on notera :
 
 +++
 
-* la notation avec un `$` pour se référer au terminal vient historiquement de Unix
-  * i.e. aujourd'hui Linux et MacOS
+* la notation avec un `$` réfère au terminal et vient historiquement de Unix  
+(aujourd'hui Linux et MacOS)
 
-* le programme en question s'appelle un *shell* 
-  * on l'apparente à l'application `Terminal`
-  * en pratique souvent `bash` - il en existe des variantes
-  
-* sur Windows cette sorte de terminal n'est pas native
-  * mais elle est présente dans les versions récentes de Windows
-  * dans un composant `WSL` - Windows Susbsytem Linux
-  * envisagez de l'installer (quelques exemples du cours risquent peut-être de ne pas fonctionner à l'identique)
 
-* autre option: Git Bash semble être un bon `bash` pour Windows
+
+* le programme en question s'appelle un `shell`  
+(on l'apparente à l'application `Terminal`)
+
+
+
+* sur Windows cette sorte de terminal n'est pas native  
+(vous avez installé **git for windows**  
+et obtenu la variante du `shell` appelée `bash`)
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -137,7 +123,7 @@ lorsque c'est ambigu, on notera :
 
 +++
 
-vous avez peut-être déjà python installé; tapez dans un terminal
+vous devez avoir python installé sur votre portable; pour le savoir tapez dans un terminal
 
 ```bash
 $ python --version
@@ -154,29 +140,7 @@ si vous lisez:
 * `Python 3.6.n` ou `Python 3.7.n` : vous avez un Python installé
 * `Python 3.x` avec $x <= 5$ : votre Python a besoin d'une mise à jour
 * `Python 2.x` : ne pas utiliser Python 2 !
-* `command not found` : Python n'est pas installé
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-## guide pour l'installation
-
-+++
-
-il existe des programmes d'installation de Python pour toutes les plateformes, MAIS
-
-* si vous êtes débutant et n'avez pas d'idée préconçue 
-* on recommande d'utiliser conda - <https://docs.conda.io>
-  * anaconda pour les utilisateurs débutants  
-    (grosse installation très complète)
-
-  * miniconda pour les plus aguerris
-  
-anaconda vient avec un ensemble très complet : 
-
-* Python, IPython
-* notebooks Jupyter
-* énorme pile de data science / machine learning
-  * dont bien sûr `numpy`, `pandas` `matplotlib`
+* `command not found` : Python n'est pas installé (il faudra le faire rapidement)
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -184,37 +148,46 @@ anaconda vient avec un ensemble très complet :
 
 Python2 est une version plus ancienne du langage
 
-* elle **n'est pas compatible** et il ne **faut surtout pas** l'utiliser
+* elle **n'est pas compatible** et il ne **faut surtout surtout surtout pas** l'utiliser
 * sa fin de vie est prévue en Janvier 2020 (plus du tout de support)
-* ce qui achève une période de transition de 10 ans
+* ce qui achève une période de transition de 10 ans...
 
 +++ {"cell_style": "center", "slideshow": {"slide_type": ""}}
 
-c'est pourquoi 
+
 
 * pendant la période transitoire les deux ont coexisté
-* d'où les commandes `python2` et `python3` 
+* d'où les commandes `python2` et `python3` qu'on rencontre parfois
 * pour lancer Python3
-  * sur certains systèmes `python3`
-  * de plus en plus `python` tout court suffit
+  * sur certains systèmes on tape encore `python3`
+  * mais de plus en plus `python` tout court suffit
+
++++ {"cell_style": "center", "slideshow": {"slide_type": "slide"}}
+
+## les fichiers du cours
+
+* vous avez cloné [le cours sur github](https://github.com/ue12/python-numerique/tree/master/demo)
+
+
+* si ce n'est pas déjà fait, dans un terminal, utilisez `git clone` pour dupliquer le repo sur votre ordinateur  
+```bash
+$ git clone https://github.com/ue12/python-numerique
+```
+
+* si vous voulez choisir le nom du dossier du clone 
+```shell
+$ git clone https://github.com/ue12/python-numerique ue12-python-numerique
+```
+  
+* déplacez-vous dans le sous-dossier `demo` `$ cd ue12-python-numerique/demo`
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ## testez votre installation
 
-+++ {"cell_style": "center"}
++++ {"slideshow": {"slide_type": "-"}, "cell_style": "center"}
 
-* avec votre navigateur allez visiter [le cours sur github](https://github.com/ue12/python-numerique/tree/master/demo)
-* si ce n'est pas déjà fait, utilisez `git clone` pour dupliquer le repo sur votre oridinateur  
-  `$ git clone https://github.com/ue12/python-numerique`  
-  ou encore si vous voulez choisir le nom du dossier créé par le clone 
-  `$ git clone https://github.com/ue12/python-numerique ue12-python-numerique`  
-* déplacez-vous dans le sous-dossier `demo`  
-  `$ cd ue12-python-numerique/demo`
-
-+++ {"slideshow": {"slide_type": "slide"}, "cell_style": "center"}
-
-### lancez les deux programmes
+Vous êtes dans le répertoire `demo`, lancez les deux programmes
 
 ```bash
 $ python3 fact.py
@@ -232,7 +205,7 @@ Julien (Masson), 30 ans
 
 +++ {"slideshow": {"slide_type": "slide"}, "tags": ["level_intermediate"]}
 
-## options : Jupyter et VScode
+## des introductions à Jupyter et VScode
 
 * une introduction rapide à   
   [l'installation et à l'usage des notebooks](https://nbhosting.inria.fr/auditor/notebook/python-slides:extras/slides-extras/03-1-notebooks-basic)  

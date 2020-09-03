@@ -10,13 +10,13 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+notebookname: "it\xE9rations"
 rise:
   autolaunch: true
   slideNumber: c/t
   start_slideshow_at: selected
   theme: sky
   transition: cube
-notebookname: itérations
 ---
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -91,7 +91,7 @@ for (int i=0; i<=1000000; i++) {
 
 Python offre pour cela une fonction prédéfinie `range(n)`
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 for i in range(4):
@@ -111,7 +111,7 @@ qui ne fait que **mémoriser où on en est** dans l'itération
 
 l'impact sur les performances est majeur !
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # option avec itérateur
@@ -127,7 +127,7 @@ import sys
 sys.getsizeof(iterateur)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # option avec liste
@@ -149,7 +149,7 @@ sys.getsizeof(explicit)
 
 ## `enumerate()`
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 sujets = ['james', 'henri', 'louis']
@@ -169,7 +169,7 @@ liste, comment faire quand
 on a besoin de l'indice  
 d'énumération ?
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # bien que ça marche ..
@@ -179,7 +179,7 @@ for i in range(len(sujets)):
     print(f"{i}: {item}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # c'est à ça que sert enumerate()
@@ -206,7 +206,7 @@ de manière générale, on peut écrire une boucle `for` sur un très grand nomb
 * itérables du [module `itertools`](https://docs.python.org/3/library/itertools.html)
 * ...
 
-```{code-cell}
+```{code-cell} ipython3
 # itertools contient des itérateurs pour
 # matérialiser la plupart des combinatoires 
 # habituelles
@@ -214,13 +214,13 @@ de manière générale, on peut écrire une boucle `for` sur un très grand nomb
 import itertools
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: split
 slideshow:
   slide_type: slide
 ---
-from itertools import product
+from itertools import product # produit carthésien
 
 cartes = ['V', 'D', 'R', 'As']
 couleurs = ['♢', '♧', '♡', '♤']
@@ -229,7 +229,7 @@ for carte, couleur in product(cartes, couleurs):
     print(f"{carte} de {couleur}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 from itertools import permutations
@@ -251,7 +251,7 @@ dans le corps d'une boucle (`for` ou `while`), on peut utiliser:
 * `break` pour terminer directement la boucle
 * `continue` pour passer directement à l'itération suivante
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # pour illustrer break
@@ -266,7 +266,7 @@ for index, tirage in enumerate(
         break
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # pour illustrer continue
@@ -285,7 +285,7 @@ for couleur in couleurs:
 `break` et `continue` sont toujours relatives  
 à la boucle la plus imbriquée
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # une seule boucle
@@ -294,7 +294,7 @@ for x, y in product(cartes[:2],
     print(f"{x} de {y}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # idem mais avec
@@ -304,7 +304,7 @@ for x in cartes[:2]:
         print(f"{x} de {y}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # mais le break n'a pas le même 
@@ -316,7 +316,7 @@ for x, y in product(cartes[:2],
     print(f"{x} de {y}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # car ici il sort que
@@ -336,34 +336,34 @@ for x in cartes[:2]:
 
 un raccourci syntaxique pour construire des containers par itération
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: center
 
 entrees = [10, -10, 421]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # compréhension de liste
 [x**2 for x in entrees]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # compréhension d'ensemble
 {x**2 for x in entrees}
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # compréhension de dictionnaire
 {x : x**2 for x in entrees}
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: split
 slideshow:
@@ -399,7 +399,7 @@ Le fait de devoir allouer de la mémoire a plusieurs inconvénients. Tout d'abor
 
 Benchmark : la somme des premiers entiers.
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # avec une compréhension
@@ -407,7 +407,7 @@ Benchmark : la somme des premiers entiers.
 %timeit sum([x for x in range(10**6)])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # même chose mais avec
@@ -416,7 +416,7 @@ Benchmark : la somme des premiers entiers.
 %timeit sum(x for x in range(10**6))
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # taille mémoire
@@ -426,7 +426,7 @@ comprehension = [x for x in range(10**6)]
 sys.getsizeof(comprehension)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # aucune comparaison !

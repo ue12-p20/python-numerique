@@ -10,13 +10,13 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+notebookname: objets containers
 rise:
   autolaunch: true
   slideNumber: c/t
   start_slideshow_at: selected
   theme: sky
   transition: cube
-notebookname: objets containers
 ---
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -41,7 +41,7 @@ permet de créer des collections très souples :
 * on peut insérer / détruire des objets 
 * pas de contrainte sur la taille
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # on crée une liste avec des [ ]
@@ -49,7 +49,7 @@ homogene = [0, 12]
 homogene
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # on peut mélanger 
@@ -58,7 +58,7 @@ heterogene = [2.3, "abc"]
 heterogene
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # des listes dans des listes
@@ -67,13 +67,13 @@ groupe = [True, homogene,
 groupe
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 type(groupe)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: split
 slideshow:
@@ -82,7 +82,7 @@ slideshow:
 groupe
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: split
 slideshow:
@@ -93,11 +93,11 @@ slideshow:
 # les indices commencent à 0
 
 # le premier élément est 
-# donc le nombre complexe
+# donc le booléen
 groupe[0]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # on peut remplacer un élément
@@ -105,26 +105,26 @@ groupe[1] = '-'
 groupe
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # et le dernier 
 groupe[-1]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # est heterogene
 groupe[-1] == heterogene
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # le slicing s'applique aussi
 # comme sur les chaines de caractère
-groupe[::2]
+groupe[::2] # du début à la fin avec un pas de 2
 ```
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -135,7 +135,7 @@ groupe[::2]
 
 de nombreux opérateurs sont définis aussi sur les listes
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # on peut ajouter deux listes,
@@ -143,7 +143,7 @@ de nombreux opérateurs sont définis aussi sur les listes
 [1, 2, 3] + [4, 5, 6]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # la comparaison est 
@@ -152,14 +152,14 @@ de nombreux opérateurs sont définis aussi sur les listes
 [1, 2, 3] <= [1, 2, 4]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # l'opérateur d'appartenance
 'chaine' in groupe
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # et sa négation
@@ -173,7 +173,7 @@ de nombreux opérateurs sont définis aussi sur les listes
 approfondi dans une section ultérieure  
 mais dans sa forme la plus simple: `for .. in .. :`
 
-```{code-cell}
+```{code-cell} ipython3
 for item in groupe:
     print(item)
 ```
@@ -186,12 +186,11 @@ for item in groupe:
 
 **À savoir** 
 
-la liste est une structure de données très souple  
-mais qui du coup n'est pas très efficace  
-elle est surtout optimisée pour être accédée **par la fin**  
-du coup une utilisation fréquente est à base des méthodes `append` et `pop`
+la liste est une structure de données très souple du coup elle n'est que *relativement efficace*  
+elle est surtout optimisée pour être modifiée **par la fin**  
+habituellement à base des méthodes `append` et `pop`
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 tutu = []
@@ -203,7 +202,7 @@ for c in 'abc':
     print(tutu)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # et à l'envers
@@ -223,7 +222,7 @@ similaire à la liste, mais qu'on ne peut pas modifier
 ne sera pas approfondi dans ce primer  
 on va voir tout de suite à quoi ça peut bien servir
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # ressemble à une liste, mais s'écrit avec des ()
@@ -232,7 +231,7 @@ paquet = (12, "abc")
 paquet
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # on ne peut plus y toucher
@@ -260,7 +259,7 @@ une autre forme de container, mais assez différent :
   par ex. on ne peut pas mettre une liste dans un ensemble  
   utiliser à la place un `tuple`
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: split
 slideshow:
@@ -271,7 +270,7 @@ ensemble = {12, "abc"}
 ensemble
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # méthode add() pour ajouter
@@ -279,7 +278,7 @@ ensemble.add(True)
 ensemble
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # pas de doublon
@@ -287,7 +286,7 @@ ensemble.add("abc")
 ensemble
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # la recherche est rapide
@@ -297,7 +296,7 @@ ensemble
 12 in ensemble
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # on peut mettre un tuple dans un ensemble
@@ -305,7 +304,7 @@ ensemble.add((2, 3))
 ensemble
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # et pour enlever
@@ -315,7 +314,7 @@ ensemble
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-## itérations
+### itérations sur l'ensemble
 
 +++
 
@@ -323,7 +322,7 @@ forme la plus simple, idem : `for .. in ..`
 attention qu'un ensemble n'a pas d'ordre naturel  
 depuis Python-3.7 le parcours se fait dans l'ordre des insertions
 
-```{code-cell}
+```{code-cell} ipython3
 for item in ensemble:
     print(item)
 ```
@@ -337,7 +336,7 @@ un ensemble d'associations de la forme
 
     clé → valeur
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # la syntaxe pour créer
@@ -345,7 +344,7 @@ un ensemble d'associations de la forme
 annuaire = {'alice': 25, 'bob': 32}
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # les clés sont ici les 2 chaines
@@ -354,7 +353,7 @@ annuaire = {'alice': 25, 'bob': 32}
 annuaire
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: split
 slideshow:
@@ -367,7 +366,7 @@ slideshow:
 annuaire['bob']
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # pareil pour écrire
@@ -377,7 +376,7 @@ annuaire['eve'] = 40
 annuaire
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # si la clé existe déjà 
@@ -386,7 +385,7 @@ annuaire['alice'] = 50
 annuaire
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # pour effacer une clé 
@@ -395,7 +394,7 @@ del annuaire['eve']
 annuaire
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 cell_style: split
 slideshow:
@@ -404,7 +403,7 @@ slideshow:
 annuaire
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # la recherche d'une clé est aussi rapide
@@ -417,7 +416,7 @@ annuaire
 
 ## digression : affectation multiple
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # plutôt que de faire
@@ -427,7 +426,7 @@ b = 20
 print(f"a={a}, b={b}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # on peut faire en Python
@@ -439,7 +438,7 @@ print(f"a={a}, b={b}")
 dans ce contexte c'est un gadget, mais c'est intéressant parfois  
 car les termes à droite de `=` sont tous évalués avant de faire les affectations
 
-```{code-cell}
+```{code-cell} ipython3
 ---
 slideshow:
   slide_type: ''
@@ -460,7 +459,7 @@ print(f"a={a}, b={b}")
 même remarque que les ensembles : pas d'ordre naturel  
 depuis Python-3.7 le parcours se fait dans l'ordre des insertions
 
-```{code-cell}
+```{code-cell} ipython3
 for cle, valeur in annuaire.items():
     print(f"{cle} → {valeur}")
 ```
@@ -468,10 +467,10 @@ for cle, valeur in annuaire.items():
 cette forme est à mettre en rapport avec l'affectation multiple  
 dans ce sens que ça revient à faire ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 # en décomposant un peu pour bien comprendre
 for couple in annuaire.items():
-    cle, valeur = couple
+    cle, valeur = couple # on appelle cela de l'unpacking
     print(f"{cle} → {valeur}")
 ```
 
@@ -483,7 +482,7 @@ for couple in annuaire.items():
 
 mécanisme pour définir un nombre quelconque d'arguments à une fonction
 
-```{code-cell}
+```{code-cell} ipython3
 # parfois on a envie qu'une fonction puisse 
 # accepter un nombre variable d'arguments
 
@@ -498,19 +497,19 @@ def foo(fixe, *variable):
         print(f"item {item}")
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 foo(1)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 foo(1, 2)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 foo(1, 2, 3)
 ```
 
@@ -529,7 +528,7 @@ Si on pouvait en mettre plusieurs, il y aurait ambigüité quant à qui reçoit 
 dans l'autre sens, si j'ai un container avec des objets 
 que je veux passer individuellement à une fonction
 
-```{code-cell}
+```{code-cell} ipython3
 # par exemple j'ai une liste
 args = [1, 2, 3]
 
@@ -543,7 +542,7 @@ args = [1, 2, 3]
 # que si args contient 3 objets 
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # dans ce cas on peut utiliser à nouveau 
@@ -551,7 +550,7 @@ args = [1, 2, 3]
 foo(*args)
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 # vérifions que c'est bien
