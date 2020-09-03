@@ -202,16 +202,22 @@ Notez que
 
 ## outils (infrastructure)
 
-+++
++++ {"cell_style": "split"}
 
 ### notebooks : nbhosting
 
 notebooks prêt à l'emploi
 
 * aucune installation nécessaire
-* navigation dans les slides : *Espace* et *Shift-Espace*
-* évaluer une cellule de code : *Shift-Entrée*
 * <https://nbhosting.inria.fr>
+* navigation dans les slides :  
+  *Espace* et *Shift-Espace*
+* évaluer une cellule de code :  
+  *Shift-Entrée*
+
++++ {"cell_style": "split"}
+
+![](media/nbhosting-shrink.gif)
 
 +++
 
