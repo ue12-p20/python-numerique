@@ -174,6 +174,8 @@ Il ne faut pas le faire, et **ça ne fonctionne pas** de toutes façons (les op
 # au lieu de (a < 6) & ~(a%2==0)
 # on pourrait avoir envie d'écrire
 (a < 6) and not (a%2==0)
+
+# mais ça ne marche pas...
 ```
 
 ## compter les éléments répondant à une condition
@@ -182,22 +184,20 @@ Il ne faut pas le faire, et **ça ne fonctionne pas** de toutes façons (les op
 Nous allons compter les éléments répondant à une condition:
 
 ```python
-mask = (a < 6) & ~(a%2==0)
-
 # on pourrait à la rigueur utiliser sum() aussi
-np.count_nonzero(mask)
+np.count_nonzero((a < 6) & ~(a%2==0))
 ```
 
 Et naturellement vous pouvez compter ces éléments le long des axes de votre `np.ndarray`. Par exemple si on veut le nombre d'éléments impairs inférieurs à 6 dans les colonnes, je vais compter dans l'axe des lignes et recevoir un tableau de la taille des colonnes donc 4:
 
 ```python
-np.count_nonzero(mask, axis=0)
+np.count_nonzero((a < 6) & ~(a%2==0), axis=0)
 ```
 
 Si on veut le nombre d'éléments impairs inférieurs à 6 dans les lignes, je vais compter dans l'axe des colonnes et recevoir un tableau de la taille des lignes donc 3:
 
 ```python
-np.count_nonzero(mask, axis=1)
+np.count_nonzero((a < 6) & ~(a%2==0), axis=1)
 ```
 
 Et maintenant que nous avons extrait les éléments d'un `np.ndarray` avec une condition, donnons-lui un nom et essayons de modifier un de ses éléments. Faisons simple, prenons le tableau des éléments négatifs et modifions (si il existe) le premier.
