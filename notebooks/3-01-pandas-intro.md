@@ -34,7 +34,7 @@ Nous venons de voir quelques fonctions de base de la librairie numérique de Pyt
 
 Revenons à notre introduction à `numpy` où nous avons vu différents styles de tableaux, la matrice que nous avons déjà bien manipulée dans les notebooks précédents, l'image que nous ne traiterons pas plus en avant dans ces cours introductifs, la série temporelle que nous verrons plus loin ... attardons-nous sur les tables d'informations comme celle de 891 naufragés du Titanic, nous la montrons à nouveau:
 
-<img src='titanic.png' width="1000"></img>
+<img src='media/titanic.png' width="1000"></img>
 
 +++
 

@@ -53,12 +53,6 @@ Importons les outils de visualisation 3D visualization qui sont dans une librair
 from mpl_toolkits.mplot3d import Axes3D
 ```
 
-```python
-# pour la 3d ce mode d'affichage dans le notebook
-# donne de meilleurs résultats
-%matplotlib notebook
-```
-
 Rappelez-vous que *axe = (sous-)figure* en `matplotlib`...
 
 
@@ -85,10 +79,6 @@ On va créer une figure globale puis lui ajouter une sous-figure avec une projec
 Enfin on va utiliser la fonction `scatter` sur cette sous-figure 3d auquel on passe les points (x, y, z): 
 
 ```python
-# grâce au mode %matplotlib notebook
-# on va pouvoir déplacer le dessin 
-# en cliquant/tirant avec la souris
-
 fig = plt.figure()
 
 ax = fig.add_subplot(projection='3d')
@@ -141,7 +131,7 @@ Il nous faut maintenant les appliquer la fonction $f$ à un ensemble de points c
 
 Par exemple si je veux dessiner la fonction entre les abscisses 1 et 4 et les ordonnées 4 à 6, je vais vouloir calculer $f$ sur les points suivants (je ne donne que des valeurs entières pour la simplicité de l'exemple):
 
-<img src='points-meshgrid.png' width=300>
+<img src='meida/points-meshgrid.png' width=300>
 
 Si on regarde en matrices `np.ndarray`, $f$ va devoir être calculée sur une sorte de produit cartésien des abscisses et des ordonnées de cette manière:
 
@@ -231,7 +221,7 @@ ax.plot_surface(v_x, v_y, v_z, cmap='Blues');
 On peut aussi s'amuser à afficher la fonction comme une image: 
 
 ```python
-plt.imshow(v_z)
+plt.imshow(v_z);
 ```
 
 ## Exercices

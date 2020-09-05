@@ -53,7 +53,7 @@ Importons le jeu de données classiques sur trois types d'iris (Versicolor, Virg
 
 Exemple des 4 mesures décrites sur un iris versicolor:
 
-<img src='versicolor-petal-sepal.jpg' width=200>
+<img src='media/versicolor-petal-sepal.jpg' width=200>
 
 ```python
 file = 'iris.csv'
