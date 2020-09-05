@@ -18,7 +18,7 @@ kernelspec:
 Où on découvre les deux dernière bibliothèques socles de l'écosystème Python :
 
 * `pandas` pour la data-science (importation et mise en forme de données)
-* `matplotlib` pour la visualisation de données, en abrégé *dataviz* 
+* `matplotlib` pour la visualisation de données, en abrégé *dataviz*
 
 +++
 
