@@ -13,13 +13,13 @@ kernelspec:
 
 +++ {"tags": []}
 
-# la dataframe
+# modifications et *slicing* de dataframe
 
 Où on apprend à découper et modifier des parties de dataframe
 
 +++
 
-Nous allons nous intéresser dans ce ntebook à la manière de découper (trancher) slicer les objets `pandas` comme des séries ou des dataframes, et à les modifier.
+Nous allons nous intéresser dans ce notebook à la manière de découper (trancher) slicer les objets `pandas` comme des séries ou des dataframes, et à les modifier.
 
 +++
 
@@ -36,9 +36,13 @@ Lisons notre dataframe du Titanic et passons lui comme index des lignes, la colo
 
 ```{code-cell} ipython3
 file = 'titanic.csv'
-df = pd.read_csv(file)
+df = pd.read_csv(file, index_col='PassengerId')
+```
 
-df.index = df['PassengerId']
+et aussi, comme dans le notebook précédent on va le trier par âge histoire de bien voir la différence entre les index et les indices
+
+```{code-cell} ipython3
+df.sort_values(by='Age', inplace=True)
 df.head(3)
 ```
 
@@ -50,14 +54,33 @@ Une chose que nous pouvons apprendre est à copier une dataframe. Pour cela il f
 
 ```{code-cell} ipython3
 df_copy = df.copy()
-df_copy.head()      # df_copy est une nouvelle dataframe jumelle de l'originale
+df_copy.head(3)      # df_copy est une nouvelle dataframe jumelle de l'originale
 ```
 
 voilà `df_copy` est une nouvelle dataframe avec les mêmes valeurs que l'originale.
 
 +++
 
-## contextualisons l'accés et la modification de sous-parties d'une dataframe
+## créer une nouvelle colonne
+
++++
+
+Il est souvent pratique de créer une nouvelle colonne, en faisant un calcul à partir des colonnes existantes
+les opérations sur les colonnes sont, en pratique, les seules opérations qui utilisent la forme `df[nom_de_colonne]`
+
+```{code-cell} ipython3
+# pour créer une nouvelle colonne
+# par exemple ici je vais ajouter une colonne 'Deceased'
+# qui est simplement l'opposé de 'Survived'
+
+df['Deceased'] = 1 - df['Survived']
+```
+
+```{code-cell} ipython3
+df.head(3)
+```
+
+## contextualisons l'accés et la modification de parties d'une dataframe
 
 +++
 
@@ -66,352 +89,293 @@ Pour accéder ou modifier des sous-parties de dataframe, vous pourriez être ten
 Comme par exemple en Python:
 
 ```{code-cell} ipython3
-l = [-12, 56, 34]
-l[0] = "Hello !"
-l
+---
+cell_style: split
+slideshow:
+  slide_type: subslide
+---
+L = [-12, 56, 34]
+L[0] = "Hello !"
+L
+```
+
+```{code-cell} ipython3
+:cell_style: split
+
+L[1:2] = [100, 200, 300]
+L
 ```
 
 Ou encore, d'utiliser l'accés à un tableau par une paires d'indices, comme vous le feriez en `numpy`:
 
 ```{code-cell} ipython3
-nl = np.array([[-12, 56], [34, 18]]) # je crée la matrice nl
-nl[0, 0] = 999                       # je modifie son premier élément
-print(nl)                            # j'affiche la matrice
-nl[0]                                # j'accède à sa première ligne
+mat = np.arange(25).reshape((5, 5))   # je crée la matrice 5x5
+mat[2, 2] = 100                        # je modifie l'élément au milieu
+mat[0::4, 0::4] = 10000                 # je modifie les 4 coins
+print(mat)                            # j'affiche la matrice
+mat[0]                                # j'accède à sa première ligne
 ```
 
-Mais voilà en `pandas`, c'est très différent: ils ont mis leurs efforts sur la gestion d'une indexation des lignes et des colonnes.
+Mais voilà en `pandas`, c'est très différent: comme on l'a vu déjà, ils ont mis leurs efforts sur la gestion d'une indexation des lignes et des colonnes.
 
-Ils ont priviligié le repérage des éléments d'une dataframe par des **noms** de colonnes et des **labels** de lignes, des **index**, et pas les *indices* comme en Python et en `numpy`
+Ils ont priviligié le repérage des éléments d'une dataframe **par des index** (les **noms** de colonnes et les **labels** de lignes), et **pas** les **indices** comme en Python et en `numpy`
 
-Pourquoi ? parce que si vous utilisez `pandas` c'est que vous avez besoin de voir vos données sous la forme d'une table avec des labels pour indexer les lignes et les colonnes. Si vous n'avez pas besoin d'index particuliers, ça veut dire que vous êtes à l'aise pour manipuler vos données uniquement à base d'indices - des entiers - et dans ce cas-là autant utiliser les `np.ndarray`: vous n'allez pas stocker une matrice dans une dataframe ! `numpy` et ses indices ligne, colonne vous suffisent !
-
-Ainsi si nous voulons accéder à la première colonne de notre dataframe, on fera:
-
-```{code-cell} ipython3
-# quand on utilise l'opérateur [] sur une data frame pandas
-# on utilise les index car c'est ce qui est le plus souvent pratique
-```
-
-```{code-cell} ipython3
-df.columns
-#df[0]
-```
-
-```{code-cell} ipython3
-:cell_style: split
-
-# on peut accéder à la colonne par son nom 
-# (qui est sa clé dans l'index des colonnes)
-df['Survived']
-```
-
-```{code-cell} ipython3
-:cell_style: split
-
-# mais pas par son indice
-try:
-    df[0]
-except Exception as exc:
-    print(f"OOPS {type(exc)}")
-```
-
-On obtient une série `pandas` qui est indexée par `PassengerId` (on le voit écrit en haut de la colonne).
-
-On accède aux éléments (cellules) par leur index dans la ligne. Et attention, nous avons donné comme index aux lignes les identificateurs des passagers - le fameux `PassengerId` qui commence à 1 et pas à 0.
-
-```{code-cell} ipython3
-# le passager dont le PassengerId vaut 1 a-t-il survécu ?
-df['Survived'][1]
-```
-
-Si vous ne donnez pas de noms de colonnes ni de noms de lignes à une dataframe, alors les index existeront, simplement ils seront confondus avec les indices des lignes et des colonnes (i.e. leurs numéros dans leur liste sont devenus leurs index).
-
-Mais les règles d'indexage demeurent. Si la dataframe `data` contient au moins un élément et si les lignes et les colonnes n'ont pas été explicitement indexées:
-   - `data[0]` accédera bien à la première colonne de votre dataframe
-   - `data[0][0]` au premier élément de la première colonne.
-   
-Vous voulez essayer ? Il existe un fichier de nom `titanic-sans-header.csv` avec les passagers du Titanic, sans noms de colonnes. Lisez-le avec `pandas.read_csv`, donnez le paramètre `header=None` à `read_csv` pour lui dire qu'il n'existe pas de noms de colonnes (pas de header) et ne mettez pas les `PassengerId` en index des lignes.
-
-Accédez alors à `df_no_header[1][0]`. Que trouvez-vous ?
-
-```{code-cell} ipython3
-# votre code ici (correction ci-dessous)
-```
-
-```{code-cell} ipython3
-df_no_header = pd.read_csv('titanic-sans-header.csv', header=None)
-df_no_header[1][0]
-```
-
-```{code-cell} ipython3
-df_no_header.head()
-```
-
-`pandas` a priviligié la manière de voir les dataframe comme des tables indexées et de considérer les noms de ses colonnes un peu comme des clés de dictionnaires. Voilà qui est très très différent de `numpy` .
+Pourquoi ? parce que si vous utilisez `pandas` c'est que vous avez besoin de voir vos données sous la forme d'une table avec des labels pour indexer les lignes et les colonnes. Si vous n'avez pas besoin d'index particuliers, ça veut dire que vous êtes à l'aise pour manipuler vos données uniquement à base d'indices - des entiers - et dans ce cas-là autant utiliser un simple tableau numpy : vous n'allez pas stocker une matrice dans une dataframe ! `numpy` et ses indices ligne, colonne vous suffisent !
 
 +++
 
-Mais cela a un prix. Quand une opération sur une dataframe `pandas` renvoie une sous-partie de la dataframe, savoir si cette sous-partie est une copie de la dataframe d'origine ou savoir si c'est une référence vers la dataframe d'origine ... dépend du contexte !!
+Néanmoins, `pandas` offre des techniques assez similaires, et assez puissantes aussi, que nous étudier dans ce notebook.
+
++++
+
+## rappels : `loc` et `at` pour les accès atomiques
+
++++
+
+on l'a vu dans le notebook précédent, les accès à un dataframe pandas se font 
+* le plus souvent à base d'index et non pas d'indices
+* et dans ce cas on utilise `df.loc` pour accéder aux lignes et cellules
+* et, toujours avec les index, on utilise `df.at` pour écrire dans la dataframe
+
+```{code-cell} ipython3
+df.head(3)
+```
+
+```{code-cell} ipython3
+:cell_style: split
+
+# avec loc, c'est ligne x colonne
+df.loc[756, 'Name']
+```
+
+```{code-cell} ipython3
+:cell_style: split
+
+# pour upgrader un passager
+df.at[645, 'Pclass'] -= 1
+```
+
+```{code-cell} ipython3
+df.head(3)
+```
+
+## slicing
+
++++
+
+### `df.loc`  et **bornes inclusives**
+
++++
+
+Du coup, la première chose qu'on peut avoir envie de faire, c'est d'accéder à la dataframe par des *slices*; ça doit commencer à être banal maintenant, puisqu'à chaque fois qu'on voit une structure de données qui s'utilise avec `[]` on finit par étendre le sens de l'opération pour des slices.
+
+Je rappelle qu'en Python une slice c'est de la forme `start:stop:step`, et qu'on peut éluder les morceaux qu'on veut, c'est-à-dire que par exemple `:` désigne une slice qui couvre tout l'espace, `::-1` permet de renverser l'ordre, je vous renvoie aux chapitres idoines si ce n'est plus clair pour vous.
+
+**Par contre**, il faut tout de suite souligner une petite anomalie, qui est que **dans le cas des index** les slices de dataframes **contiennent les bornes**, ce qui, vous vous souvenez, n'a jamais été le cas jusqu'ici avec les slices en Python, où la borne supérieure est toujours exclue; voyons cela
+
+```{code-cell} ipython3
+df.head(5)
+```
+
+```{code-cell} ipython3
+# je sélectionne les lignes entre 
+# l'index 756 et l'index 470 INCLUSIVEMENT
+
+df.loc[756:470]
+```
+
+Il y a tout de même une certaine logique, c'est que les index sont a priori tout mélangés, mais bon c'est troublant au début.
+
++++
+
+### `df.loc` avec slicing sur les colonnes
+
++++
+
+Voyons comment faire du slicing dans l'autre direction
+
+```{code-cell} ipython3
+:cell_style: split
+
+# si j'écris ceci, je désigne 
+# toutes les lignes de la colonne 
+# donc toute la colonne Pclass
+
+df.loc[:, 'Pclass']
+```
+
+```{code-cell} ipython3
+:cell_style: split
+:tags: [level_advanced]
+
+# d'ailleurs effectivement, c'est optimisé
+# au point que c'est le même objet en mémoire !
+
+df.loc[:, 'Pclass'] is df['Pclass']
+```
+
+Et donc logiquement ici, si je veux sélectionner une plage de colonnes, je vais utiliser deux slices:
+* dans la direction des lignes, on prend tout avec une simple slice `:`
+* dans la direction des colonnes, le slicing marche aussi **en mode inclusif**
+
+```{code-cell} ipython3
+# ici comme pour les lignes, comme on est dans l'espace des index
+# et pas celui des indices, les bornes de la slice sont INCLUSIVES
+
+df.loc[:, 'Sex':'Parch'].head(3)
+```
+
+### slicing généralisé
+
++++
+
+Bon bien sûr on peut mélanger toutes les features que nous connaissons déjà, et écrire des sélections arbitrairement compliquées - pas souvent utile, mais simplement pour montrer que toute la logique est préservée
+
+```{code-cell} ipython3
+df.head(8)
+```
+
+```{code-cell} ipython3
+# tous ce qu'on a appris jusqu'ici à propos des slices
+# fonctionne comme attendu, à part cette histoire de 
+# borne supérieure qui est inclusive avec les index
+
+df.loc[804:828:2, 'Sex':'Ticket':2]
+```
+
+### `df.at` pour écrire : **bornes inclusives**
+
++++
+
+Une autre différence majeure avec les objets Python qu'on a étudiés jusqu'ici, c'est que pour pouvoir écrire dans la dataframe, on ne **peut pas** utiliser `loc`, il **faut utiliser `at`**; ce n'est pas tellement surprenant puisque c'était déjà le cas pour écrire dans une seule cellule, mais ça déroute les débutants, d'autant plus que parfois la forme avec `.loc` fonctionne quand même (mais avec un gros avertissement).
+
+Il faut retenir donc que `df.at` peut tout à fait être utilisé avec des slices aussi, et ici à nouveau les bornes seront bien sûr inclusives; voyons cela
+
+```{code-cell} ipython3
+df.head(5)
+```
+
+```{code-cell} ipython3
+# sans vouloir chercher un "use case" très utile
+# multiplions par 1000 une portion de la dataframe
+
+# les lignes entre 756 et 470 inclusivement
+# les colonnes entre SibSp et Parch inclusivement
+
+# ici on ne peut pas utiliser *= 1000
+# car les deux termes à gauche et à droite
+# de l'affectation ne sont pas les mêmes
+
+df.at[756:470, 'SibSp':'Parch'] = df.loc[756:470, 'SibSp':'Parch']*1000
+
+# vérifions
+df.head(5)
+```
+
+### *copied or not copied, that is the question*
+
++++
+
+Pour terminer cette section, pour les curieux, il y a une question parfois épineuse qui se pose lorsqu'on fait des sélections de parties de dataframe.
+
+Quand une opération sur une dataframe `pandas` renvoie une sous-partie de la dataframe, savoir si cette sélection est en fait **une référence partagée** vers, ou si **c'est une copie** de la dataframe d'origine, ... dépend du contexte !!
 
 Bon très bien, vous dites-vous mais en quoi cela me concerne-t-il ! il gère bien comme il veut ses sous-tableaux, je ne vais pas m'en soucier ...
 
-
 alors oui cela est vrai ... jusqu'à ce que vous vous mettiez à modifier des sous-parties de dataframe ...
 
-   - si la sous-partie est une **copie** de la sous-partie de dataframe, votre modification ne va pas donc être prise en compte sur la dataframe d'origine
+   - si la sous-partie est une **copie** de la sous-partie de dataframe, votre modification ne sera **pas prise en compte** sur la dataframe d'origine ! évidemment…
    
-   - et si c'est une référence vers une partie de la dataframe d'origine (la sous-partie référence bien la dataframe d'origine) alors `pandas` vous permettra de la modifier.
+   - et si c'est une référence partagée vers une partie de la dataframe d'origine, alors vos modifications dans la sélection vont bien se répercuter dans les données d'origine.
    
 ahhh ... vous commencez à comprendre: savoir si une opération retourne une copie ou une référence devient important mais dépend du contexte.
 
-heu ... nous n'allons quand même pas apprendre tous les contextes ou abandonner `pandas` ... non `pandas` a prévu quelque chose de très bien ...
+Ce qu'il faut retenir c'est que
+* **lorsqu'on utilise `df.at`**, dont c'est l'unique propos en fait, vous faites bien les modifications, comme on l'a bien vu déjà
+* et c'est pour cela précisément qu'il ne faut pas essayer de changer une cellule en faisant  
+  `df[col][line] = new_value`  
+  car dans ce cas de figure, dit du *chained indexing*, on n'est pas du tout sûr du résultat !!
 
 +++
 
-`pandas` fournit une méthode dont l'indexation se base uniquement sur les indices (le *0-based indexing* en anglais) et obéit donc au découpage classique de Python et `numpy` ... vous l'avez reconnue ... nous en avons déjà parlé rapidement ...
-
-Oui il s'agit de `pandas.DataFrame.iloc` ! Seule cette fonction est assurée par `pandas` de retourner une référence sur la dataframe d'origine. La seconde fonction `pandas.DataFrame.loc` dérive simplement de cette première fonction.
+## autres mécanismes d'indexation
 
 +++
 
-Donc règle numéro un: quand je veux modifier une sous-parte d'une dataframe, je dois accéder à cette sous-partie avec `iloc` et `loc`. Rien d'autre ...
-
-Sinon quoi ? Et bien sinon la modification ne sera pas faite sur la dataframe d'origine comme vous le pensiez.
+### accés à une liste explicite de lignes ou colonnes
 
 +++
 
-Allons-y ! Utilisons `iloc` pour accéder et modifier un élément.
+Nous voulons maintenant prendre une référence sur une sous-partie d'une dataframe qui **ne s'exprime pas sous la forme d'une slice (tranche)**, mais par contre nous possédons la liste des (index des) lignes et des colonnes que nous souhaitons conserver dans ma sous-partie de dataframe.
+
+`pandas` sait parfaitement le faire :
+* on utilise `df.loc[]` puisqu'on va désigner des index,
+* et on va passer dans les `[]`,  non plus des slices, mais tout simplement des listes (et de plus, vous donnez les index dans l'ordre qui vous intéresse) :
 
 +++
-
-## accés et modification d'un élément
-
-+++
-
-Allons-y ! Utilisons `iloc` pour accéder à l'état de survie du passager `PassengerId` 1
-
-```{code-cell} ipython3
-df.head(2)
-```
-
-son indice de ligne est 0 (première ligne) et son indice de colonne est 1 (deuxième colonne)
-
-```{code-cell} ipython3
-df.iloc[0, 1]
-```
-
-Vous remarquez que `iloc` s'utilise comme `numpy`: les lignes sont indiquées en premier !
-
-+++
-
-Si au lieu de ça on utilisait `loc`, on pourrait utiliser des éléments visibles pour identifier la ligne et la colonne, au lieu de devoir compter; autrement dit on pourrait lui donner des index et pas des indices ...
-
-```{code-cell} ipython3
-df.loc[1, 'Survived']
-```
-
-Passons son état à survivant avec `iloc` ou `loc`
-
-```{code-cell} ipython3
-df.loc[1, 'Survived'] = 1
-```
-
-On vérifie !
-
-```{code-cell} ipython3
-df.head(1)
-```
-
-À vous de jouer, utiliser `pandas.DataFrame.iloc` pour remettre l'état de survie de ce même passager à 0.  
-Comme c'est `iloc` (rappelez-vous, *i* est pour *integer*), vous devez lui passer les **indices** de ligne et de colonne, et pas les index.
-
-```{code-cell} ipython3
-# votre code ici (solution ci-dessous)
-```
-
-```{code-cell} ipython3
-df.iloc[0, 1] = 0
-```
-
-```{code-cell} ipython3
-df.head(1)
-```
-
-(pauvre Mr. Braund)
-
-+++
-
-En quelle classe était ce monsieur ? Utilisez `loc` pour le savoir:
-
-```{code-cell} ipython3
-# votre code ici (correction ci-dessous)
-```
-
-```{code-cell} ipython3
-df.loc[1, 'Pclass']
-```
-
-Oui en troisième classe. Ce sont les hommes de cette classe qui ont le moins survécu au naufrage ... D'après-vous, quelle catégorie de personne a le mieux survécu au naufrage ? On regardera cela bientôt.
-
-+++
-
-## accés et modification de parties de dataframes
-
-+++
-
-Prendre une référence sur une sous-partie d'une dataframe va vous rendre naturellement un objet de type `pandas.DataFrame`.
-
-+++
-
-Rappelez-vous vous d'utiliser en priorité: `pandas.DataFrame.iloc` ou `pandas.DataFrame.loc`.
-
-+++
-
-### accés et modifications par slicing à-la-Python
-
-+++
-
-Vous allez utiliser `pandas.DataFrame.iloc` avec donc les indices des lignes et des colonnes.
-
-+++
-
-Avec `pandas.DataFrame.iloc` c'est le slicing archi-classique Python ou `numpy`  
-c'est à dire la forme `df.iloc(from : to-excluded : step)`
-
-+++
-
-Faisons un slicing `[from:to:step]` classique, on ne précise pas `step` qui par défaut vaut 1, et on prend les lignes de l'indice 32 à l'indice 37 et les colonnes de l'indice 3 à l'indice 5.
-
-Attention, comme c'est `iloc`, à nouveau ce sont des **indices** donc à partir de 0. Pour les lignes, la première ligne est de numéro 0 donc d'indice 0 mais elle est d'index 1 puisque les lignes sont indexées (labellisées) par les valeurs de la colonne `PassengerId` qui commencent à 1.
-
-Ainsi on nous donne les entrées d'index 33 à 37 et les colonnes `Name` et `Sex`. On voit que les bornes supérieures du slicing sont exclues comme dans le slicing classique Python.
-
-```{code-cell} ipython3
-df.iloc[32:37, 3:5]
-```
-
-Et vous remarquez que `iloc` s'utilise vraiment comme le slicing en `numpy`: les lignes sont indiquées en premier !
-
-+++
-
-Aucun problème pour modifier ! Un exemple stupide, je mets toutes ces valeurs à "Hello !".
-
-```{code-cell} ipython3
-df_copy.iloc[32:37, 3:5] = "Hello !"
-```
-
-On le vérifie.
-
-```{code-cell} ipython3
-df_copy.iloc[32:37, 3:5]
-```
-
-Supposons que je veuille utiliser `iloc` pour prendre une référence sur (toutes les colonnes de) la ligne d'indice 4.
-
-```{code-cell} ipython3
-df.iloc[4]
-```
-
-Maintenant, si dans l'autre sens nous voulons prendre (toutes les lignes de) la première colonne, il va falloir préciser les lignes, et comme on les prend toutes on va utiliser le '::' ou son raccourci le simple ':'
-
-```{code-cell} ipython3
-:cell_style: split
-
-# pour désigner toutes les lignes
-df.iloc[::, 0]
-```
-
-```{code-cell} ipython3
-:cell_style: split
-
-# ou encore + simple
-df.iloc[:, 0]
-```
-
-### accés et modifications par localisation d'index
-
-+++
-
-Vous allez accéder à une sous-partie d'une dataframe en utilisant `pandas.DataFrame.loc`, au travers cette fois des index.
-
-+++
-
-Alors voilà, il va y avoir une surprise ! Vous n'êtes plus dans le slicing à-la-Python ! On va voir si vous vous en apercevez.
-
-+++
-
-Prenons, comme dans l'exemple précédent  
-* les lignes de l'index 33 (indice 32) à l'index 38 (indice 37)
-* et les colonnes de l'index 'Name' (indice 3) à l'index 'Age' (indice 5).
-
-```{code-cell} ipython3
-df.loc[33:38, 'Name':'Age']
-```
-
-Voyez vous, la grande différence entre `loc` et `iloc` quand on leur passe une slice de la forme `from:to` ... oui c'est que l'index supérieur (le `to`) est **inclus**, on se retrouve avec une ligne et une colonne en plus que dans la version avec `iloc`.
-
-Bon ce n'est peut être pas la meilleure idée que `pandas` ait eue mais il faut s'y habituer ... ou utiliser `iloc` !
-
-+++
-
-De même que pour `iloc` on peut modifier.
-
-```{code-cell} ipython3
-df_copy.loc[33:38, 'Name':'Age'] = "Hello !"
-```
-
-On le vérifie.
-
-```{code-cell} ipython3
-df_copy.loc[33:38, 'Name':'Age'] 
-```
-
-### accés et modifications par liste d'indices
-
-+++
-
-Nous voulons prendre une référence sur une sous-partie d'une dataframe qui ne s'exprime pas sous la forme d'une slice (tranche) mais nous possédons la liste des (indices des) lignes et des colonnes que nous souhaitons conserver dans ma sous-partie de dataframe.
-
-`pandas` sait parfaitement le faire, il suffit de remplacer les slices par les listes (et de plus, vous donnez les indices dans l'ordre qui vous intéresse):
 
 Prenons ainsi par exemple 
-* les lignes d'indice 450, 3, 67, 800 et 678
-* et les colonnes d'indice 3, 2, 9 et 1.  
+* les lignes d'index 450, 3, 67, 800 et 678
+* et les colonnes `Age`, `Pclass` et `Survived`
 
-Et comme ce sont des indices, nous utilisons `iloc`.
+Et comme ce sont des index, nous utilisons `loc`.
 
 ```{code-cell} ipython3
 # c'est facile de créer une sélection de lignes et de colonnes 
-df.iloc[[450, 3, 67, 800, 678], [3, 2, 9, 1]]
+df.loc[[450, 3, 67, 800, 678], ['Age', 'Pclass', 'Survived']]
 ```
 
-On peut faire exactement la même chose avec `loc`, mais bien sûr en lui passant des index et non des indices, à ce stade vous devez avoir compris l'idée générale…
-
-```{code-cell} ipython3
-# la même sélction mais en utilisant les index
-df_copy.loc[[451, 4, 68, 801, 679], ['Name', 'Pclass', 'Fare', 'Survived']]
-```
-
-### accés et modification par tableaux de booléens
+### recherche selon une formule booléenne
 
 +++
 
 Nous avons vu dans le notebook précédent que nous pouvions faire des tests sur toutes les valeurs d'une colonne et que cela nous rendait un tableau de booléens.
 
-Et bien la dernière manière d'accéder à des sous-parties de dataframe, va être l'accés par tableau de booléens i.e. on va isoler de la dataframe les lignes où la valeur du booléen est vraie.
-
-Par exemple, prenons la colonne `Age`, localisons les personnes dont l'âge est supérieur ou égal à 70 ans, et isolons ces personnes dans une dataframe.
-
 ```{code-cell} ipython3
-df.loc[ df['Age'] >= 70 ]
+:cell_style: center
+
+# rappel: cette expression retourne une dataframe
+mask = df['Pclass'] >= 3
+
+# voyons ce qu'elle contient
+mask.head(3)
 ```
 
-Nous pouvons mettre plusieurs conditions, nous voulons les personnes qui ne sont pas en première classe et dont l'age est supérieur à 70 ans.
+Et bien la dernière manière d'accéder à des sous-parties de dataframe, va être d'**indexer par un tableau de booléens**, i.e. on va isoler de la dataframe les lignes où la valeur du booléen est vraie.
+
+Par exemple, pour extraire de la dataframe les lignes correspondant aux voyageurs en 3-ième classe, on va utiliser `mask` - un objet de type `Series` donc, qui contient des booléens - comme moyen pour indexer la dataframe.
+
+```{code-cell} ipython3
+# voyez qu'ici dans les crochets on n'a plus 
+# une slice, ni une liste, 
+# mais une colonne (une Series) de booléens
+# qu'on appelle souvent un masque, justement
+
+df.loc[ mask ]
+```
+
+Notez que bien souvent on ne prendra pas la pein de décortiquer comme ça, et on écrira directement
+
+```{code-cell} ipython3
+# en une seule ligne, c'est un peu moins lisible 
+# mais c'est un idiome fréquent
+
+# je rajoute .head(3) pour abrèger un peu
+
+df[df['Pclass'] >= 3].head(3)
+```
+
+### combinaison d'expressions booléennes
+
++++
+
+Un peu plus sophistiqué, nous pouvons mettre **plusieurs conditions**, par exemple personnes qui ne sont pas en première classe et dont l'age est supérieur à 70 ans.
 
 Mais comment écrire ces conditions ...
 
 ```{code-cell} ipython3
+# on pourrait être tenté d'écrire quelque chose comme ceci
+
 try:
     df['Age'] >= 70 and not(df['Pclass'] == 1)
 except ValueError as e:
@@ -429,11 +393,74 @@ Vous ne pouvez **pas** utiliser `and`, `or` et `not` !
    - soit vous utilisez les `&`, `|` et `~` (les opérateurs logiques qu'on appelle *bitwise* i.e. qui travaillent bit à bit) et vous parenthésez bien !
 
 ```{code-cell} ipython3
-df.loc [ np.logical_and(df['Age'] >= 70, np.logical_not(df['Pclass'] == 1)) ] # bof ...
+# plus de 70 ans, et pas en première classe
+# remarquez que ça se bouscule pas dans cette catégorie...
+
+df.loc [ (df['Age'] >= 70) & (~ (df['Pclass'] == 1)) ] 
 ```
 
 ```{code-cell} ipython3
-df.loc [ (df['Age'] >= 70) & (~ (df['Pclass'] == 1)) ] # ahhh
+# pareil avec les opérateurs numpy
+# personnellement je préfère la version précédente mais bon
+
+df.loc [ np.logical_and(df['Age'] >= 70, np.logical_not(df['Pclass'] == 1)) ] # bof ...
+```
+
++++ {"tags": []}
+
+### résumé des méthodes d'indexation
+
++++
+
+Pour résumer cette partie, nous avons vu trois méthodes d'indexation utilisables avec `loc` (et avec `at` donc, par voie de conséquence) :
+* on peut utiliser une slice, et parce qu'on manipule des index et pas des indices dans ce cas **les bornes sont inclusives** (on va voir tout de suite qu'avec les indices par contre les bornes sont les bornes habituelles, avec la fin exclue)
+* on peut utiliser une liste explicite, pour choisir exactement et dans le bon ordre les index qui nous intéressent
+* on peut utiliser un masque, c'est-à-dire une colonne obtenue en appliquant une expression booléenne à la dataframe de départ - cette méthode s'applique sans doute plus volontiers à la sélection de lignes
+
++++ {"tags": ["level_intermediate"]}
+
+Remarquez d'ailleurs, pour les geeks, que si on veut on peut même mélanger ces trois méthodes d'indexation; c'est-à-dire par exemple utiliser une liste pour les lignes et une slice pour les colonnes :
+
+```{code-cell} ipython3
+:tags: [level_intermediate]
+
+# on peut indexer par exemple
+# les lignes avec une liste
+# les colonnes avec une slice
+```
+
+```{code-cell} ipython3
+:tags: [level_intermediate]
+
+df.loc[
+    # dans la dimension des lignes: une liste
+    [450, 3, 67, 800, 678], 
+    # dans la dimension des colonnes: une slice
+    'Sex'::2]
+```
+
+## travailler avec les indices : **bornes habituelles**
+
++++
+
+Dans les - rares - cas où on veut travailler avec les indices plutôt qu'avec les index, tout fonctionne presque exactement pareil qu'avec les index, sauf que
+
+* on doit utiliser `iloc` et `iat` au lieu de `loc`et `at`, bien entendu
+* qui supportent les mêmes mécanismes de *slicing* et d'indexation que l'on vient de voir,
+* et dans ce cas comme on est dans l'espace des indices, **les bornes des slices** se comportent comme les **bornes habituelles (début inclus, fin exclue)**
+
+Je vous invite à vérifier ce point par vous même, en remettant à leur valeur originelle la portion de la dataframe que l'on avait un peu arbitrairement multipliée par 1000 tout à l'heure, tout ça en utilisant `iloc` et `iat`
+
+```{code-cell} ipython3
+# je vous rappelle où on en est
+df.head(5)
+```
+
+```{code-cell} ipython3
+# votre mission si vous l'acceptez
+# rediviser par 1000 les 6 cases, mais à bases d'indices cette fois-ci
+# donc en utilisant iloc et iat
+...
 ```
 
 ## exercices
@@ -469,12 +496,13 @@ On obtient une seule colonne, elle est de type `pandas.Series`, on le savait dé
 Maintenant que j'ai une colonne, rien ne m'empêche d'accéder à un élément de la colonne, avec la simple notation d'accés à un élément d'un tableau comme dans Python, prenons l'élément d'index 1.
 
 ```{code-cell} ipython3
+# so far, so good
 df['Survived'][1]
 ```
 
 Maintenant LA question. Je viens d'accéder à un élément de la colonne `Survived`, puis-je utiliser cette manière d'accéder pour modifier l'élément ?
 
-Donc *Puis-je ressusciter le pauvre passager d'index 1 en faisant passer son état de survie à 1 par l'affectation `df['Survived'][1] = 1`
+Dit autrement, puis-je ressusciter le pauvre passager d'index 1 en faisant passer son état de survie à 1 par l'affectation `df['Survived'][1] = 1`
 
 La réponse est non ! Pourquoi ? parce que `df['Survived'][1]` est une copie ! pas une référence vers une partie de la dataframe `df` !
 
