@@ -1,12 +1,12 @@
 ---
 jupyter:
   jupytext:
+    cell_metadata_filter: all,-hidden,-heading_collapsed
     cell_metadata_json: true
+    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.6.0rc0
   kernelspec:
     display_name: Python 3
     language: python
@@ -24,19 +24,19 @@ import pandas as pd
 import numpy as np
 ```
 
-# Trier une dataframe
+# trier une dataframe
 
-Il peut être utile de trier une dataframe selon l'ordre d'une colonne (resp. ligne) de la dataframe et le résultat sera une dataframe dont les lignes (resp. colonnes) auront été réordonnées, les index sont conservés (ils bougent avec les lignes qu'ils indexent ...). Attention par contre, bien sûr les indices sont modifiés ...
+il peut être utile de trier une dataframe selon l'ordre d'une colonne (resp. ligne) de la dataframe et le résultat sera une dataframe dont les lignes (resp. colonnes) auront été réordonnées, les index sont conservés (ils bougent avec les lignes qu'ils indexent ...). attention par contre, bien sûr les indices sont modifiés ...
 
-C'est l'axe qui indiquera si on trie dans l'axe des lignes (auquel cas on trie selon une colonne) ou si on trie dans l'axe des colonnes (auquel cas on trie selon une ligne).
+c'est l'axe qui indiquera si on trie dans l'axe des lignes (auquel cas on trie selon une colonne) ou si on trie dans l'axe des colonnes (auquel cas on trie selon une ligne).
 
-La fonction est `pandas.DataFrame.sort_values`
+la fonction est `pandas.dataframe.sort_values`
 
 
 Vous pouvez décider de trier en place (*inplace=True*) auquel cas la dataframe sur laquelle vous appliquez la fonction est modifiée, sinon la fonction renverra une nouvelle dataframe.
 
 
-## Tri d'une dataframe selon une colonne
+## tri d'une dataframe selon une colonne
 
 
 Reprenons notre exemple du titanic.
@@ -84,7 +84,7 @@ Vous voyez que les lignes d'index 746 et 673, dont les âges sont égaux, ont é
 Et souvenez-vous, la dataframe est une copie de la dataframe initiale, sauf si le tri en place a été indiqué.
 
 
-## Tri d'une dataframe selon une ligne
+## tri d'une dataframe selon une ligne
 
 
 L'exemple du Titanic se prête mal à cet exemple. Créons une dataframe bidon à partir d'un `np.ndarray`. Donnons lui un index de colonnes et un de lignes.
@@ -103,7 +103,7 @@ petite_df.sort_values(by='un', axis=1)
 Vous voyez que la ligne *'un'* a été triée et la dataframe réorganisée autour de cette ligne en conservant les index.
 
 
-## Tri des index
+## tri des index
 
 
 Comme son nom d'indique, nous allons pouvoir trier les index d'une dataframe, et comme toujours, suivant l'axe 0 pour les lignes, et suivant l'axe 1 pour les colonnes.

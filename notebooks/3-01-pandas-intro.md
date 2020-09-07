@@ -1,6 +1,6 @@
 ---
 jupytext:
-  cell_metadata_filter: all
+  cell_metadata_filter: all,-hidden,-heading_collapsed
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -117,7 +117,7 @@ Ils n'ont pas trouvé leur *BDFL* comme Python avec Guido van Rossum.
 
 +++
 
-## lisons une table de données avec `pandas` (`read_csv`)
+## lisons une table de données (`pandas.read_csv`)
 
 +++
 
@@ -190,7 +190,7 @@ type(df)
 
 Le type de `df` est `pandas.core.frame.DataFrame`, un nom plus court pour ce type est `pandas.DataFrame` (que nous utiliserons aussi).
 
-Voilà donc le type de notre table de données que nous appellerons parfois dataframe.
+Voilà donc le type de notre table de données, que nous appellerons aussi *dataframe*.
 
 +++
 
