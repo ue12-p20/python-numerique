@@ -1,5 +1,4 @@
 ---
-celltoolbar: Slideshow
 jupytext:
   cell_metadata_filter: all,-hidden,-heading_collapsed
   encoding: '# -*- coding: utf-8 -*-'
@@ -14,13 +13,11 @@ kernelspec:
   name: python3
 ---
 
-+++ {"slideshow": {"slide_type": ""}}
-
 # checklist
 
 un résumé des compétences attendues pour commencer les cours d'info
 
-+++ {"slideshow": {"slide_type": ""}}
++++
 
 ## terminal
 
@@ -111,7 +108,7 @@ sous vs-code, savoir :
 
 notez que cela suppose d'avoir :
 * configuré l'interpréteur Python pour vs-code
-* installé pytlint
+* installé pylint
 
 +++ {"tags": ["level_intermediate"]}
 
