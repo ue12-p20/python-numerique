@@ -117,6 +117,9 @@ Si vous avez rencontré des problèmes imprévus lors de l'installation (ce qui 
 * sur Windows, pour choisir 'bash' comme terminal
   * utiliser la palette et taper  
   * `Select Default Shell`
+  
+* montrer comment lancer le terminal 
+  * Control \` - la deuxième fois on le ferme
 
 +++
 
@@ -601,7 +604,7 @@ en pratique il arrive qu'on se trouve face à des erreurs plus difficiles à dia
 
 son rôle est d'aider les développeurs à s'y retrouver dans la gestion des versions d'un projet
 
-un projet est constitué d'un ensemble de fichiers dont vous souhaitez conserver un historique des modifications 
+un projet est constitué d'un ensemble de fichiers dont vous souhaitez conserver un historique des modifications
 
 +++
 
@@ -682,7 +685,7 @@ Vous devrez (pas tout de suite) allez sur <https://github.com/join> pour y crée
 
 Nous vous demanderons de nous *faire passer* vos identifiants `GitHub` vu que c'est le moyen que plusieurs UE vont employer pour *relever* vos projets.
 
-Pour prendre des projets dans `GitHub` vous n'avez pas besoin d'un nom d'utilisateur, c'est pour y mettre des projets que vous en avez besoin. 
+Pour prendre des projets dans `GitHub` vous n'avez pas besoin d'un nom d'utilisateur, c'est pour y mettre des projets que vous en avez besoin.
 
 +++
 
@@ -690,10 +693,9 @@ Pour prendre des projets dans `GitHub` vous n'avez pas besoin d'un nom d'utilisa
 
 +++
 
-normalement à ce stade 
-* les Windows : vous avez déjà installé *git for windows*
-* les MacOS: vous avez déjà installé `git`à partir de ce lien <https://www.atlassian.com/git/tutorials/install-git#mac-os-x>
-* les linux : vous avez déjà installé `git`à partir de ce lien <https://www.atlassian.com/git/tutorials/install-git#linux>
+* les Windows : à ce stade, vous avez déjà installé *git for windows*, rien de plus à faire
+* les MacOS: utilisez ce lien <https://www.atlassian.com/git/tutorials/install-git#mac-os-x>
+* les linux : utilisez ce lien <https://www.atlassian.com/git/tutorials/install-git#linux>
 
 +++
 
