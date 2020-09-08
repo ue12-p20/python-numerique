@@ -13,6 +13,14 @@ kernelspec:
 
 # UE12 - pandas et matplotlib
 
++++ {"tags": ["level_advanced"]}
+
+<div style="background-color:red; padding: 50px">
+    
+    J'ai merdé en corrigeant le notebook, j'ai fait un contresens par rapport à l'utilisation de `df.at` qui ne s'impose pas du tout si on utilise bien `df.loc[line, coloumn]` et non pas comme je l'ai (mal) fait `df.loc[line][column]`. Le plan va rester le même, mais on dira simplement d'utiliser `loc` aussi pour les écritures, et on mettra en garde contre cette erreur stupide. -- Thierry
+
+</div>
+
 +++
 
 Où on découvre les deux dernière bibliothèques socles de l'écosystème Python :
@@ -228,7 +236,7 @@ Nous allons comprendre à travers cette table du Titanic comment sont composées
 +++ {"tags": ["level_intermediate"]}
 
 Si vous êtes familier de Python, le premier réflexe est d'afficher le type de la table; 
-c'est utile de connaitre le type des objets, car c'est le type qui détermine les opérations qu'on a le droit de faire sur ces objets; 
+c'est utile de connaitre le type des objets, car c'est le type qui détermine les opérations qu'on a le droit de faire sur ces objets;
 
 ```{code-cell} ipython3
 :tags: [level_intermediate]
@@ -615,7 +623,7 @@ isinstance(df.index, pd.Index)
 +++
 
 La **méthode recommandée** pour accéder à une ligne, (ou à une cellule d'ailleurs, on en reparlera), consiste à **utiliser les index**. 
-La philosophie de `pandas`, de façon générale, consiste à **favoriser** les accès par **index** - par opposition aux accès par indices. 
+La philosophie de `pandas`, de façon générale, consiste à **favoriser** les accès par **index** - par opposition aux accès par indices.
 
 +++
 
@@ -651,7 +659,7 @@ df.loc[889, 'Pclass']
 * sauf que les deux formes ont **leurs indices renversés**; et de plus l'un utilise une virgule et l'autre des crochets !
   * `df[colonne][ligne]` et   
   * `df.loc[ligne, colonne]`  
-  c'est parmi les choses assez confusantes au sujet de pandas 
+  c'est parmi les choses assez confusantes au sujet de pandas
 
 +++
 
@@ -662,7 +670,6 @@ df.loc[889, 'Pclass']
   et un index pour accéder aux lignes (`df.index`)  
   ces deux objets sont de type `Index` 
 * une colonne, ou une ligne, sont de type `Series` - qui correspond si on veut à des données en 1 seule dimension
- 
 
 +++
 

@@ -19,6 +19,14 @@ Où on apprend à découper et modifier des parties de dataframe
 
 +++
 
+<div style="background-color:red; padding: 50px">
+    
+    J'ai merdé en corrigeant le notebook, j'ai fait un contresens par rapport à l'utilisation de `df.at` qui ne s'impose pas du tout si on utilise bien `df.loc[line, coloumn]` et non pas comme je l'ai (mal) fait `df.loc[line][column]`. Le plan va rester le même, mais on dira simplement d'utiliser `loc` aussi pour les écritures, et on mettra en garde contre cette erreur stupide. -- Thierry
+
+</div>
+
++++
+
 Nous allons nous intéresser dans ce notebook à la manière de découper (trancher) slicer les objets `pandas` comme des séries ou des dataframes, et à les modifier.
 
 +++
@@ -91,8 +99,6 @@ Comme par exemple en Python:
 ```{code-cell} ipython3
 ---
 cell_style: split
-slideshow:
-  slide_type: subslide
 ---
 L = [-12, 56, 34]
 L[0] = "Hello !"
