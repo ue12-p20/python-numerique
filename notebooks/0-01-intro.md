@@ -194,7 +194,7 @@ Notez que
 
 * le cours est **coopératif**, et pas compétitif   
   ceux qui savent déjà **aident leurs camarades**
-* voyez la checklist des compétences requises (notebook `0-99-checklist.md`)
+* voyez aussi la checklist des compétences requises - [notebook `0-98-checklist.md`](https://nbhosting.inria.fr/auditor/notebook/ue12-python-numerique:intro/notebooks/0-98-checklist)
   * à terminer pour la prochaine fois si nécessaire
   * posez vos questions sur [discourse.mines-paristech.fr](https://discourse-mines-paristech.fr)
 
@@ -227,13 +227,16 @@ forum de discussion pour
 
 * tous les cours de maths & info
 * <https://discourse.mines-paristech.fr>
+* n'a pas été nettoyé - contient les discussions de l'an passé
 
 +++
 
 ### *handouts* html : readthedocs
 * selon les cours
 * celui-ci est disponible sur <https://ue12-python-numerique.readthedocs.io>
-* par contre bien sûr, ce n'est pas interactif, on ne peut pas exécuter le code
+* c'est un support accessible de partout et **cherchable**
+* par contre bien sûr, ce n'est pas interactif, on ne **peut pas exécuter** le code  
+  (alors que sous nbhosting **on peut l'exécuter, le modifier**, … on va voir ça tout de suite)
 
 +++ {"slideshow": {"slide_type": ""}}
 
@@ -251,7 +254,7 @@ forum de discussion pour
 
 * calculette  
   * un programme a accès à toutes les ressources
-  * exemple: je range X dans la case mémoire 1
+  * exemple : je range X dans la case mémoire 1
 * ordinateurs
   * plein de programmes **en même temps**
   * accessoirement plein d'utilisateurs
@@ -271,9 +274,9 @@ forum de discussion pour
 * fournir de l'**isolation** entre les utilisateurs
 
 
-(\*) comme: *top* sous linux, *Activity Monitor* sous macos et *Task Manager* sous Windows
+(\*) comme:  Task Manager* sous Windows, *Activity Monitor* sous MacOS, *top* sous linux
 
-+++ {"slideshow": {"slide_type": ""}, "tags": ["level_advanced"]}
++++ {"slideshow": {"slide_type": ""}, "tags": ["level_intermediate"]}
 
 ### notion de **processus** (en anglais *process*) 
 
@@ -285,7 +288,7 @@ forum de discussion pour
   * à relativement haute fréquence 
   * c'est le travail du *scheduler*
 
-+++ {"tags": ["level_advanced"]}
++++ {"tags": ["level_intermediate"]}
 
 #### soyons précis
 
@@ -299,7 +302,8 @@ le terme *OS* - *Operating System* a plein de significations différentes dans l
 c'est-à-dire techniquement :  
 
 * le **seul** programme dans l'ordinateur qui a **accès direct** aux périphériques
-* les programmes sont **isolés les uns des autres**
+* qui "fait tourner" les programmes en leur donner tour à tour accès au processeur
+* fait en sortes qu'ils soient **isolés les uns des autres**
 * tous les autres programmes (*user land*) accèdent à ces ressources au travers d'**abstractions**
   * mémoire : **mémoire virtuelle**  
     la case mémoire '1' est redirigée vers un bout de mémoire allouée au programme  
@@ -318,18 +322,20 @@ c'est-à-dire techniquement :
 le modèle d'usage des ordinateurs (très chers) était  
 1 ordi = plusieurs (dizaines/centaines d') utilisateurs 
 
-ce qui a mis en évidence le rôle de l'**adminstrateur** (*super-user*)  
+ce qui a mis en évidence le rôle de l'**administrateur** (*super-user*)  
 qui se chargeait des tâches de maintenance et d'installation
 
 +++
 
-les usages ont beaucoup changé, mais cette dualité est restée  
+les usages ont beaucoup changé, mais cette dualité (user lambda / admin) est restée  
 dans beaucoup d'institutions / compagnies c'est la *DSI* (Direction des Systèmes d'Information) qui se charge de l'installation de base et de la sécurité
 
 +++
 
-jusque récemment, le modèle mental était que, pour faire une installation, il faut les droits d'administrateur  
-de cette façon on peut faire des économies d'échelle (installation = processus compliqué, autant le faire 1 bonne fois pour tous les utilisateurs)
+jusque récemment, le modèle mental était que :  
+"pour faire une installation, il faut les droits d'administrateur"  
+de cette façon on peut faire des économies d'échelle  
+(installation = processus compliqué, autant le faire 1 bonne fois pour tous les utilisateurs)
 
 +++
 
@@ -358,9 +364,11 @@ si bien que la notion d'installation unique pour 1 ordi n'a **que des inconvéni
 
 c'est pourquoi je vous recommande de choisir, lorsque c'est possible, un mode d'installation **dans l'espace utilisateur** plutôt qu'une installation dans la zone système
 
-ainsi vos installation seront plus simples, et plus extensibles : vous pourrez plus facilement jongler entre les environnements lorsque vous serez plus agiles avec tout ceci
+ainsi vos installations seront plus simples, et plus extensibles : vous pourrez plus facilement jongler entre les environnements lorsque vous serez plus agiles avec tout ceci
 
 pour anticiper un peu, c'est la raison pour laquelle on vous recommandera d'installer Python avec miniconda (dans la section qui traite de Python)
+
+ça veut dire en pratique que si à un moment de l'installation on vous demande un mot de passe administrateur, c'est que vous vous êtes fourvoyés et qu'il faut changer d'angle d'attaque
 
 +++ {"slideshow": {"slide_type": ""}, "tags": []}
 
@@ -368,7 +376,8 @@ pour anticiper un peu, c'est la raison pour laquelle on vous recommandera d'inst
 
 +++
 
-le premier outil que nous allons voir c'est ce qu'on appelle le terminal; un terminal qu'est-ce que c'est ?
+le premier outil que nous allons voir c'est ce qu'on appelle le terminal;  
+un terminal qu'est-ce que c'est ?
 
 le terminal c'est tout simplement un programme qui permet d'exécuter des commandes
 
@@ -388,10 +397,14 @@ pwd
 il y a plein de types de terminal selon les systèmes d'exploitation, mais pour que nous travaillions tous ensemble sur le même objet, nous allons choisir un terminal qui s'appelle ``bash``
 
 * `bash` vient avec l'installation de base sur MacOS et linux
-* sur Windows, il faut l'installer séparément. Nous allons bientôt vous guider dans l'installation d'une app qui s'appelle ***git for windows***  <https://gitforwindows.org/> mais qui contient `bash`  
-elle fait d'une pierre deux coups, on parlera de git bientôt
- 
-mais avant de voir cette installation, on va faire une digression sur la façon dont le terminal recherche ses commandes
+* sur Windows, il faut l'installer séparément. 
+nous allons vous guider dans l'installation d'une app qui s'appelle ***git for windows*** qui est cool parce qu'elle contient 
+  * le terminal `bash`, comme ça tout le monde a le même sur tous les OS  
+  * et `git`, on va bientôt en parler, bref on fait d'une pierre deux coups
+
+**mais attendez un peu avant de vous précipiter à installer ça !**  
+
+en effet avant de voir cette installation, on va faire une digression sur la façon dont le terminal recherche ses commandes
 
 +++
 
@@ -408,7 +421,7 @@ la première difficulté rencontrée par les débutants, c'est ce genre de sympt
 tutu
 ```
 
-ce message d'erreur `command not found` - ou `commande introuvable`, vous indique le plus souvent qu'il y a quelque chose de mal installé
+ce message d'erreur `command not found` - ou `commande introuvable` - vous indique le plus souvent qu'il y a quelque chose de mal installé
 
 +++ {"tags": ["level_intermediate"]}
 
@@ -436,21 +449,17 @@ echo $PATH
 
 +++ {"tags": []}
 
-### installation de  ***git for windows***
+### installation de  `bash`
 
 +++
 
 Vous êtes sous linux ou sur MacOs donc vous avez déjà `bash`.
 
-Poutr installer `git`
-* MacOs: voyez ce lien <https://www.atlassian.com/git/tutorials/install-git#mac-os-x>
-* linux : voyez ce lien <https://www.atlassian.com/git/tutorials/install-git#linux>
-
 +++
 
-Vous êtes sous Windows
-* il est important que vous installiez ***git for windows*** et pas un autre !
-* allez sur le site là  <https://gitforwindows.org/> on va vous guider (en vous montrant son installation pas à pas)
+Vous êtes sous Windows : on a vu qu'en installant ***git for windows*** on va faire d'une pierre deux coups, et installer à la fois `bash` et `git`
+
+* allez sur le site là  <https://gitforwindows.org/>, on va vous guider (en vous montrant son installation pas à pas)
 
 +++
 
@@ -545,7 +554,8 @@ ls foo.txt
 ```
 
 ```{code-cell}
-# ou avoir plus de détails sur ce fichier: sa taille, sa date
+# ou avoir plus de détails sur ce fichier
+# sa taille, sa date
 
 ls -l foo.txt
 ```
@@ -562,7 +572,20 @@ ls -l foo.txt
 # newline (1 caractère)
 ```
 
-une autre commande utile c'est `cat`; ça permet tout simplement de voir le contenu d'un fichier
++++ {"tags": ["level_advanced"]}
+
+pour les geeks, petite devinette, pourquoi est-ce que la taille de `bar.txt` est cette fois-ci de 13 ?
+
+```{code-cell}
+:tags: [level_advanced]
+
+echo "Hellö World" > bar.txt
+
+# ll c'est un raccourci pour ls -l
+ll bar.txt
+```
+
+reprenons; une autre commande utile c'est `cat`; ça permet tout simplement de voir le contenu d'un fichier
 
 ```{code-cell}
 # le point important c'est que je peux faire référence
@@ -572,8 +595,9 @@ cat foo.txt
 ```
 
 ```{code-cell}
-# comme je suis dans le répertoire
-# /Users/tparment/git/ue12-python-numerique/notebooks
+# et comme je suis dans le répertoire
+# /home/jovyan/work/notebooks
+
 pwd
 ```
 
@@ -581,16 +605,16 @@ pwd
 # je pourrais faire aussi
 # (à modifier éventuellement selon votre environnement)
 
-cat /Users/tparment/git/ue12-python-numerique/notebooks/foo.txt
+cat /home/jovyan/work/notebooks/foo.txt
 ```
 
 et donc pour moi, parce que je suis dans le répertoire
-`/Users/tparment/git/ue12-python-numerique/notebooks/`
+`/home/jovyan/work/notebooks/`
 
 c'est pareil de faire
 
 ```console
-cat /Users/tparment/git/ue12-python-numerique/notebooks/foo.txt
+cat /home/jovyan/work/notebooks/foo.txt
 ```
 
 ou tout simplement 
@@ -647,6 +671,32 @@ enfin, une astuce utile c'est pour **revenir en arrière** avec `cd -`
 cd -
 ```
 
+```{code-cell}
+# pour créer un répertoire je peux utiliser mkdir
+# attention toutefois car on ne peut pas le faire 
+# s'il existe déjà
+
+mkdir new-folder
+cd new-folder
+pwd
+```
+
+```{code-cell}
+# qui bien sûr est vide 
+
+ls 
+```
+
+```{code-cell}
+# et pour revenir à mon point de départ
+# je pourrais faire comme tout à l'heure
+# cd - 
+# ou encore, puisque je sais que c'est juste un cran au dessus
+
+cd ..
+pwd
+```
+
 ### répertoire utilisateur (*home directory*)
 
 +++
@@ -673,16 +723,6 @@ cd -
 pwd
 ```
 
-+++ {"tags": ["level_intermediate"]}
-
-pour information, le répertoire utilisateur peut être représenté par le signe `~` dans le terminal
-
-```{code-cell}
-:tags: [level_intermediate]
-
-echo ~/git
-```
-
 ## organisation en dossiers
 
 +++
@@ -691,24 +731,35 @@ quelques conseils pour organiser votre travail en dossiers
 
 +++
 
+### choisissez-vous un "dossier principal"
+
+le *homedir*, c'est une racine tentante pour mettre ses affaires, mais souvent il y a pas mal de fourbis dès le départ; sur Windows par exemple si vous regardez son contenu (faites-le !), vous verrez que c'est pas mal encombré
+
+du coup je vous conseille de vous choisir un dossier principal, pas trop profond par rapport à votre *homedir*, mais qui est vide au démarrage
+
+un choix pas absurde, sur toutes les platesformes, c'est de prendre comme dossier principal  
+`~/Desktop/git`  (dans bash, `~` représente le *homedir*)  
+l'avantage de choisir un dossier directement sous `~/Desktop/` est qu'on le voit apparaitre sur le bureau
+
+et en dessous de ce dossier principal vous allez ranger vos différents dossiers
+
++++
+
 ### ne pas abuser sur la profondeur des arbres  
 
 évitez de couper les cheveux en 4 en créant plein de sous-répertoires, genre :
 
-~~`/User/dupont/mines/première-année/info/ue12/python-numerique`~~
+~~`/User/dupont/Desktop/git/mines/première-année/info/ue12/python-numerique`~~
 
 au contraire :
 
 * si vous créez un dossier par sujet avec un nom explicite
   * par exemple ce cours pourrait s'appeler `ue12-python-numerique`
-* et que vous regroupez tous ces dossiers dans un répertoire,
+* et que vous regroupez tous ces dossiers dans **un seul répertoire**,
 * ça peut largement suffire
 
 du coup créez plutôt un dossier  
-`/User/dupont/git/ue12-python-numerique`  
-
-ou éventuellement pour une navigation plus facile  
-`/User/dupont/Desktop/git/ue12-python-numerique`
+`/User/dupont/Desktop/git/ue12-python-numerique`  
 
 +++
 
@@ -736,6 +787,16 @@ sur le screenshot suivant, on a choisi
 * et pour faire bon poids on a même créé un raccourci dans l'explorateur de fichiers 
 * tout ça pour pouvoir y accéder rapidement en toute circonstance
 * remarquez aussi le menu contextuel; on peut facilement créer un `git bash` qui démarrera directement dans ce dossier (`git` sera son répertoire courant)
+
++++
+
+*pour créer un raccourci dans l'explorateur Windows* 
+
+![](media/fig-quick-acces-git.png)
+
++++
+
+*une fois bien installé on peut rapidement accéder à notre dossier principal de plein de façons*
 
 ![](media/fig-dossier-git.png)
 
