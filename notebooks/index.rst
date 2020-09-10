@@ -10,6 +10,7 @@ Index
 
    0-01-intro
    0-02-outils
+   0-03-install-miniconda-revised
    1-01-environnement
    1-02-rudiments
    1-03-operateurs
