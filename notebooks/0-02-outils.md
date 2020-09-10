@@ -132,6 +132,12 @@ exercice :
 
 * refaire les manipulations vous-mêmes une fois l'installation de l'éditeur de code terminée.
 
++++ {"tags": ["level_intermediate"]}
+
+il est recommandé, avec vs-code, de prendre l'habitude d'ouvrir un **répertoire** plutôt qu'un fichier
+
+si vous ouvrez un fichier (par exemple par un clic droit sur le fichier dans l'explorateur de fichiers), vs-code va vous ouvrir le fichier dans une fenêtre déjà ouverte - souvent ça va arriver comme un cheveu sur la soupe, dans un autre répertoire; si votre objectif c'est d'ouvrir une nouvelle fenêtre, préfèrez ouvrir le dossier (toujours avec le clic droit, mais sur le dossier lui-même et non le fichier)
+
 +++
 
 ## markdown
@@ -343,9 +349,20 @@ ceux qui veulent creuser peuvent
 
 
 Nous allons
-* faire une démostration de l'installation miniconda sur Windows à partir de <https://docs.conda.io/en/latest/miniconda.html> (les linux et les macos le font pour leur OS + architectures)
+* faire une démonstration de l'installation miniconda sur Windows à partir de <https://docs.conda.io/en/latest/miniconda.html> (les linux et les macos le font pour leur OS + architectures)
 * puis écrire un ou deux programmes Python très simples
 * et les exécuter dans un terminal
+
++++
+
+<div style="background-color:#cccccc; border-radius: 6px; margin:12px; padding: 12px;">
+
+<span style="background-color:red; padding:4px; border-radius: 4px;">**EDIT** après la séance en amphi, on a constaté ceci :</span>
+
+* si votre **nom d'utilisateur** sous Windows **contient un accent**, la procédure décrite ici **ne va pas fonctionner** 
+* dans ce cas [je vous renvoie à cette annexe](0-03-install-miniconda-revised.md) qui décrit une procédure légèrement différente, qui marche pour tout le monde quel que soit votre nom
+    
+</div>    
 
 +++
 
@@ -383,17 +400,37 @@ $ type python
 python is /c/Users/Thierry Parmentelat/miniconda3/python
 ```
 
-si à ce stade vous avez un *python: not found* c'est que vous n'avez pas bien coché la case  
+si à ce stade vous avez un `python: not found* c'est que vous n'avez pas bien coché la case  
 *Add Miniconda3 to my PATH environment variable*
 
 +++
 
 #### lancer python en mode interactif
 
-on va calculer $2^{100}$, afficher un texte, et quitter l'interpréteur
+depuis `GitBash`, on va lancer un Python interactif et lui faire calculer $2^{100}$, afficher un texte, puis quitter l'interpréteur.
+
+***
+
+<div style="background-color:#cccccc; border-radius: 6px; margin:12px; padding: 12px;">
+
+<span style="background-color:red; padding:4px; border-radius: 4px;">**EDIT** après la séance en amphi, on a constaté ceci :</span>
+
+* lancer simplement `python` dans `GitBash` ne fonctionne pas  
+  (le programme n'affiche pas le prompt et semble boucler sans rien afficher)
+* dans `GitBash` vous **devez** tapez à la place `python -i`  
+  (le `-i` est pour *interactive*) pour avoir un interpréteur interactif
+* depuis le terminal embarqué dans vscode, vous pouvez faire simplement `python`  
+  (`python -i` fonctionne bien aussi d'ailleurs) 
+* depuis GitBash et le terminal vs-code, vous pouvez lancer normalement `ipython`  
+  (dont on parle un peu plus bas)
+    
+</div>    
+
+*** 
 
 ```console
-$ python
+# pensez à bien mettre le -i - voyez ci-dessus
+$ python -i
 >>> 2 ** 100
 1267650600228229401496703205376
 >>> print("hello world")
