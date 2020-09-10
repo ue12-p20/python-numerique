@@ -31,7 +31,7 @@ Un des premières utilisations de la librarie `numpy` sera faite dans le cadre d
 
 Aussi allons-nous voir dans ce notebook les quelques fonctions d'algèbre linéaire qui vont vous être utiles, naturellement il vous faudra vous référer au site de Python-scientifique pour chercher des fonctions plus avancées.
 
-
+<!-- #region {"tags": ["level_intermediate"]} -->
 Il faut savoir que les fonctions d'algèbre linéaire des libraries `np.linalg` sont tout particulièrement efficaces et ce pour plusieurs raisons:
    1. déjà ces fontions s'appuient sur les algorithmes efficaces 
    1. ensuite ces fonctions sont codées dans des langages de *bas niveau* très proches de la mémoire donc rapides
@@ -39,17 +39,20 @@ Il faut savoir que les fonctions d'algèbre linéaire des libraries `np.linalg` 
 
 Il existe des différences entre les fonctions de `numpy` et de `scipy` mais nous n'en dirons pas plus référez vous aux explications des concepteurs de ces librairies comme là  https://docs.scipy.org/doc/numpy/reference/routines.linalg.html
    
+<!-- #endregion -->
 
 ```python
 import numpy as np
 ```
 
-La première chose à savoir c'est que naturellement les fonctions `numpy` vont s'appliquer sur des tableaux de dimensions supérieures à 2 mais, nous n'allons voir ici, que les bases donc rester en dimension < à 3. 
+La première chose à savoir c'est que naturellement les fonctions `numpy` vont s'appliquer sur des tableaux de dimensions supérieures à 2 mais, nous n'allons voir ici, que les vecteurs et matrices donc rester en dimension < à 3. 
 
 
 Nous n'avons vu pour l'instant que des opérations élément par élément. Comme par exemple le `np.mult` ou encore `*`, qui est le *produit matriciel de Hadamard*. Voyons maintenant les fonctions dédiées à l'algèbre linéaire.
 
+
 ## application linéaire
+
 
 On va se mettre d'accord sur matrice, vecteur et produit en `numpy`.
 
@@ -82,16 +85,32 @@ V = np.array([1, -3, 8])
 V
 ```
 
+Attention les `numpy.ndarray` suivant ne sont pas des vecteurs mais des matrices. Il y a bien deux dimensions.
+
+```python
+np.array([[100, 200, 300]]).shape
+```
+
+```python
+np.array([[100], [200], [300]]).shape
+```
+
+Celui là est un vecteur au sens de l'UE11.
+
+```python
+np.array([100, 200, 300]).shape
+```
+
 ### le produit d'une matrice et d'un vecteur
 
 
-Le produit $A \times V$ représente $f(V)$.
+Le produit $A \cdot V$ représente $f(V)$.
 
 
-Quel est en `numpy` le produit $\times$ ? C'est la fonction `np.dot` (ou encore la méthode `np.ndarray.dot`).
+Quel est en `numpy` le produit qu'on appelle ici $\times$ ? C'est la fonction `np.dot` (ou encore la méthode `np.ndarray.dot`).
 
 
-Calculons $A \times V$
+Calculons $A \cdot V$
 
 ```python cell_style="split"
 # la fonction
@@ -106,7 +125,7 @@ A.dot(V)
 ### le produit de deux matrices
 
 
-Maintenant prenons $A$ et $B$, deux matrices représentant respectivement les applications linéaires $f$ et $g$, le produit de matrices $A \times B$ est la composition des applications $ƒ ￮ g$.
+Maintenant prenons $A$ et $B$, deux matrices représentant respectivement les applications linéaires $f$ et $g$, le produit de matrices $A \cdot B$ est la composition des applications $ƒ ￮ g$.
 
 
 $A$ on l'a déjà, prenons $B$
@@ -177,7 +196,9 @@ np.sqrt(V1.dot(V1))
 
 Pour les autres normes de matrices et vecteurs regardez là https://np.org/doc/stable/reference/generated/np.linalg.norm.html#np.linalg.norm
 
+
 ## la transposée d'une matrice
+
 
 C'est la fonction `np.transpose`. Elle a une version courte `.T` pour écrire des codes plus lisibles.
 
@@ -227,7 +248,9 @@ except np.linalg.LinAlgError as e:
     print(f'Oups pas bon ! ou en mieux dit "{e}"')
 ```
 
+<!-- #region {"tags": ["level_basic"]} -->
 A vous de jouer. Faites une isométrie (une transformation qui conserve les longueurs) et calculez son déterminant.
+<!-- #endregion -->
 
 ```python
 # votre code ici (une solution dessous)
@@ -336,7 +359,7 @@ np.isclose(  Ainv @ A,  np.eye(n))
 
 On va calculer les $v$ tels que:
    - $f(v) = \lambda v$ 
-   - $M \times v = \lambda v$
+   - $M \cdot v = \lambda v$
 
 ```python cell_style="center"
 M = np.random.random(size=(3, 3))
@@ -348,7 +371,7 @@ ls, vs = np.linalg.eig(M)  # eigen_values, eigen_vectors
 ls, vs
 ```
 
-Vérifions qu'on a bien $M \times v = \lambda v$
+Vérifions qu'on a bien $M \cdot v = \lambda v$
 
 Attention les vecteurs propres sont dans une matrice (3, 3) et chacun d'eux est une des 3 colonnes de la matrice.
 
@@ -360,7 +383,7 @@ l0 = ls[0]
 np.all(np.isclose(np.dot(M, v0),  l0*v0))
 ```
 
-À vous de jouer, à l'aide d'une boucle for-Python, parcourez les valeurs et les vecteurs propres de $M$ et vérifiez $M \times v = \lambda v$.
+À vous de jouer, à l'aide d'une boucle for-Python, parcourez les valeurs et les vecteurs propres de $M$ et vérifiez $M \cdot v = \lambda v$.
 
 ```python
 # votre code ici
@@ -380,7 +403,7 @@ print(vectors)
 
 ## résolution d'un système linéaire
 
-On va trouver les racines du système linéaire $A \times x = b$
+On va trouver les racines du système linéaire $A \cdot x = b$
 
 Prenons une matrice $A$.
 
@@ -395,7 +418,7 @@ Prenons un vecteur $b$.
 b = np.array([1, 2, 3])
 ```
 
-Calculons la racine de l'équation $A \times x = b$
+Calculons la racine de l'équation $A \cdot x = b$
 
 ```python
 np.linalg.solve?

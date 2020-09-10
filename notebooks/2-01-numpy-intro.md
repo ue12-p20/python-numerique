@@ -30,20 +30,19 @@ Mais ces cours ne sont pas sous forme de diaporamas (comme ceux sur *Python* que
 
 Cette année nous tentons une expérience, un nouveau format de cours, où les noteboooks prennent la forme de petites histoires ...
 
-Les notebooks parlent aux élèves en déroulant des explications détaillées, qui soulèvent des questions (en vert pour les simples, en mauve pour les intermédiaires et en saumon pour les avancées dans les notebooks) et y répondent, le tout entrecoupés, parfois, de toutes petites choses à faire.
+Les notebooks déroulent des explications détaillées, qui soulèvent des questions (en vert pour les simples, en mauve pour les intermédiaires et en saumon pour les avancées dans les notebooks) et y répondent, le tout entrecoupés, parfois, de toutes petites choses à faire.
 
 Ces notebooks jouent deux rôles: celui de *poly exécutable* (que les élèves peuvent relire en autonomie à-la-Meuh) et celui d'un scénario de base lors des cours en présentiel.
 
-L'idée serait que l'enseignant déroule les notebooks avec les élèves d'une manière très interactive en instaurant un dialogue avec la classe autour, par exemple, des questions en bleu qui jalonnent les notebooks mais toutes autres interrogations sont les bienvenus. Les élèves vont donner leur avis et formuler d'autres questions. Des réponses sont proposées dans les notebooks que l'enseignant peut naturellement compléter ou modifier. Et l'histoire continue.
+L'idée serait que l'enseignant déroule les notebooks avec les élèves d'une manière interactive en instaurant un dialogue avec la classe autour des questions en bleu qui jalonnent les notebooks.  
+L'idée n'est pas que les notebooks soient lus en autonomie par les élèves lors des cours en présentiel.
 
-Une des difficultés est de savoir si l'enseignant lit le texte, ou le paraphrase, ou le fait lire aux élèves chacun à son tour ...
-
-Mais l'idée n'est pas que les notebooks soient lus en autonomie par les élèves lors des cours en présentiel. Les élèves déjà avancés sur le sujet peuvent aider les autres élèves avec leurs explications.
-
+Il faut garder un rythme assez soutenu si on veut faire le tour des notobooks. Les questions qui ne sont pas vertes peuvent être regardées par les élèves à-la-maison, et les petites question de code peuvent être sautées ou faites par les élèves qui vont très vite. La correction étant dessous ces petites questions servent à ré-utiliser les fonctions.
 </div>
 <!-- #endregion -->
 
 <!-- #region tags=["level_advanced"] -->
+
 # UE12 - numpy : introduction
 <!-- #endregion -->
 
@@ -214,12 +213,6 @@ Puisque nous allons parler ici de la librarie `numpy`, importons là. Et donnons
 import numpy as np
 ```
 
-Maintenant tout ce qui est défini dans `numpy` sera accessible par `np.` - par exemple le type `int64` est `np.int64`.
-
-```python
-np.int64
-```
-
 Maintenant nous allons créer un tableau et regarder les informations qu'il contient.
 
 
@@ -244,11 +237,11 @@ Ce type est une structure de donnée, qui va comporter toutes les fonctions nous
 Pour construire un tableau, de quelles informations peut-t-on avoir besoin ?
 <!-- #endregion -->
 
-Oui de sa forme, disons par exemple que le tableau est une matrice 4 x 5.
+   - de sa forme, disons par exemple que le tableau est une matrice 4 x 5.
 
-Oui du type des éléments. Oui aussi `nunpy` va pouvoir l'inférer i.e. le *deviner* à partir des valeurs initiales. Disons que cette matrice contient des entiers.
+   - du type des éléments que `nunpy` va pouvoir inférer (*deviner*) à partir des valeurs initiales fournies
 
-Oui des valeurs, disons que cette matrice est celle que nous avons vu en début du notebook et qui s'appelle `matrice`
+   - des valeurs, disons que cette matrice est celle que nous avons vu en début du notebook et qui s'appelle `matrice`
 
 
 La voila:
@@ -261,7 +254,7 @@ Pour construire un tableau on n'utilise pas directement la fonction de bas nivea
 
 D'autres fonctions sont définies pour cela, comme `numpy.array`, `numpy.zeros` et `numpy.empty`.
 
-Par exemple, la première fonction va initialiser ses éléments à partir de tout objet décrivant un tableau, par exemple la liste de listes décrivant la matrice 4 x 5 ci-dessus.
+Utilisons la première fonction. Elle initialise ses éléments à partir d'un objet décrivant un tableau, par exemple la liste de listes décrivant la matrice 4 x 5 ci-dessus.
 
 Comment savons nous tout cela ? Grâce au help sur `numpy.ndarray` ! 
 
@@ -322,7 +315,9 @@ vec
 ### le type des éléments d'un tableau `numpy.ndarray`
 
 
-Alors notre belle matrice `mat` est dans la variable Python `mat` de type `numpy.ndarray`. On va lui demander quel est le type de ses éléments.
+Notre belle matrice, dans la variable Python `mat` est de type `numpy.ndarray`.
+
+On va lui demander quel est le type de ses éléments.
 
 ```python
 mat.dtype
@@ -335,7 +330,11 @@ Maintenant à vous de jouer. Regardez le type des éléments de votre matrice `m
 <!-- #endregion -->
 
 ```python
-# votre code ici
+# votre code ici la correction ci-dessous
+```
+
+```python
+ma_mat.dtype
 ```
 
 Bon dans les deux cas `numpy` a vu large ! Il a choisi d'encoder ses entiers sur 64 bits et leur permettre d'être négatifs. Et cela pour stocker des nombres tous positifs entre 1 et 20...
@@ -384,9 +383,9 @@ mat8.dtype
 
 Combien notre tableau occupe-t-il en mémoire maintenant ... alors oui on peut le calculer mais nous rappelons la première règle de la programmation *être le plus paresseux possible* donc ne jamais calculer quelque chose qui est déjà connu !
 
-Nous allons donc demander directement à `mat` de nous indiquer sa taille en octets (1 octet = 8 bits) parce que i) on est sûr qu'il la connait parfaitement et ii) il ne fera pas d'erreur en nous l'indiquant alors que nous pourrions faire des erreurs en la calculant (oui en fin de journée un peu fatigué et hop on oublie de multiplier par le nombre de lignes ... et après on a un bug).
+Nous allons donc demander directement à `mat8` de nous indiquer sa taille en octets (1 octet = 8 bits) parce que i) on est sûr qu'il la connait parfaitement et ii) il ne fera pas d'erreur en nous l'indiquant alors que nous pourrions faire des erreurs en la calculant (oui en fin de journée un peu fatigué et hop on oublie de multiplier par le nombre de lignes ... et après on a un bug).
 
-On utilise pour cela un attribut (ou encore *champ*) de l'objet `mat`. Ce n'est pas une fonction, juste un champ à consulter qui s'appelle `numpy.ndarray.nbytes` (bytes==octets)
+On utilise pour cela un attribut (ou encore *champ*) de l'objet `mat8`. Ce n'est pas une fonction, juste un champ à consulter qui s'appelle `numpy.ndarray.nbytes` (bytes==octets)
 
 ```python
 mat8.nbytes
@@ -402,7 +401,14 @@ Maintenant à vous de jouer: Re-construisez votre matrice `ma_mat8` en lui impos
 # votre code ici
 ```
 
-Vous voyez un problème ? Oui bien sûr ! Ben c'est normal: vous avez demandé que vos éléments soient entre 0 et 255, il vous obéit au doigt et à l'oeil et convertit vos valeurs ! Nous reviendrons là dessus plus tard, mais `numpy` fait en sorte que tous les éléments du tableau tiennent dans la taille que vous avez demandé et tous dans la même taille (non pas un int et un float) quitte à modifier la valeur des éléments pour obéir à cette règle.
+```python
+ma_mat8 = np.array([[5.2, 9, 2], [6, 8, 1], [0, 3, -7], [-5, -8, 7]], dtype=np.uint8)
+ma_mat8
+```
+
+Vous voyez un problème ? Oui bien sûr: vous avez demandé (i) que vos éléments soient entre 0 et 255 et (ii) qu'ils soient des entiers. Il vous obéit et convertit vos valeurs !
+
+Nous reviendrons là dessus plus tard, mais `numpy` fait en sorte que tous les éléments du tableau tiennent dans la taille que vous avez demandé et aient tous le même type (on ne mélange pas des int et des float).
 
 
 A partir de l'objet `numpy.ndarray` on peut accéder à de nombreuses autres informations sur le tableau.
@@ -414,23 +420,23 @@ A partir de l'objet `numpy.ndarray` on peut accéder à de nombreuses autres inf
 Si on veut connaître le nombre d'éléments du tableau, on utilise le champ `size`
 
 ```python
-mat.size
+mat8.size
 ```
 
 Si on veut connaître la taille qu'occupe en mémoire (en octets) chaque élément, on utilise `itemsize` 
 
 ```python
-mat.itemsize
+mat8.itemsize
 ```
 
 Si on veut connaître le nombre d'octets total qu'occupe notre tableau en mémoire (on l'a déjà vu), on utilise `nbytes`.
 
 ```python
-mat.nbytes
+mat8.nbytes
 ```
 
 <!-- #region tags=["level_basic"] -->
-Maintenant dégourdissez vous les doigts, consultez (i) la taille, (i) la taille des éléments, (iii) le nombre total d'octets et (iv) le type des éléments de votre matrice `ma_mat` 
+Maintenant dégourdissez vous les doigts, consultez (i) la taille, (i) la taille des éléments, (iii) le nombre total d'octets et (iv) le type des éléments de votre matrice `ma_mat8` 
 <!-- #endregion -->
 
 ```python

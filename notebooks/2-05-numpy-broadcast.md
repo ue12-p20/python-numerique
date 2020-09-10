@@ -200,7 +200,7 @@ mat + line
 ```
 
 Donc ici, `numpy` décide de répéter 3 fois cette ligne pour obtenir une matrice de la même forme que `mat` i.e. (3, 5).  
-On fait de même avec une ligne de forme (1, 5):
+On fait de même avec une matrice de dimension (1, 5) donc 1 ligne et 5 colonnes.
 
 ```python
 line1 = line.reshape(1, 5)
@@ -212,10 +212,10 @@ line1.shape
 mat + line1
 ```
 
-Et donc il accepte aussi: il répéte 3 fois ce vecteur-ligne pour obtenir une matrice de la même forme que `mat`
+Et donc il accepte aussi: il répéte 3 fois cette matrice-ligne pour obtenir une matrice de la même forme que `mat`
 
 
-Vous essayez avec les colonnes ? Il va donc falloir ajouter, à notre matrice de 3 lignes et 5 colonnes, un vecteur-colonne. Ce vecteur-colonne sera donc un tableau de taille (3, 1), il aura 3 lignes et 1 colonne.
+Vous essayez avec les colonnes ? Il va donc falloir ajouter, à notre matrice de 3 lignes et 5 colonnes, une matrice composée d'une seule colonne et de 3 lignes, qui sera un tableau de taille (3, 1).
 
 ```python
 col = np.array([1000, 2000, 3000]).reshape(3, 1)
@@ -230,7 +230,7 @@ mat + col
 Mais ca fait exactement ce à quoi on s'attend !
 
 
-Et si on essayait d'ajouter un vecteur ligne (par exemple de taille (1, 5)) avec un vecteur colonne (par exemple de taille (3, 1)) ?
+Et si on essayait d'ajouter une matrice comportant une seule ligne (par exemple de taille (1, 5)) avec une matrice comportant une seule colonne (par exemple de taille (3, 1)) ?
 
 
 Donc on va ajouter ces deux objets
@@ -306,12 +306,12 @@ except ValueError as exc:
     print(f'{m1}\n+\n{m2}\n ➡ {exc}')
 ```
 
-Encore un exemple où on ajoute un vecteur-ligne à un vecteur-colonne pour avoir une matrice.
+Encore un exemple où on ajoute une matrice comportant une seule ligne à une matrice comportant une seule colonne pour avoir une nouvelle matrice.
 
 <!-- #region -->
 on veut faire l'opération $\begin{pmatrix} a_{1} & a_{2} & a_{3} \end{pmatrix} + \begin{pmatrix} b_1 \\ b_2 \\ b_3 \\ b_4 \end{pmatrix}$
 
-la forme du vecteur-ligne *a* est $(1_a, 3_a)$, la forme du vecteur-colonne *b* est $(4_b, 1_b)$
+la forme de la matrice *a* est $(1_a, 3_a)$, la forme de la matrice *b* est $(4_b, 1_b)$
 
 `numpy` compare $3_a$ à $1_b$ et il élargit *b* à $\begin{pmatrix} b_1 & b_1 & b_1 \\ b_2 & b_2 & b_2 \\ b_3 & b_3 & b_3 \\ b_4 & b_a & b_4 \end{pmatrix}$
 
@@ -347,19 +347,19 @@ ajout d'un scalaire
 m + 10
 ```
 
-ajout d'un vecteur-ligne
+ajout d'une matrice comportant une seule ligne
 
 ```python
 m + np.array([100, 200, 300, 400])
 ```
 
-ajout d'un vecteur-colonne
+ajout d'une matrice comportant une seule colonne
 
 ```python
 m + np.array([[1000], [2000], [3000]])
 ```
 
-ajout de 2 vecteurs-lignes de forme donc (2, 1, 4)
+ajout de 2 matrices comportant 1 seule ligne dont la forme est (2, 1, 4)
 
 ```python
 vecl = np.array([10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000]).reshape(2, 1, 4)
@@ -370,7 +370,7 @@ vecl
 m + vecl
 ```
 
-ajout de 2 vecteurs-colonne de forme donc (2, 3, 1)
+ajout de 2 matrices comportant une seule colonne donc de forme (2, 3, 1)
 
 ```python
 vecc = np.array([100000, 200000, 300000, 400000, 500000, 600000]).reshape(2, 3, 1)

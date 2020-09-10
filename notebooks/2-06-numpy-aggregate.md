@@ -32,7 +32,7 @@ import numpy as np
 
 Nous venons de voir des opérations `numpy` qui s'appliquent éléments par éléments et nous avons abordé la vectorisation et le broadcasting.
 
-Il va exister en `numpy` des fonctions qui vont travailler sur les éléments le long d'un axe. Comme par exemple: le calcul de la somme des lignes d'une matrice, la recherche du maximum de chaque colonne d'une matrice, où encore la recherche du maximum global de tout le tableau...
+Il existe en `numpy` des fonctions qui vont travailler sur tous les éléments le long d'un axe. Comme par exemple: le calcul de la somme des lignes d'une matrice, la recherche du maximum de chaque colonne d'une matrice, où encore la recherche du maximum global de tout le tableau...
 
 
 On va appeler cela l'agrégation de valeurs d'un tableau
@@ -42,7 +42,7 @@ On va appeler cela l'agrégation de valeurs d'un tableau
 
 
 En dimension 1, il n'y a qu'un axe, tous les éléments du tableau sont sur le même axe. 
-Donc cela va rester très simple: il suffira d'appliquer la fonction d'agrégation désirée au tableau, en laissant `numpy` déduire l'axe sur lequel l'appliquer ... heu y'en a qu'un ! 
+Donc cela va rester très simple: il suffira d'appliquer la fonction d'agrégation désirée au tableau, en laissant `numpy` déduire l'axe sur lequel l'appliquer ... y'en a qu'un ! 
 
 ```python
 vec = np.array([10,  20,  30,  40,  50,  60,  70,  80,  90, 100, 110, 120, 130, 140])
@@ -68,9 +68,11 @@ vec.sum()
 La seule chose à remarquer ici est que `sum` renvoie la valeur calculée. Rien que de très normal.
 
 
-Et aucun "*piège*". Le type de la variable retournée sera celui de votre tableau sauf si celui-ci est plus petit (a moins de précision) que le type de utilisé par votre ordi. Afin de ne pas retourner une somme fausse !
+Et aucun "*piège*". Afin de ne pas retourner une somme fausse, le type de la variable retournée sera:
+   - celui des éléments votre tableau sauf si ...
+   - sauf si la *version* demandée pour ce type (`int8`) le rend *plus petit* que le type qu'utilise votre ordinateur (`int64`).
 
-Ainsi si je déclare `vec` comme un tableau d'entiers non signés sur 8 bits (le fameux `np.uint8`), la somme retournera  toujours un entier non signé mais (sur mon ordi) de 64 bits. Essayons:
+Essayons:
 
 ```python
 vec = np.array([10,  20,  30, ], dtype=np.uint8)
@@ -87,7 +89,7 @@ C'est bien normal une somme d'éléments d'un type *peut* ne pas pouvoir tenir s
 ### calculons le minimum d'un vecteur
 
 
-Prenons un tableau de dimension 1 de 15 entiers sur 8 bits aléatoirement générés entre 1 et 100.
+Prenons un tableau de dimension 1, de 15 entiers sur 8 bits, aléatoirement générés entre 1 et 100.
 
 ```python
 ran = np.random.randint(-100, 100, 15,  dtype=np.int8)
@@ -105,7 +107,7 @@ ran.min()
 ```
 
 ```python
-type(ran.min())
+type(ran.min()) # notez qu'il conserve le type des éléments
 ```
 
 Oui là le type que vous avez demandé pour vos éléments suffit ! puisque votre minimum appartient à votre tableau, c'est bien que `numpy` est arrivé à la stocker dans une variable du type que vous avez indiqué.
@@ -132,7 +134,7 @@ Oui bien sûr c'est identique à aller directement chercher le min, mais parfois
 
 Travaillons maintenant sur un tableau de booléens.
 
-Comment savoir si tous les éléments de votre tableau sont vrais (sont à True) ? Ou si l'un au moins est à vrai ?
+Comment savoir si tous les éléments de votre tableau sont vrais (sont à True) ? Ou si l'un au moins, d'entre eux, est à vrai ?
 
 Première idée ... on peut en faire la somme (True sera pris comme 1) et regarder si la somme est égale au nombre d'éléments de votre tableau (dans le permier cas) et strictement supérieure à 0 dans le second cas ... vous vous voyez faire cela à chaque fois que vous allez vouloir appliquer ce genre de tests ? heu non pas trop.
 
@@ -150,7 +152,7 @@ boo = np.random.randint(0, 2, 10).astype(np.bool)
 boo
 ```
 
-Voici le tableau `boo` de 10 booléens en dimension 1. Sont-ils tous à vrai ? 
+Voici le tableau, en dimension 1, `boo` de 10 booléens. Regardons si ils tous vrais ? 
 
 ```python cell_style="split"
 # la fonction ..
@@ -163,7 +165,7 @@ np.all(boo)
 boo.all()
 ```
 
-Y-en-a-t-il un à `True` ?
+Y-en-a-t-il au moins un à `True` ?
 
 ```python cell_style="split"
 np.any(boo)
@@ -201,7 +203,7 @@ np.all(np.random.randint(1, 3, 10))
 
 ## agrégation en dimension 2
 
-Effectivement en `numpy` les tableaux peuvent avoir des dimensions supérieures à 1 comme des vecteurs colonnes, des vecteurs ligne, des matrices, des paquets de matrices, des groupes de paquets de matrices...
+Effectivement en `numpy` les tableaux peuvent avoir des dimensions supérieures à 1 comme des matrices avec une seule ligne, des matrices avec une seule colonne, des matrices, des paquets de matrices, des groupes de paquets de matrices...
 
 
 ### sommons en dimension 2
@@ -214,11 +216,11 @@ mat = np.arange(15).reshape(3, 5)
 mat
 ```
 
-Nous sommes en dimension 2, nous allons avoir 2 axes, celui des lignes et celui des colonnes, l'un aura l'indice 0 et l'autre d'indice 1. Jusque là tout va bien.
+Nous sommes en dimension 2, nous avons 2 axes, celui des lignes et celui des colonnes qui auront respectivement l'indice 0 et l'indice 1 (comme les dimensions apparaissent dans `shape`).
 
-Lequel sera d'indice 0 ? Oui ! Celui des lignes puisque la dimension des lignes apparaît avec cet indice dans `shape`.
+Pour spécifier l'axe sur lequel on veut faire une opération, il faut passer l'argument `axis=0` ou `axis=1` à `np.sum` ou `np.ndarray.sum`.
 
-Comment l'utiliser ? Il suffit de passer l'argument *axis=0* ou *axis=1* à `np.sum` ou `np.ndarray.sum`. Allons-y ! Demondons à `mat` de sommer ses valeurs sur l'axe *0* i.e. celui des lignes.
+Allons-y ! Demondons à `mat` de sommer ses valeurs sur l'axe `0` des lignes.
 
 ```python
 mat.sum(axis=0)
@@ -232,18 +234,18 @@ Si je demande de sommer sur l'axe des colonnes, il va créer un tableau avec la 
 mat.sum(axis=1)
 ```
 
-Et si vous n'indiquer rien comme axe ? Et bien il va sommer tous les éléments entre eux !
+Et si vous n'indiquer pas d'axe ? Et bien il va sommer tous les éléments entre eux !
 
 ```python
 mat.sum()
 ```
 
-Comme nous l'avons dit dans la section sur la dimension 1. Le type du résultat des sommes d'entier sera le type des entiers de votre ordi. (pour le mien 64 bits) ou celui qui a été indiqué pour votre tableau si il est plus grand i.e. a plus de précision). Mais les entiers sur 64 bits sont le plus grand type entier proposé par `numpy`.
+Comme nous l'avons dit dans la section sur la dimension 1. Le type du résultat des sommes d'entier sera le type des entiers de votre ordi. (pour le mien 64 bits) ou celui qui a été indiqué pour votre tableau si il est plus grand donc a plus de précision). Mais les entiers sur 64 bits sont le plus grand type entier proposé par `numpy`.
 
 Pour les flottants pareil avec des flottants sur 64 bits.
 
 
-### calculons les min et max d'une matrice
+### calculons les min et max
 
 
 Maintenant regardons le minimum et le maximum globaux d'une matrice, ceux de l'axe des lignes et ceux de l'axe des colonnes et l'indice de ces valeurs dans la matrice.
@@ -251,7 +253,7 @@ Maintenant regardons le minimum et le maximum globaux d'une matrice, ceux de l'a
 Prenons une matrice de taille 3 x 5 d'entiers de 1 à 15.
 
 ```python
-al = np.arange(1, 16).reshape(3, 5)
+al = np.arange(1, 16).reshape(3, 5) # 15 éléments
 al
 ```
 
@@ -271,11 +273,11 @@ Ah mince 14 ? il me donne bien l'indice mais de manière *absolue* pas l'indice 
 
 Si vous lisez le *help*, on vous dit que la fonction *retourne les indices des valeurs maximales le long d'un axe*. Là il n'y a pas d'axe indiqué, le maximum est donc retourné de manière absolue puisque c'est bien le maximum absolu que vous demandez. 
 
-Vous obtenez l'indice de l'élément maximum dans le tableau comme si il était aplati. Comment faire pour accéder à l'élément à cette position ?
+Comment faire pour accéder à l'élément à cette position ?
 
-Il faut éviter les opérations qui prendraient du temps et de l'espace, par exemple en copiant le tableau (comme le fait la fonction `np.ndarray.flatten`, lisez son help).
+Il faut surtout éviter les opérations qui prendraient du temps et de l'espace, comme celles qui recopieraient le tableau (comme le fait la fonction `np.ndarray.flatten`, lisez son help).
 
-Vous allez utiliser la fonction dédiée `np.unravel_index` qui va re-calculer les index dans chacune des dimensions à partir de l'indice absolu et de la forme du tableau.
+Vous allez utiliser la fonction **dédiée** `np.unravel_index` qui re-calcule les index dans chacune des dimensions à partir de l'indice absolu et de la forme du tableau.
 
 On le fait:
 
@@ -294,9 +296,11 @@ Notre max est bien à l'indice (2, 4) soit la case de la matrice à la troisièm
 al[indices]
 ```
 
+<!-- #region {"tags": ["level_advanced"]} -->
 Pour les avancés, sauriez-vous reprogrammer la fonction `np.unravel_index` à partir d'un indice *absolu* et de la forme d'un tableau ?
+<!-- #endregion -->
 
-```python
+```python tags=["level_advanced"]
 # votre code ici
 ```
 
@@ -306,19 +310,29 @@ Passons aux calculs sur les axes. Calculons les minimums sur l'axe des lignes.
 np.min(al, axis=0)
 ```
 
-Là vous demandez les minimums dans l'axe (vertical) des lignes, vous calculez les minimums dans cette direction là, donc vous calculez le minimum de chacune des colonnes.
+Là vous demandez les minimums dans l'axe des lignes donc vous calculez le minimum de chacune des colonnes.
 
 
 Regardons les indices des minimums sur l'axe des lignes ?
 
 
-Il vous donne, pour chaque colonne, l'indice de la ligne où vous allez trouver le minimum. Pour accéder aux éléments ?).
+Il vous donne, pour chaque colonne, l'indice de la ligne où vous allez trouver le minimum.
+
+```python
+al
+```
 
 ```python
 al.argmin(axis=0)
 ```
 
-Et pour l'axe des colonnes ? C'est pareil avec l'axe 1.
+ Pour accéder aux éléments ? Comme on peut indicer une matrice par un tuple, vous avez la première partie du tuple (les indices des lignes), il vous reste à donner la liste des indices des colonnes (toutes les colonnes auront un min). 
+
+```python
+al[al.argmin(axis=0), np.arange(0, 5)]
+```
+
+Pour prendre le minimum dans l'axe des colonnes:
 
 ```python
 np.min(al, axis=1)
@@ -328,107 +342,117 @@ np.min(al, axis=1)
 np.argmin(al, axis=1)
 ```
 
+<!-- #region {"tags": ["level_advanced"]} -->
 Pour les avancés, sauriez vous faire sur un ndarray en 2 dimensions, la fonction qui, étant donné une forme du tableau, l'axe et une liste d'indices dans cet axe, calcule la paire d'index ? Sauriez-vous généraliser cette fonction ?
+<!-- #endregion -->
 
-```python
+```python tags=["level_advanced"]
 # votre code ici
 ```
 
-```python
-mats = np.random.randint(-100, 100, size=(2, 3))
-```
-
-```python
-mats
-```
-
-```python
-mats.max(), mats.max(axis=0), mats.max(axis=1), 
-```
-
-<!-- #region {"tags": ["level_intermediate"]} -->
+<!-- #region {"tags": ["level_advanced"]} -->
 ## agrégation en dimension > 2
 <!-- #endregion -->
 
+<!-- #region {"tags": ["level_advanced"]} -->
 Ce n'est sûrement pas très utile d'appliquer des fonctions d'agrégation sur des tableaux autres que des matrices ou des vecteurs, regardons très rapidement ce qui se passe dans certains cas.
+<!-- #endregion -->
 
-
+<!-- #region {"tags": ["level_advanced"]} -->
 ### sommons en dimension 3
+<!-- #endregion -->
 
-
+<!-- #region {"tags": ["level_advanced"]} -->
 Générons 2 matrices de 3 lignes et 4 colonnes. Oui à partir de `np.random.randint` et son argument *size* par exemple. Cela vous permet de ne pas compter...
+<!-- #endregion -->
 
-```python
+```python tags=["level_advanced"]
 mats = np.random.randint(-100, 100, size=(2, 3, 4))
 mats
 ```
 
+<!-- #region {"tags": ["level_advanced"]} -->
 Combien cette matrice a-t-elle de dimensions ? Oui 3. Combien d'axes ? Et bien oui 3 ?
 
 Quels sont les indices de ces axes ? 0, 1 et 2. A quoi correspondent-ils ? respectivement: aux matrices, aux lignes et aux colonnes.
+<!-- #endregion -->
 
-
+<!-- #region {"tags": ["level_advanced"]} -->
 Si nous sommons sans mention d'axe nous sommons tous les éléments du `ndarray`, dans ses 2 versions
+<!-- #endregion -->
 
-```python
+```python tags=["level_advanced"]
 np.sum(mats), mats.sum()
 ```
 
+<!-- #region {"tags": ["level_advanced"]} -->
 Si nous sommons sur l'axe des matrices, nous sommons les deux matrices ensemble:
+<!-- #endregion -->
 
-```python
+```python tags=["level_advanced"]
 np.sum(mats, axis=0)
 ```
 
+<!-- #region {"tags": ["level_advanced"]} -->
 Si nous sommons sur l'axe des lignes nous sommons les lignes ensembles donc obtenons un tableau de la taille des lignes qui donne la somme des colonnes.
+<!-- #endregion -->
 
-```python
+```python tags=["level_advanced"]
 np.sum(mats, axis=1)
 ```
 
+<!-- #region {"tags": ["level_advanced"]} -->
 Si nous sommons sur l'axe des colonnes, nous sommons les colonnes ensembles donc obtenons un tableau de la taille des colonnes qui donne la somme des lignes.
+<!-- #endregion -->
 
-```python
+```python tags=["level_advanced"]
 np.sum(mats, axis=2)
 ```
 
+<!-- #region {"tags": ["level_advanced"]} -->
 ### calculons les min et max en dimension 4
+<!-- #endregion -->
 
-
+<!-- #region {"tags": ["level_advanced"]} -->
 De la même manière nous pouvons calculer les min et les max ainsi que les arguments des min et des max en dimensions supérieures, par exemple là en dimension 4.
+<!-- #endregion -->
 
-
+<!-- #region {"tags": ["level_advanced"]} -->
 Supposons que nous prenions un tableau en dimension (2, 3, 4, 5). Dé-commentez les lignes suivantes si vous voulez en voir un.
+<!-- #endregion -->
 
-```python
+```python tags=["level_advanced"]
 tab = np.arange(1, 121).reshape(4, 3, 2, 5)
 ```
 
+<!-- #region {"tags": ["level_advanced"]} -->
 Appelons ce tableau: 4 paquets de 3 matrices de 2 lignes et de 2 colonnes.
 
 On va pouvoir demander le maximum, le minimum et leurs indices suivant tous les axes. Pour la signification de ces calculs ... il faut réfléchir.
 
 Par exemple, si on demande le maximum sur l'axe 0 où nous avons les 4 paquets. Regardons suivant cet axe, nous voyons (4 fois) 3 matrices avec 2 lignes et 5 colonnes, on aura donc cette forme pour la réponse (3, 2, 5). La dimension qui *disparaît* est celle de l'axe où on demande le calcul, les autres restent en agrégeant les calculs donc il nous reste (3, 2, 5), la dimension 4 a été agrégée lors du calcul.
+<!-- #endregion -->
 
-```python
+```python tags=["level_advanced"]
 tab.max(axis=0).shape
 ```
 
+<!-- #region {"tags": ["level_advanced"]} -->
 ### testons en dimension 4
 
 Nous avons vu que `np.all` returns `True` si toutes les valeurs du tableau testé sont `True` (aucune n'est nulle) et `np.any` si au moins une n'est pas nulle. Ces fonctions, si-besoin, s'appellent bien sûr suivant les différents axes. Avec les interprétations dont nous avons déjà parlé.
 
 Prenons un tableau en dimension (2, 3, 4, 5) et demandons sur l'axe des colonnes (3 ou -1) si toutes les valeurs sont non-nulles. On va se retrouver avec une valeur par ligne donc la dimension qui *disparaît* est celle de l'axe où on demande le calcul, les autres restent en agrégeant les calculs donc il nous reste (2, 3, 4).
+<!-- #endregion -->
 
-```python cell_style="center"
+```python cell_style="center" tags=["level_advanced"]
 tab = np.random.randint(-10, 10, size=(2, 3, 4, 5))
 ```
 
-```python
+```python tags=["level_advanced"]
 tab.max(axis=-1).shape
 ```
 
+<!-- #region {"tags": ["level_advanced"]} -->
 On ne va pas aller plus loin. Attendez d'en avoir besoin.
-
-
-## exercices
+<!-- #endregion -->

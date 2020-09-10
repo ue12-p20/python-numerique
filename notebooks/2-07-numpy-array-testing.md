@@ -23,14 +23,17 @@ jupyter:
 
 # masques et tableaux booléens
 
-ou comment tester tous les éléments d'un tableau
+
+ou comment tester en même temps *tous les éléments d'un tableau* 
 
 
 Nous avons vu les fonctions vectorisées (qui s'appliquent à tout un tableau sans recours à une boucle for-Python). Nous avons aussi vu les fonctions qui aggrègent les valeurs suivant les axes des `np.ndarray` et permettent par exemple de sommer les lignes ou les colonnes d'une matrice ou encore trouver le plus petit élément ou son index dans la `np.ndarray`.
 
-Nous allons voir une dernière chose qui consiste à tester tous les éléments d'un `np.ndarray` (ou bien sûr une slice d'un `np.ndarray`).
+Nous allons voir une dernière chose qui consiste à tester tous les éléments d'un `np.ndarray` (ou bien sûr d'une slice d'un `np.ndarray`).
 
-Il y a deux manières de tester: soit vous voulez tester tous les éléments et combiner les résultats des tests unitaires en un seul résultat global, soit vous voulez obtenir un `np.ndarray` de booléens qui vous donne chaque tests individuellement.
+Il y a deux manières de tester:
+   - tester tous les éléments et combiner les résultats des tests unitaires en un seul résultat global
+   - obtenir le `np.ndarray` de booléens résultats des tests individuels.
 
 Nous allons voir rapidement ces deux manières de tester.
 
@@ -40,18 +43,19 @@ import numpy as np
 
 ## appliquons une condition à un `np.ndarray`
 
+
 Les conditions s'appliquent à tous les éléments d'un tableau en une seule fois, ce qui signifie que vous ne devez pas écrire de boucle en Python mais laisser les fonctions vectorisées le faire pour vous.
 
-Les opérateurs de comparaison sont donc des fonctions vectorisées (encore appelées *UFuncs*). Elles vont retourner un tableau contenant les résultats des comparaisons éléments-par-élément.
+Les opérateurs de comparaison sont des fonctions vectorisées (encore appelées *UFuncs*). Elles vont retourner un tableau contenant les résultats des comparaisons éléments-par-élément.
    
-Vous allez obtenir une sorte de masque que vous pouvez ensuite utiliser pour filtrer les éléments de votre tableau pour, par exemple, ne garder que ceux pour lesquels la condition est vraie..
+Vous allez obtenir un *masque booléen* que vous pouvez ensuite utiliser pour filtrer les éléments de votre tableau pour, par exemple, ne garder que ceux pour lesquels la condition est vraie.
 
-On va faire tout de suite un exemple. Construisons une matrice de forme *(3 x 4)* qui contient des entiers générés aléatoirement entre *-10* et *10*.
+On va faire tout de suite un exemple. Construisons une matrice de forme `(3 x 4)` qui contient des entiers générés aléatoirement entre `-10` et `10`.
 
 Vous rappelez-vous comment faire une telle matrice ? Essayer avec `np.random.randint` et `reshape`:
 
 ```python
-# votre code ici
+# votre code ici - la correction ci-dessous
 ```
 
 ```python cell_style="center"
@@ -59,23 +63,21 @@ a = np.random.randint(-10, 10, 12).reshape(3, 4)
 a
 ```
 
-Testons les si les élements sont pairs c'est à dire si le reste de leur modulo 2(*%2*) est 0.
+Testons la parité des élements (avec le modulo `%`).
 
-Déjà il faut calculer le module:
-
-```python
+```python scrolled=true
 a%2
 ```
 
-Et ensuite tester les valeurs de ces résultats qui sont nulles:
+Comparons les résultats à `0`:
 
 ```python
 a%2 == 0
 ```
 
-Nous avons un tableau qui s'appelle aussi un masque de booléens.
+Nous obtenons un tableau (masque) de booléens.
 
-Maintenant vous avez deux manières d'utiliser ce masque
+Les deux manières d'utiliser ce masque sont:
 * soit de manière globale pour savoir, par exemple, le nombre d'éléments pairs de votre tableau 
 * soit pour filtrer votre matrice initiale, en ne gardant par exemple que les éléments pairs.
 
@@ -83,7 +85,7 @@ Maintenant vous avez deux manières d'utiliser ce masque
 ## prendre le résultat global d'une condition
 
 
-Vous pouvez faire des manipulations sur la matrice des résultats d'une condition de manière globale avec `np.all` et `np.any` - qu'on a déjà rencontrés, rappelez-vous, dans la section sur les agrégations
+Vous pouvez faire des manipulations, de la matrice des résultats d'une condition, de manière globale avec `np.all` et `np.any` - qu'on a déjà rencontrés, rappelez-vous, dans la section sur les agrégations
 
 La permière fonction vous dit si tous les éléments de votre matrice répondent à la condition et la seconde si au moins un élément de votre matrice répond à la condition.
 
@@ -111,16 +113,17 @@ np.count_nonzero(a%2==0)
 
 ## filtrer les éléments d'un tableau par une condition
 
-Reprenons notre matrice des 12 entiers générés aléatoirement entre *-10* et *10*. Nous ne voulons garder que les éléments pairs de notre matrice.
 
-Nous générons le masque booléen des nombres pairs:
+Reprenons notre matrice des 12 entiers générés aléatoirement entre `-10` et `10`. Nous ne voulons garder que les éléments pairs de notre matrice.
+
+Générons le masque booléen des nombres pairs:
 
 ```python
 pairs = (a%2==0)
 pairs
 ```
 
-Ce masque a naturellement la même forme que votre matrice. Pour **ne garder que** les éléments pairs, (on dit qu'on filtre les éléments de la matrice par ce masque booléens), nous allons **indexer** la matrice par ce masque:
+Ce masque a naturellement la même forme que votre matrice. Pour **ne garder que** les éléments pairs, (on dit qu'on filtre les éléments de la matrice par ce masque de booléens), nous allons **indexer** la matrice par ce masque:
 
 ```python
 # cette construction n'est pas anodine
@@ -137,23 +140,27 @@ type(pairs)
 type(a[pairs])
 ```
 
-Vous avez obtenu un nouveau tableau de type `np.ndarray` qui contient les éléments pairs. Maintenant essayons de composer les conditions sous forme d'une expression logique (e.g. pour faire des *et* ou des *ou* entre expressions)
+Vous avez obtenu un nouveau tableau de type `np.ndarray` qui contient les éléments pairs. Maintenant essayons de composer les conditions sous forme d'une expression logique (e.g. pour faire des `et` ou des `ou` et `non` entre expressions)
 
 
 ## composer les conditions
+
 
 Pour composer les conditions
 * vous **devez** utiliser les opérateurs logiques *bit-à-bit* (ou ***bitwise***) `&` (pour et), `|` (pour ou), `~` (pour non) 
 * ou leur contrepartie `numpy` qui sont respectivement `np.logical_and`, `np.logical_or`, `np.logical_not`.
 
-SI nous voulons les éléments qui ne sont pas pairs et qui sont strictement inférieurs à 6, calculons le masque et indexons notre matrice avec ce masque:
+Et vous devez parenthéser les sous-termes de vos expressions.
+
+
+Si nous voulons les éléments qui ne sont pas pairs et qui sont strictement inférieurs à 6, calculons le masque et indexons notre matrice avec ce masque:
 
 ```python
-(a < 6) & ~(a%2==0)
+(a < 6) & ~(a%2==0) # le masque
 ```
 
 ```python
-a[(a < 6) & ~(a%2==0)]
+a[(a < 6) & ~(a%2==0)] # l'indexation du tableau par le masque
 ```
 
 Ou en version *loooongue*
@@ -168,7 +175,7 @@ a[np.logical_and(a < 6, np.logical_not(a%2==0))]
 Cette façon de faire à base d'opérateurs *bitwise* n'est pas forcément très intuitive… 
 en Python on aurait eu envie d'utiliser par exemple les opérateurs `and` et `not`, au lieu de `&` et `~`
 
-Il ne faut pas le faire, et **ça ne fonctionne pas** de toutes façons (les opérateurs logiques Python `and`, `or` et `not` qui ne sont pas vectorisés)
+Il ne faut pas le faire, et **ça ne fonctionne pas** de toutes façons (les opérateurs logiques Python `and`, `or` et `not` ne sont PAS vectorisés)
 
 ```python tags=["raises-exception"]
 # au lieu de (a < 6) & ~(a%2==0)
@@ -218,16 +225,19 @@ Notre `nouveau_tableau` est bien modifié. Pensez-vous qu'il en soit de même da
 a
 ```
 
-Si nous voulions modifier les éléments de la matrice d'origine et pas une copie ? Il va falloir passer par les indices: prendre les indices de ces éléments dans la matrice d'origine est accéder à ces eléments pour les modifier.
+Si nous voulions modifier les éléments de la matrice d'origine vous devez les repérer par leurs indices.
+
+Nous allons prendre les indices de ces éléments dans la matrice d'origine, accéder à ces eléments et les modifier les modifier.
 
 
 ## calculer les indices des éléments dans le tableau d'origine
 
+
 Nous venons de voir que quand nous "isolons" les éléments, d'une matrice, qui obéissent à une condition, ils sont recopiés dans un nouvel `np.ndarray` et nous ne pouvons pas les modifier à partir de ce nouveau tableau. Si nous voulons accéder aux éléments, qui obéissent à la condition, dans la matrice d'origine: il faut passer par leurs indices.
 
-Ainsi il va nous falloir des fonctions qui nous retournent les indices de ces éléments. Non, il n'est toujours pas question de le faire à-la-main en parcourant le `np.ndarray` avec des boucles for-Python: ca serait beaucoup trop long.
+Ainsi il va nous falloir des fonctions qui nous retournent les indices de ces éléments. Non, il n'est toujours pas question de le faire à-la-main en parcourant le `np.ndarray` avec des boucles for-Python: ce serait beaucoup trop cher en temps.
 
-Nous allons voir plusieurs manière de faire.
+Nous allons voir plusieurs manières de faire.
 
 
 ### la fonction `np.nonzero`
@@ -235,7 +245,7 @@ Nous allons voir plusieurs manière de faire.
 
 La fonction `np.nonzero` renvoie les indices des éléments, qui ne sont pas `False` ou `0`, sous la forme d'un tuple de liste d'indices, la tuple ayant la dimension du tableau.
 
-Par exemple si notre tableau `num.ndarray` est de dimension 2: la fonction renvoie deux listes d'indices, la première liste contient les indices des lignes et la secondes des colonnes.
+Par exemple si notre tableau `num.ndarray` est de dimension 2: la fonction renvoie deux listes d'indices, la première liste contient les indices des lignes et la seconde des colonnes.
 
 
 À vous de jouer. Créez une matrice *b* de taille *(3, 4)* qui contient les entiers entre 1 et 12. Créez le masque des éléments qui sont divisibles par *3* et appliquez la fonction `np.nonzero` à ce masque.
@@ -262,18 +272,14 @@ view_index = np.nonzero(b%3==0)
 view_index
 ```
 
-C'est là que ça devient un peu magique  
-car si je prends la matrice `b`, je peux **l'indicer avec ce tuple** et créer ainsi **une vue** qui ne contient **que les éléments** qui nous intéressent :
+C'est là que ça devient un peu **magique**  
+car si je prends la matrice `b`, je peux **l'indicer avec ce tuple** et créer ainsi **une vue** sur la matrice `b` qui ne contient **QUE les éléments** qui nous intéressent et les modifier !
 
-```python cell_style="split"
-type(view_index)
+```python cell_style="center"
+b[view_index] # voila les éléments
 ```
 
-```python cell_style="split"
-b[view_index]
-```
-
-Que je peux alors modifier:
+Que je peux donc modifier ! 
 
 ```python
 b[view_index] = b[view_index] * 10
@@ -282,12 +288,22 @@ b
 
 Voila qui est bien utile pour créer une vue sur un ensemble d'arbitraire d'éléments donnés par leurs indices.
 
-
+<!-- #region {"tags": []} -->
 ### la fonction `np.argwhere`
 
-La fonction `np.argwhere` renvoie les indices des éléments pour lesquels un masque est vrai, pour chaque élément il renvoit ses indices dans chacune des dimensions. Pour un tableau de dimension *n* de forme *(d1, d2, ..., dn)*, il renverra les indices des éléments sous la forme de *m* n-uplets *(i1, i2, ..., in)*.
+La fonction `np.argwhere` renvoie les indices des éléments pour lesquels un masque est vrai. ELle renvoie ces indications sous la forme d'un tableau (un `np.ndarray` de dimension 2) où chaque ligne représente un élément et les colonnes sont les indices de cet élément indiqué dans le tuple des dimensions de la matrice d'origine:
 
-Le type du tableau retourné par la fonction est un `np.ndarray`. Quelle en est la taille ? On y trouve *m* lignes (une par élément qui satisfait la condition) de *n* colonnes (une par dimension) donc *(m,n)*.
+Par exemple si on donne la matrice de dimension 2 $\begin{matrix} 1, 2 , 3 & 4, 5, 6 \end{matrix}$ et qu'on recherche les éléments pairs: on va obtenir le `np/ndarray` suivant $\begin{matrix}[0, 1],[1, 0],[1, 2] \end{matrix}$
+<!-- #endregion -->
+
+```python
+aux = np.array([[1, 2, 3], [4, 5, 6]])
+aux
+```
+
+```python
+np.argwhere(aux%2==0)
+```
 
 <!-- #region {"tags": ["level_intermediate"]} -->
 En fait donc les deux utilitaires `np.nonzero` et `np.argwhere` font à peu près le même travail, simplement les coordonnées des points qui *matchent* sont retournés dans des formats qui sont différents
@@ -320,9 +336,11 @@ np.argwhere(b%3==0)
 list(zip(*view_index))
 ```
 
-À vous de jouer. Faites un tableau sde dimension 3 de taille *(2, 3, 4)* initialisé avec les entiers de 1*1* à *25* et demandez les indices des nombres divisibles par *5*.
+<!-- #region {"tags": []} -->
+À vous de jouer. Faites un tableau de dimension 3 de taille `(2, 3, 4)` initialisé avec les entiers de `1` à `25` et demandez les indices des nombres divisibles par `5`.
 
 Imprimer le masque et sa forme:
+<!-- #endregion -->
 
 ```python
 # votre code ici (la correction dessous)
@@ -345,9 +363,11 @@ indices
 indices.shape
 ```
 
+<!-- #region {"tags": ["level_intermediate"]} -->
 Maintenant que vous avez calculé les indices des éléments divisibles par 5 de votre tableau `a`, comment atteindre ces éléments dans la matrice `a` ?
 
 À vous de jouer. Essayez, à partir du tableau `indices` de modifier les éléments de votre tableau `a` (par exemple pour les remplacer par *999*).
+<!-- #endregion -->
 
 ```python
 # votre code ici (une correction ci-dessous)
