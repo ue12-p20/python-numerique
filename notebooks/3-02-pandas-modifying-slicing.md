@@ -19,14 +19,6 @@ Où on apprend à découper et modifier des parties de dataframe
 
 +++
 
-<div style="background-color:red; padding: 50px">
-    
-    J'ai merdé en corrigeant le notebook, j'ai fait un contresens par rapport à l'utilisation de `df.at` qui ne s'impose pas du tout si on utilise bien `df.loc[line, coloumn]` et non pas comme je l'ai (mal) fait `df.loc[line][column]`. Le plan va rester le même, mais on dira simplement d'utiliser `loc` aussi pour les écritures, et on mettra en garde contre cette erreur stupide. -- Thierry
-
-</div>
-
-+++
-
 Nous allons nous intéresser dans ce notebook à la manière de découper (trancher) slicer les objets `pandas` comme des séries ou des dataframes, et à les modifier.
 
 +++
@@ -97,9 +89,8 @@ Pour accéder ou modifier des sous-parties de dataframe, vous pourriez être ten
 Comme par exemple en Python:
 
 ```{code-cell} ipython3
----
-cell_style: split
----
+:cell_style: split
+
 L = [-12, 56, 34]
 L[0] = "Hello !"
 L
@@ -116,8 +107,8 @@ Ou encore, d'utiliser l'accés à un tableau par une paires d'indices, comme vou
 
 ```{code-cell} ipython3
 mat = np.arange(25).reshape((5, 5))   # je crée la matrice 5x5
-mat[2, 2] = 100                        # je modifie l'élément au milieu
-mat[0::4, 0::4] = 10000                 # je modifie les 4 coins
+mat[2, 2] = 100                       # je modifie l'élément au milieu
+mat[0::4, 0::4] = 10000               # je modifie les 4 coins
 print(mat)                            # j'affiche la matrice
 mat[0]                                # j'accède à sa première ligne
 ```
@@ -134,14 +125,13 @@ Néanmoins, `pandas` offre des techniques assez similaires, et assez puissantes 
 
 +++
 
-## rappels : `loc` et `at` pour les accès atomiques
+## rappels : `loc` pour les accès atomiques
 
 +++
 
 on l'a vu dans le notebook précédent, les accès à un dataframe pandas se font 
 * le plus souvent à base d'index et non pas d'indices
 * et dans ce cas on utilise `df.loc` pour accéder aux lignes et cellules
-* et, toujours avec les index, on utilise `df.at` pour écrire dans la dataframe
 
 ```{code-cell} ipython3
 df.head(3)
@@ -158,7 +148,7 @@ df.loc[756, 'Name']
 :cell_style: split
 
 # pour upgrader un passager
-df.at[645, 'Pclass'] -= 1
+df.loc[645, 'Pclass'] -= 1
 ```
 
 ```{code-cell} ipython3
@@ -175,7 +165,7 @@ df.head(3)
 
 Du coup, la première chose qu'on peut avoir envie de faire, c'est d'accéder à la dataframe par des *slices*; ça doit commencer à être banal maintenant, puisqu'à chaque fois qu'on voit une structure de données qui s'utilise avec `[]` on finit par étendre le sens de l'opération pour des slices.
 
-Je rappelle qu'en Python une slice c'est de la forme `start:stop:step`, et qu'on peut éluder les morceaux qu'on veut, c'est-à-dire que par exemple `:` désigne une slice qui couvre tout l'espace, `::-1` permet de renverser l'ordre, je vous renvoie aux chapitres idoines si ce n'est plus clair pour vous.
+Rappelez-vous qu'en Python une slice c'est de la forme `start:stop:step`, et qu'on peut éluder les morceaux qu'on veut, c'est-à-dire que par exemple `:` désigne une slice qui couvre tout l'espace, `::-1` permet de renverser l'ordre, je vous renvoie aux chapitres idoines si ce n'est plus clair pour vous.
 
 **Par contre**, il faut tout de suite souligner une petite anomalie, qui est que **dans le cas des index** les slices de dataframes **contiennent les bornes**, ce qui, vous vous souvenez, n'a jamais été le cas jusqu'ici avec les slices en Python, où la borne supérieure est toujours exclue; voyons cela
 
@@ -231,6 +221,32 @@ Et donc logiquement ici, si je veux sélectionner une plage de colonnes, je vais
 df.loc[:, 'Sex':'Parch'].head(3)
 ```
 
+### `df.loc` pour écrire : **bornes inclusives**
+
++++
+
+On peut parfaitement modifier une dataframe au travers de slices, toujours en utilisant `df.loc`, et toujours avec bornes inclusives bien entendu :
+
+```{code-cell} ipython3
+df.head(5)
+```
+
+```{code-cell} ipython3
+# sans vouloir chercher un "use case" très utile
+# multiplions par 1000 une portion de la dataframe
+
+# les lignes entre 756 et 470 inclusivement
+# les colonnes entre SibSp et Parch inclusivement
+
+# quand on écrit x *= 1000,
+# cela signifie x = x * 1000
+
+df.loc[756:470, 'SibSp':'Parch'] *= 1000
+
+# vérifions
+df.head(5)
+```
+
 ### slicing généralisé
 
 +++
@@ -247,35 +263,6 @@ df.head(8)
 # borne supérieure qui est inclusive avec les index
 
 df.loc[804:828:2, 'Sex':'Ticket':2]
-```
-
-### `df.at` pour écrire : **bornes inclusives**
-
-+++
-
-Une autre différence majeure avec les objets Python qu'on a étudiés jusqu'ici, c'est que pour pouvoir écrire dans la dataframe, on ne **peut pas** utiliser `loc`, il **faut utiliser `at`**; ce n'est pas tellement surprenant puisque c'était déjà le cas pour écrire dans une seule cellule, mais ça déroute les débutants, d'autant plus que parfois la forme avec `.loc` fonctionne quand même (mais avec un gros avertissement).
-
-Il faut retenir donc que `df.at` peut tout à fait être utilisé avec des slices aussi, et ici à nouveau les bornes seront bien sûr inclusives; voyons cela
-
-```{code-cell} ipython3
-df.head(5)
-```
-
-```{code-cell} ipython3
-# sans vouloir chercher un "use case" très utile
-# multiplions par 1000 une portion de la dataframe
-
-# les lignes entre 756 et 470 inclusivement
-# les colonnes entre SibSp et Parch inclusivement
-
-# ici on ne peut pas utiliser *= 1000
-# car les deux termes à gauche et à droite
-# de l'affectation ne sont pas les mêmes
-
-df.at[756:470, 'SibSp':'Parch'] = df.loc[756:470, 'SibSp':'Parch']*1000
-
-# vérifions
-df.head(5)
 ```
 
 ### *copied or not copied, that is the question*
@@ -297,10 +284,9 @@ alors oui cela est vrai ... jusqu'à ce que vous vous mettiez à modifier des so
 ahhh ... vous commencez à comprendre: savoir si une opération retourne une copie ou une référence devient important mais dépend du contexte.
 
 Ce qu'il faut retenir c'est que
-* **lorsqu'on utilise `df.at`**, dont c'est l'unique propos en fait, vous faites bien les modifications, comme on l'a bien vu déjà
-* et c'est pour cela précisément qu'il ne faut pas essayer de changer une cellule en faisant  
-  `df[col][line] = new_value`  
-  car dans ce cas de figure, dit du *chained indexing*, on n'est pas du tout sûr du résultat !!
+
+* en utilisant la forme `df.loc[line, column]` on ne crée pas de copie, c'est la bonne façon d'utiliser `loc`
+* par contre les formes qui utilisent un *chained indexing* - que ce soit `df[l][c]` ou `df.loc[l][c]`, on n'est plus du tout sûr du résultat !!
 
 +++
 
@@ -418,7 +404,7 @@ df.loc [ np.logical_and(df['Age'] >= 70, np.logical_not(df['Pclass'] == 1)) ] # 
 
 +++
 
-Pour résumer cette partie, nous avons vu trois méthodes d'indexation utilisables avec `loc` (et avec `at` donc, par voie de conséquence) :
+Pour résumer cette partie, nous avons vu trois méthodes d'indexation utilisables avec `loc` :
 * on peut utiliser une slice, et parce qu'on manipule des index et pas des indices dans ce cas **les bornes sont inclusives** (on va voir tout de suite qu'avec les indices par contre les bornes sont les bornes habituelles, avec la fin exclue)
 * on peut utiliser une liste explicite, pour choisir exactement et dans le bon ordre les index qui nous intéressent
 * on peut utiliser un masque, c'est-à-dire une colonne obtenue en appliquant une expression booléenne à la dataframe de départ - cette méthode s'applique sans doute plus volontiers à la sélection de lignes
@@ -451,11 +437,11 @@ df.loc[
 
 Dans les - rares - cas où on veut travailler avec les indices plutôt qu'avec les index, tout fonctionne presque exactement pareil qu'avec les index, sauf que
 
-* on doit utiliser `iloc` et `iat` au lieu de `loc`et `at`, bien entendu
+* on doit utiliser `iloc` au lieu de `loc`, bien entendu
 * qui supportent les mêmes mécanismes de *slicing* et d'indexation que l'on vient de voir,
 * et dans ce cas comme on est dans l'espace des indices, **les bornes des slices** se comportent comme les **bornes habituelles (début inclus, fin exclue)**
 
-Je vous invite à vérifier ce point par vous même, en remettant à leur valeur originelle la portion de la dataframe que l'on avait un peu arbitrairement multipliée par 1000 tout à l'heure, tout ça en utilisant `iloc` et `iat`
+Je vous invite à vérifier ce point par vous même, en remettant à leur valeur originelle la portion de la dataframe que l'on avait un peu arbitrairement multipliée par 1000 tout à l'heure, tout ça en utilisant `iloc`
 
 ```{code-cell} ipython3
 # je vous rappelle où on en est
@@ -465,7 +451,7 @@ df.head(5)
 ```{code-cell} ipython3
 # votre mission si vous l'acceptez
 # rediviser par 1000 les 6 cases, mais à bases d'indices cette fois-ci
-# donc en utilisant iloc et iat
+# donc en utilisant iloc
 ...
 ```
 

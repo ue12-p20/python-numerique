@@ -13,14 +13,6 @@ kernelspec:
 
 # UE12 - pandas et matplotlib
 
-+++ {"tags": ["level_advanced"]}
-
-<div style="background-color:red; padding: 50px">
-    
-    J'ai merdé en corrigeant le notebook, j'ai fait un contresens par rapport à l'utilisation de `df.at` qui ne s'impose pas du tout si on utilise bien `df.loc[line, coloumn]` et non pas comme je l'ai (mal) fait `df.loc[line][column]`. Le plan va rester le même, mais on dira simplement d'utiliser `loc` aussi pour les écritures, et on mettra en garde contre cette erreur stupide. -- Thierry
-
-</div>
-
 +++
 
 Où on découvre les deux dernière bibliothèques socles de l'écosystème Python :
@@ -673,46 +665,64 @@ df.loc[889, 'Pclass']
 
 +++
 
-### modifier une cellule : utilisez `at`
+### modifier une cellule
 
 +++
 
 ***MISE EN GARDE*** 
 
-Pour modifier (écrire dans) une cellule, on pourrait penser écrire
-* `df.loc[889]['Age'] = 10` ou encore
-* `df['Age'][889] = 10` 
+Pour modifier (écrire dans) une cellule, on pourrait penser écrire du code de ce genre
 
-si vous essayez l'une ou l'autre de ces formes, vous obtenez un gros avertissement
-ici miraculeusement ça marche tout de même, mais c'est accidentel
+* ~~`df.loc[889]['Age'] = 10`~~  
+  ou encore
+* ~~`df['Age'][889] = 10`~~
 
-La bonne méthode consiste à utiliser la property `at` comme ceci :
+**il ne faut pas le faire**; 
+si vous essayez l'une ou l'autre de ces formes, vous obtenez un gros avertissement (parfois miraculeusement ça marche tout de même, mais c'est accidentel !)
+
++++
+
+La bonne méthode, je vous engage à en prendre l'habitude, consiste à utiliser cet idiome :
+
+* `df.loc[889, 'Age'] = 10`
+
++++ {"tags": ["level_intermediate"]}
+
+vous remarquez qu'ici 
+
+* on a indexé l'objet `df.loc` **au travers d'un tuple**  
+  (souvenez-vous qu'en Python `889, 'Age'` est un tuple), 
+* et **non pas en indexant deux fois**  
+  (quand on utilise une des deux formes à éviter  
+  on indexe une première fois par `889`  
+  puis on indexe le résultat par `'Age'`  
+  en anglais on parle de *chained indexing*)
 
 ```{code-cell} ipython3
-df.at[889, 'Age'] = 10
+df.loc[889, 'Age'] = 10
 
 # pour vérifier 
 df.loc[889]
 ```
 
-### accès par indices : `iloc` et `iat`
+## accès par indices : `iloc` et `iat`
 
 +++
 
 Bien que la plupart du temps on utilise les index pour accéder aux contenus, il se trouve parfois des situations où l'accès par indices peut être ponctuellement intéressant.
 
-En fait c'est **très** simple, pour utiliser des indices plutôt que des index, il sufit de remplacer
-* `loc` par `iloc` et
-* `at` par `iat`
+Et en fait c'est **très** simple : pour **utiliser des indices** plutôt que des index, il sufit de **remplacer `loc` par `iloc`**
 
 Pour s'en souvenir, on peut se rappeler que le *i* veut dire *integer*, donc indices et non pas index
 
 ```{code-cell} ipython3
+# le contexte 
+
 df.head()
 ```
 
 ```{code-cell} ipython3
-# si vous voulez coder par indices, utilisez iloc et iat
+# on va upgrader un passager qui est en 3-ème classe
 
 # ligne d'indice 2 = PassengerId 645
 # colonne d'indice 1 = PClass
@@ -720,11 +730,10 @@ df.iloc[2, 1]
 ```
 
 ```{code-cell} ipython3
-# si vous voulez coder par indices, utilisez iloc et iat
-
+# si vous voulez coder par indices, utilisez iloc 
 
 # regardez la nouvelle valeur de Pclass sur le passager 645
-df.iat[2, 1] = 2
+df.iloc[2, 1] = 2
 df.head()
 ```
 
