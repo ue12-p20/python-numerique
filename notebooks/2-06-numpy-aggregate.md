@@ -23,16 +23,16 @@ jupyter:
 <!-- #region {"tags": []} -->
 # agrégation
 
-ou comment consolider les données dans un tableau, selon certains axes
+ou comment combiner les données dans un tableau, selon certains axes
 <!-- #endregion -->
 
 ```python tags=[]
 import numpy as np
 ```
 
-Nous venons de voir des opérations `numpy` qui s'appliquent éléments par éléments et nous avons abordé la vectorisation et le broadcasting.
+Nous venons de voir des opérations `numpy` qui s'appliquent élément par élément. Nous avons ausi abordé la vectorisation et le broadcasting.
 
-Il existe en `numpy` des fonctions qui vont travailler sur tous les éléments le long d'un axe. Comme par exemple: le calcul de la somme des lignes d'une matrice, la recherche du maximum de chaque colonne d'une matrice, où encore la recherche du maximum global de tout le tableau...
+Il existe en `numpy` des fonctions qui travaillent sur tous les éléments le long d'un axe. Par exemple: la somme des lignes, le maximum des colonnes, le maximum global du tableau...
 
 
 On va appeler cela l'agrégation de valeurs d'un tableau

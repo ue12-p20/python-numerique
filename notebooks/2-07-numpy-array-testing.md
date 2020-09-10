@@ -290,32 +290,38 @@ Voila qui est bien utile pour créer une vue sur un ensemble d'arbitraire d'él�
 
 <!-- #region {"tags": []} -->
 ### la fonction `np.argwhere`
+<!-- #endregion -->
 
-La fonction `np.argwhere` renvoie les indices des éléments pour lesquels un masque est vrai. ELle renvoie ces indications sous la forme d'un tableau (un `np.ndarray` de dimension 2) où chaque ligne représente un élément et les colonnes sont les indices de cet élément indiqué dans le tuple des dimensions de la matrice d'origine:
+<!-- #region {"tags": []} -->
+La fonction `np.argwhere` renvoie les indices des éléments pour lesquels un masque est vrai. Elle renvoie un tableau (`np.ndarray`), de dimension 2, avec autant de lignes que d'éléments qui *matchent* et chaque ligne donne les index de l'élément dans chacune des colonnes de la matrice d'origine.
 
-Par exemple si on donne la matrice de dimension 2 $\begin{matrix} 1, 2 , 3 & 4, 5, 6 \end{matrix}$ et qu'on recherche les éléments pairs: on va obtenir le `np/ndarray` suivant $\begin{matrix}[0, 1],[1, 0],[1, 2] \end{matrix}$
+si on cherche les éléments pairs de la matrice $\begin{bmatrix} [1 & 2 & 3] \\ [4 & 5 & 6] \end{bmatrix}$ on obtient le `np/ndarray` suivant $\begin{bmatrix}[ 0&1 ]\\ [1&0]\\ [1&2]\\\end{bmatrix}$
 <!-- #endregion -->
 
 ```python
+import numpy as np
+```
+
+```python tags=[]
 aux = np.array([[1, 2, 3], [4, 5, 6]])
 aux
 ```
 
-```python
+```python tags=[] scrolled=true
 np.argwhere(aux%2==0)
 ```
 
-<!-- #region {"tags": ["level_intermediate"]} -->
+<!-- #region {"tags": ["level_advanced"]} -->
 En fait donc les deux utilitaires `np.nonzero` et `np.argwhere` font à peu près le même travail, simplement les coordonnées des points qui *matchent* sont retournés dans des formats qui sont différents
 <!-- #endregion -->
 
-```python tags=["level_intermediate"]
+```python tags=["level_advanced"]
 # si on reprend l'exemple précédent
 b = np.arange(1, 13).reshape(3, 4)
 b
 ```
 
-```python cell_style="split" tags=["level_intermediate"]
+```python cell_style="split" tags=["level_advanced"]
 # le résultat de nonzero
 # est un tuple conçu 
 # pour pouvoir créer une vue
@@ -323,13 +329,13 @@ b
 np.nonzero(b%3==0)
 ```
 
-```python cell_style="split" tags=["level_intermediate"]
+```python cell_style="split" tags=["level_advanced"]
 # le résultat de argwhere est
 # disons plus *human-friendly*
 np.argwhere(b%3==0)
 ```
 
-```python tags=["level_intermediate"]
+```python tags=["level_advanced"]
 # remarquez que pour reconstruire le résultat de argwhere
 # à partir de celui de nonzero 
 # on pourrait faire par exemple
@@ -363,29 +369,30 @@ indices
 indices.shape
 ```
 
-<!-- #region {"tags": ["level_intermediate"]} -->
+<!-- #region {"tags": ["level_advanced"]} -->
 Maintenant que vous avez calculé les indices des éléments divisibles par 5 de votre tableau `a`, comment atteindre ces éléments dans la matrice `a` ?
 
 À vous de jouer. Essayez, à partir du tableau `indices` de modifier les éléments de votre tableau `a` (par exemple pour les remplacer par *999*).
 <!-- #endregion -->
 
-```python
+```python tags=["level_advanced"]
 # votre code ici (une correction ci-dessous)
 ```
 
-```python
+```python tags=["level_advanced"]
 # une correction
 a[tuple(indices[:, i] for i in range(indices.shape[1]))]
 ```
 
-```python
+```python tags=["level_advanced"]
 # une autre correction qui utilise la transposition de matrice (que nous verrons un peu après)
 a[tuple(indices.T)]
 ```
 
 ## modifier les éléments d'un `np.ndarray` avec `putmask`
 
-La fonction `np.putmask` modifie, dans un tableau, les éléments obéissant à un masque avec une valeur donnée en argument (on ne verra que l'exemple avec une valeur unique); le masque étant obtenu par une condition sur le tableau d'origine. La modification est effectuée dans le tableau (en place).
+
+Dans un `numpy.ndarray`, la fonction `np.putmask` remplace, les éléments obéissant à un masque, par une valeur donnée en argument. On ne verra que l'exemple avec une valeur unique. La modification est effectuée dans le tableau (en place).
 
 On va voir l'exemple avec une seule valeur. Construisons un tableau de forme *(2, 5)* de *10* nombre aléatoires de loi normale $N(0, 1)$ (avec `np.random.randn`) et remplacons tous les éléments entre *-0.5* et *0.5* par 1. 
 

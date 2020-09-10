@@ -41,15 +41,9 @@ ou comment faire des opérations sur des tableaux qui ont des formes différente
 Vous savez désormais construire des tableaux `np.ndarray` en leur donnant des formes (vecteurs, matrices, images...) et vous savez faires des opérations vectorielles (vectorisées) sur ces tableaux `np.ndarray`.
 
 
-Donc par exemple, construisons deux matrices en faisant attention qu'elles aient la même forme, on va leur mettre des types différents. Par exemple faisons deux matrices:
-   - *m1* de forme 3 x 4 et de type entier contenant les valeurs de 1 à 12
-   - *m2* de forme 3 x 4 et de type float contenant des valeurs entre 0 et 1
-   
-Essayez de les faire avant de regarder la suite ?   
-
-```python
-# votre code
-```
+Construisons deux matrices donnons leur la même forme et des types différents:
+   - `m1`* de forme (3, 4) et de type entier contenant les valeurs de 1 à 12
+   - `m2` de forme (3, 4) et de type float contenant des valeurs entre 0 et 1
 
 ```python
 m1 = np.arange(1, 13).reshape(3, 4)
@@ -68,7 +62,7 @@ Pour que ce soit plus lisible, on va arrondir les valeurs de la matrice `m2` à 
 np.round(m2, 2, out=m2)
 ```
 
-Maintenant ajoutons `m1` et `m2`, c'est bien ce qu'on attendait:
+Maintenant ajoutons `m1` et `m2`, On obtient bien ce qu'on attendait:
 
 ```python
 m1 + m2
@@ -80,13 +74,13 @@ Donc jusqu'ici nous avons fait une addition sous une forme vectorisée, rien de 
 ## opération sur tableaux de formes différentes (*broadcasting*)
 
 
-Mais supposons maintenant que nous voulions ajouter **le même scalaire** à tous les éléments d'une matrice. Par exemple on a une matrice d'entiers de taille $3000 \times 3000$ et on veut ajouter 1 à tous les éléments.
+Mais supposons maintenant que nous voulions ajouter **le même scalaire** à tous les éléments d'une matrice. Par exemple on a une matrice d'entiers de taille (3000, 3000) et on veut ajouter 1 à tous les éléments.
 
-Pour le faire, on peut créer une nouvelle matrice de *1* de la même taille et les ajouter...
+Pour le faire, on peut créer une nouvelle matrice de `1` de la même taille et les ajouter...
 
-Mais franchement, cela demande des manipulations mémoire qui ne sont vraiment pas très intéressantes: déjà elles apportent une information inutile parce que redondante (on a quand même copié ce fameux `1` 9 millions de fois !), ensuite elles n'améliorent pas le code voire elles nuisent à sa lisibilité du code (on va retrouver des ndarray intermédiaires inutiles dans le code).
+Franchement, cela demande des manipulations mémoire qui prennent une place inutile et ne sont pas informatives (on a une matrice  de 9 millions de `1`), ensuite elles n'améliorent pas le code voire elles nuisent à sa lisibilité.
 
-Bref c'est complètement sous-optimal. Nous allons présenter la manière que propose `numpy` pour *agrandir* la forme des tableaux de manière à ce que leurs tailles deviennent compatibles pour l'opération.
+Bref c'est complètement sous-optimal. `numpy` propose une manière abrégée d'écrire afin de ne pas avoir à créer de tableaux inutiles, `numpy` se chargera de faire les *bonnes* opérations.
 
 On appelle cela le broadcasting
 
@@ -99,13 +93,13 @@ Souvenez-vous, en `numpy` les tableaux peuvent être de différentes dimensions:
    - en dimension 2 ce sont des  matrices avec *shape=(l, c)* où *l* est le nombre de lignes et *c* de colonnes (qui peuvent être 1)
    - en dimension supérieures avec shape=$(n_1, ..., n_m, l, c)$ les deux dernières dimensions vont être une matrice
 
-<!-- #region {"tags": ["level_intermediate"]} -->
-et à la limite d'ailleurs, une matrice (1, 1) est de dimension 2:
+<!-- #region {"tags": []} -->
+Une matrice (1, 1) est aussi de dimension 2...
 <!-- #endregion -->
 
-```python tags=["level_intermediate"]
+```python tags=[]
 mat = np.array([1]).reshape(1, 1)
-# utilisation d'un f-string (super pratique)
+# utilisation d'un f-string (c'est super pratique)
 print(f'mat={mat} est de dimension {mat.ndim} !')
 ```
 
