@@ -10,7 +10,7 @@ kernelspec:
   display_name: Calysto Bash
   language: bash
   name: calysto_bash
-notebookname: outils de base
+notebookname: iinstallation miniconda revisitée
 ---
 
 <div class="licence">
