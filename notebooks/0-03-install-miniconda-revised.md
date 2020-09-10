@@ -38,7 +38,7 @@ peut être utilisée par tout le monde, mais s'adresse surtout **à ceux qui ont
 
 il va vous falloir désinstaller la version précédente, si elle est toujours présente sur votre ordi
 
-xxx
+je vous laisse chercher sur Internet comment faire ça, commencez par chercher sur google *uninstall miniconda*
 
 ## réinstaller
 
