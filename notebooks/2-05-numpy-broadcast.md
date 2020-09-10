@@ -41,15 +41,9 @@ ou comment faire des opérations sur des tableaux qui ont des formes différente
 Vous savez désormais construire des tableaux `np.ndarray` en leur donnant des formes (vecteurs, matrices, images...) et vous savez faires des opérations vectorielles (vectorisées) sur ces tableaux `np.ndarray`.
 
 
-Donc par exemple, construisons deux matrices en faisant attention qu'elles aient la même forme, on va leur mettre des types différents. Par exemple faisons deux matrices:
-   - *m1* de forme 3 x 4 et de type entier contenant les valeurs de 1 à 12
-   - *m2* de forme 3 x 4 et de type float contenant des valeurs entre 0 et 1
-   
-Essayez de les faire avant de regarder la suite ?   
-
-```python
-# votre code
-```
+Construisons deux matrices donnons leur la même forme et des types différents:
+   - `m1`* de forme (3, 4) et de type entier contenant les valeurs de 1 à 12
+   - `m2` de forme (3, 4) et de type float contenant des valeurs entre 0 et 1
 
 ```python
 m1 = np.arange(1, 13).reshape(3, 4)
@@ -68,7 +62,7 @@ Pour que ce soit plus lisible, on va arrondir les valeurs de la matrice `m2` à 
 np.round(m2, 2, out=m2)
 ```
 
-Maintenant ajoutons `m1` et `m2`, c'est bien ce qu'on attendait:
+Maintenant ajoutons `m1` et `m2`, On obtient bien ce qu'on attendait:
 
 ```python
 m1 + m2
@@ -80,13 +74,13 @@ Donc jusqu'ici nous avons fait une addition sous une forme vectorisée, rien de 
 ## opération sur tableaux de formes différentes (*broadcasting*)
 
 
-Mais supposons maintenant que nous voulions ajouter **le même scalaire** à tous les éléments d'une matrice. Par exemple on a une matrice d'entiers de taille $3000 \times 3000$ et on veut ajouter 1 à tous les éléments.
+Mais supposons maintenant que nous voulions ajouter **le même scalaire** à tous les éléments d'une matrice. Par exemple on a une matrice d'entiers de taille (3000, 3000) et on veut ajouter 1 à tous les éléments.
 
-Pour le faire, on peut créer une nouvelle matrice de *1* de la même taille et les ajouter...
+Pour le faire, on peut créer une nouvelle matrice de `1` de la même taille et les ajouter...
 
-Mais franchement, cela demande des manipulations mémoire qui ne sont vraiment pas très intéressantes: déjà elles apportent une information inutile parce que redondante (on a quand même copié ce fameux `1` 9 millions de fois !), ensuite elles n'améliorent pas le code voire elles nuisent à sa lisibilité du code (on va retrouver des ndarray intermédiaires inutiles dans le code).
+Franchement, cela demande des manipulations mémoire qui prennent une place inutile et ne sont pas informatives (on a une matrice  de 9 millions de `1`), ensuite elles n'améliorent pas le code voire elles nuisent à sa lisibilité.
 
-Bref c'est complètement sous-optimal. Nous allons présenter la manière que propose `numpy` pour *agrandir* la forme des tableaux de manière à ce que leurs tailles deviennent compatibles pour l'opération.
+Bref c'est complètement sous-optimal. `numpy` propose une manière abrégée d'écrire afin de ne pas avoir à créer de tableaux inutiles, `numpy` se chargera de faire les *bonnes* opérations.
 
 On appelle cela le broadcasting
 
@@ -99,13 +93,13 @@ Souvenez-vous, en `numpy` les tableaux peuvent être de différentes dimensions:
    - en dimension 2 ce sont des  matrices avec *shape=(l, c)* où *l* est le nombre de lignes et *c* de colonnes (qui peuvent être 1)
    - en dimension supérieures avec shape=$(n_1, ..., n_m, l, c)$ les deux dernières dimensions vont être une matrice
 
-<!-- #region {"tags": ["level_intermediate"]} -->
-et à la limite d'ailleurs, une matrice (1, 1) est de dimension 2:
+<!-- #region {"tags": []} -->
+Une matrice (1, 1) est aussi de dimension 2...
 <!-- #endregion -->
 
-```python tags=["level_intermediate"]
+```python tags=[]
 mat = np.array([1]).reshape(1, 1)
-# utilisation d'un f-string (super pratique)
+# utilisation d'un f-string (c'est super pratique)
 print(f'mat={mat} est de dimension {mat.ndim} !')
 ```
 
@@ -200,7 +194,7 @@ mat + line
 ```
 
 Donc ici, `numpy` décide de répéter 3 fois cette ligne pour obtenir une matrice de la même forme que `mat` i.e. (3, 5).  
-On fait de même avec une ligne de forme (1, 5):
+On fait de même avec une matrice de dimension (1, 5) donc 1 ligne et 5 colonnes.
 
 ```python
 line1 = line.reshape(1, 5)
@@ -212,10 +206,10 @@ line1.shape
 mat + line1
 ```
 
-Et donc il accepte aussi: il répéte 3 fois ce vecteur-ligne pour obtenir une matrice de la même forme que `mat`
+Et donc il accepte aussi: il répéte 3 fois cette matrice-ligne pour obtenir une matrice de la même forme que `mat`
 
 
-Vous essayez avec les colonnes ? Il va donc falloir ajouter, à notre matrice de 3 lignes et 5 colonnes, un vecteur-colonne. Ce vecteur-colonne sera donc un tableau de taille (3, 1), il aura 3 lignes et 1 colonne.
+Vous essayez avec les colonnes ? Il va donc falloir ajouter, à notre matrice de 3 lignes et 5 colonnes, une matrice composée d'une seule colonne et de 3 lignes, qui sera un tableau de taille (3, 1).
 
 ```python
 col = np.array([1000, 2000, 3000]).reshape(3, 1)
@@ -230,7 +224,7 @@ mat + col
 Mais ca fait exactement ce à quoi on s'attend !
 
 
-Et si on essayait d'ajouter un vecteur ligne (par exemple de taille (1, 5)) avec un vecteur colonne (par exemple de taille (3, 1)) ?
+Et si on essayait d'ajouter une matrice comportant une seule ligne (par exemple de taille (1, 5)) avec une matrice comportant une seule colonne (par exemple de taille (3, 1)) ?
 
 
 Donc on va ajouter ces deux objets
@@ -306,12 +300,12 @@ except ValueError as exc:
     print(f'{m1}\n+\n{m2}\n ➡ {exc}')
 ```
 
-Encore un exemple où on ajoute un vecteur-ligne à un vecteur-colonne pour avoir une matrice.
+Encore un exemple où on ajoute une matrice comportant une seule ligne à une matrice comportant une seule colonne pour avoir une nouvelle matrice.
 
 <!-- #region -->
 on veut faire l'opération $\begin{pmatrix} a_{1} & a_{2} & a_{3} \end{pmatrix} + \begin{pmatrix} b_1 \\ b_2 \\ b_3 \\ b_4 \end{pmatrix}$
 
-la forme du vecteur-ligne *a* est $(1_a, 3_a)$, la forme du vecteur-colonne *b* est $(4_b, 1_b)$
+la forme de la matrice *a* est $(1_a, 3_a)$, la forme de la matrice *b* est $(4_b, 1_b)$
 
 `numpy` compare $3_a$ à $1_b$ et il élargit *b* à $\begin{pmatrix} b_1 & b_1 & b_1 \\ b_2 & b_2 & b_2 \\ b_3 & b_3 & b_3 \\ b_4 & b_a & b_4 \end{pmatrix}$
 
@@ -347,19 +341,19 @@ ajout d'un scalaire
 m + 10
 ```
 
-ajout d'un vecteur-ligne
+ajout d'une matrice comportant une seule ligne
 
 ```python
 m + np.array([100, 200, 300, 400])
 ```
 
-ajout d'un vecteur-colonne
+ajout d'une matrice comportant une seule colonne
 
 ```python
 m + np.array([[1000], [2000], [3000]])
 ```
 
-ajout de 2 vecteurs-lignes de forme donc (2, 1, 4)
+ajout de 2 matrices comportant 1 seule ligne dont la forme est (2, 1, 4)
 
 ```python
 vecl = np.array([10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000]).reshape(2, 1, 4)
@@ -370,7 +364,7 @@ vecl
 m + vecl
 ```
 
-ajout de 2 vecteurs-colonne de forme donc (2, 3, 1)
+ajout de 2 matrices comportant une seule colonne donc de forme (2, 3, 1)
 
 ```python
 vecc = np.array([100000, 200000, 300000, 400000, 500000, 600000]).reshape(2, 3, 1)

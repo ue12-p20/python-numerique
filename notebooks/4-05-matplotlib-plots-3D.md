@@ -118,12 +118,6 @@ def f(x, y):
     return np.power(x, 2) - np.power(y, 2)
 ```
 
-On l'essaie:
-
-```python
-f([10, 20, 30], [20, 30, 40])
-```
-
 ### on construit une grille de points
 
 
@@ -131,7 +125,7 @@ Il nous faut maintenant les appliquer la fonction $f$ à un ensemble de points c
 
 Par exemple si je veux dessiner la fonction entre les abscisses 1 et 4 et les ordonnées 4 à 6, je vais vouloir calculer $f$ sur les points suivants (je ne donne que des valeurs entières pour la simplicité de l'exemple):
 
-<img src='meida/points-meshgrid.png' width=300>
+<img src='media/points-meshgrid.png' width=300>
 
 Si on regarde en matrices `np.ndarray`, $f$ va devoir être calculée sur une sorte de produit cartésien des abscisses et des ordonnées de cette manière:
 
