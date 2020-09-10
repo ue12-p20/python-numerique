@@ -703,8 +703,7 @@ Vous voulez vérifer votre formule, en appliquant une méthode de force brute.
 
 C'est l'objet de cet exercice. Vous devez écrire une fonction `dice` qui prend en paramètres:
 
-* `target` : la somme ci
-ble à atteindre,
+* `target` : la somme cible à atteindre,
 * `nb_dice` : le nombre de dés,
 * `sides`: le nombre de faces sur chaque dé.
 

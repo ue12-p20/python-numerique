@@ -90,10 +90,12 @@ Si maintenant on s'intéresse à plusieurs colonnes ? Comment est-ce que ça pou
 La solution adoptée, c'est de passer à `groupby`, non plus une seule colonne mais .. une liste de colonnes. 
 
 Le fonctionnement de `groupby` dans ce cas consiste à 
+
 * calculer pour chaque colonne les valeurs distinctes (comme dans le cas simple)
 * et en faire le **produit cartésien** pour obtenir les clés du groupement (et incidemment, sous la forme de tuples)
 
-Ainsi dans notre exemple si nous prenons les critères :  `Pclass` et `Sex`:
+Ainsi dans notre exemple si nous prenons les critères :  `Pclass` et`Sex`:
+
 * le premier critère donne trois valeurs `1`, `2` et `3` pour les trois classes de navigation
 * le second donne 2 valeurs `female` et `male`
 

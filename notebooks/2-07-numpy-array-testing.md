@@ -76,6 +76,7 @@ a%2 == 0
 Nous avons un tableau qui s'appelle aussi un masque de booléens.
 
 Maintenant vous avez deux manières d'utiliser ce masque
+
 * soit de manière globale pour savoir, par exemple, le nombre d'éléments pairs de votre tableau 
 * soit pour filtrer votre matrice initiale, en ne gardant par exemple que les éléments pairs.
 
@@ -143,6 +144,7 @@ Vous avez obtenu un nouveau tableau de type `np.ndarray` qui contient les élém
 ## composer les conditions
 
 Pour composer les conditions
+
 * vous **devez** utiliser les opérateurs logiques *bit-à-bit* (ou ***bitwise***) `&` (pour et), `|` (pour ou), `~` (pour non) 
 * ou leur contrepartie `numpy` qui sont respectivement `np.logical_and`, `np.logical_or`, `np.logical_not`.
 

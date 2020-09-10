@@ -130,6 +130,7 @@ Néanmoins, `pandas` offre des techniques assez similaires, et assez puissantes 
 +++
 
 on l'a vu dans le notebook précédent, les accès à un dataframe pandas se font 
+
 * le plus souvent à base d'index et non pas d'indices
 * et dans ce cas on utilise `df.loc` pour accéder aux lignes et cellules
 
@@ -211,6 +212,7 @@ df.loc[:, 'Pclass'] is df['Pclass']
 ```
 
 Et donc logiquement ici, si je veux sélectionner une plage de colonnes, je vais utiliser deux slices:
+
 * dans la direction des lignes, on prend tout avec une simple slice `:`
 * dans la direction des colonnes, le slicing marche aussi **en mode inclusif**
 
@@ -301,12 +303,14 @@ Ce qu'il faut retenir c'est que
 Nous voulons maintenant prendre une référence sur une sous-partie d'une dataframe qui **ne s'exprime pas sous la forme d'une slice (tranche)**, mais par contre nous possédons la liste des (index des) lignes et des colonnes que nous souhaitons conserver dans ma sous-partie de dataframe.
 
 `pandas` sait parfaitement le faire :
+
 * on utilise `df.loc[]` puisqu'on va désigner des index,
 * et on va passer dans les `[]`,  non plus des slices, mais tout simplement des listes (et de plus, vous donnez les index dans l'ordre qui vous intéresse) :
 
 +++
 
 Prenons ainsi par exemple 
+
 * les lignes d'index 450, 3, 67, 800 et 678
 * et les colonnes `Age`, `Pclass` et `Survived`
 
@@ -405,6 +409,7 @@ df.loc [ np.logical_and(df['Age'] >= 70, np.logical_not(df['Pclass'] == 1)) ] # 
 +++
 
 Pour résumer cette partie, nous avons vu trois méthodes d'indexation utilisables avec `loc` :
+
 * on peut utiliser une slice, et parce qu'on manipule des index et pas des indices dans ce cas **les bornes sont inclusives** (on va voir tout de suite qu'avec les indices par contre les bornes sont les bornes habituelles, avec la fin exclue)
 * on peut utiliser une liste explicite, pour choisir exactement et dans le bon ordre les index qui nous intéressent
 * on peut utiliser un masque, c'est-à-dire une colonne obtenue en appliquant une expression booléenne à la dataframe de départ - cette méthode s'applique sans doute plus volontiers à la sélection de lignes

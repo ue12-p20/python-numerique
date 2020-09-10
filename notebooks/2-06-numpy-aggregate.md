@@ -140,6 +140,7 @@ Première idée ... on peut en faire la somme (True sera pris comme 1) et regard
 
 
 Pour créer un tableau de 10 booléens (par exemple)
+
 * je génère 10 entiers aléatoirement entre 0 et 2 (non compris)
 * et je type ce tableau comme étant de type `np.bool` avec la méthode `np.ndarray.astype` 
 

@@ -193,6 +193,7 @@ df0.head()
 ```
 
 Les index apparaissent **en gras** dans la sortie de `head()`, si bien que sur notre exemple, on voit que :
+
 * les **colonnes** ont été **indexées par leur nom**, naturellement,
 * et que, comme nous n'avons **rien** précisé **de particulier**, les **lignes** ont, elles, été **indexées par leur indice** i.e. une simple numérotation à partir de 0.
 
@@ -522,6 +523,7 @@ Une `pandas.DataFrame` a aussi des lignes, nous allons les voir dans la section 
 On a vu que `pandas` tend à favoriser l'utilisation des index.
 
 Il est important avec `pandas` de bien faire la différence entre ***index*** et ***indice*** :
+
 * les **index** peuvent être un peu ce qu'on veut, ici on a des entiers, ça pourrait être aussi bien des **chaines**
 * les **indices** sont toujours des **entiers** qui **commencent à 0** (comme les indices de listes et de tableau)
 
@@ -589,8 +591,9 @@ df.index
 +++ {"tags": ["level_advanced"]}
 
 pour les curieux, qui s'interrogeraient sur la relation entre `Index` et `Int64Index` :  
-* il se trouve que dans cette dataframe, l'index a des valeurs entières,
-c'est pourquoi `pandas` a choisi pour lui le type `Int64Index`  
+
+* il se trouve que dans cette dataframe, l'index a des valeurs entières,  
+  c'est pourquoi `pandas` a choisi pour lui le type `Int64Index`  
 * on peut vérifier que cet objet est bien aussi un `Index` :
 
 ```{code-cell} ipython3
@@ -759,3 +762,8 @@ file = 'petit-titanic.csv'
 ```{code-cell} ipython3
 # votre code ici
 ```
+
++++ {"tags": []}
+
+some text
+* a wrong bullet
