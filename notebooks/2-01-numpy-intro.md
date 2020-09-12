@@ -598,13 +598,13 @@ Pour comparer des temps de calcul, nous allons utiliser une fonction (un peu mag
 En voici un exemple l'exécution de la cellule suivante vous donnera la moyenne des temps d'exécution d'un certain nombre d'exécution du code *1 + 1* 
 
 
-Temps calculé sur l'exécution de la ligne:
+Temps calculé sur l'exécution de la ligne (avec un seul `%`)
 
 ```python
 %timeit 1 + 1
 ```
 
-Temps calculé sur l'exécution de la cellule:
+Temps calculé sur l'exécution de toute la cellule (avec deux `%%`)
 
 ```python
 %%timeit
@@ -622,7 +622,7 @@ Maintenant utiliser ce calcul des temps d'exécution pour comparer:
 Pour la version Python créez la liste Python avant de calculer le temps de calcul.   
 
 ```python
-# vote code ici
+# votre code ici
 ```
 
 ```python

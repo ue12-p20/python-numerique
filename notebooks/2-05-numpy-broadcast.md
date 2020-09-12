@@ -382,17 +382,20 @@ A vous de jouer. Essayer d'ajouter un tableau (généré par `np.arange` qui con
 ```
 
 <!-- #region {"tags": ["level_advanced"]} -->
-Si vous avez du temps, à vous de jouer. Sauriez-vous coder en Python, la fonction qui détermine si deux formes (données par des tuples) sont compatibles pour le broadcasting ?
+Si vous êtes fort en Python, et que vous avez du temps, sauriez-vous coder en Python, la fonction qui détermine si deux formes (données par des tuples) sont compatibles pour le broadcasting ? à vous de jouer…
 <!-- #endregion -->
 
 ```python tags=["level_advanced"]
 # votre code ici
+
+def are_broadcast_compatible(shape1, shape2):
+    ...
 ```
 
 ## conclusion
 
 
-Le broadcasting est très efficace. Les éléments broadcastés ne sont naturellement pas réellement créés en mémoire mais le broadcasting est basé sur du code C optimisé qui va avoir le même genre d'efficacité que les opérations vectorisées. Donc à utiliser (intelligemment) !
+Le broadcasting est très efficace. Les éléments broadcastés ne sont naturellement pas réellement créés en mémoire, mais le broadcasting est basé sur du code C optimisé qui va avoir le même genre d'efficacité que les opérations vectorisées. Donc à utiliser (intelligemment) !
 
 
 ## exercices
@@ -405,26 +408,90 @@ Construisez une matrice de forme *(3000, 3000)* contenant les entiers à partir 
    1. Calculer le temps pour ajouter le scalaire *10* à cette matrice
    1. Calculer le temps pour ajouter une matrice de taille de *(3000, 3000)* remplie de `1` à cette matrice.
 
-Pour la deuxième option, envisagez deux variantes dans lesquelles vous comptez ou non le temps nécessaire à la construction de la matrice temporaire   
+Pour la deuxième option, envisagez deux variantes dans lesquelles vous comptez ou non le temps nécessaire à la construction de la matrice temporaire
 
-
-## correction
-
-
-### ajouter un scalaire à une matrice
+Expliquez pourquoi on fait ça…
 
 ```python
-m = np.arange(1, 9000001).reshape(3000,3000)
+# votre code
+```
+
+#### correction
+
+```python
+N = 3000
+
+m = np.arange(1, N**2 + 1).reshape(N, N)
 ```
 
 ```python
-%timeit m+10
+%timeit m + 10
 ```
 
 ```python
-uns = np.ones(shape=(3000,3000))
+uns = np.ones(shape=(N, N))
 ```
 
 ```python
-%timeit m+uns
+%timeit m + uns
+```
+
+<!-- #region {"tags": ["level_intermediate"]} -->
+### les dès (intermédiaire)
+<!-- #endregion -->
+
+On étudie les probabilités d'obtenir une certaine somme avec plusieurs dés. 
+
+Tout le monde connaît le cas classique avec deux dés à 6 faces, ou l'on construit mentalement la grille suivante:
+
+|  +  | &#124; | 1 | 2 | 3 | 4 | 5 | 6 |
+|:---:|:------:|:-:|:-:|:-:|:-:|:-:|:-:|
+| *1* | &#124; | 2 | 3 | 4 | 5 | 6 | 7 | 
+| *2* | &#124; | 3 | 4 | 5 | 6 | 7 | 8 | 
+| *3* | &#124; | 4 | 5 | 6 | 7 | 8 | 9 | 
+| *4* | &#124; | 5 | 6 | 7 | 8 | 9 |10 | 
+| *5* | &#124; | 6 | 7 | 8 | 9 |10 |11 | 
+| *6* | &#124; | 7 | 8 | 9 |10 |11 |12 | 
+
+Imaginons que vous êtes un étudiant, vous venez de faire un exercice de maths qui vous a mené à une formule qui permet de calculer, pour un jeu à `nb_dice` dés, chacun à `sides` faces, le nombre de tirages qui donnent une certaine somme `target`.
+
+Vous voulez **vérifier votre formule**, en appliquant une **méthode de force brute**. C'est-à-dire constuire un hypercube avec toutes les possibilités de tirage, puis calculer pour chaque point dans l'hypercube la somme correspondante; de cette façon on pourra compter les occurrences de `target`.
+
+C'est l'objet de cet exercice. Vous devez écrire une fonction `dice` qui prend en paramètres:
+
+* `target` : la somme cible à atteindre,
+* `nb_dice` : le nombre de dés,
+* `sides`: le nombre de faces sur chaque dé.
+
+On convient que par défaut `nb_dice`=2 et `sides`=6, qui correspond au cas habituel.
+
+Dans ce cas-là par exemple, on voit, en comptant la longueur des diagonales sur la figure, que `dice(7)` doit valoir 6, puisque le tableau comporte 6 cases contenant 7 sur la diagonale.
+
+À nouveau, on demande explicitement ici un parcours de type force brute; c'est-à-dire de créer sous la forme d'un tableau `numpy`, un hypercube qui énumère toutes les combinaisons possibles; et sans faire de `for` sur les éléments d'un tableau.
+
+
+https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x4-dice
+
+
+**Indice**
+
+Il existe en `numpy` une astuce pour augmenter la dimension d'un tableau, ça s'appelle `np.newaxis`, et ça s'utilise comme ceci
+
+```python cell_style="center"
+dice_1 = np.arange(1, 7)
+dice_2 = dice_1[:, np.newaxis]
+```
+
+```python cell_style="split"
+dice_1
+```
+
+```python cell_style="split"
+dice_2
+```
+
+et remarquez que pour créer le tableau ci-dessus il suffit de faire
+
+```python
+dice_1 + dice_2
 ```
