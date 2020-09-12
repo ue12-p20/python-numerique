@@ -662,8 +662,52 @@ Et bien oui on met naturellement la création du tableau dans le code dont le te
 On y reviendra. Oublions pour le moment le broadcasting, 
 
 
-## Exercices
+## exercices
 
+
+avant d'aborder ces exercices, je vous signale un utilitaire très pratique (parmi les 2347 que nous n'avons pas eu le temps de couvrir ;); il s'agit de `numpy.indices()`
+
+commençons par un exemple :
+
+```python
+lignes, colonnes = np.indices((3, 5))
+```
+
+```python cell_style="split"
+lignes
+```
+
+```python cell_style="split"
+colonnes
+```
+
+vous remarquerez que dans le tableau qui s'appelle `lignes`, la valeur dans le tableau correspond au numéro de ligne; dit autrement :
+
+* `lignes[i, j] == i` pour tous les $(i, j)$,
+    
+et dans l'autre sens bien sûr 
+
+* `colonnes[i, j] == j`
+
+```python cell_style="split"
+lignes[1, 4]
+```
+
+```python cell_style="split"
+colonnes[1, 4]
+```
+
+Pourquoi est-ce qu'on parle de ça me direz-vous ? 
+
+Eh bien en guise d'indice, je vous renvoie à la notion de programmation vectorielle.
+
+Ainsi par exemple si je veux créer une matrice de taille (3,5) dans laquelle `M[i, j] == i + j`, je **ne vais surtout par écrire une boucle `for`**, et au contraire je vais écrire simplement
+
+```python
+I, J = np.indices((3, 5))
+M = I + J
+M
+```
 
 ### les rayures
 
@@ -681,6 +725,42 @@ Un damier a 100 cases.
 
 https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x1-checkers
 
+<!-- #region {"tags": ["level_intermediate"]} -->
+### le damier (variante)
+<!-- #endregion -->
+
+<!-- #region {"tags": ["level_intermediate"]} -->
+Il y a beaucoup de méthodes pour faire cet exercice de damier; elles ne vont pas toutes se généraliser pour la variante :
+
+**Variante** écrivez une fonction qui crée un damier de $3n \times 3n$ composé de blocs de 3x3 eux mêmes en damiers, genre avec $n=4$
+
+```
+0 0 0 1 1 1 0 0 0 1 1 1 
+0 0 0 1 1 1 0 0 0 1 1 1 
+0 0 0 1 1 1 0 0 0 1 1 1 
+1 1 1 0 0 0 1 1 1 0 0 0 
+1 1 1 0 0 0 1 1 1 0 0 0 
+1 1 1 0 0 0 1 1 1 0 0 0 
+0 0 0 1 1 1 0 0 0 1 1 1 
+0 0 0 1 1 1 0 0 0 1 1 1 
+0 0 0 1 1 1 0 0 0 1 1 1 
+1 1 1 0 0 0 1 1 1 0 0 0 
+1 1 1 0 0 0 1 1 1 0 0 0 
+1 1 1 0 0 0 1 1 1 0 0 0 
+```
+
+en versions la plus générale possible, le $3$ est un paramètre de la fonction (disaons $k$) :
+<!-- #endregion -->
+
+```python tags=["level_intermediate"]
+def super_checkers(n, k):
+    ...
+```
+
+```python
+# doit vous donner la figure ci-dessus
+super_checkers(4, 3)
+```
 
 ### les escaliers
 
@@ -694,39 +774,35 @@ https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x1-checke
 https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x3-stairs
 
 
-### les dès (difficile)
+<!-- #region {"tags": ["level_advanced"]} -->
+### calculs imbriqués (avancé)
+<!-- #endregion -->
 
+Regardez le code suivant :
 
-On étudie les probabilités d'obtenir une certaine somme avec plusieurs dés. 
+```python
+# une fonction vectorisée
+def pipeline(array):
+    array2a = np.sin(array)
+    array2b = np.cos(array)
+    array3 = np.exp(array2a + array2b)
+    array4 = np.log(array3+1)
+    return array4
+```
 
-Tout le monde connaît le cas classique avec deux dés à 6 faces, ou l'on construit mentalement la grille suivante:
+```python
+# en guise de digression, juste pour anticiper un peu
+# et montrer ce que fait la fonction pipeline
+import matplotlib.pyplot as plt
 
-|  +  | &#124; | 1 | 2 | 3 | 4 | 5 | 6 |
-|:---:|:------:|:-:|:-:|:-:|:-:|:-:|:-:|
-| *1* | &#124; | 2 | 3 | 4 | 5 | 6 | 7 | 
-| *2* | &#124; | 3 | 4 | 5 | 6 | 7 | 8 | 
-| *3* | &#124; | 4 | 5 | 6 | 7 | 8 | 9 | 
-| *4* | &#124; | 5 | 6 | 7 | 8 | 9 |10 | 
-| *5* | &#124; | 6 | 7 | 8 | 9 |10 |11 | 
-| *6* | &#124; | 7 | 8 | 9 |10 |11 |12 | 
+fig = plt.figure(figsize=(12, 2))
+X = np.linspace(0, 6*np.pi, 1000)
+Y = pipeline(X)
+plt.plot(X, Y);
+```
 
-Imaginons que vous êtes un étudiant, vous venez de faire un exercice de maths qui vous a mené à une formule qui permet de calculer, pour un jeu à `nb_dice` dés, chacun à `sides` faces, le nombre de tirages qui donnent une certaine somme `target`.
+Les questions : j'ai un tableau `X` typé `float64` et de forme `(1000,)`
 
-Vous voulez vérifer votre formule, en appliquant une méthode de force brute.
-
-C'est l'objet de cet exercice. Vous devez écrire une fonction `dice` qui prend en paramètres:
-
-* `target` : la somme cible à atteindre,
-* `nb_dice` : le nombre de dés,
-* `sides`: le nombre de faces sur chaque dé.
-
-On convient que par défaut `nb_dice`=2 et `sides`=6, qui correspond au cas habituel.
-
-Dans ce cas-là par exemple, on voit, en comptant la longueur des diagonales sur la figure, que `dice(7)` doit valoir 6, puisque le tableau comporte 6 cases contenant 7 sur la diagonale.
-
-À nouveau, on demande explicitement ici un parcours de type force brute.
-
-Faites le en np.
-
-
-https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x4-dice
+* j'appelle `pipeline(X)`, combien de mémoire est-ce que `pipeline` va devoir allouer pour faire son travail ?
+* quel serait le minimum de mémoire dont on a besoin pour faire cette opération ?
+* voyez-vous un moyen d'optimiser `pipeline` pour atteindre ce minimum ?
