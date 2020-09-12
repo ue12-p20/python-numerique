@@ -35,7 +35,7 @@ notebookname: outils de base
 
 pour pouvoir facilement modifier le contenu de nos fichiers texte, comme tout à l'heure le fichier `foo.txt`, on va utiliser un programme qui s'appelle un **éditeur de code**
 
-en effet, il ne faut **pas** utiliser un outil comme Word pour éditer des programmes: c'est un éditeur de texte pas un éditeur de code !
+en effet, il ne faut **pas utiliser un outil comme Word** pour éditer des programmes: c'est un éditeur de texte pas un éditeur de code !
 
 > l'enseignant lance Visual Studio Code et le montre très très rapidement
 
@@ -349,6 +349,7 @@ ceux qui veulent creuser peuvent
 
 
 Nous allons
+
 * faire une démonstration de l'installation miniconda sur Windows à partir de <https://docs.conda.io/en/latest/miniconda.html> (les linux et les macos le font pour leur OS + architectures)
 * puis écrire un ou deux programmes Python très simples
 * et les exécuter dans un terminal
@@ -362,7 +363,7 @@ Nous allons
 * si votre **nom d'utilisateur** sous Windows **contient un accent**, la procédure décrite ici **ne va pas fonctionner** 
 * dans ce cas [je vous renvoie à cette annexe](0-03-install-miniconda-revised.md) qui décrit une procédure légèrement différente, qui marche pour tout le monde quel que soit votre nom
     
-</div>    
+</div>
 
 +++
 

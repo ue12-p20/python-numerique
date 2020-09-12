@@ -116,7 +116,7 @@ vous pouvez en principe activer la tables des matières en cliquant sur ce bouto
 je vous signale enfin que les supports du cours sont disponibles également sur  
 https://ue12-python-numerique.readthedocs.io/
 
-ce site est accessible depuis Internet sans authentification, son contenu est *statique* (i.e. on ne peut pas modifier le contenu des cellules de code, ni rien exécuter) ... mais on peut y faire des recherches qui s'appliqueront sur tous les notebooks d'un coup et ainsi retrouver des informations.
+ce site est accessible depuis Internet sans authentification, son contenu est *statique* (i.e. on ne peut pas modifier le contenu des cellules de code, ni rien exécuter) ... mais on peut y **faire des recherches** qui s'appliqueront sur tous les notebooks d'un coup et ainsi retrouver des informations.
 
 +++ {"slideshow": {"slide_type": ""}}
 
@@ -759,7 +759,7 @@ au contraire :
 * ça peut largement suffire
 
 du coup créez plutôt un dossier  
-`/User/dupont/Desktop/git/ue12-python-numerique`  
+`/User/dupont/Desktop/git/ue12-python-numerique`
 
 +++
 

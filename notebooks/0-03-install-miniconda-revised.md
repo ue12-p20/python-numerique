@@ -10,7 +10,7 @@ kernelspec:
   display_name: Calysto Bash
   language: bash
   name: calysto_bash
-notebookname: iinstallation miniconda revisitée
+notebookname: "installation miniconda revisit\xE9e"
 ---
 
 <div class="licence">
@@ -38,15 +38,16 @@ peut être utilisée par tout le monde, mais s'adresse surtout **à ceux qui ont
 
 il va vous falloir désinstaller la version précédente, si elle est toujours présente sur votre ordi
 
-xxx
+je vous laisse chercher sur Internet comment faire ça, commencez par chercher sur google *uninstall miniconda*
 
 ## réinstaller
 
 l'installeur miniconda se prend les pieds dans le tapis si on lui demande d'installer dans un chemin qui contient des accents
 
 du coup notre approche vas être de 
+
 * créer un dossier avec un nom court et simple; on va choisir l'emplacement `c:/miniconda` 
-* il suffira ensuite de relancer l'installeur mminiconda, en lui précisant cet emplacement au lieu de prendre le chemin qu'il nous propose par défaut
+* il suffira ensuite de relancer l'installeur miniconda, en lui précisant cet emplacement au lieu de prendre le chemin qu'il nous propose par défaut
 
 +++
 
@@ -64,6 +65,7 @@ du coup notre approche vas être de
 
 
 Nous allons
+
 * faire une démonstration de l'installation miniconda sur Windows à partir de <https://docs.conda.io/en/latest/miniconda.html> (les linux et les macos le font pour leur OS + architectures)
 * puis écrire un ou deux programmes Python très simples
 * et les exécuter dans un terminal
@@ -74,7 +76,7 @@ Nous allons
 
 +++
 
-avant d'aller chercher le logiciel sur Internet, nous allons créer un dossier dont le nom est court et simple, et **qui ne contient pas d'accent**
+nous allons créer un dossier dont le nom est court et simple, et **qui ne contient pas d'accent**
 
 pour cela nous allons lancer la console Windows qui s'appelle `PowerShell`, et créer le dossier `c:/miniconda`
 
@@ -121,7 +123,7 @@ vous lancez le `.exe`, vous prenez toutes les options par défaut lorsqu'on vous
 <div style="background-color:#cccccc; border-radius: 6px; margin:12px; padding: 12px;">
 
 <span style="background-color:red; padding:4px; border-radius: 4px;">
-c'est ici que la procédure diffère de la version faite en amphi; 
+c'est ici que la procédure diffère de la version faite en amphi 
 </span>    
 </div>
 
