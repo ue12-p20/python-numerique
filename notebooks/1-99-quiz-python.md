@@ -38,10 +38,10 @@ Pour ce premier quiz <span style="background-color:red; padding: 5px; margin-top
 
 +++
 
-la cellule suivante semble vide au départ, mais **évaluez-la** pour faire apparaitre le quiz
+**évaluez la cellule suivante** pour faire apparaitre le quiz
 
 ```{code-cell} ipython3
-:hide_input: true
+:hide_input: false
 :tags: [raises-exception]
 
 from nbautoeval import run_yaml_quiz
@@ -50,3 +50,4 @@ run_yaml_quiz("python", "quiz")
 
 le quiz se trouve dans la cellule précédente, que vous devez évaluer
 ****
+
