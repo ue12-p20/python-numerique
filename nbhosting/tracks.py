@@ -31,7 +31,7 @@ def tracks(coursedir):
          ]),
         ('cours #3: numpy' , 'programmation vectorielle', 'numpy',
          [ 
-           ('quiz Python', 'notebooks/1-[89]*.md'),
+           ('quiz & annonces', 'notebooks/1-[89]*.md'),
            ('numpy', 'notebooks/2-[01]*.md'), 
            ('exos', 'notebooks/2-[56]*.md'), 
            ('quiz', 'notebooks/2-[89]*.md'), 

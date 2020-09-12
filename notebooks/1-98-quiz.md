@@ -14,6 +14,14 @@ notebookname: quiz sur Python
 version: 1
 ---
 
+<div class="licence">
+<span>Licence CC BY-NC-ND</span>
+<span>Thierry Parmentelat</span>
+<span><img src="media/inria-25-alpha.png" /></span>
+</div>
+
++++
+
 # quiz
 
 pour vous évaluer sur 
@@ -50,4 +58,3 @@ run_yaml_quiz("python", "quiz")
 
 le quiz se trouve dans la cellule précédente, que vous devez évaluer
 ****
-
