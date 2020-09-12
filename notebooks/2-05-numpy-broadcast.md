@@ -41,9 +41,11 @@ ou comment faire des opérations sur des tableaux qui ont des formes différente
 Vous savez désormais construire des tableaux `np.ndarray` en leur donnant des formes (vecteurs, matrices, images...) et vous savez faires des opérations vectorielles (vectorisées) sur ces tableaux `np.ndarray`.
 
 
-Construisons deux matrices donnons leur la même forme et des types différents:
+Construisons deux matrices donnons leur la même **forme** et (par exemple) des types différents:
    - `m1`* de forme (3, 4) et de type entier contenant les valeurs de 1 à 12
    - `m2` de forme (3, 4) et de type float contenant des valeurs entre 0 et 1
+   
+Pour les ajouter il n'y aura pas de problème: leur formes sont indentiques (bien sûr si les types ne sont pas cohérents pour l'addition vous aurez des erreurs mais d'un autre genre).    
 
 ```python
 m1 = np.arange(1, 13).reshape(3, 4)
@@ -143,7 +145,7 @@ tab + [ 10 ]
 Que s'est-il passé ?
 
 Oui là, le scalaire `10` a été considéré comme un tableau, de la même forme que `tab`
-, i.e. de 6 éléments (avec la valeur 10). Nous disons "*considéré*" parce que l'intérêt est bien que ce tableau n'ait pas été créé du tout, mais géré dans le code `numpy` sous-jacent.
+, i.e. de 6 éléments (avec la valeur 10). Nous disons "*considéré*" parce que l'intérêt est bien que ce tableau n'ait jamais été créé du tout, l'opération est gérée dans le code `numpy` sous-jacent.
 
 
 En Python qu'est ce que cela donnerait sur une liste ? Essayons :
@@ -181,7 +183,7 @@ mat
 
 Qu'est ce que `numpy` peut faire si nous ajoutons, à la matrice `mat` de 3 lignes et 5 colonnes, un tableau de la forme d'une ligne de `mat` ?
 
-C'est à dire de forme `(5,)` ou encore de forme `(1, 5)` ? Voici la première:
+C'est à dire de forme `(5,)` ou encore de forme `(1, 5)` ? Voici une ligne de la première forme:
 
 ```python
 line = np.array([100, 200, 300, 400, 500])
@@ -221,7 +223,7 @@ col.shape
 mat + col
 ```
 
-Mais ca fait exactement ce à quoi on s'attend !
+ca fait exactement ce à quoi on s'attend !
 
 
 Et si on essayait d'ajouter une matrice comportant une seule ligne (par exemple de taille (1, 5)) avec une matrice comportant une seule colonne (par exemple de taille (3, 1)) ?
@@ -253,16 +255,19 @@ Pour les avancés on peut regarder la règle.
 ## règles de broadcasting (pour les avancés)
 <!-- #endregion -->
 
+<!-- #region {"tags": ["level_intermediate"]} -->
 Les dimensions des deux tableaux (sur lesquels une opération élément-par-élément est appliquée), sont comparées de droite à gauche.
 
 Dans cet ordre, les dimensions sont prises par paire, le broadcasting sera possible:
    1. soit si les deux dimensions sont identiques
    1. soit si l'une des 2 dimensions vaut 1 et auquel cas elle est élargie à la dimension compatible
+<!-- #endregion -->
 
-
+<!-- #region {"tags": ["level_intermediate"]} -->
 Explicitons sur un exemple. 
+<!-- #endregion -->
 
-
+<!-- #region {"tags": ["level_intermediate"]} -->
 on se donne $A=\begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\  \end{pmatrix}$ et $b$ un tableau à un scalaire, donc de forme `(1,)`
 
 on calcule `A + b`
@@ -280,29 +285,35 @@ on compare les dimensions suivantes, $2_a$ est comparé à $1_b$, et de nouveau 
   $\begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\  \end{pmatrix} + \begin{pmatrix} b & b & b \\ b & b & b \end{pmatrix} = \begin{pmatrix} a_{11} + b & a_{12} + b & a_{13} + b \\ a_{21} + b & a_{22} + b & a_{23} + b \\  \end{pmatrix}$   
    
 les formes sont désormais compatibles, les deux tableaux peuvent être ajoutés !
+<!-- #endregion -->
 
-
+<!-- #region {"tags": ["level_intermediate"]} -->
 Et naturellement quand les formes ne sont pas consistantes, `numpy` va rejeter le programme en vous envoyant une erreur de type `ValueError`.
+<!-- #endregion -->
 
-```python cell_style="center" hide_input=false tags=["raises-exception"]
+```python cell_style="center" hide_input=false tags=["raises-exception", "level_intermediate"]
 m1 = np.arange(6).reshape(2, 3)
 m2 = np.arange(8).reshape(2, 4)
 
 m1 + m2
 ```
 
+<!-- #region {"tags": ["level_intermediate"]} -->
 On la rattrape ?
+<!-- #endregion -->
 
-```python cell_style="center"
+```python cell_style="center" tags=["level_intermediate"]
 try:
     m1 + m2
 except ValueError as exc:
     print(f'{m1}\n+\n{m2}\n ➡ {exc}')
 ```
 
+<!-- #region {"tags": ["level_intermediate"]} -->
 Encore un exemple où on ajoute une matrice comportant une seule ligne à une matrice comportant une seule colonne pour avoir une nouvelle matrice.
+<!-- #endregion -->
 
-<!-- #region -->
+<!-- #region {"tags": ["level_intermediate"]} -->
 on veut faire l'opération $\begin{pmatrix} a_{1} & a_{2} & a_{3} \end{pmatrix} + \begin{pmatrix} b_1 \\ b_2 \\ b_3 \\ b_4 \end{pmatrix}$
 
 la forme de la matrice *a* est $(1_a, 3_a)$, la forme de la matrice *b* est $(4_b, 1_b)$
@@ -341,7 +352,7 @@ ajout d'un scalaire
 m + 10
 ```
 
-ajout d'une matrice comportant une seule ligne
+ajout d'une matrice comportant une seule ligne ... il l'ajoute à toutes les lignes
 
 ```python
 m + np.array([100, 200, 300, 400])
@@ -356,7 +367,7 @@ m + np.array([[1000], [2000], [3000]])
 ajout de 2 matrices comportant 1 seule ligne dont la forme est (2, 1, 4)
 
 ```python
-vecl = np.array([10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000]).reshape(2, 1, 4)
+vecl = np.array([10000, 20000, 30000, 40000, -50000, -60000, -70000, -80000]).reshape(2, 1, 4)
 vecl
 ```
 
@@ -398,7 +409,7 @@ Le broadcasting est très efficace. Les éléments broadcastés ne sont naturell
 ## exercices
 
 
-### ajouter un scalaire à une matrice
+### comparaison des temps d'exécution de l'ajout d'un scalaire à une matrice
 
 
 Construisez une matrice de forme *(3000, 3000)* contenant les entiers à partir de 1.

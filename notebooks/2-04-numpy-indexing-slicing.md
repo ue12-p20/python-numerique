@@ -31,7 +31,7 @@ Une seconde raison: afin que vous ne soyez pas complètement dépourvus le jour 
 Une troisième raison: afin de vous familiariser avec l'informatique et comprendre des mécanismes sous-jacents qui expliquent les choix des concepteurs de libraries.
 
 Une dernière raison, afin d'avoir une petite culture informatique technique bien formée pour ne jamais penser que c'est magique, incompréhensible ou trop compliqué ! Donc si vous ne comprenez pas bien une notion, vous le dites !
-
+et on vous l'explique
 
 
 # indexation et slicing
@@ -51,15 +51,15 @@ Rappel sur les fonctions vectorisées:
 
 La possibilité d'accéder aux éléments d'un ndarray ne doit pas vous faire oublier que l'appel de **fonctions vectorisées** doit toujours être **priviligié**: c'est LA meilleure manière de coder. Vous vous rappelez pourquoi ? Parce que l'application d'une fonction vectorisée ne se fait pas en utilisant des fonctions codées en Python mais des fonctions codées dans un langage de programmation beaucoup proche de la mémoire de l'ordinateur et qui va (entre autres) très rapidement d'une case (un élément) à une autre case du tableau.
 
-Il ne faut donc jamais utiliser l'accés aux éléments d'un tableau dans des itérations où vous pourriez appliquer directement des fonctions vectorisées.
+Il ne faut donc **jamais** utiliser l'accés aux éléments d'un tableau dans des itérations où vous pourriez appliquer directement des fonctions vectorisées. 
 
 
-Ceci dit, accéder aux éléments et aux sous-tableaux d'un tableau `numpy` , va (par exemple) vous servir à appliquer des fonctions vectorisées à des sous-parties de votre tableau.
+Ceci dit, accéder aux éléments et aux sous-tableaux d'un tableau `numpy` , va (par exemple) vous servir à appliquer des fonctions vectorisées à des sous-parties de votre tableau donc elles sont **très** utiles 
 
 
 La manière d'accéder aux éléments d'un tableau `numpy` va dépendre tout naturellement ... de quoi ? oui bien sûr de la forme du tableau !
 
-Vous vous rappelez que la forme d'un `np.ndarray` est donnée par une indexation sur le segment mémoire sous-jacent de votre tableau.
+Vous vous rappelez que la forme d'un `np.ndarray` est donnée par une indexation sur le segment mémoire sous-jacent continu de votre tableau. Par exemple, le segment $\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$ peut être indexé avec les formes (12,), (1, 12), (2, 6), (3, 4), (12, 1) ... (2, 3, 2)... 
 
 
 ### en dimension 1
@@ -106,16 +106,16 @@ Faites bien attention à ce que vous faites.
 ### en dimension supérieure à 1
 
 
-En dimension supérieure à 1, naturellement l'accès à un élément du tableau va dépendre de la forme du tableau donc de ses indices.
+En dimension supérieure à 1, naturellement l'accès à un élément du tableau va dépendre de la forme du tableau donc de ses indices dans chacune des directions.
 
 Construisons un tableau avec des valeurs de 1 à 12 et donnons lui une forme de matrice 3 lignes et 4 colonnes 
 
-Nous allons pour cela utiliser la fonction `np.ndarray.resize` qui modifie la forme d'un tableau *en place* c'est à dire que la fonction ne crée pas un nouveau tableau mais modifie celui auquel elle est appliquée.
+Nous allons pour cela utiliser la fonction `np.ndarray.resize` qui modifie la forme d'un tableau *en place* c'est à dire que la fonction bien sûr ne crée pas un nouveau tableau mais modifie l'indexation de celui auquel elle est appliquée.
 
-Il existe une autre fonction `np.ndarray.reshape` qui fait la même chose en créant un nouveau tableau, donc il ne faut l'utiliser que quand on a besoin des deux tableaux l'original et sa version redimensionnée !
+Il existe une autre fonction `np.ndarray.reshape` qui fait la même chose en créant un nouvelle indexation donc vous avez désormais 2 indexations différentes sur la même mémoire sous-jacente.
 
 
-Le voilà en dimension 1
+Notre tableau en dimension 1:
 
 ```python
 vec = np.arange(1, 13)
@@ -125,8 +125,15 @@ vec
 Le voila redimensionné en dimension 3 x 4
 
 ```python
-vec.resize((3, 4))
+vec.resize(3, 4)
 vec
+```
+
+Le voilà indexé par une nouvelle forme:
+
+```python
+vec1 = vec.reshape(6, 2)
+vec1
 ```
 
 Pour accéder à un élément on voit bien que nous allons avoir besoin de 2 indices: celui des lignes et celui des colonnes.
@@ -200,6 +207,12 @@ vec
 ah bien oui ! il a coupé 0.99 !
 
 
+Vérifions que `vec1` a bien été modifié ?
+
+```python
+vec1[0, 0] # oui !
+```
+
 Et vous pouvez comme en Python utiliser les indices négatifs qui se traduisent facilement en indices positifs
 
 ```python
@@ -228,7 +241,7 @@ vec[3-2, 4-2]
 <!-- #region {"cell_style": "center"} -->
 Souvenez-vous, dans toutes les dimensions $\ge2$, on remarque que les tableaux ont leurs lignes à l'indice -2 (avant-dernière dimension) et leurs colonnes à l'indice -1 (dernière dimension)
 
-A vous de jouer, faites un `np.ndarray` contenant des 1, de dimension 3 x 2 x 5 x 4, i) affichez le, vous allez bien voir trois groupes de 2 matrices de 5 lignes sur 4 colonnes, ii) afficher le nombre des éléments des dimensions -2 et -1 (un indice la forme c'est `np.ndarray.shape`.
+A vous de jouer, faites un `np.ndarray` contenant des 1, de dimension 3 x 2 x 5 x 4, i) affichez le, vous allez bien voir trois groupes de 2 matrices de 5 lignes sur 4 colonnes, ii) afficher le nombre des éléments des dimensions -2 et -1 (un indice la forme c'est `np.ndarray.shape`).
 <!-- #endregion -->
 
 ```python
