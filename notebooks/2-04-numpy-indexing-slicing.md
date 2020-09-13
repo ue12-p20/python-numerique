@@ -724,11 +724,11 @@ M
 https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x1-checkers
 <!-- #endregion -->
 
-<!-- #region {"tags": []} -->
+<!-- #region {"tags": ["level_advanced"]} -->
 ### le damier (variante)
 <!-- #endregion -->
 
-<!-- #region {"tags": []} -->
+<!-- #region {"tags": ["level_advanced"]} -->
 Il y a beaucoup de méthodes pour faire cet exercice de damier; elles ne vont pas toutes se généraliser pour la variante :
 
 **Variante** écrivez une fonction `super_checkers` qui crée 
@@ -757,12 +757,12 @@ c'est-à-dire par exemple pour $n=4$ et $k=3$ cela donnerait ceci :
 
 <!-- #endregion -->
 
-```python tags=[]
+```python tags=["level_advanced"]
 def super_checkers(n, k):
     ...
 ```
 
-```python tags=[]
+```python tags=["level_advanced"]
 # doit vous donner la figure ci-dessus
 # éventuellement avec des False/True au lieu de 0/1
 super_checkers(4, 3)
