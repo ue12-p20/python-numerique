@@ -424,7 +424,7 @@ pas besoin que `print` en rajoute une
 
 ## exercice
 
-écrire une fonction qui retourne :
+écrire une fonction `json_random()` qui retourne :
 * une chaine de caractères 
 * qui correspond à l'encodage en JSON
 * d'une liste contenant - au hasard - entre 2 et 5 valeurs numériques
