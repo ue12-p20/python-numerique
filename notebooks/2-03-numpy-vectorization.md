@@ -15,15 +15,19 @@ jupyter:
 
 # la vectorisation
 
+
 ou comment écrire du code efficace; ou encore comment **ne jamais faire de boucle `for`** sur un tableau `numpy`.
 
-
+<!-- #region -->
 Nous avons appris que la librairie numpy est utilisée pour la création et la manipulation de tableaux.
 
 `numpy` est d'autant plus intéressante si vos tableaux sont gourmands en place mémoire ou si vous avez besoin de calculs spécifiques (genre algèbre linéaire).
 
-Si vous n'avez besoin que de petits tableaux et de fonctionnalités de base, les listes de listes de Python peuvent vous suffire.
+Si vous n'avez besoin que de petits tableaux et de fonctionnalités de base, les listes de listes de Python peuvent vous suffire.  
 
+
+(Pour avoir une idée de ce que représente *petit*, on peut comparer les temps d'exécution de deux codes)
+<!-- #endregion -->
 
 Les tableaux `numpy`, contrairement aux listes Python, sont homogènes. Tous les éléments d'un tableau numpy ont le même type.
 
@@ -32,16 +36,16 @@ Par extension, tous les éléments ont la même taille et bingo ! cela leur perm
 Ainsi à partir du moment où vous *êtes* à un endroit du tableau, passer (relativement) un autre endroit de ce même tableau est presque immédiat (décalage, offset). Cela ne demande pas à l'ordi de rechercher une nouvelle adresse en mémoire (indirection).
 
 
-Pourquoi nous vous racontons cela ? Pour vous expliquer comment les fonctions, appelées *fonctions vectorisées*, de `numpy` vont faire pour aller beaucoup plus vite que de les appliquer successivement à chaque élément d'un tableau.
+Pourquoi nous vous racontons cela ? Pour vous expliquer comment les fonctions, appelées *fonctions vectorisées*, de `numpy` vont faire pour aller **beaucoup** plus vite que d'applique la même fonction successivement à chaque élément d'un tableau, par exemple dans un for-Python.
 
 ```python
 import numpy as np
 ```
 
-## apprenons à appliquer une fonction à un ndarray
+## appliquons une fonction à un `ndarray`
 
 
-Il existe de tas de fonctions dans `numpy`, comme par exemple les fonctions trigonométriques. Prenons la fonction `np.sin` et appliquons là à un tableau `abscisse` de 10000 nombres entre 0 et 2π.  
+Il existe de tas de fonctions dans `numpy`, comme par exemple les fonctions trigonométriques. Prenons la fonction `np.sin` et appliquons là pour créer un tableau `abscisse` de 10.000 nombres flottants linéairement espacés entre 0 et 2π.    
 Vous rappelez vous comment créer un tel tableau ?  
 
 ```python
@@ -60,6 +64,10 @@ Ces fonctions qui s'appliquent à tout un tableau sans avoir besoin d'écrire de
 Maintenant calculez le temps d'exécution du calcul vectorisé du sinus sur la tableau *abscisse*.
 
 ```python
+#timeit?
+```
+
+```python
 %timeit np.sin(abscisse)
 ```
 
@@ -71,14 +79,16 @@ for i in abscisse:
     np.sin(i)
 ```
 
-Que constatez-vous ? Que la version vectorisée prend 24 micro-secondes (sur mon ordi) alors que la version Python non vectorisée prend ... 12.5 milli-secondes ! on gagne un facteur ... ? combien ? ouhla c'est vraiment beaucoup non ?
+Que constatez-vous ? Que la version vectorisée prend autour de 25 micro-secondes (sur mon ordi) alors que la version Python non vectorisée prend ... autour de 15 milli-secondes ! on gagne un facteur ... ? combien ? ouhla c'est vraiment beaucoup non ?
 
 
-Ainsi, appliquer une fonction vectorisée à tout un tableau `np.ndarray` est **très très très efficace** et c'est l'ingrédient principal d'un code numérique rapide.
+Ainsi, appliquer une fonction vectorisée à tout un tableau `np.ndarray` est **très très très efficace** et c'est l'ingrédient **principal** d'un **code numérique rapide**.
 
-Il ne faut **jamais** parcourir un tableau `numpy` avec une boucle for-Python pour appliquer une fonction.
+Il ne faut **jamais** jamais jamais parcourir un tableau `numpy` avec une boucle for-Python pour appliquer une fonction qu'on peut appliquer de manière **vectorisée**.
 
-Il faut utiliser les fonctions vectorisées. Bien sûr, le tableau sera bien parcouru à un moment donné ! mais le parcours est codé dans un langage proche de la machine (c/c++) qui, pour passer d'un élément à l'élément suivant, fait un simple décalage en mémoire et ne vas pas rechercher une *nouvelle* adresse en mémoire.
+Il faut utiliser les fonctions **vectorisées** de manière vectorisée.
+
+Bien sûr, le tableau sera bien parcouru à un moment donné ! mais le parcours est codé dans un langage proche de la machine (à-la c/c++) qui, pour passer d'un élément à l'élément suivant, fait un simple décalage en mémoire et ne vas pas rechercher une *nouvelle* adresse en mémoire.
 
 
 Parce qu'il est plus simple de voir les résultats des calculs de manière graphique, nous allons importer une librairie de visualisation de données qui s'appelle `matplotlib`. Elle sera expliquée plus en détails dans un autre notebook, commencons à l'utiliser très simplement.
@@ -115,20 +125,40 @@ bref, ça n'est pas super propre mais ça fonctionne bien et c'est un idiome uti
 
 Sauriez-vous dessiner un cercle d'un rayon *r* ? Réfléchissez ? Un indice ci-dessous ...
 
-```python
-# votre code ici
-```
 
 Le truc qu'il faut remarquer ici, c'est que les deux tableaux qu'on passe à `plot` sont des couples (x, y), donc rien ne vous contraint à une fonction explicite (dans le sens $f: \mathbb{R}\rightarrow\mathbb{R}$), et une représentation paramétrique est tout à fait possible !
 
+```python
+# votre code ici - la correction un peu plus loin ci-dessous
+```
 
-Il suffit donc de dessiner deux tableaux de points contenant les $r \times \sin(x)$ et $r \times \cos(x)$ avec $x$ qui varie de 0 à 2$\pi$ ... 
+Il suffit donc de dessiner deux tableaux de points contenant les $r \times \sin(\theta)$ et $r \times \cos(\theta)$ avec $x$ qui varie de 0 à 2$\pi$ ...
+
+```python
+# correction (pzas encore parfaite)
+r = 2.5
+theta = np.linspace(0, 2*np.pi)
+x = r*np.sin(theta)
+y = r*np.cos(theta)
+
+plt.plot(x, y); # oups on obtient une ellipse !
+```
 
 Une dernière astuce enfin, si on ne fait rien de spécial, `matplotlib` va choisir les échelles pour nous; du coup pour bien voir le cercle et pas une ellipse, il faut imposer à *matplotlib.pyplot* de garder ses axes à la même échelle (égaux):
 ```
 plt.axis('equal')
 ```
 
+```python
+# correction
+r = 2.5
+theta = np.linspace(0, 2*np.pi)
+x = r*np.sin(theta)
+y = r*np.cos(theta)
+
+plt.plot(x, y)
+plt.axis('equal'); # (attention le notebook montre la figure i.e. il fait un plt.show)
+```
 
 Remarquez que nous faisons tous ces calculs *sans même savoir comment accéder aux éléments d'un tableau*, vous vous doutez bien qu'on va pouvoir le faire et on le fera, mais pour l'instant nous n'en avons pas eu besoin... nous avons laissé `numpy` accéder aux éléments.
 
@@ -165,7 +195,7 @@ C'est juste une autre manière de penser le code et franchement vous allez écri
 ### les opérateurs arithmétiques classiques
 
 
-Même les opérateurs classiques quand ils sont appliqués sur des `np.ndarray` sont en fait de nouvelles fonctions vectorisées (des *UFuncs*) de `numpy` en voici la correspondance. 
+Les opérateurs classiques quand ils sont appliqués sur des `np.ndarray` sont en fait de nouvelles fonctions vectorisées (des *UFuncs*) de `numpy` en voici la correspondance. 
 
 <!-- #region -->
 Voici les opérateurs arithmétiques classiques avec leur contre-partie `numpy` (*Ufuncs*):
@@ -210,7 +240,10 @@ np.power
 ## résultats intermédiaires des calculs
 
 
-Puisque nous appliquons plusieurs opérations à la suite les unes des autres à des tableaux, des espaces mémoire intermédiaires doivent bien être crées pour recevoir les résultats de ces calculs. Prenons une fonction:
+Puisque nous appliquons plusieurs opérations à la suite les unes des autres à des tableaux,  
+des espaces mémoire intermédiaires doivent bien être crées pour recevoir les résultats de ces calculs.
+
+Prenons une fonction:
 
 ```python
 def trigo_function_compact (x):
@@ -274,7 +307,8 @@ def trigo_function_developpee_out (x):
 plt.plot(trigo_function_developpee_out(np.linspace(0, 2*np.pi, 1000)));
 ```
 
-**important** Vous pouvez remarquer que ce code est beaucoup plus compliqué à écrire que dans sa version compacte simple et "directe" . Il sera donc beaucoup plus propice à des erreurs ...  et il est franchement très difficile à lire ! En conclusion: ne faites surtout pas cela systématiquement.
+**important** Vous pouvez remarquer que ce code est beaucoup plus compliqué à écrire que dans sa version compacte simple et "directe". Il sera donc beaucoup plus propice à des erreurs ...  et il est franchement très difficile à lire !  
+En conclusion: ne faites surtout pas cela systématiquement.
 
 Vous savez que ça existe. Vous y penserez si, dans un de vos codes numériques, la création de tableaux intermédiaires commence à prendre une place bien trop importante.
 
@@ -285,7 +319,7 @@ Vous savez que ça existe. Vous y penserez si, dans un de vos codes numériques,
 A vous de jouer, vous allez écrire la fonction `my_absolute` qui calcule la valeur absolue d'un scalaire x sans utiliser  `numpy` ni `abs` de Python.
 
 ```python
-#votre code ici
+#votre code ici (pas de correction le code est évident)
 
 def my_absolute (x):
     ...
@@ -314,7 +348,7 @@ np.array([-10, -20, 30]) < 0
 `numpy` sait parfaitement le faire ! L'opérateur de comparaison *\<* a sa version vectorisée en `numpy` ! Et il vous rend un joli tableau de booléens (regardez son type). Nous y reviendrons dans un futur notebook sur les tests de tableaux.
 
 
-Mais ensuite vous testez chacun des éléments de votre tableau afin de n'appliquer le changement de signe qu'aux négatifs.
+... mais ensuite vous testez chacun des éléments de votre tableau afin de n'appliquer le changement de signe qu'aux négatifs.
 
 ```python tags=["raises-exception"]
 if np.array([10, 20, 30]):
