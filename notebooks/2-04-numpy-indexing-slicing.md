@@ -720,14 +720,23 @@ M
 
 ### les rayures
 
+
+Écrivez une fonction `zebre`, qui prend en argument un entier *n* et qui fabrique un tableau carré de coté $n$, formé d'une alternance de colonnes de 0 et de colonnes de 1.
+
+
+par exemple pour $n=4$ on s'attend à ceci
+
+```console
+0 1 0 1 
+0 1 0 1 
+0 1 0 1 
+0 1 0 1 
+```
+
 <!-- #region -->
-Écrivez une fonction *zebre*, qui prend en argument un entier *n* et qui fabrique un tableau de rayures verticales, figurées par une alternance de lignes verticales de *n* zéros et de *n* uns.
-
-
 ### le damier
 
-<!-- #region -->
-Écrivez une fonction *checkers*, qui prend en argument la taille *n* du damier, et un paramètre optionnel qui indique la valeur de la case (0, 0), et qui crée un tableau `numpy` carré, et le remplit avec des 0 et 1 comme un damier (0 pour les cases noires et 1 pour les cases blanches).
+Écrivez une fonction *checkers*, qui prend en argument la taille *n* du damier, et un paramètre optionnel qui indique la valeur de la case (0, 0), et qui crée un tableau `numpy` carré de coté $n$, et le remplit avec des 0 et 1 comme un damier (0 pour les cases noires et 1 pour les cases blanches).
 
 
 https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x1-checkers
