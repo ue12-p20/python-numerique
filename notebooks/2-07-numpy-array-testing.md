@@ -24,7 +24,7 @@ jupyter:
 # masques et tableaux booléens
 
 
-ou comment tester en même temps *tous les éléments d'un tableau* 
+ou comment tester en même temps *tous les éléments d'un tableau*
 
 
 Nous avons vu les fonctions vectorisées (qui s'appliquent à tout un tableau sans recours à une boucle for-Python). Nous avons aussi vu les fonctions qui aggrègent les valeurs suivant les axes des `np.ndarray` et permettent par exemple de sommer les lignes ou les colonnes d'une matrice ou encore trouver le plus petit élément ou son index dans la `np.ndarray`.
@@ -32,8 +32,8 @@ Nous avons vu les fonctions vectorisées (qui s'appliquent à tout un tableau sa
 Nous allons voir une dernière chose qui consiste à tester tous les éléments d'un `np.ndarray` (ou bien sûr d'une slice d'un `np.ndarray`).
 
 Il y a deux manières de tester:
-   - tester tous les éléments et combiner les résultats des tests unitaires en un seul résultat global
-   - obtenir le `np.ndarray` de booléens résultats des tests individuels.
+   - tester tous les éléments et combiner les résultats des tests unitaires en un seul résultat global (le nombre de valeurs paires de votre tableau)
+   - obtenir le `np.ndarray` de booléens résultats des tests individuels (les éléments qui sont pairs)
 
 Nous allons voir rapidement ces deux manières de tester.
 
@@ -46,9 +46,9 @@ import numpy as np
 
 Les conditions s'appliquent à tous les éléments d'un tableau en une seule fois, ce qui signifie que vous ne devez pas écrire de boucle en Python mais laisser les fonctions vectorisées le faire pour vous.
 
-Les opérateurs de comparaison sont des fonctions vectorisées (encore appelées *UFuncs*). Elles vont retourner un tableau contenant les résultats des comparaisons éléments-par-élément.
+Les opérateurs de comparaison sont des fonctions vectorisées (les fameuses *UFuncs*). Elles vont retourner un tableau contenant les résultats des comparaisons éléments-par-élément.
    
-Vous allez obtenir un *masque booléen* que vous pouvez ensuite utiliser pour filtrer les éléments de votre tableau pour, par exemple, ne garder que ceux pour lesquels la condition est vraie.
+Ce tableau est un *masque booléen* que vous pouvez ensuite utiliser pour filtrer les éléments de votre tableau pour, par exemple, ne garder que ceux pour lesquels la condition est vraie.
 
 On va faire tout de suite un exemple. Construisons une matrice de forme `(3 x 4)` qui contient des entiers générés aléatoirement entre `-10` et `10`.
 
@@ -75,7 +75,7 @@ Comparons les résultats à `0`:
 a%2 == 0
 ```
 
-Nous obtenons un tableau (masque) de booléens.
+Nous obtenons un tableau un *masque* de booléens.
 
 Les deux manières d'utiliser ce masque sont:
 
@@ -129,7 +129,7 @@ Ce masque a naturellement la même forme que votre matrice. Pour **ne garder que
 ```python
 # cette construction n'est pas anodine
 # l'expression dans les [] est **elle-même un tableau** !
-a[a%2==0] # ou a[pairs]
+a[a%2==0] # ou faire a[pairs]
 ```
 
 ```python cell_style="split"
@@ -197,13 +197,13 @@ Nous allons compter les éléments répondant à une condition:
 np.count_nonzero((a < 6) & ~(a%2==0))
 ```
 
-Et naturellement vous pouvez compter ces éléments le long des axes de votre `np.ndarray`. Par exemple si on veut le nombre d'éléments impairs inférieurs à 6 dans les colonnes, je vais compter dans l'axe des lignes et recevoir un tableau de la taille des colonnes donc 4:
+Et naturellement vous pouvez compter ces éléments le long des axes de votre `np.ndarray`. Par exemple pour avoir le nombre d'éléments impairs inférieurs à 6 de chaque colonne, je vais travailler dans l'axe des lignes (axe 0 ici):
 
 ```python
 np.count_nonzero((a < 6) & ~(a%2==0), axis=0)
 ```
 
-Si on veut le nombre d'éléments impairs inférieurs à 6 dans les lignes, je vais compter dans l'axe des colonnes et recevoir un tableau de la taille des lignes donc 3:
+Si on veut le nombre d'éléments impairs inférieurs à 6 dans les lignes, je vais compter dans l'axe des colonnes:
 
 ```python
 np.count_nonzero((a < 6) & ~(a%2==0), axis=1)
@@ -235,7 +235,9 @@ Nous allons prendre les indices de ces éléments dans la matrice d'origine, acc
 ## calculer les indices des éléments dans le tableau d'origine
 
 
-Nous venons de voir que quand nous "isolons" les éléments, d'une matrice, qui obéissent à une condition, ils sont recopiés dans un nouvel `np.ndarray` et nous ne pouvons pas les modifier à partir de ce nouveau tableau. Si nous voulons accéder aux éléments, qui obéissent à la condition, dans la matrice d'origine: il faut passer par leurs indices.
+Nous venons de voir que quand nous "isolons" les éléments, d'une matrice, qui obéissent à une condition, ils sont recopiés dans un nouvel `np.ndarray` et nous ne pouvons pas les modifier à partir de ce nouveau tableau.
+
+Si nous voulons accéder aux éléments, qui obéissent à la condition, dans la matrice d'origine: il faut passer par leurs indices.
 
 Ainsi il va nous falloir des fonctions qui nous retournent les indices de ces éléments. Non, il n'est toujours pas question de le faire à-la-main en parcourant le `np.ndarray` avec des boucles for-Python: ce serait beaucoup trop cher en temps.
 
@@ -245,7 +247,7 @@ Nous allons voir plusieurs manières de faire.
 ### la fonction `np.nonzero`
 
 
-La fonction `np.nonzero` renvoie les indices des éléments, qui ne sont pas `False` ou `0`, sous la forme d'un tuple de liste d'indices, la tuple ayant la dimension du tableau.
+La fonction `np.nonzero` renvoie les indices des éléments, qui ne sont pas `False` ou `0`, sous la forme d'un tuple de liste d'indices, le tuple étant de la même dimension que le tableau.
 
 Par exemple si notre tableau `num.ndarray` est de dimension 2: la fonction renvoie deux listes d'indices, la première liste contient les indices des lignes et la seconde des colonnes.
 
@@ -270,7 +272,7 @@ b
 view_index = np.nonzero(b%3==0)
 
 # comme b est de dimension 2,
-# view_index est un tuple de 2 listes
+# view_index est un tuple de 2 ndarray
 view_index
 ```
 
@@ -297,12 +299,8 @@ Voila qui est bien utile pour créer une vue sur un ensemble d'arbitraire d'él�
 <!-- #region {"tags": []} -->
 La fonction `np.argwhere` renvoie les indices des éléments pour lesquels un masque est vrai. Elle renvoie un tableau (`np.ndarray`), de dimension 2, avec autant de lignes que d'éléments qui *matchent* et chaque ligne donne les index de l'élément dans chacune des colonnes de la matrice d'origine.
 
-si on cherche les éléments pairs de la matrice $\begin{bmatrix} [1 & 2 & 3] \\ [4 & 5 & 6] \end{bmatrix}$ on obtient le `np/ndarray` suivant $\begin{bmatrix}[ 0&1 ]\\ [1&0]\\ [1&2]\\\end{bmatrix}$
+si on cherche les éléments pairs de la matrice $\begin{bmatrix} [1 & 2 & 3] \\ [4 & 5 & 6] \end{bmatrix}$ on obtient le `np.ndarray` suivant $\begin{bmatrix}[ 0&1 ]\\ [1&0]\\ [1&2]\\\end{bmatrix}$
 <!-- #endregion -->
-
-```python
-import numpy as np
-```
 
 ```python tags=[]
 aux = np.array([[1, 2, 3], [4, 5, 6]])
@@ -371,6 +369,14 @@ indices
 indices.shape
 ```
 
+Il n'y a pas de manière directe d'indices votre tableau `a` par ces indices, il faudrait reconstruire le tuple des listes d'indices dans toutes les dimensions.
+
+Ici il faudrait reconstruire: `([0, 0, 1, 1], [1, 2, 0, 1], [0, 1, 2, 3])` et faire:
+
+```python
+a[([0, 0, 1, 1], [1, 2, 0, 1], [0, 1, 2, 3])] # oui on utilise un tuple de listes et pas de ndarray
+```
+
 <!-- #region {"tags": ["level_advanced"]} -->
 Maintenant que vous avez calculé les indices des éléments divisibles par 5 de votre tableau `a`, comment atteindre ces éléments dans la matrice `a` ?
 
@@ -394,7 +400,9 @@ a[tuple(indices.T)]
 ## modifier les éléments d'un `np.ndarray` avec `putmask`
 
 
-Dans un `numpy.ndarray`, la fonction `np.putmask` remplace, les éléments obéissant à un masque, par une valeur donnée en argument. On ne verra que l'exemple avec une valeur unique. La modification est effectuée dans le tableau (en place).
+Dans un `numpy.ndarray`, la fonction `np.putmask` remplace, les éléments obéissant à un masque, par une valeur donnée en argument. On ne verra que l'exemple avec une valeur unique.
+
+La modification est effectuée dans le tableau (en place).
 
 On va voir l'exemple avec une seule valeur. Construisons un tableau de forme *(2, 5)* de *10* nombre aléatoires de loi normale $N(0, 1)$ (avec `np.random.randn`) et remplacons tous les éléments entre *-0.5* et *0.5* par 1. 
 
@@ -449,4 +457,8 @@ np.putmask(b, (b < -5) | (b > 10), 3)
 
 ```python
 plt.hist(b, bins=30);
+```
+
+```python
+
 ```

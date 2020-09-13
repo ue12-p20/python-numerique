@@ -92,7 +92,7 @@ C'est bien normal une somme d'éléments d'un type *peut* ne pas pouvoir tenir s
 Prenons un tableau de dimension 1, de 15 entiers sur 8 bits, aléatoirement générés entre 1 et 100.
 
 ```python
-ran = np.random.randint(-100, 100, 15,  dtype=np.int8)
+ran = np.random.randint(0, 100, 15,  dtype=np.int8)
 ran
 ```
 
@@ -342,6 +342,8 @@ np.min(al, axis=1)
 ```python
 np.argmin(al, axis=1)
 ```
+
+La suite de ce notebok sort des bases utiles et n'est que l'extension de l'agrégation en dimension > à 2 qui est immédiate. Elle n'est là que pour dire que ca existe.
 
 <!-- #region {"tags": ["level_advanced"]} -->
 Pour les avancés, sauriez vous faire sur un ndarray en 2 dimensions, la fonction qui, étant donné une forme du tableau, l'axe et une liste d'indices dans cet axe, calcule la paire d'index ? Sauriez-vous généraliser cette fonction ?

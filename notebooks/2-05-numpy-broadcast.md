@@ -42,7 +42,7 @@ Vous savez désormais construire des tableaux `np.ndarray` en leur donnant des f
 
 
 Construisons deux matrices donnons leur la même **forme** et (par exemple) des types différents:
-   - `m1`* de forme (3, 4) et de type entier contenant les valeurs de 1 à 12
+   - `m1` de forme (3, 4) et de type entier contenant les valeurs de 1 à 12
    - `m2` de forme (3, 4) et de type float contenant des valeurs entre 0 et 1
    
 Pour les ajouter il n'y aura pas de problème: leur formes sont indentiques (bien sûr si les types ne sont pas cohérents pour l'addition vous aurez des erreurs mais d'un autre genre).    
@@ -91,7 +91,7 @@ On appelle cela le broadcasting
 
 
 Souvenez-vous, en `numpy` les tableaux peuvent être de différentes dimensions:
-   - en dimension 1 ce sont de simples tables de taille *n* avec *shape=(n,)*
+   - en dimension 1 ce sont de simples vecteurs de taille *n* avec *shape=(n,)*
    - en dimension 2 ce sont des  matrices avec *shape=(l, c)* où *l* est le nombre de lignes et *c* de colonnes (qui peuvent être 1)
    - en dimension supérieures avec shape=$(n_1, ..., n_m, l, c)$ les deux dernières dimensions vont être une matrice
 
@@ -427,30 +427,92 @@ Expliquez pourquoi on fait ça…
 # votre code
 ```
 
-#### correction
+### résultats du tirage de `n` dès à `s` faces
+
+
+Deux versions pour cet exercice:
+   - la première est pour les débutants, elle est guidée et amène à construire le résultat pas à pas
+   - la deuxième est pour les forts qui se débrouillent tout seuls
+
+
+#### version pour les débutants
+
+
+On veut calculer les résultats des tirages de `n` dés à `s` faces. Afin, par exemple de faire des probabilités d'obtention de certains tirages. De combien de manières différentes peut-on obtenir `7` avec `3` dès à `6` faces. 
+
+
+Si nous prenons un seul dès à `6` faces. Quels sont les tirages possibles ?
+
+oui `1, 2, 3, 4, 5, 6`
+
+Construisez alors un `numpy.ndarray` contenant les tirages d'un dès à `s` faces.
 
 ```python
-N = 3000
-
-m = np.arange(1, N**2 + 1).reshape(N, N)
+# votre code ici
 ```
 
-```python
-%timeit m + 10
-```
+<!-- #region -->
+Maintenant si on prend `n=2` dès à `s=6` faces. Quels sont les tirages possibles ?
 
-```python
-uns = np.ones(shape=(N, N))
-```
+Oui:
 
-```python
-%timeit m + uns
-```
+|  +  | &#124; | 1 | 2 | 3 | 4 | 5 | 6 |
+|:---:|:------:|:-:|:-:|:-:|:-:|:-:|:-:|
+| *1* | &#124; | 2 | 3 | 4 | 5 | 6 | 7 | 
+| *2* | &#124; | 3 | 4 | 5 | 6 | 7 | 8 | 
+| *3* | &#124; | 4 | 5 | 6 | 7 | 8 | 9 | 
+| *4* | &#124; | 5 | 6 | 7 | 8 | 9 |10 | 
+| *5* | &#124; | 6 | 7 | 8 | 9 |10 |11 | 
+| *6* | &#124; | 7 | 8 | 9 |10 |11 |12 | 
 
-<!-- #region {"tags": ["level_intermediate"]} -->
-### les dès (intermédiaire)
+
+Construisez alors un `numpy.ndarray` contenant les tirages de `n=2` dès à `s=6` faces. Un indice ? Utilisez le `broadcasting`:
+
+On vous fait un rappel. Si on ajoute en `numpy` un tableau de forme `(3,)` à un tableau de forme `(3, 1)` on obtient la matrice suivante: $\begin{pmatrix} a_{1} & a_{2} & a_{3} \end{pmatrix} + \begin{pmatrix} b_1 \\ b_2 \\ b_3 \end{pmatrix} = \begin{pmatrix} a_{1} + b_1 & a_{2} + b_1 & a_{3} + b_1 \\ a_{1} + b_2 & a_{2} + b_2 & a_{3} + b_2 \\ a_{1} + b_3 & a_{2} + b_3 & a_{3}  + b_3\\ a_{1} + b_4 & a_{2} + b_4 & a_{3} + b_4 \end{pmatrix}$
+ 
 <!-- #endregion -->
 
+```python
+# votre code ici
+```
+
+On remarque que la dimension de notre tableau est le nombre de dès.
+
+
+On continue.
+
+Maintenant si je prends `3` dès avec `6` faces, je suis en dimension `3` et je veux donc obtenir un *cube* (avec tous les résultats). Pour obtenir ce cube, je pars de ma matrice (de forme `(s, s)`) des tirages en dimension 2 et j'utilise le broadcast pour lui ajouter une troisième dimension.
+
+Quelle est la forme de ce vecteur ? Il doit déclencher le broadcast donc il doit être de forme `(s, 1, 1)`.
+
+En effet  
+(i) la forme `(s, )` c'est la forme des lignes de la matrice  
+(ii) la forme `(s, 1)` est celle des colonnes  
+(iii) la forme `(1, ..., 1, s)` se broadcast en ligne comme `(1, s)` ou `(s,)` (essayez)
+(iv) la forme `(s, 1, 1)` forcera le broadcast en un cube
+
+Vous avez maintenant tous les indices pour généraliser en dimension `n` dès (vous aurez naturellement une boucle mais bien sûr pas sur les éléments d'un `numpy.ndarray` !)
+
+```python
+# votre code ici
+```
+
+<!-- #region -->
+```python
+def tirages (n, s):
+    pass
+```
+<!-- #endregion -->
+
+Cet espace des tirage pourra nous resservir dans de futurs exercices.
+
+Vous remarquez qu'on est dans une manière de faire qui **explicite l'ensemble des solutions** ce qu'on appelle une méthode en force brute. Ces méthodes sont clairement exponentielles.
+
+<!-- #region {"tags": ["level_advanced"]} -->
+#### les dès version  pour les forts
+<!-- #endregion -->
+
+<!-- #region {"tags": ["level_advanced"]} -->
 On étudie les probabilités d'obtenir une certaine somme avec plusieurs dés. 
 
 Tout le monde connaît le cas classique avec deux dés à 6 faces, ou l'on construit mentalement la grille suivante:
@@ -479,30 +541,35 @@ On convient que par défaut `nb_dice`=2 et `sides`=6, qui correspond au cas habi
 Dans ce cas-là par exemple, on voit, en comptant la longueur des diagonales sur la figure, que `dice(7)` doit valoir 6, puisque le tableau comporte 6 cases contenant 7 sur la diagonale.
 
 À nouveau, on demande explicitement ici un parcours de type force brute; c'est-à-dire de créer sous la forme d'un tableau `numpy`, un hypercube qui énumère toutes les combinaisons possibles; et sans faire de `for` sur les éléments d'un tableau.
+<!-- #endregion -->
 
-
+<!-- #region {"tags": ["level_advanced"]} -->
 https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x4-dice
+<!-- #endregion -->
 
-
+<!-- #region {"tags": ["level_advanced"]} -->
 **Indice**
 
 Il existe en `numpy` une astuce pour augmenter la dimension d'un tableau, ça s'appelle `np.newaxis`, et ça s'utilise comme ceci
+<!-- #endregion -->
 
-```python cell_style="center"
+```python cell_style="center" tags=["level_advanced"]
 dice_1 = np.arange(1, 7)
 dice_2 = dice_1[:, np.newaxis]
 ```
 
-```python cell_style="split"
+```python cell_style="split" tags=["level_advanced"]
 dice_1
 ```
 
-```python cell_style="split"
+```python cell_style="split" tags=["level_advanced"]
 dice_2
 ```
 
+<!-- #region {"tags": ["level_advanced"]} -->
 et remarquez que pour créer le tableau ci-dessus il suffit de faire
+<!-- #endregion -->
 
-```python
+```python tags=["level_advanced"]
 dice_1 + dice_2
 ```

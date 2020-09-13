@@ -450,12 +450,17 @@ Si la matrice n'est pas inversible ou si elle n'est pas carrée, une erreur `np.
 | `np.diag`      | matrice diagonale|
 
 
+Les exercices intéressants seront faits dans l'UE11.
+
+<!-- #region {"tags": ["level_advanced"]} -->
 ## exercices
+<!-- #endregion -->
 
+<!-- #region {"tags": ["level_advanced"]} -->
+### construire une matrice diagonale à-la-main (peu d'intérêt)
+<!-- #endregion -->
 
-### construire une matrice diagonale à-la-main
-
-
+<!-- #region {"tags": ["level_advanced"]} -->
 On vous demande d'écrire une fonction `matdiag` qui 
 
 1. accepte un paramètre qui est une liste de flottants [$x_1$, $x_2$, …, $x_n$] 
@@ -471,11 +476,13 @@ $$
 * Programmez une approche naïve et une approche à base de slicing.
 
 https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x5-matdiag
+<!-- #endregion -->
 
-
+<!-- #region {"tags": ["level_advanced"]} -->
 ### remplir une matrice : m(i, j) = xi * xj
+<!-- #endregion -->
 
-
+<!-- #region {"tags": ["level_advanced"]} -->
 On vous demande d'écrire une fonction qui 
 
 1. accepte un nombre quelconque de paramètres, $x_1$, $x_2$, ..., $x_n$, tous des flottants
@@ -488,3 +495,4 @@ $$
 Indices. Vous pouvez utiliser l'opérateur `@`, la méthode `array.dot()`, le broadcasting, la transposée d'une matrice `.T`.
 
 https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x6-xixj
+<!-- #endregion -->
