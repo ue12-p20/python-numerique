@@ -26,15 +26,15 @@ jupyter:
 
 Après l'introduction à *Python* viennent les cours d'introduction à python-numérique en *numpy*, aux tables de données sous *pandas* et à leur visualisation avec *matplotlib*.
 
-Mais ces cours ne sont pas sous forme de diaporamas (comme ceux sur *Python* que vous venez d'avoir).
+Ces cours ne sont pas sous forme de diaporamas (comme ceux sur *Python* que vous venez d'avoir).
 
 Cette année nous tentons une expérience, un nouveau format de cours, où les noteboooks prennent la forme de petites histoires ...
 
-Les notebooks déroulent des explications détaillées, qui soulèvent des questions (en vert pour les simples, en mauve pour les intermédiaires et en saumon pour les avancées dans les notebooks) et y répondent, le tout entrecoupés, parfois, de toutes petites choses à faire.
+Les notebooks déroulent des explications détaillées, qui soulèvent des questions et y répondent, le tout entrecoupés, parfois, de toutes petites choses à faire ou sur lesquelles on peut réfléchir rapidement.
 
 Ces notebooks jouent deux rôles: celui de *poly exécutable* (que les élèves peuvent relire en autonomie à-la-Meuh) et celui d'un scénario de base lors des cours en présentiel.
 
-L'idée serait que l'enseignant déroule les notebooks avec les élèves d'une manière interactive en instaurant un dialogue avec la classe autour des questions en bleu qui jalonnent les notebooks.  
+L'idée serait que l'enseignant déroule les notebooks avec les élèves d'une manière interactive en instaurant un dialogue (rapide) avec la classe autour des questions en bleu qui jalonnent les notebooks.  
 L'idée n'est pas que les notebooks soient lus en autonomie par les élèves lors des cours en présentiel.
 
 Il faut garder un rythme assez soutenu si on veut faire le tour des notobooks. Les questions qui ne sont pas vertes peuvent être regardées par les élèves à-la-maison, et les petites question de code peuvent être sautées ou faites par les élèves qui vont très vite. La correction étant dessous ces petites questions servent à ré-utiliser les fonctions.
@@ -204,7 +204,7 @@ C'est une bibliothèque logicielle libre et open source. Elle va vous fournir de
 `numpy` est la base de SciPy (ScientificPython) qui est un regroupement de bibliothèques Python pour le calcul scientifique.
 <!-- #endregion -->
 
-## apprenons à faire des tableaux `numpy`
+## apprenons à faire des tableaux `numpy.array`
 
 
 Puisque nous allons parler ici de la librarie `numpy`, importons là. Et donnons lui, par convention, son petit-nom `np` qui est le petit-nom standard pour `numpy`: c'est sous ce nom que l'utiliseront la plupart des codes existants, donc utilisez-le aussi !
@@ -414,7 +414,7 @@ Nous reviendrons là dessus plus tard, mais `numpy` fait en sorte que tous les �
 A partir de l'objet `numpy.ndarray` on peut accéder à de nombreuses autres informations sur le tableau.
 
 
-### la taille du tableau et de ses éléments en mémoire
+### la taille `size` du tableau
 
 
 Si on veut connaître le nombre d'éléments du tableau, on utilise le champ `size`
@@ -422,6 +422,9 @@ Si on veut connaître le nombre d'éléments du tableau, on utilise le champ `si
 ```python
 mat8.size
 ```
+
+### taille des éléments en mémoire `itemsize` et `nbytes`
+
 
 Si on veut connaître la taille qu'occupe en mémoire (en octets) chaque élément, on utilise `itemsize` 
 
@@ -443,7 +446,7 @@ Maintenant dégourdissez vous les doigts, consultez (i) la taille, (i) la taille
 # votre code ici
 ```
 
-### la forme et la dimension du tableau
+### la forme `shape` et la dimension  `dim`du tableau
 
 
 Si on veut connaître la forme d'un tableau, on utilise ? Oui `shape` !
@@ -481,7 +484,7 @@ Un petit tableau pour récapituler les méthodes des `numpy.ndarray` (on les a d
 | `numpy.ndarray.nbytes`   | la taille totale du tableau sous-jacent en octet |
 
 
-### création d'un tableau de zéros
+### création d'un tableau de zéros `numpy.zeros`
 
 
 Il existe une deuxième fonction pour créer des tableaux dont les éléments sont initialisés à 0. Qui s'appelle `numpy.zeros`. Alors là vous allez devoir donner la forme de votre tableau, la fonction ne peut pas la deviner ... comme elle le faisait dans l'exemple précécent.
@@ -513,7 +516,7 @@ La correction ci-dessous.
 np.zeros(shape=(6, 2), dtype=int).dtype
 ```
 
-### création d'un tableau de *rien*
+### création d'un tableau de *rien* `numpy.empty`
 
 <!-- #region tags=["level_basic"] -->
 Il existe une fonction qui permet de ne pas initialiser les éléments du tableau. Alors bien sûr on se pose des tas des questions, au moins deux: A quoi ca sert ? Dans quel cas est-il intéressant de l'utiliser ? Qu'en pensez-vous ?
@@ -546,7 +549,10 @@ rien
 Et oui vous voyez que vous avez n'importe quoi comme valeurs: `numpy` laisse simplement la mémoire comme elle était avant la création du tableau. Puisque toute case mémoire contient soit un 0 soit un 1, le contenu des cases est mis dans le type des éléments de votre tableau, avec 8 bits je vais avoir des nombres compris entre -128 à 127.
 <!-- #endregion -->
 
-### on récapitule les fonctions (que nous avons vues) pour créer un ndarray
+### on récapitule les fonctions de créationde `numpy.ndarray`
+
+
+les fonctions que nous avons vues jusqu'à présent
 
 
 | les méthodes | ce qu'elles font |
@@ -557,84 +563,104 @@ Et oui vous voyez que vous avez n'importe quoi comme valeurs: `numpy` laisse sim
 | `numpy.ones` | renvoie un ndarray rempli de *1.* (float) |
 
 
+Les cours étant très condensés, les quiz et les exercices sont plutôt à faire en temps réel avec les élèves ou en fin de séance si il reste du temps 
+
+<!-- #region tags=["level_intermediate"] -->
 ## quiz
+<!-- #endregion -->
 
-
+<!-- #region tags=["level_intermediate"] -->
 considérons le tableau `np.array([[1, 2, 3], [ 4, 5, 6]])`
    - quelle est sa forme `(2, 3)` ou `(3, 2)`
-   - quelle est la taille de ce tableau `2` ou `6`
-   
+   - quelle est la taille de ce tableau `2` ou `6`   
+<!-- #endregion -->
 
-
+<!-- #region tags=["level_intermediate"] -->
 Qu'obtient-on si on fait:
    - `np.array([256, 257, 258]).astype('uint8')` ? `[256, 257, 258]` ou `[0, 1, 2]`
+<!-- #endregion -->
 
-
+<!-- #region tags=["level_intermediate"] -->
 Que donne la méthode `size` d'un `numpy.ndarray` ?
    - `le nombre d'éléments` ou `la taille du tableau` ou `la taille d'un élément`
+<!-- #endregion -->
 
-
+<!-- #region tags=["level_intermediate"] -->
 ## quelques petits exercices
+<!-- #endregion -->
 
-
+<!-- #region tags=["level_intermediate"] -->
 ### on s'échauffe
+<!-- #endregion -->
 
-
+<!-- #region tags=["level_intermediate"] -->
 Créez une matrice de 1 de taille 2 x 3 x 4 et affichez là. Qu'est-ce-que vous obtenez ?
+<!-- #endregion -->
 
-```python
+```python tags=["level_intermediate"]
 # votre code ici
 ```
 
-```python
+```python tags=["level_intermediate"]
 np.ones(shape=(2, 3, 4))
 ```
 
+<!-- #region tags=["level_intermediate"] -->
 ### comparaison des temps de constructions de tableaux initialisés et non
+<!-- #endregion -->
 
-
+<!-- #region tags=["level_intermediate"] -->
 Pour comparer des temps de calcul, nous allons utiliser une fonction (un peu magique) des notebooks qui s'appelle `timeit` et qui va appeler de nombreuses fois le calcul et faire la moyenne des temps d'exécution.
 
 En voici un exemple l'exécution de la cellule suivante vous donnera la moyenne des temps d'exécution d'un certain nombre d'exécution du code *1 + 1* 
+<!-- #endregion -->
 
-
+<!-- #region tags=["level_intermediate"] -->
 Temps calculé sur l'exécution de la ligne (avec un seul `%`)
+<!-- #endregion -->
 
-```python
+```python tags=["level_intermediate"]
 %timeit 1 + 1
 ```
 
+<!-- #region tags=["level_intermediate"] -->
 Temps calculé sur l'exécution de toute la cellule (avec deux `%%`)
+<!-- #endregion -->
 
-```python
+```python tags=["level_intermediate"]
 %%timeit
 1 + 1
 ```
 
+<!-- #region tags=["level_intermediate"] -->
 Mon ordi met 6.12 nano-secondes.
+<!-- #endregion -->
 
-
+<!-- #region tags=["level_intermediate"] -->
 Maintenant utiliser ce calcul des temps d'exécution pour comparer:
    1. la création d'un `numpy.ndarray` à partir d'une liste Python comportant 10.000 floats initialisés à 0.
    1. la création d'un `numpy.ndarray` de 10.000 éléments initialisés à 0.
    1. la création d'un `numpy.ndarray` de 10.000 éléments non-initialisés.
    
 Pour la version Python créez la liste Python avant de calculer le temps de calcul.   
+<!-- #endregion -->
 
-```python
+```python tags=["level_intermediate"]
 # votre code ici
 ```
 
-```python
+```python tags=["level_intermediate"]
 # votre code ici
 ```
 
-```python
+```python tags=["level_intermediate"]
 # votre code ici
 ```
 
-```python
+```python tags=["level_intermediate"]
 # votre code ici
 ```
 
+<!-- #region tags=["level_intermediate"] -->
 Qu'en concluez-vous ?
+<!-- #endregion -->
