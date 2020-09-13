@@ -278,11 +278,3 @@ Et pour voir le résultat..
 elle contient donc le nom du fichier que vous venez de produire
 
 ![](my_figure.jpg)
-
-+++
-
-## Exercices
-
-```{code-cell} ipython3
-
-```

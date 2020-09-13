@@ -460,15 +460,13 @@ df.head(5)
 ...
 ```
 
-## exercices
-
 +++ {"tags": ["level_advanced"]}
 
 ## problème de modification de copies (pour les avancés)
 
 +++
 
-Cette section ne sera, pour une première lecture de ce notebook, que compréhensible par des avancés, les autres pourront y revenir plus tard.
+En première lecture de ce notebook, cette section ne sera compréhensible que par des élèves avancés, les autres pourront y revenir plus tard.
 
 +++
 

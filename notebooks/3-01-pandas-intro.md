@@ -760,10 +760,32 @@ file = 'petit-titanic.csv'
 ```
 
 ```{code-cell} ipython3
-# votre code ici
+# pour voir le contenu de ce fichier
+with open("petit-titanic.csv") as feed:
+    print(feed.read(), end="")
 ```
 
-+++ {"tags": []}
+```{code-cell} ipython3
+# à tout hasard on rappelle comment retrouver les colonnes de df
+# df.columns
+```
 
-some text
-* a wrong bullet
+```{code-cell} ipython3
+# votre code ici
+petit_df = ...
+```
+
+***
+
+```{code-cell} ipython3
+# pour comparer vous devez retrouver ceci
+# mais avec quelques colonnes en moins
+df.sort_index().head(10)
+```
+
+```{code-cell} ipython3
+# pour vérifier votre code, ceci doit renvoyer un tableau plein de 'True'
+# on utilise sort_index() pour remettre dans le bon ordre
+
+df.sort_index().loc[:10, :] == petit_df
+```

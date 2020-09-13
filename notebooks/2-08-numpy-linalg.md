@@ -450,10 +450,7 @@ Si la matrice n'est pas inversible ou si elle n'est pas carrée, une erreur `np.
 | `np.diag`      | matrice diagonale|
 
 
-## QUIZ
-
-
-## Exercices
+## exercices
 
 
 ### construire une matrice diagonale à-la-main
@@ -473,6 +470,8 @@ $$
 * Retournez toujours un tableau de type `float64`
 * Programmez une approche naïve et une approche à base de slicing.
 
+https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x5-matdiag
+
 
 ### remplir une matrice : m(i, j) = xi * xj
 
@@ -487,3 +486,5 @@ m_{ij} = x_i . x_j
 $$
 
 Indices. Vous pouvez utiliser l'opérateur `@`, la méthode `array.dot()`, le broadcasting, la transposée d'une matrice `.T`.
+
+https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x6-xixj

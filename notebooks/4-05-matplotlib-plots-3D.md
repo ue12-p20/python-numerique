@@ -218,10 +218,10 @@ On peut aussi s'amuser à afficher la fonction comme une image:
 plt.imshow(v_z);
 ```
 
-## Exercices
+## exercices
 
 
-### Fonction par morceaux
+### fonction par morceaux
 
 
 $f(x)=\frac{(x^3−1)}{(x−3)}\ si\ x < −1$
@@ -232,20 +232,20 @@ $f(x)=x−1\ si\ x\geq -1$
 Si vous avez un problème pensez à vectoriser (avec `np.vectorize` l'intérêt est de pouvoir appliquer cette fonction à des arguments *x* et *y* donnés sous la forme de `np.ndarray` et pas uniquement à des scalaires).
 
 
-### La gaussienne en 3D
+### la gaussienne en 3D
 
 Visualisez la gaussienne $\Gamma(x, y)= \dfrac{1}{(2 \pi \sigma^2)}e^{-\dfrac{[(x-\mu_x)^2+(y-\mu_y)^2]}{(2 \sigma^2))}}$ avec $x$ entre $-2\pi$ et $2\pi$ et $y$ entre 0 et 5.
 
-### Une autre fonction
 
+### une autre fonction
 
 Visualisez la fonction $f(x, y)=\sin(\sqrt{|x^2 - y^2|})$.
 
 
-## Corrections
+## corrections
 
 
-### Fonction par morceaux
+### fonction par morceaux
 
 
 $f(x)=\frac{(x^3−1)}{(x−3)}\ si\ x < −1$
@@ -280,7 +280,7 @@ plt.axis('on')  # to show the axis
 cc = plt.colorbar()
 ```
 
-### La gaussienne en 3D
+### la gaussienne en 3d
 
 ```python
 def gamma(x, y, mu_x, mu_y, sigma):

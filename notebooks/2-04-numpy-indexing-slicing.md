@@ -717,22 +717,28 @@ M
 
 ### le damier
 
-
-Écrivez une fonction  *damier*, qui prend en argument la taille *n* d'une case du damier, qui crée un tableau `numpy` carré, et qui le remplit comme un damier avec des cases de taille *n x n* avec des 0 pour les cases noires et des 1 pour les blanches.
-
-Un damier a 100 cases.
+<!-- #region -->
+Écrivez une fonction *checkers*, qui prend en argument la taille *n* du damier, et un paramètre optionnel qui indique la valeur de la case (0, 0), et qui crée un tableau `numpy` carré, et le remplit avec des 0 et 1 comme un damier (0 pour les cases noires et 1 pour les cases blanches).
 
 
 https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x1-checkers
+<!-- #endregion -->
 
-<!-- #region {"tags": ["level_intermediate"]} -->
+<!-- #region {"tags": []} -->
 ### le damier (variante)
 <!-- #endregion -->
 
-<!-- #region {"tags": ["level_intermediate"]} -->
+<!-- #region {"tags": []} -->
 Il y a beaucoup de méthodes pour faire cet exercice de damier; elles ne vont pas toutes se généraliser pour la variante :
 
-**Variante** écrivez une fonction qui crée un damier de $3n \times 3n$ composé de blocs de 3x3 eux mêmes en damiers, genre avec $n=4$
+**Variante** écrivez une fonction `super_checkers` qui crée 
+
+* un damier de coté $k.n \times k.n$ 
+* composé de blocs de $k\times k$ homogènes (tous à 0 ou tous à 1)
+* eux mêmes en damiers
+* on décide que le premier bloc (en 0,0) vaut 0
+
+c'est-à-dire par exemple pour $n=4$ et $k=3$ cela donnerait ceci :
 
 ```
 0 0 0 1 1 1 0 0 0 1 1 1 
@@ -749,16 +755,16 @@ Il y a beaucoup de méthodes pour faire cet exercice de damier; elles ne vont pa
 1 1 1 0 0 0 1 1 1 0 0 0 
 ```
 
-en versions la plus générale possible, le $3$ est un paramètre de la fonction (disaons $k$) :
 <!-- #endregion -->
 
-```python tags=["level_intermediate"]
+```python tags=[]
 def super_checkers(n, k):
     ...
 ```
 
-```python
+```python tags=[]
 # doit vous donner la figure ci-dessus
+# éventuellement avec des False/True au lieu de 0/1
 super_checkers(4, 3)
 ```
 
@@ -778,9 +784,11 @@ https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x3-stairs
 ### calculs imbriqués (avancé)
 <!-- #endregion -->
 
+<!-- #region {"tags": ["level_advanced"]} -->
 Regardez le code suivant :
+<!-- #endregion -->
 
-```python
+```python tags=["level_advanced"]
 # une fonction vectorisée
 def pipeline(array):
     array2a = np.sin(array)
@@ -790,19 +798,17 @@ def pipeline(array):
     return array4
 ```
 
-```python
-# en guise de digression, juste pour anticiper un peu
-# et montrer ce que fait la fonction pipeline
-import matplotlib.pyplot as plt
-
-fig = plt.figure(figsize=(12, 2))
-X = np.linspace(0, 6*np.pi, 1000)
-Y = pipeline(X)
-plt.plot(X, Y);
-```
-
+<!-- #region {"tags": ["level_advanced"]} -->
 Les questions : j'ai un tableau `X` typé `float64` et de forme `(1000,)`
 
 * j'appelle `pipeline(X)`, combien de mémoire est-ce que `pipeline` va devoir allouer pour faire son travail ?
 * quel serait le minimum de mémoire dont on a besoin pour faire cette opération ?
 * voyez-vous un moyen d'optimiser `pipeline` pour atteindre ce minimum ?
+<!-- #endregion -->
+
+<!-- #region {"tags": ["level_advanced"]} -->
+**indice**
+
+* l'exercice vous invite à réfléchir à l'utilisation du paramètre `out=` qui est supporté dans les fonction vectorisées de numpy
+* dans ce cadre, sachez qu'on peut presque toujours remplacer l'usage d'un opérateur (comme ici `+`) par une fonction vectorisée (ici `np.add`)
+<!-- #endregion -->
