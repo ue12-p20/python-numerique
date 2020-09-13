@@ -34,3 +34,12 @@ une information, présente dans les supports de la semaine dernière, mais qui n
 pour pouvoir lire les notebooks du cours sur votre ordinateur personnel, il est nécessaire d'installer
 
     pip install jupytext[myst]
+
+
+## où trouver les solutions ?
+
+des solutions aux exercices sont publiées dans ce dépôt
+
+https://github.com/ue12/python-numerique-solutions
+
+les solutions sont publiées quelques jours après le cours pour vous laisser le temps de chercher un peu
