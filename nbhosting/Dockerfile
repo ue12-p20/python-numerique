@@ -7,5 +7,6 @@ FROM nbhosting/minimal-notebook
 # and that is where is stored the enabled/disabled extensions
 RUN true \
  && pip install -U nb-courselevels nbautoeval rise \
+ && pip install numpy pandas matplotlib \
  && pip install calysto_bash \
  && true
