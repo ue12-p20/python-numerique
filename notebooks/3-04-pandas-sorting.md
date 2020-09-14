@@ -19,12 +19,16 @@ jupyter:
 <span><img src="media/ensmp-25-alpha.png" /></span>
 </div>
 
+
+Notebook très rapide !
+
 ```python
 import pandas as pd
 import numpy as np
 ```
 
 # trier une dataframe
+
 
 il peut être utile de trier une dataframe selon l'ordre d'une colonne (resp. ligne) de la dataframe et le résultat sera une dataframe dont les lignes (resp. colonnes) auront été réordonnées, les index sont conservés (ils bougent avec les lignes qu'ils indexent ...). attention par contre, bien sûr les indices sont modifiés ...
 
@@ -33,7 +37,7 @@ c'est l'axe qui indiquera si on trie dans l'axe des lignes (auquel cas on trie s
 la fonction est `pandas.dataframe.sort_values`
 
 
-Vous pouvez décider de trier en place (*inplace=True*) auquel cas la dataframe sur laquelle vous appliquez la fonction est modifiée, sinon la fonction renverra une nouvelle dataframe.
+Vous pouvez décider de trier en place (`inplace=True`) auquel cas la dataframe sur laquelle vous appliquez la fonction est modifiée sinon la fonction renverra une dataframe ... (si vous voulez une copie, comme toujours précisez le, votre code sera plus clair).
 
 
 ## tri d'une dataframe selon une colonne
@@ -50,9 +54,9 @@ df = pd.read_csv(file, index_col=0)
 df.head()
 ```
 
-Nous voulons trier la dataframe suivant l'ordre de la colonne de `Age`. Dans quel axe (`axis`) devons-nous trier ? Vous vous rappelez *axis=0* et *axis=1* ?
-   - si *axis=0* je trie les lignes
-   - si *axis=1* je trie les colonnes 
+Nous voulons trier la dataframe suivant l'ordre de la colonne de `Age`. Dans quel axe (`axis`) devons-nous trier? Vous vous rappelez `axis=0` et `axis=1`?
+   - si `axis=0` je trie les lignes
+   - si `axis=1` je trie les colonnes 
 
 ```python
 df_sorted1 = df.sort_values(by='Age', ascending=False, axis=0)
@@ -81,8 +85,25 @@ df_sorted2.head(8)
 Vous voyez que les lignes d'index 746 et 673, dont les âges sont égaux, ont été triées par `Fare` et ont changé d'ordre par rapport à la première dataframe `df_sorted1`.
 
 
-Et souvenez-vous, la dataframe est une copie de la dataframe initiale, sauf si le tri en place a été indiqué.
+Si vous voulez modifier la dataframe initiale faites le tri en place en passant le paramètre `inplace=True`.
 
+<!-- #region {"tags": ["level_intermediate"]} -->
+Une dernière question: Où sont les lignes dont les valeurs concernées par le tri ne sont pas connues (i.e. `np.nan`)?
+
+Listons les 5 dernières lignes de la dataframe avec la méthode `pandas.DataFrame.tail` 
+<!-- #endregion -->
+
+```python tags=["level_intermediate"]
+df.sort_values(by='Age', ascending=False, axis=0).tail() # oui à la fin
+```
+
+<!-- #region {"tags": ["level_intermediate"]} -->
+Il est possible de les mettre en début de la dataframe:
+<!-- #endregion -->
+
+```python tags=["level_intermediate"]
+df.sort_values(by='Age', ascending=False, axis=0, na_position='first').head()
+```
 
 ## tri d'une dataframe selon une ligne
 
@@ -95,6 +116,8 @@ petite_df = pd.DataFrame(np.random.randint(-10, 10, 20).reshape(4, 5),
 petite_df.index = ['un', 'deux', 'trois', 'quatre']
 petite_df
 ```
+
+Trions la dataframe par la ligne d'index `un` donc `axis=1`
 
 ```python
 petite_df.sort_values(by='un', axis=1)
@@ -109,7 +132,7 @@ Vous voyez que la ligne *'un'* a été triée et la dataframe réorganisée auto
 Comme son nom d'indique, nous allons pouvoir trier les index d'une dataframe, et comme toujours, suivant l'axe 0 pour les lignes, et suivant l'axe 1 pour les colonnes.
 
 
-Par exemple, nous pouvons trier l'index des colonnes (*axis=1*) de `df`. 
+Par exemple, nous pouvons trier l'index des colonnes (`axis=1`) de `df`. 
 
 
 Regardons la dataframe.
@@ -118,20 +141,19 @@ Regardons la dataframe.
 df.head(6)
 ```
 
-Trions ses noms de colonne et affichons le header de la dataframe.
+Trions ses noms de colonnes et affichons le header de la dataframe.
 
 ```python
 df.sort_index(axis=1).head()
 ```
 
-Les colonnes ont bien été réordonnées par ordre alphabétique croissant.
+Les colonnes ont bien été réordonnées par ordre lexicographique croissant.
 
 
 Maintenant, trions l'index des lignes (*axis=0*) de `df_sorted1` (parce que celui de `df` est déjà trié). 
 
-<!-- #raw -->
+
 Regardons avant le tri:
-<!-- #endraw -->
 
 ```python
 df_sorted1.head(6)
