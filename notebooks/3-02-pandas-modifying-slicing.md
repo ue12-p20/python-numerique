@@ -19,7 +19,7 @@ Où on apprend à découper et modifier des parties de dataframe
 
 +++
 
-Nous allons nous intéresser dans ce notebook à la manière de découper (trancher) slicer les objets `pandas` comme des séries ou des dataframes, et à les modifier.
+Nous allons nous intéresser dans ce notebook à la manière de découper (trancher) slicer les objets `pandas` comme des séries ou des dataframes, et à les manipuler. C'est souvent ce que vous allez faire sur vos tables: appliquer une fonction à une sous-partie de vos données.
 
 +++
 
@@ -57,7 +57,7 @@ df_copy = df.copy()
 df_copy.head(3)      # df_copy est une nouvelle dataframe jumelle de l'originale
 ```
 
-voilà `df_copy` est une nouvelle dataframe avec les mêmes valeurs que l'originale.
+voilà `df_copy` est une nouvelle dataframe avec les mêmes valeurs que l'originale mais totalement indépendante.
 
 +++
 
@@ -65,8 +65,8 @@ voilà `df_copy` est une nouvelle dataframe avec les mêmes valeurs que l'origin
 
 +++
 
-Il est souvent pratique de créer une nouvelle colonne, en faisant un calcul à partir des colonnes existantes
-les opérations sur les colonnes sont, en pratique, les seules opérations qui utilisent la forme `df[nom_de_colonne]`
+Il est souvent pratique de créer une nouvelle colonne, en faisant un calcul à partir des colonnes existantes.  
+Les opérations sur les colonnes sont, en pratique, les seules opérations qui utilisent la forme `df[nom_de_colonne]`
 
 ```{code-cell} ipython3
 # pour créer une nouvelle colonne
@@ -103,12 +103,12 @@ L[1:2] = [100, 200, 300]
 L
 ```
 
-Ou encore, d'utiliser l'accés à un tableau par une paires d'indices, comme vous le feriez en `numpy`:
+Ou encore, d'utiliser l'accés à un tableau par une paires d'**indices**, comme vous le feriez en `numpy`:
 
 ```{code-cell} ipython3
-mat = np.arange(25).reshape((5, 5))   # je crée la matrice 5x5
+mat = np.arange(25).reshape((5, 5))   # je crée la matrice 5x5 d'éléments 0 à 24
 mat[2, 2] = 100                       # je modifie l'élément au milieu
-mat[0::4, 0::4] = 10000               # je modifie les 4 coins
+mat[::4, ::4] = 10000                 # je modifie les 4 coins (::4 = du début à la fin avec un pas 4)
 print(mat)                            # j'affiche la matrice
 mat[0]                                # j'accède à sa première ligne
 ```
@@ -117,11 +117,11 @@ Mais voilà en `pandas`, c'est très différent: comme on l'a vu déjà, ils ont
 
 Ils ont priviligié le repérage des éléments d'une dataframe **par des index** (les **noms** de colonnes et les **labels** de lignes), et **pas** les **indices** comme en Python et en `numpy`
 
-Pourquoi ? parce que si vous utilisez `pandas` c'est que vous avez besoin de voir vos données sous la forme d'une table avec des labels pour indexer les lignes et les colonnes. Si vous n'avez pas besoin d'index particuliers, ça veut dire que vous êtes à l'aise pour manipuler vos données uniquement à base d'indices - des entiers - et dans ce cas-là autant utiliser un simple tableau numpy : vous n'allez pas stocker une matrice dans une dataframe ! `numpy` et ses indices ligne, colonne vous suffisent !
+Pourquoi ? parce que si vous utilisez `pandas` c'est que vous avez besoin de voir vos données sous la forme d'une table avec des labels pour indexer les lignes et les colonnes. Si vous n'avez pas besoin d'index particuliers, ça veut dire que vous êtes à l'aise pour manipuler vos données uniquement à base d'indices - des entiers - et dans ce cas-là autant utiliser un simple tableau `numpy` : vous n'allez pas stocker une matrice dans une dataframe ! `numpy` et ses indices ligne, colonne vous suffisent !
 
 +++
 
-Néanmoins, `pandas` offre des techniques assez similaires, et assez puissantes aussi, que nous étudier dans ce notebook.
+Néanmoins, `pandas` offre des techniques assez similaires, et assez puissantes aussi, que nous allons étudier dans ce notebook.
 
 +++
 
@@ -141,7 +141,8 @@ df.head(3)
 ```{code-cell} ipython3
 :cell_style: split
 
-# avec loc, c'est ligne x colonne
+# avec loc, c'est ligne, colonne
+# et avec des index (pas des indices)
 df.loc[756, 'Name']
 ```
 
@@ -168,7 +169,7 @@ Du coup, la première chose qu'on peut avoir envie de faire, c'est d'accéder à
 
 Rappelez-vous qu'en Python une slice c'est de la forme `start:stop:step`, et qu'on peut éluder les morceaux qu'on veut, c'est-à-dire que par exemple `:` désigne une slice qui couvre tout l'espace, `::-1` permet de renverser l'ordre, je vous renvoie aux chapitres idoines si ce n'est plus clair pour vous.
 
-**Par contre**, il faut tout de suite souligner une petite anomalie, qui est que **dans le cas des index** les slices de dataframes **contiennent les bornes**, ce qui, vous vous souvenez, n'a jamais été le cas jusqu'ici avec les slices en Python, où la borne supérieure est toujours exclue; voyons cela
+**Par contre**, il faut tout de suite souligner une **différence**, qui est que **dans le cas des index** les slices de dataframes **contiennent les bornes**, ce qui, vous vous souvenez, n'a jamais été le cas jusqu'ici avec les slices en Python ou numpy, où la borne supérieure est toujours exclue; voyons cela
 
 ```{code-cell} ipython3
 df.head(5)
@@ -181,7 +182,7 @@ df.head(5)
 df.loc[756:470]
 ```
 
-Il y a tout de même une certaine logique, c'est que les index sont a priori tout mélangés, mais bon c'est troublant au début.
+Il y a tout de même une certaine logique, c'est que les index sont a priori mélangés (et peuvent être des noms et pas des entiers), mais bon ca reste troublant au début. Et ce ne sera pas le cas pour `iloc` qui travaille sur les indices.
 
 +++
 
@@ -253,7 +254,7 @@ df.head(5)
 
 +++
 
-Bon bien sûr on peut mélanger toutes les features que nous connaissons déjà, et écrire des sélections arbitrairement compliquées - pas souvent utile, mais simplement pour montrer que toute la logique est préservée
+Bon bien sûr on peut mélanger toutes les features que nous connaissons déjà, et écrire des sélections arbitrairement compliquées - pas souvent utiles, mais simplement pour montrer que toute la logique est préservée
 
 ```{code-cell} ipython3
 df.head(8)
@@ -288,7 +289,7 @@ ahhh ... vous commencez à comprendre: savoir si une opération retourne une cop
 Ce qu'il faut retenir c'est que
 
 * en utilisant la forme `df.loc[line, column]` on ne crée pas de copie, c'est la bonne façon d'utiliser `loc`
-* par contre les formes qui utilisent un *chained indexing* - que ce soit `df[l][c]` ou `df.loc[l][c]`, on n'est plus du tout sûr du résultat !!
+* par contre les formes qui utilisent un *chained indexing* - que ce soit `df[l][c]` ou `df.loc[l][c]`, on n'est plus du tout sûr du résultat : il ne faut pas les utiliser pour modifier quoi que ce soit !!
 
 +++
 
@@ -330,14 +331,19 @@ Nous avons vu dans le notebook précédent que nous pouvions faire des tests sur
 ```{code-cell} ipython3
 :cell_style: center
 
-# rappel: cette expression retourne une dataframe
+# cette expression retourne une Series
 mask = df['Pclass'] >= 3
-
-# voyons ce qu'elle contient
-mask.head(3)
+type(mask)
 ```
 
-Et bien la dernière manière d'accéder à des sous-parties de dataframe, va être d'**indexer par un tableau de booléens**, i.e. on va isoler de la dataframe les lignes où la valeur du booléen est vraie.
+```{code-cell} ipython3
+:cell_style: center
+
+# voyons ce qu'elle contient
+mask.head() # un masque de booléens sur la colonne des index donc la colonne PassengerId !
+```
+
+La dernière manière d'accéder à des sous-parties de dataframe, va être d'**indexer** une dataframe par un **masque de booléens** sur la colonne des `index` i.e. on va isoler de la dataframe les lignes où la valeur du booléen est vraie.
 
 Par exemple, pour extraire de la dataframe les lignes correspondant aux voyageurs en 3-ième classe, on va utiliser `mask` - un objet de type `Series` donc, qui contient des booléens - comme moyen pour indexer la dataframe.
 
@@ -345,12 +351,12 @@ Par exemple, pour extraire de la dataframe les lignes correspondant aux voyageur
 # voyez qu'ici dans les crochets on n'a plus 
 # une slice, ni une liste, 
 # mais une colonne (une Series) de booléens
-# qu'on appelle souvent un masque, justement
+# qu'on appelle un masque
 
 df.loc[ mask ]
 ```
 
-Notez que bien souvent on ne prendra pas la pein de décortiquer comme ça, et on écrira directement
+Notez que bien souvent on ne prendra pas la peine de décortiquer comme ça, et on écrira directement
 
 ```{code-cell} ipython3
 # en une seule ligne, c'est un peu moins lisible 
@@ -365,7 +371,7 @@ df[df['Pclass'] >= 3].head(3)
 
 +++
 
-Un peu plus sophistiqué, nous pouvons mettre **plusieurs conditions**, par exemple personnes qui ne sont pas en première classe et dont l'age est supérieur à 70 ans.
+Un peu plus sophistiqué, nous pouvons mettre **plusieurs conditions**, par exemple des passagers qui ne sont pas en première classe et dont l'age est supérieur à 70 ans.
 
 Mais comment écrire ces conditions ...
 
@@ -378,7 +384,7 @@ except ValueError as e:
     print(f"Ce n'est pas bon, il me dit '{e}'")
 ```
 
-Est-ce que cela vous rappelle quelque chose ?  
+Est-ce que cela ne vous rappelle pas quelque chose ?  
 Nous avons déjà vu le même comportement lorsqu'il s'était agi d'écrire des conditions sur les tableaux `numpy`; 
 alors oui parmi les petites choses que l'on peut trouver parfois contre-intuitives avec `numpy` et `pandas`, il y a les expressions logiques sur les tableaux de booléens.
 
@@ -387,6 +393,17 @@ Vous ne pouvez **pas** utiliser `and`, `or` et `not` !
    - soit vous utilisez les `np.logical_and`, `np.logical_or` et `np.logical_not` mais ce n'est pas super lisible ... 
    
    - soit vous utilisez les `&`, `|` et `~` (les opérateurs logiques qu'on appelle *bitwise* i.e. qui travaillent bit à bit) et vous parenthésez bien !
+
+```{code-cell} ipython3
+mask_age = (df['Age'] >= 70) & (~ (df['Pclass'] == 1)) # une pandas.Series sur les index
+mask_age.head(3)
+```
+
+```{code-cell} ipython3
+df[mask_age]
+```
+
+Ou de la manière concise habituellement utilisée:
 
 ```{code-cell} ipython3
 # plus de 70 ans, et pas en première classe
@@ -414,12 +431,12 @@ Pour résumer cette partie, nous avons vu trois méthodes d'indexation utilisabl
 * on peut utiliser une liste explicite, pour choisir exactement et dans le bon ordre les index qui nous intéressent
 * on peut utiliser un masque, c'est-à-dire une colonne obtenue en appliquant une expression booléenne à la dataframe de départ - cette méthode s'applique sans doute plus volontiers à la sélection de lignes
 
-+++ {"tags": ["level_intermediate"]}
++++ {"tags": ["level_advanced"]}
 
 Remarquez d'ailleurs, pour les geeks, que si on veut on peut même mélanger ces trois méthodes d'indexation; c'est-à-dire par exemple utiliser une liste pour les lignes et une slice pour les colonnes :
 
 ```{code-cell} ipython3
-:tags: [level_intermediate]
+:tags: [level_advanced]
 
 # on peut indexer par exemple
 # les lignes avec une liste
@@ -427,13 +444,13 @@ Remarquez d'ailleurs, pour les geeks, que si on veut on peut même mélanger ces
 ```
 
 ```{code-cell} ipython3
-:tags: [level_intermediate]
+:tags: [level_advanced]
 
 df.loc[
     # dans la dimension des lignes: une liste
     [450, 3, 67, 800, 678], 
     # dans la dimension des colonnes: une slice
-    'Sex'::2]
+    'Sex':'Cabin':2]
 ```
 
 ## travailler avec les indices : **bornes habituelles**
@@ -460,40 +477,48 @@ df.head(5)
 ...
 ```
 
-+++ {"tags": ["level_advanced"]}
++++ {"tags": ["level_intermediate"]}
 
 ## problème de modification de copies (pour les avancés)
 
-+++
++++ {"tags": ["level_intermediate"]}
 
 En première lecture de ce notebook, cette section ne sera compréhensible que par des élèves avancés, les autres pourront y revenir plus tard.
 
-+++
++++ {"tags": ["level_intermediate"]}
 
 On va voir rapidement le problème de *tentative* de modification d'une copie d'une dataframe.
 
-+++
++++ {"tags": ["level_intermediate"]}
 
 ### modification par chaînage d'indexations
 
-+++
++++ {"tags": ["level_intermediate"]}
 
 Supposez qu'on accède à une colonne, par exemple celle de la survie qui s'appelle `Survived`, en utilisant la syntaxe classique d'accés à une clé d'un dictionnaire.
 
 ```{code-cell} ipython3
+:tags: [level_intermediate]
+
 df['Survived']
 ```
 
++++ {"tags": ["level_intermediate"]}
+
 On obtient une seule colonne, elle est de type `pandas.Series`, on le savait déjà.
 
-+++
++++ {"tags": ["level_intermediate"]}
 
 Maintenant que j'ai une colonne, rien ne m'empêche d'accéder à un élément de la colonne, avec la simple notation d'accés à un élément d'un tableau comme dans Python, prenons l'élément d'index 1.
 
 ```{code-cell} ipython3
+:tags: [level_intermediate]
+
 # so far, so good
 df['Survived'][1]
 ```
+
++++ {"tags": ["level_intermediate"]}
 
 Maintenant LA question. Je viens d'accéder à un élément de la colonne `Survived`, puis-je utiliser cette manière d'accéder pour modifier l'élément ?
 
@@ -505,28 +530,32 @@ On appelle cela une *indexation par chaînage* (on chaîne `['Survived']`et `[1]
 
 Vous avez l'obligation d'utiliser `loc` ou `iloc` !
 
-+++
++++ {"tags": ["level_intermediate"]}
 
 Pour les avancés ce *problème* s'appelle le *chained indexing* et pour plus d'explications regardez là https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy (quand vous en aurez le temps ...)
 
-+++
++++ {"tags": ["level_intermediate"]}
 
 ### indexation par une liste et modification
 
-+++
++++ {"tags": ["level_intermediate"]}
 
 On va indexer une dataframe par une liste d'index de colonnes sans utiliser `loc` ni `iloc`. Dans cet exemple on isole les trois colonnes `Survived`, `Pclass` et `Sex`
 
 ```{code-cell} ipython3
+:tags: [level_intermediate]
+
 df1 = df[ ['Survived', 'Pclass', 'Sex'] ]
 df1.head()
 ```
+
++++ {"tags": ["level_intermediate"]}
 
 On obtient une dataframe que nous appelons `df1`. Donc vous vous rappelez que nous avons deux possibilité pour la sous-partie d'une dataframe, obtenue par découpage de la dataframe d'origine:
    - c'est une copie de la dataframe (vous ne devez pas la modifier)
    - c'est une référence sur la dataframe (vous pouvez la modifier).
 
-+++
++++ {"tags": ["level_intermediate"]}
 
 LA question est donc de savoir si `df1` est une copie ou une référence sur votre dataframe ?
 
@@ -534,37 +563,51 @@ C'est une copie donc vous ne devez pas tenter de la modifier mais on va le faire
 
 On tente de ressusciter notre pauvre passager d'index 1 en utilisant `loc` sur la sous-dataframe `df1` (on a oublié que `df1` était une copie).
 
-+++
++++ {"tags": ["level_intermediate"]}
 
 On regarde ce que vaut l'élément qu'on veut modifier:
 
 ```{code-cell} ipython3
+:tags: [level_intermediate]
+
 df1.loc[1, 'Survived']
 ```
+
++++ {"tags": ["level_intermediate"]}
 
 ok 0. On tente de le modifier:
 
 ```{code-cell} ipython3
+:tags: [level_intermediate]
+
 df1.loc[1, 'Survived'] = 1
 ```
 
-Je recois un warning de `pandas` me disant que j'ai potentiellement un problème. Comme il n'est pas sûr que pour moi ca en soit un, il me donne un simple avertissment et non une erreur.
++++ {"tags": ["level_intermediate"]}
+
+Je recois un warning de `pandas` me disant que j'ai potentiellement un problème. Comme il n'est pas sûr que pour moi ca en soit un, il me donne un simple avertissement et non une erreur.
 
 En fait, là il m'indique que: si je pensais modifier `df` en passant par `df1` alors je me trompe puisque `df1` est une copie de ma dataframe `df`, donc `df` ne sera pas modifié.
 
-Il se peut que ce soit ce que vous voulez que `df1` soit une copie ! mais alors pourquoi ne l'avez vous pas clairement indiqué en faisant une copie explicite !
+Il se peut que ce soit ce que vous voulez (que `df1` soit une copie) ! mais alors pourquoi ne l'avez vous pas clairement indiqué en faisant une copie explicite !
 
-+++
++++ {"tags": ["level_intermediate"]}
 
 Si mon idée était bien de ne modifier que `df1` parce que je veux une copie de `df`: alors je le code **proprement**:
 
 ```{code-cell} ipython3
+:tags: [level_intermediate]
+
 df2 = df[ ['Survived', 'Pclass', 'Sex'] ].copy()
 df2.head()
 ```
 
 ```{code-cell} ipython3
+:tags: [level_intermediate]
+
 df2.loc[1, 'Survived'] = 1
 ```
+
++++ {"tags": ["level_intermediate"]}
 
 Ah voilà qui est mieux !

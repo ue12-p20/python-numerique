@@ -851,11 +851,12 @@ petit_df = ...
 
 # pour vérifier votre code, ceci doit renvoyer un tableau avec majoritairement des 'True'
 # on utilise sort_index() pour remettre dans le bon ordre (on les avait triés par age)
-
+# vous remarquez quelque chose dans loc ? le passager d'index de ligne 10 est ? oui il est compris
 df.sort_index().loc[:10, :] == petit_df
 ```
 
 ```{code-cell} ipython3
+:cell_style: split
 :tags: [level_intermediate]
 
 # hints pour comparer vous devez retrouver ceci
