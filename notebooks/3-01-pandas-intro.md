@@ -15,7 +15,7 @@ kernelspec:
 
 +++
 
-Où on découvre les deux dernière bibliothèques socles de l'écosystème Python :
+Où on découvre les deux dernières bibliothèques socles de l'écosystème Python :
 
 * `pandas` pour la data-science (importation et mise en forme de données)
 * `matplotlib` pour la visualisation de données, en abrégé *dataviz*
@@ -32,7 +32,7 @@ Et nous commençons par étudier les bases de `pandas`
 
 Nous venons de voir quelques fonctions de base de la librairie numérique de Python `numpy`. Nous savons désormais faires des manipulations simples de tableaux `np.ndarray` qui sont des tableaux multidimensionnels, homogènes, d'éléments de taille fixe.
 
-Revenons à notre introduction à `numpy` où nous avons vu différents styles de tableaux, la matrice que nous avons déjà bien manipulée dans les notebooks précédents, l'image que nous ne traiterons pas plus en avant dans ces cours introductifs, la série temporelle que nous verrons plus loin ... attardons-nous sur les tables d'informations comme celle de 891 naufragés du Titanic, nous la montrons à nouveau:
+Revenons à notre introduction à `numpy` où nous avons vu différents styles de tableaux, la matrice que nous avons déjà bien manipulée dans les notebooks précédents, l'image que nous ne traiterons pas plus en avant dans ces cours introductifs, la série temporelle que nous ne verrons pas plus loin ... attardons-nous sur les tables d'informations comme celle de 891 naufragés du Titanic, nous la montrons à nouveau:
 
 <img src='media/titanic.png' width="1000"></img>
 
@@ -50,7 +50,7 @@ Voilà nous savons quel va être le type de ces tables. Mais bien sûr, vous n'a
 
 Quel est le format le plus simple pour ces tables dans un fichier ? Il suffit de mettre chaque observation sur une ligne et, dans les lignes, de séparer chaque information par un caractère choisi, toujours le même.
 
-C'est ce qui a été fait: ces tables sont décrites dans des fichiers de type *csv* pour *comma-separated-values*, littéralement des *valeurs séparées par des virgules*. Ces fichiers porteront l'extension *.csv* ainsi la description de notre fichier de données du titanic a pour nom `titanic.csv` ! Gardons-le !
+C'est ce qui a été fait: ces tables sont décrites dans des fichiers de type *csv* pour *comma-separated-values*, littéralement des *valeurs séparées par des virgules*. Ces fichiers porteront l'extension *.csv* ainsi la description de notre fichier de données du titanic a pour nom `titanic.csv` ! Gardons-le dans  une variable!
 
 ```{code-cell} ipython3
 file = 'titanic.csv'
@@ -77,12 +77,13 @@ Vous remarquez que les champs sont bien séparés par des `,` et que la premièr
 
    - *Les champs peuvent-ils être séparés par un autre caractère que la virgule dans un fichier csv ?*
 
-   Oui vous pouvez mettre le caractère que vous voulez pour séparer les champs dans un *csv*: le tout est de bien l'indiquer lors de la lecture de la table (la fonction de lecture ne pourra pas le deviner). Par exemple le `;` qui apparaîtra souvent. Quel que soit le caractère qui sépare ses champs, un fichier portera toujours l'extension *.csv* qui est l'extension standard pour ce genre de table.
+   Oui vous pouvez mettre le caractère que vous voulez pour séparer les champs dans un *csv*: le tout sera (pour les utilisateurs du fichier) d'indiquer ce caractère lors de la lecture de la table (la fonction de lecture ne pourra pas le deviner). Par exemple le `;` qui apparaîtra souvent. Un fichier portera, le plus souvent, l'extension *.csv*, mais vous allez pouvoir trouver des `.tsv`.
    
    
    - *Trouve-t-on toujours les noms des colonnes en première ligne des fichiers *.csv* ?*
    
-   Non ce n'est pas obligatoire ! Certains fichiers ne comporteront pas d'entête, certains fichiers auront des lignes de commentaires en début de fichier  ... oui vous commencez à vous dire qu'il va falloir bien indiquer tout cela lors de la lecture du fichier (la fonction de lecture ne pourra pas le deviner).
+   Non ce n'est pas obligatoire ! Certains fichiers ne comporteront pas d'entête, certains fichiers auront des lignes de commentaires en début de fichier suivies ou non du la ligne d'entête ... oui vous commencez à vous dire qu'il va falloir bien indiquer tout cela lors de la lecture du fichier  
+   (la fonction de lecture aura un comportement par défaut que vous pourrez paramétrer)
 
 +++ {"tags": ["level_intermediate"]}
 
@@ -105,14 +106,13 @@ Bien sûr il va exister des (tas de) paramètres pour régler ce genre de petits
 
 Un constat: `numpy` ne comporte pas de fonction pour lire ces tables !
 
-Ce rôle est pris depuis 2008 par une autre librairie qui s'appelle `pandas` et qui repose entièrement sur `numpy`: toutes les données que vous allez manipuler en `pandas` sont des tableaux `np.ndarray`.
+Ce rôle est pris depuis 2008 par une autre librairie qui s'appelle `pandas` et qui repose entièrement sur `numpy`: toutes les données que vous allez manipuler en `pandas` sont en mémoire des tableaux `np.ndarray`.
 
 `pandas` va vous en faciliter l'utilisation en leur donnant un type évolué de table de données `pandas.DataFrame`. Un autre type permettra de gérer les séries le `pandas.Series`.
 
 +++
 
-Une dernière chose à préciser, si le langage Python favorise la simplicité, l'uniformité et la lisibilité du code sur son efficacité ... et bien disons que `pandas` comme `numpy` ... non, ils ne font pas exactement le contraire ... mais disons qu'ils favorisent très clairement l'efficacité au détriment du reste. Ou dit plus simplement: "*Ne vous attendez pas au même niveau de maturité et de cohérence dans `numpy` et `pandas` que celui que vous avez dans Python*"
-
+Une dernière chose à préciser, si le langage Python favorise la simplicité, l'uniformité et la lisibilité du code sur son efficacité ... `pandas` comme `numpy` va favoriser très clairement l'efficacité au détriment du reste. Ou dit plus simplement: "*Ne vous attendez pas au même niveau de maturité et de cohérence dans `numpy` et `pandas` que celui que vous avez dans Python*"  
 Ils n'ont pas trouvé leur *BDFL* comme Python avec Guido van Rossum.
 
 +++
@@ -121,7 +121,9 @@ Ils n'ont pas trouvé leur *BDFL* comme Python avec Guido van Rossum.
 
 +++
 
-Sans plus attendre on importe la librairie `pandas` (son petit nom standard est `pd`) et on lit notre table du titanic dans une variable `df` (pour dataframe, c'est un nom très couramment utilisé)! Avec quelle fonction lisons-nous le fichier ? Avec la fonction `pandas.read_csv` !
+Sans plus attendre on importe la librairie `pandas` (son petit nom standard est `pd`) et on lit notre table du titanic dans une variable `df` (pour dataframe, c'est un nom très couramment utilisé)!
+
+Avec quelle fonction lisons-nous le fichier ? Avec la fonction `pandas.read_csv` !
 
 +++
 
@@ -162,7 +164,7 @@ Regardons les quelques premières lignes (le header) de la table avec la méthod
 df0.head()
 ```
 
-Nous remarquons là une chose importante qui va être la clé pour comprendre l'intérêt de `pandas`: les lignes et les colonnes sont **indexées**.
+Nous remarquons là une chose importante qui va être la clé pour comprendre l'intérêt de `pandas`: **les lignes et les colonnes sont indexées**.
 
 +++
 
@@ -174,7 +176,9 @@ En guise de digression, et pour bien comprendre cette histoire d'index, on va pa
 
 L'idée tourne toujours autour de cette affaire de recherche dans les listes, qui est très inefficace. C'est comme dans les bibliothèques (à l'époque où elles existaient encore sous une forme physique) : lorsque vous cherchez un livre vous n'allez **pas reparcourir tous les rayons** jusqu'à trouver le livre qui vous intéresse; non, vous allez demander au guichet, où l'on dispose d'un **index** qui vous indique où se trouve le livre; c'est quand même beaucoup plus rapide !
 
-C'est un peu pareil avec les données; imaginez que vous avez des données à propos de 10 millions de personnes; si vous vous **contentez de modéliser ça sous la forme d'une liste** de personnes, il vous faut en moyenne 5 millions d'essais pour localiser quelqu'un. La technique de l'index consiste simplement à trouver une caractéristique qui identifie la personne de manière unique (disons le numéro de sécurité sociale), et à **calculer un index** qui permette un accès rapide - pour ça on utilise une table de hachage, exactement comme avec les dictionnaires Python.
+C'est un peu pareil avec les données; imaginez que vous avez des données à propos de 10 millions de personnes; si vous vous **contentez de modéliser ça sous la forme d'une liste** de personnes, il vous faut en moyenne 5 millions d'essais pour localiser quelqu'un.
+
+La technique de l'index consiste simplement à trouver une caractéristique qui identifie la personne de manière unique (disons le numéro de sécurité sociale), et à **calculer un index** qui permette un accès rapide - pour ça on utilise une table de hachage, exactement comme avec les dictionnaires Python.
 
 De cette façon, l'opération qui consiste à localiser (les informations concernant) une personne, à partir de son numéro de sécu, peut être en grossière approximation considérée comme en temps constant.
 
@@ -184,7 +188,9 @@ De cette façon, l'opération qui consiste à localiser (les informations concer
 
 +++
 
-Fort de cette expérience avec les bases de données, `pandas` a choisi d'indexer ses tables, dans les deux directions : ligne et colonne; le travail de `pandas` va consister à rendre les opérations sur ces index les plus efficaces possible
+Fort de cette expérience avec les bases de données, `pandas` a choisi d'indexer ses tables, dans les deux directions : ligne et colonne.
+
+Le travail de `pandas` va consister à rendre les opérations sur ces index les plus efficaces possible
 (on pourrait discuter de l'intérêt d'indexer les colonnes qui sont généralement moins nombreuses, disons que ça rend le design plus homogène, et aussi, *qui peut le plus peut le moins*, ça ne nuit pas du tout d'indexer les colonnes)
 
 ```{code-cell} ipython3
@@ -194,12 +200,14 @@ df0.head()
 
 Les index apparaissent **en gras** dans la sortie de `head()`, si bien que sur notre exemple, on voit que :
 
-* les **colonnes** ont été **indexées par leur nom**, naturellement,
-* et que, comme nous n'avons **rien** précisé **de particulier**, les **lignes** ont, elles, été **indexées par leur indice** i.e. une simple numérotation à partir de 0.
+* les **colonnes** ont été **indexées par leur nom**, *naturellement*,
+* et que, comme nous n'avons **rien** précisé **de particulier**, les **lignes** ont, elles, été **indexées par leur indice**  
+i.e. une simple numérotation à partir de 0
 
 +++
 
-Mais si vous regardez bien le contenu de notre dataframe, il y a là une colonne `PassengerId`; rien qu'avec le nom, on devine que cette colonne contient effectivement un identifiant unique pour chaque passager; (c'est d'ailleurs presque toujours le cas dans les bases de données aussi, vous allez trouver des noms de colonne en `PersonId`, `BookId`, etc...); du coup, ça devient un réflexe que d'utiliser cette colonne-là comme clé pour l'index des lignes; et pour faire ça il suffit de l'indiquer à pandas, comme ceci :
+Mais si vous regardez bien le contenu de notre dataframe, il y a là une colonne `PassengerId`; rien qu'avec le nom, on devine que cette colonne contient effectivement un identifiant unique pour chaque passager; (c'est d'ailleurs presque toujours le cas dans les bases de données aussi, vous allez trouver des noms de colonne en `PersonId`, `BookId`, etc...);  
+Du coup, ça devient un réflexe que d'utiliser cette colonne-là comme **clé** pour l'index des lignes; et pour faire ça il suffit de l'indiquer à pandas, comme ceci :
 
 ```{code-cell} ipython3
 # on charge le même fichier
@@ -226,18 +234,18 @@ Maintenant regardons d'un peu plus près les attributs de cette table.
 
 Nous allons comprendre à travers cette table du Titanic comment sont composées les tables, et quels sont leurs attributs utiles (à notre niveau) et comment les utiliser pour exploiter nos données.
 
-+++ {"tags": ["level_intermediate"]}
++++ {"tags": []}
 
 Si vous êtes familier de Python, le premier réflexe est d'afficher le type de la table; 
 c'est utile de connaitre le type des objets, car c'est le type qui détermine les opérations qu'on a le droit de faire sur ces objets;
 
 ```{code-cell} ipython3
-:tags: [level_intermediate]
+:tags: []
 
 type(df)
 ```
 
-+++ {"tags": ["level_intermediate"]}
++++ {"tags": []}
 
 Le type de `df` est `pandas.core.frame.DataFrame`, un nom plus court pour ce type est `pandas.DataFrame`.
 
@@ -248,7 +256,7 @@ Le type de `df` est `pandas.core.frame.DataFrame`, un nom plus court pour ce typ
 +++
 
 Quelle est la dimension et la forme de cette table ?  
-on va retrouver les attributs classiques que nous avions en `numpy` soit `ndim`, `shape`... qui seront là des noms de méthode des dataframes.
+on va retrouver les attributs classiques que nous avions en `numpy` soit `ndim`, `shape`... qui seront là des noms de méthodes des dataframes.
 
 ```{code-cell} ipython3
 # une dataframe est toujours de dimension 2 
@@ -283,7 +291,7 @@ Ils sont accessibles par la *property* `pandas.DataFrame.columns` qui va vous re
 df.columns
 ```
 
-Oui je sais, on voit le type des éléments mais nous parlerons des types après, on ne peut pas tout faire en même temps ! et il va falloir comprendre de petites choses avant.
+Oui je sais, on voit le type `dtype='object'` des éléments mais nous parlerons des types après, on ne peut pas tout faire en même temps ! et il va falloir comprendre de petites choses avant.
 
 +++
 
@@ -319,7 +327,18 @@ Voilà, qu'apparaît le second type de `pandas`, celui des `Series` ... Une colo
 
 Je dis pseudo parce que `pandas` accepte que plusieurs colonnes portent le même nom. Et si vous demandez d'aller chercher les colonnes correspondant à cette clé ... il vous les donne toutes.
 
-+++
++++ {"tags": ["level_intermediate"]}
+
+`pandas` ne va pas imposer que les clés des lignes ou des colonnes soient uniques. Lors de la recherche d'une clé non unique, il vous donnera toutes les entrées correspondantes.
+
+```{code-cell} ipython3
+:tags: [level_intermediate]
+
+df1 = pd.DataFrame(np.array([[1, 2, 3, 4], [5, 6, 7, 8]]),
+                   index=(1, 1),
+                   columns=('a', 'a', 'b', 'c'))
+df1['a']
+```
 
 Que peut-on faire comme calculs sur nos colonnes ? Des tas de choses dont nous allons voir quelques exemples.
 
@@ -331,7 +350,7 @@ Que peut-on faire comme calculs sur nos colonnes ? Des tas de choses dont nous a
 
 Que peut-on faire sur une série de valeurs ?
 
-Si les valeurs sont quantitatives (comme l'âge) on peut essayer de mieux décrire cette colonne en calculant des fonctions comme le minimum, la maximun, la moyenne, l'écart-type, les quartiles ...
+Si les valeurs sont quantitatives (comme l'âge) on peut essayer de mieux décrire cette colonne en calculant des fonctions comme le minimum, le maximun, la moyenne, l'écart-type, les quartiles ...
 
 Appliquons le à la colonne des âges :
 
@@ -339,7 +358,7 @@ Appliquons le à la colonne des âges :
 df['Age'].describe()
 ```
 
-Ces calculs sont regroupées dans une méthode appelée `pandas.Series.describe`. On y voit que le plus jeune avait dans les 5 mois et le plus vieux 80, que la moyenne d'âge est de presque 30 ans, que 75% des passagers avaient en dessous de 38 ans.
+Ces calculs sont regroupées dans une méthode appelée `pandas.Series.describe`. On y voit que le plus jeune avait dans les 5 mois et le plus vieux 80 ans, que la moyenne d'âge est de presque 30 ans, que 75% des passagers avaient en dessous de 38 ans.
 
 +++
 
@@ -349,7 +368,7 @@ Si la valeur est qualitatives, ou catégorielle (comme le genre), on peut calcul
 df['Sex'].value_counts()
 ```
 
-Vous remarquez que les fonctions appliquées sont naturellement des fonctions vectorisées.
+Vous remarquez que les fonctions appliquées sont naturellement des fonctions **vectorisées** i.e. qui s'appliquent à tout un tableau à la fois (ici à toute une colonne à la fois).
 
 +++
 
@@ -371,13 +390,17 @@ Voici un premier exemple, avec les opérateurs de comparaison: ils s'appliquent 
 
     df['Age'] < 12
     
-et avec cette expression, je récupère un tableau de booléens qui me disent pour chaque valeur de la colonne comment elle répond à cette condition; en fait cet expressions va me retourner un objet `Series` (comme une colonne)
+et avec cette expression, je récupère un tableau de booléens qui me disent, pour chaque valeur de la colonne, comment elle répond à cette condition; en fait cette expression va me retourner un objet `Series` (comme une colonne)
 
 Ce tableau contient des `False` et des `True`. Et comment puis-je compter le nombre de résultats `True` qui me donnera le nombre d'enfants ?
 
 +++
 
-On le fait. Alors il va y avoir plusieurs manières. Je peux faire la somme de toutes les réponses (les `True` seront des 1 et les `False` des 0, c'est très pratique les booléens); je peux aussi utiliser la fonction `value_counts`, et il y a sûrement d'autres manières de faire ... On va montrer les deux (essayez de faire *\%timeit* sur les deux lignes de code):
+On le fait. Alors il va y avoir plusieurs manières.  
+(i)Je peux faire la somme de toutes les réponses (les `True` seront des 1 et les `False` des 0, c'est très pratique les booléens);  
+(ii) je peux aussi utiliser la fonction `value_counts`;
+
+Et il y a sûrement d'autres manières de faire ... On va montrer les deux (essayez de faire *\%timeit* sur les deux lignes de code si vous voulez en comparer les performances):
 
 ```{code-cell} ipython3
 # value_counts marche avec toutes les Series
@@ -400,7 +423,9 @@ Oui, voilà la même chose calculée différemment.
 
 +++
 
-Est-ce qu'on peut dire qu'il y a *823* passagers de plus de 12 ans (attention piège ...). En fait on ne peut pas le dire en regardant les âges. Pourquoi ? Affichez la table des âges.
+Est-ce qu'on peut dire qu'il y a *823* passagers de plus de 12 ans (attention piège ...) ?
+
+En fait on ne peut pas le dire en regardant les âges. Pourquoi ? Affichez la table des âges.
 
 ```{code-cell} ipython3
 df['Age']
@@ -460,11 +485,11 @@ On connait l'âge de 714 passagers.
 
 Pour combien de passagers nous manque-t-il l'information d'âge ? On a l'embarras du choix ... 
    - Soit on utilise *714* qu'on retranche au nombre total de passagers (qui est le nombre de lignes ou encore la longueur `len` de la table).
-   - Soit on prend la négation de la colonne de booléen (`np.logical_not`) et on compte les `True`.
+   - Soit on prend la négation de la colonne de booléen (`np.logical_not` or `~`) et on compte les `True`.
    - Soit on utilise la fonction `pandas.Series.isna` qui nous renvoie une colonne de `True` et `False` et on compte le nombre de `True`.
    - Soit on utilise `pandas.value_counts` sur le tableau de booléens...
    
-je vous montre l'une des plus rapides: compter le nombre de `True` dans la colonne résultant du test.
+je vous montre l'une des solutions les plus rapides: compter le nombre de `True` dans la colonne résultant du test.
 
 ```{code-cell} ipython3
 (df['Age'].isna()).sum()
@@ -474,7 +499,7 @@ Donc 177 informations sur l'âge sont manquantes.
 
 +++
 
-Si vous voulions faires des opérations booléennes entre les colonnes, il faut utiliser les fonctions dédiées `np.logical_not`, `np.logical_and`, `np.logical_or`...
+Si vous voulions faires des opérations booléennes entre les colonnes, il faut utiliser les fonctions dédiées `np.logical_not`, `np.logical_and`, `np.logical_or`... ou leur contrepartie resp. `~`, `&` et `|`.
 
 ```{code-cell} ipython3
 np.sum(np.logical_not(df['Age'].isna()))
@@ -488,7 +513,7 @@ Reprenons dans le fichier *csv* la passagère *889*.
 
 +++
 
-On remarque que la valeur de son avant-dernière colonne n'est pas non plus indiquée. Regardons alors quelle est l'avant dernière colonne et accédons à sa série de valeurs. Les colonnes sont données par le champ `columns` et l'indice de l'avant-dernier sera *-2*.
+On remarque que la valeur de son avant-dernière colonne n'est pas non plus indiquée. Regardons alors quelle est l'avant dernière colonne et accédons à sa série de valeurs. Les colonnes sont données par le champ `columns` et l'indice de l'avant-dernier sera `-2`.
 
 ```{code-cell} ipython3
 df.columns[-2]
@@ -524,19 +549,19 @@ On a vu que `pandas` tend à favoriser l'utilisation des index.
 
 Il est important avec `pandas` de bien faire la différence entre ***index*** et ***indice*** :
 
-* les **index** peuvent être un peu ce qu'on veut, ici on a des entiers, ça pourrait être aussi bien des **chaines**
-* les **indices** sont toujours des **entiers** qui **commencent à 0** (comme les indices de listes et de tableau)
+* les **index** peuvent être un peu ce qu'on veut, ici on a des entiers, ça pourrait être aussi bien des **chaînes de caractères**
+* les **indices** sont **toujours(( des **entiers** qui **commencent à 0** (comme les indices des listes et des tableau)
 
-Une autre différence importante, c'est que l'index "appartient" à la ligne, et sera préservé par exemple lors d'un tri ou d'une insertion; alors qu'au contraire bien sûr, les indices eux se retrouvent tout chamboulés
+Une autre différence importante, c'est que l'**index appartient à la ligne**, et sera préservé par exemple lors d'un tri ou d'une insertion; alors qu'au contraire bien sûr, les indices eux se retrouvent tout chamboulés
 
 +++
 
-Dans l'état actuel de la dataframe, l'index (qui coincide avec `PassengerId`, et qui commence à 1), est très voisin de l'indice (qui commence toujours à 0). 
+Dans l'état actuel de la dataframe, l'index (qui coincide ici avec `PassengerId`, et qui commence à 1), est très voisin de l'indice (qui commence toujours à 0). 
 
 Du coup les deux sont très proches, et on risque de s'emmêler; pour rendre les choses plus claires, nous allons trier la table - disons selon les âges des passager.
 
 ```{code-cell} ipython3
-# on recharge
+# on recharge la table
 df = pd.read_csv("titanic.csv").set_index('PassengerId')
 
 # avant de trier: la première ligne a
@@ -618,6 +643,7 @@ isinstance(df.index, pd.Index)
 +++
 
 La **méthode recommandée** pour accéder à une ligne, (ou à une cellule d'ailleurs, on en reparlera), consiste à **utiliser les index**. 
+
 La philosophie de `pandas`, de façon générale, consiste à **favoriser** les accès par **index** - par opposition aux accès par indices.
 
 +++
@@ -641,13 +667,13 @@ La property `loc` permet aussi d'accéder aux cellules :
 ```{code-cell} ipython3
 :cell_style: center
 
-df.loc[889, 'Pclass']
+df.loc[889, 'Pclass'] # le nom de la cellule est en seconde position
 ```
 
 ***RÉSUMÉ*** pour les accès en lecture
 
 * la forme `df['Age']` fonctionne bien pour **accéder aux colonnes** 
-* la forme `df.loc[889]` permet **d'accéder aux lignes**
+* la forme `df.loc[889]` permet **d'accéder aux lignes** d'après leur **index**
 * pour accéder à une cellule, on utilise
   * `df.loc[889, 'Age']` ou
   * `df['Age'][889]`
@@ -658,7 +684,14 @@ df.loc[889, 'Pclass']
 
 +++
 
-**RÉSUMÉ*** à propos des types
+On décompose l'expression `df['Age'][889]`  (*remarquez ici le chaînage des index `[][]`*) :
+* on accède à la colonne d'index `Age` de la DataFrame `df`
+* cet accès rend la série (`pandas.Series`) représentant la colonne `df['Age']`
+* on accède à l'index `889` de cette série
+
++++
+
+**RÉSUMÉ** à propos des types
 
 * les tables pandas sont représentées par le type `DataFrame`
 * une dataframe a un index pour accéder aux colonnes (`df.columns`)  
@@ -680,12 +713,14 @@ Pour modifier (écrire dans) une cellule, on pourrait penser écrire du code de 
   ou encore
 * ~~`df['Age'][889] = 10`~~
 
-**il ne faut pas le faire**; 
-si vous essayez l'une ou l'autre de ces formes, vous obtenez un gros avertissement (parfois miraculeusement ça marche tout de même, mais c'est accidentel !)
+**il ne faut PAS le faire**; 
+si vous essayez l'une ou l'autre de ces formes, vous obtenez un gros avertissement (*A value is trying to be set on a copy of a slice from a DataFrame*) et parfois *miraculeusement* ça marche tout de même, mais c'est accidentel !
 
-+++
+```{code-cell} ipython3
+# df['Age'][889] = 10
+```
 
-La bonne méthode, je vous engage à en prendre l'habitude, consiste à utiliser cet idiome :
+La **bonne méthode**, je vous engage à en prendre l'habitude, consiste à utiliser cet idiome :
 
 * `df.loc[889, 'Age'] = 10`
 
@@ -705,7 +740,8 @@ vous remarquez qu'ici
 df.loc[889, 'Age'] = 10
 
 # pour vérifier 
-df.loc[889]
+df.loc[889, 'Age']
+# ou df['Age'][889] puisque vous ne modifiez pas !
 ```
 
 ## accès par indices : `iloc` et `iat`
@@ -744,16 +780,15 @@ df.head()
 
 +++
 
-### lecture d'un mini-titanic
+### lecture d'un petit-titanic
 
 +++
 
-Le fichier `petit-titanic.csv` contient les 10 premières lignes de passagers. Saurez-vous déjouer les deux pièges et lire le fichier ? En cas de problème ? Lisez le help ! Sauriez-vous changer l'index des colonnes ?
+Là aussi deux niveaux d'exercices, le premier pour les débutants et le second pour les avancés (ou les débutants une fois compris le premier).
 
-```{code-cell} ipython3
-# rappelez-vous, pour lire le help de read_csv:
-pd.read_csv?
-```
++++
+
+Le fichier `petit-titanic.csv` contient les 10 premières lignes de passagers.
 
 ```{code-cell} ipython3
 file = 'petit-titanic.csv'
@@ -765,9 +800,22 @@ with open("petit-titanic.csv") as feed:
     print(feed.read(), end="")
 ```
 
+####  le petit-titanic pas à pas
+
++++
+
+Pas à pas
+* Lisez le fichier avec les paramètres par défaut de `pd.read_csv`
+* Afficher les quelques (5) premières lignes. Cette data-frame vous-convient-elle ? non !!
+* Déjouer les deux pièges ! En cas de problème ? Lisez le help !
+* Combien y-a-t-il de colonnes ? et de lignes ?
+* Afficher l'index des colonnes. Changez le en mettant des noms à vos colonnes  
+* Afficher l'index des lignes. Changer le en mettant la colonnes des identificateurs des passagers
+* Comptez le nombre de valeurs manquantes dans toutes les colonnes de data-frame
+
 ```{code-cell} ipython3
-# à tout hasard on rappelle comment retrouver les colonnes de df
-# df.columns
+# décommentez pour lire le help de read_csv:
+#pd.read_csv?
 ```
 
 ```{code-cell} ipython3
@@ -775,17 +823,42 @@ with open("petit-titanic.csv") as feed:
 petit_df = ...
 ```
 
-***
-
 ```{code-cell} ipython3
-# pour comparer vous devez retrouver ceci
-# mais avec quelques colonnes en moins
+# vous devez retrouver ces passagers
+# avec peut être des différences au niveau des colonnes (noms et nombre)
 df.sort_index().head(10)
 ```
 
++++ {"tags": ["level_intermediate"]}
+
+####  le petit-titanic en un seul coup
+
++++ {"tags": ["level_intermediate"]}
+
+Passez les bons paramètres à `pandas.read_csv` de manière à ce que le test indiqué ci-dessous renvoie un tableau avec majoritairement des `True`.
+
+Mais deux colonnes vont néanmoins contenir quelques `False`. Comprenez-vous pourquoi ?
+
 ```{code-cell} ipython3
-# pour vérifier votre code, ceci doit renvoyer un tableau plein de 'True'
-# on utilise sort_index() pour remettre dans le bon ordre
+:tags: [level_intermediate]
+
+# votre code ici
+petit_df = ...
+```
+
+```{code-cell} ipython3
+:tags: [level_intermediate]
+
+# pour vérifier votre code, ceci doit renvoyer un tableau avec majoritairement des 'True'
+# on utilise sort_index() pour remettre dans le bon ordre (on les avait triés par age)
 
 df.sort_index().loc[:10, :] == petit_df
+```
+
+```{code-cell} ipython3
+:tags: [level_intermediate]
+
+# hints pour comparer vous devez retrouver ceci
+# mais avec quelques colonnes en moins
+df.sort_index().head(10)
 ```
