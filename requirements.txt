@@ -7,7 +7,7 @@ ipywidgets
 numpy
 pandas
 matplotlib
-seaborn
+# seaborn
 ipythontutor
 nbautoeval
 
