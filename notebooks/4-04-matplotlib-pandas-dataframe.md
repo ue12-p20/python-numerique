@@ -108,7 +108,7 @@ df.dtypes
 On voit la nouvelle colonne de type `int8`, et elle contient bien ce qu'on veut :
 
 ```python
-df
+df.head()
 ```
 
 ## dessinons la dataframe - `df.plot()`
@@ -142,7 +142,7 @@ Nous pouvons dessiner en donnant la liste des colonnes à afficher.
 df.boxplot(['SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth']);
 ```
 
-On remarque des outliers dans la colonne des `SepalWidth`. Les outliers sont des points en *dehors* de bornes *calculées* qui sont indiquées par les moustaches. Ces points sont potentiellement des points *aberrants*. Pour comprendre comment sont calculés les points *extrèmes* lisez les documentations des boîtes à moustache.
+On remarque des outliers dans la colonne des `SepalWidth`. Les outliers sont des points en *dehors* de bornes *calculées* indiquées par les moustaches. Ces points sont potentiellement des points *aberrants*. Pour comprendre comment sont calculés les points *extrèmes* lisez les documentations des boîtes à moustache.
 
 Affichons le boxplot de la colonne `SepalWidth`
 
@@ -188,19 +188,19 @@ df_animals
 On peut avoir des barres verticales:
 
 ```python
-df_animals.plot.bar()
+df_animals.plot.bar();
 ```
 
 Des barres horizontales:
 
 ```python cell_style="center"
-df_animals.plot.barh()
+df_animals.plot.barh();
 ```
 
 On peut indiquer la vitesse par durée de vie:
 
 ```python cell_style="center"
-df_animals.plot.bar(x='lifespan', y='speed')
+df_animals.plot.bar(x='lifespan', y='speed');
 ```
 
 ## dessiner des paires de colonnes - `df.plot.scatter`
@@ -211,7 +211,7 @@ Dessiner en 2D les colonnes les unes par rapport aux autres peut mettre en valeu
 Dans le jeu des données des iris, on peut dessiner une colonne par rapport à une autre en mettant des couleurs différentes aux points suivant le type des iris.
 
 ```python
-df.plot.scatter(x='SepalLength', y='SepalWidth')
+df.plot.scatter(x='SepalLength', y='SepalWidth');
 ```
 
 Ce serait bien plus intéressant si on ajoute le type en utilisant une couleur. Par exemple on va considérer que les 3 types, donnés par des entiers, sont 3 couleurs différentes i.e. ces 3 valeurs seront des codes de couleur différents dans la table de couleur par défaut.
@@ -219,8 +219,7 @@ Ce serait bien plus intéressant si on ajoute le type en utilisant une couleur. 
 Il faut utiliser le paramètre *c=* de la fonction `scatter`.
 
 ```python
-plt.scatter(df['SepalLength'], df['SepalWidth'], c=df['Type'])
- 
+plt.scatter(df['SepalLength'], df['SepalWidth'], c=df['Type']);
 ```
 
 On va donner aux points, une taille proportionnelle à la largeur des pétales.
@@ -229,7 +228,7 @@ On va donner aux points, une taille proportionnelle à la largeur des pétales.
 plt.scatter(df['SepalLength'], df['SepalWidth'], c=df['Type'], s=df['PetalWidth']*50); # parameter s
 ```
 
-## Exercices
+## Exercice
 
 
 ### visualisation de données sur des vins italiens
@@ -238,61 +237,13 @@ plt.scatter(df['SepalLength'], df['SepalWidth'], c=df['Type'], s=df['PetalWidth'
 Ces données sont le résultat d'analyses chimiques de vins, cultivés dans une même région d'Italie, mais issus de trois cultivateurs différents. Les données sont les quantités, trouvées dans les vins, de 13 constituants.
 
 Le fichier s'appelle `wine.csv`. La première ligne contient les noms des colonnes et la première colonne identifie le cultivaleur 1, 2 et 3.
-   1. lisez le fichier *csv* en ne gardant que les colonnes \['cultivator', 'alcohol', 'malic-acid', 'ash','total-phenols', 'flavanoids','Color-intensity', 'Hue'\] (indice *use_cols
+   1. lisez le fichier *csv* en ne gardant que les colonnes \['cultivator', 'alcohol', 'malic-acid', 'ash','total-phenols', 'flavanoids','Color-intensity', 'Hue'\]  
+   (indice utilisez: `use_cols`)
    1. afficher le header de la dataframe
    1. afficher les types déterminés par `pandas`
    1. afficher les statistiques simples (minimum, maximum, moyenne, écart-type...)
-   1. plottez la dataframe en lui passant la paramètre *figsize=(10, 10)*
+   1. plottez la dataframe en lui passant le paramètre *figsize=(10, 10)*
    1. plottez la dataframe restreinte aux deux colonnes \['flavanoids', 'cultivator'\]
    1. visualisez les boxplots de la dataframe utilisez la fonction *plt.xticks(rotation=90)* pour mieux voir les labels des abscisses
    1. visualisez des histogrammes avec des regroupements de 20 éléments
    1. afficher l'alcool en fonction de l'acide malique avec comme couleur les numéros des cultivateurs.
-
-
-## Corrections
-
-
-### visualisation de données sur des vins italiens
-
-```python cell_style="center"
-file = 'wine.csv'
-to_keep = ['cultivator', 'alcohol', 'malic-acid', 'ash','total-phenols', 'flavanoids','color-intensity', 'hue']
-df = pd.read_csv(file, usecols=to_keep)
-```
-
-```python cell_style="center"
-df.head()
-```
-
-```python
-df.describe()
-```
-
-```python
-df.info()
-```
-
-```python
-df.dtypes
-```
-
-```python
-df.plot(figsize=(10, 6));
-```
-
-```python
-df[['flavanoids', 'cultivator']].plot()
-```
-
-```python
-df.hist(bins=20);
-```
-
-```python
-df.boxplot()
-plt.xticks(rotation=90)
-```
-
-```python
-plt.scatter(df['alcohol'], df['malic-acid'], c=df['cultivator'], s=10*df['color-intensity']);
-```
