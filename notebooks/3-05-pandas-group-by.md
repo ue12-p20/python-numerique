@@ -20,7 +20,7 @@ jupyter:
 </div>
 
 
-# regroupement de données
+# regroupement de données  `pandas.DataFrame.groupby`
 
 Une table de données `pandas` est en 2 dimensions mais elle peut indiquer des sous-divisions de vos données. Par exemple, les passagers du Titanic sont divisés en femmes et hommes, en passagers de première, deuxième et troisiéme classe. On pourrait même les diviser en classe d'âge, enfants, jeunes, adultes...
 
@@ -54,7 +54,25 @@ Allons-y:
 df_by_sex = df.groupby('Sex')
 ```
 
-`pandas` calcule les différentes valeurs de la colonne en question (ici `Sex`), et partitionne la dataframe en autant de dataframes que de valeurs différentes, et les met dans un objet de type `DataFrameGroupBy` sur lequel vous pouvez, par exemple, itérer pour voir les différentes dataframes.
+`pandas` calcule les différentes valeurs de la colonne en question (ici `Sex`), et partitionne la dataframe en autant de dataframes que de valeurs différentes.
+
+
+`pandas` met les regroupements dans un objet de type `DataFrameGroupBy` (ici de nom `df_by_sex`) qui vous donne accés à de nombreuses fonctionnalités (regardez le help pour plus de détails), nous allons voir ici très peu de choses ici.
+
+
+### les tailles des groupes
+
+
+Les objets de type `DataFrameGroupBy` contiennent une fonction très pratique pour récapituler les groupes : `size`.
+
+```python
+df_by_sex.size()
+```
+
+### accéder aux sous-dataframes
+
+
+On peut aussi itérer sur un objet de type `DataFrameGroupBy` afin de voir les différentes dataframes.
 
 ```python
 for name, subdf in df_by_sex:
@@ -64,22 +82,18 @@ for name, subdf in df_by_sex:
 Voilà, la fonction a bien partitionné votre dataframe en autant de dataframes que de genre des personnes.
 
 
-L'objet `DataFrameGroupBy` (ici de nom `df_by_sex`) vous donne accés à de nombreuses fonctionnalités (regardez le help pour plus de détails), nous allons voir ici très peu de choses ici.
+### les groupes (dictionnaire d'index par clés)
 
 
-Vous pouvez accéder, au travers du champ `groups`, à un dictionnaire vous donnant les deux groupes d'`Index` (deux parce `male` et `female`). Chaque clé est une des valeurs possibles (donc à nouveau `male` et `female`), et sa valeur est la liste des index des lignes ayant cette valeur: 
+Vous pouvez accéder, au travers du champ `groups` des objets de type `DataFrameGroupBy`, au dictionnaire vous donnant les groupes d'`Index` (ici deux parce `male` et `female`).
+
+Chaque clé est une des valeurs possibles (donc à nouveau `male` et `female`), et sa valeur est la liste des index des lignes ayant cette valeur: 
 
 ```python
 # df_by_sex.groups est un dictionnaire
 # et voici ses clés et valeurs 
 for k, v in df_by_sex.groups.items():
     print(f"{k}\t→ {v}")
-```
-
-Une fonction pratique pour récapituler les groupes est `size`.
-
-```python
-df_by_sex.size()
 ```
 
 ## groupement multi-critères
@@ -92,7 +106,7 @@ La solution adoptée, c'est de passer à `groupby`, non plus une seule colonne m
 Le fonctionnement de `groupby` dans ce cas consiste à 
 
 * calculer pour chaque colonne les valeurs distinctes (comme dans le cas simple)
-* et en faire le **produit cartésien** pour obtenir les clés du groupement (et incidemment, sous la forme de tuples)
+* et en faire le **produit cartésien** pour obtenir les clés du groupement (incidemment, sous la forme de tuples)
 
 Ainsi dans notre exemple si nous prenons les critères :  `Pclass` et`Sex`:
 
@@ -104,6 +118,26 @@ et donc on va avoir 6 tuples qui serviront de clés pour le groupement : (1, 'f
 ```python
 df_by_sex_class = df.groupby(['Pclass', 'Sex'])
 ```
+
+### les tailles des groupes
+
+
+Pour faire une synthèse on peut utiliser `size()` pour récapituler les groupes; la présentation nous montre bien le produit cartésien qui a été fait
+
+```python
+df_by_sex_class.size()
+```
+
+En une seule ligne:
+
+```python
+df.groupby(['Pclass', 'Sex']).size()
+```
+
+### accéder aux sous-dataframes
+
+
+De même nous pouvons itérer sur les sous-dataframes.
 
 ```python
 # pour itérer sur les 6 catégories
@@ -135,15 +169,6 @@ for name, dataframe in df_by_sex_class:
     IPython.display.display(dataframe.head(1))
 ```
 
-Reprenons... pour faire une synthèse on peut utiliser `size()` pour récapituler les groupes; la présentation nous montre bien le produit cartésien qui a été fait
-
-```python
-# ou en une seule ligne:
-# df.groupby(['Pclass', 'Sex']).size()
-
-df_by_sex_class.size()
-```
-
 À vous de jouer : calculer le `groupby` avec le genre, la classe et si la personne a survécu ou non. Dans quel groupe de personnes reste-il le plus de survivants ? Et le moins ?
 
 ```python
@@ -155,6 +180,11 @@ df_by_sex_class_survived = df.groupby(['Pclass', 'Sex', 'Survived'])
 df_by_sex_class_survived.size()
 ```
 
+### les groupes (dictionnaire d'index par clés)
+
+
+Lister les clés
+
 Les clés sont des tuples de valeurs.
 
 ```python
@@ -163,11 +193,13 @@ df_by_sex_class_survived.groups.keys()
 
 Les valeurs sont des listes d'index, ça me permet de retrouver les entrées dans la dataframe d'origine.
 
-```python
-# voici les trois survivantes de première classe
-# cette fois en allant les rechercher dans la grande dataframe
-# remarquez que bien sûr ici on utilise loc
-# puisque nous sommes uniquement dans l'espace des index
+<!-- #region {"trusted": true} -->
+Par exemple, si nous voulons accéder aux trois seules femmes de première classe qui n'ont pas survécu. La clé est `(1, 'female', 0)`.
+
+Nous allons, cette fois, les rechercher dans la grande dataframe. Remarquez que bien sûr ici on utilise `loc` puisque nous sommes uniquement dans l'espace des index.
+<!-- #endregion -->
+
+```python scrolled=true
 df.loc[df_by_sex_class_survived.groups[(1, 'female', 0)]]
 ```
 
@@ -180,13 +212,13 @@ Prenons par exemple la colonne des âges. Si nous faisons un groupement brutalem
 
 Par contre ça devient plus intéressant si on raisonne par **classes** d'âges, par exemple les enfants, jeunes, adultes et les plus de 55 ans.
    - *'enfant'* disons entre 0 et 12 ans
-   - *'jeune'* disons entre 13 et 19 ans
-   - *'adulte'* disons entre 20 et 55 ans
-   - *'+55'*  et les personnes de plus de *55 ans
+   - *'jeune'* disons entre 12 et 19 ans
+   - *'adulte'* disons entre 19 et 55 ans
+   - *'+55'*  et les personnes de plus de 55 ans
    
-Nous aimerions donc avoir une colonne dans notre dataframe avec ces informations à la place des âges.
+Nous aimerions donc avoir une colonne dans notre dataframe avec ces labels pour compléter les âges.
    
-La fonction `pandas.cut`, appliquée à une colonne de votre dataframe, va vous générer une telle colonne, vous pouvez même donner des noms aux intervalles:
+La fonction `pandas.cut`, appliquée à une colonne de votre dataframe, va vous générer une telle colonne, et vous pouvez donner des labels aux intervalles:
 
 
 Nous allons rajouter la colonne à la dataframe. Sachant que les colonnes d'une dataframe sont les clés d'un dictionnaire, pour ajouter une colonne à votre dataframe, il faut faire comme pour les `dict` en Python. 
@@ -208,7 +240,7 @@ df[df.columns[-3:]].head(6)
 Je donne des noms aux périodes d'âge (ici on va rajouter encore une colonne)
 
 ```python
-df['name-age-periode'] = pd.cut(df['Age'], bins=[0, 15, 25, 55, 100], 
+df['name-age-periode'] = pd.cut(df['Age'], bins=[0, 12, 19, 55, 100], 
                                 labels=['children', ' young', 'adult', 'old'])
 ```
 
@@ -216,7 +248,7 @@ df['name-age-periode'] = pd.cut(df['Age'], bins=[0, 15, 25, 55, 100],
 df[df.columns[-3:]].head(6)
 ```
 
-Et maintenant nous pouvons utiliser cette colonne avec un `groupby` sur cette nouvelle colonne
+Et maintenant nous pouvons utiliser cette colonne dans des `groupby`
 
 ```python
 df.groupby(['name-age-periode']).size()
@@ -229,7 +261,7 @@ df.groupby(['name-age-periode', 'Survived']).size()
 
 ```python
 # etc..
-df.groupby(['Sex', 'name-age-periode', 'Survived']).size()
+df.groupby(['Pclass', 'Sex', 'Survived', ]).size()
 ```
 
 Vous avez désormais une petite idée de l'utilisation de la fonction `groupby` pour des recherches multi-critères sur une table de données.
