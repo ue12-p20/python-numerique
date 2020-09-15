@@ -26,24 +26,23 @@ jupyter:
 
 Après l'introduction à *Python* viennent les cours d'introduction à python-numérique en *numpy*, aux tables de données sous *pandas* et à leur visualisation avec *matplotlib*.
 
-Mais ces cours ne sont pas sous forme de diaporamas (comme ceux sur *Python* que vous venez d'avoir).
+Ces cours ne sont pas sous forme de diaporamas (comme ceux sur *Python* que vous venez d'avoir).
 
 Cette année nous tentons une expérience, un nouveau format de cours, où les noteboooks prennent la forme de petites histoires ...
 
-Les notebooks parlent aux élèves en déroulant des explications détaillées, qui soulèvent des questions (en vert pour les simples, en mauve pour les intermédiaires et en saumon pour les avancées dans les notebooks) et y répondent, le tout entrecoupés, parfois, de toutes petites choses à faire.
+Les notebooks déroulent des explications détaillées, qui soulèvent des questions et y répondent, le tout entrecoupés, parfois, de toutes petites choses à faire ou sur lesquelles on peut réfléchir rapidement.
 
 Ces notebooks jouent deux rôles: celui de *poly exécutable* (que les élèves peuvent relire en autonomie à-la-Meuh) et celui d'un scénario de base lors des cours en présentiel.
 
-L'idée serait que l'enseignant déroule les notebooks avec les élèves d'une manière très interactive en instaurant un dialogue avec la classe autour, par exemple, des questions en bleu qui jalonnent les notebooks mais toutes autres interrogations sont les bienvenus. Les élèves vont donner leur avis et formuler d'autres questions. Des réponses sont proposées dans les notebooks que l'enseignant peut naturellement compléter ou modifier. Et l'histoire continue.
+L'idée serait que l'enseignant déroule les notebooks avec les élèves d'une manière interactive en instaurant un dialogue (rapide) avec la classe autour des questions en bleu qui jalonnent les notebooks.  
+L'idée n'est pas que les notebooks soient lus en autonomie par les élèves lors des cours en présentiel.
 
-Une des difficultés est de savoir si l'enseignant lit le texte, ou le paraphrase, ou le fait lire aux élèves chacun à son tour ...
-
-Mais l'idée n'est pas que les notebooks soient lus en autonomie par les élèves lors des cours en présentiel. Les élèves déjà avancés sur le sujet peuvent aider les autres élèves avec leurs explications.
-
+Il faut garder un rythme assez soutenu si on veut faire le tour des notobooks. Les questions qui ne sont pas vertes peuvent être regardées par les élèves à-la-maison, et les petites question de code peuvent être sautées ou faites par les élèves qui vont très vite. La correction étant dessous ces petites questions servent à ré-utiliser les fonctions.
 </div>
 <!-- #endregion -->
 
 <!-- #region tags=["level_advanced"] -->
+
 # UE12 - numpy : introduction
 <!-- #endregion -->
 
@@ -205,19 +204,13 @@ C'est une bibliothèque logicielle libre et open source. Elle va vous fournir de
 `numpy` est la base de SciPy (ScientificPython) qui est un regroupement de bibliothèques Python pour le calcul scientifique.
 <!-- #endregion -->
 
-## apprenons à faire des tableaux `numpy`
+## apprenons à faire des tableaux `numpy.array`
 
 
 Puisque nous allons parler ici de la librarie `numpy`, importons là. Et donnons lui, par convention, son petit-nom `np` qui est le petit-nom standard pour `numpy`: c'est sous ce nom que l'utiliseront la plupart des codes existants, donc utilisez-le aussi !
 
 ```python
 import numpy as np
-```
-
-Maintenant tout ce qui est défini dans `numpy` sera accessible par `np.` - par exemple le type `int64` est `np.int64`.
-
-```python
-np.int64
 ```
 
 Maintenant nous allons créer un tableau et regarder les informations qu'il contient.
@@ -244,11 +237,11 @@ Ce type est une structure de donnée, qui va comporter toutes les fonctions nous
 Pour construire un tableau, de quelles informations peut-t-on avoir besoin ?
 <!-- #endregion -->
 
-Oui de sa forme, disons par exemple que le tableau est une matrice 4 x 5.
+   - de sa forme, disons par exemple que le tableau est une matrice 4 x 5.
 
-Oui du type des éléments. Oui aussi `nunpy` va pouvoir l'inférer i.e. le *deviner* à partir des valeurs initiales. Disons que cette matrice contient des entiers.
+   - du type des éléments que `nunpy` va pouvoir inférer (*deviner*) à partir des valeurs initiales fournies
 
-Oui des valeurs, disons que cette matrice est celle que nous avons vu en début du notebook et qui s'appelle `matrice`
+   - des valeurs, disons que cette matrice est celle que nous avons vu en début du notebook et qui s'appelle `matrice`
 
 
 La voila:
@@ -261,7 +254,7 @@ Pour construire un tableau on n'utilise pas directement la fonction de bas nivea
 
 D'autres fonctions sont définies pour cela, comme `numpy.array`, `numpy.zeros` et `numpy.empty`.
 
-Par exemple, la première fonction va initialiser ses éléments à partir de tout objet décrivant un tableau, par exemple la liste de listes décrivant la matrice 4 x 5 ci-dessus.
+Utilisons la première fonction. Elle initialise ses éléments à partir d'un objet décrivant un tableau, par exemple la liste de listes décrivant la matrice 4 x 5 ci-dessus.
 
 Comment savons nous tout cela ? Grâce au help sur `numpy.ndarray` ! 
 
@@ -322,7 +315,9 @@ vec
 ### le type des éléments d'un tableau `numpy.ndarray`
 
 
-Alors notre belle matrice `mat` est dans la variable Python `mat` de type `numpy.ndarray`. On va lui demander quel est le type de ses éléments.
+Notre belle matrice, dans la variable Python `mat` est de type `numpy.ndarray`.
+
+On va lui demander quel est le type de ses éléments.
 
 ```python
 mat.dtype
@@ -335,7 +330,11 @@ Maintenant à vous de jouer. Regardez le type des éléments de votre matrice `m
 <!-- #endregion -->
 
 ```python
-# votre code ici
+# votre code ici la correction ci-dessous
+```
+
+```python
+ma_mat.dtype
 ```
 
 Bon dans les deux cas `numpy` a vu large ! Il a choisi d'encoder ses entiers sur 64 bits et leur permettre d'être négatifs. Et cela pour stocker des nombres tous positifs entre 1 et 20...
@@ -384,9 +383,9 @@ mat8.dtype
 
 Combien notre tableau occupe-t-il en mémoire maintenant ... alors oui on peut le calculer mais nous rappelons la première règle de la programmation *être le plus paresseux possible* donc ne jamais calculer quelque chose qui est déjà connu !
 
-Nous allons donc demander directement à `mat` de nous indiquer sa taille en octets (1 octet = 8 bits) parce que i) on est sûr qu'il la connait parfaitement et ii) il ne fera pas d'erreur en nous l'indiquant alors que nous pourrions faire des erreurs en la calculant (oui en fin de journée un peu fatigué et hop on oublie de multiplier par le nombre de lignes ... et après on a un bug).
+Nous allons donc demander directement à `mat8` de nous indiquer sa taille en octets (1 octet = 8 bits) parce que i) on est sûr qu'il la connait parfaitement et ii) il ne fera pas d'erreur en nous l'indiquant alors que nous pourrions faire des erreurs en la calculant (oui en fin de journée un peu fatigué et hop on oublie de multiplier par le nombre de lignes ... et après on a un bug).
 
-On utilise pour cela un attribut (ou encore *champ*) de l'objet `mat`. Ce n'est pas une fonction, juste un champ à consulter qui s'appelle `numpy.ndarray.nbytes` (bytes==octets)
+On utilise pour cela un attribut (ou encore *champ*) de l'objet `mat8`. Ce n'est pas une fonction, juste un champ à consulter qui s'appelle `numpy.ndarray.nbytes` (bytes==octets)
 
 ```python
 mat8.nbytes
@@ -402,42 +401,52 @@ Maintenant à vous de jouer: Re-construisez votre matrice `ma_mat8` en lui impos
 # votre code ici
 ```
 
-Vous voyez un problème ? Oui bien sûr ! Ben c'est normal: vous avez demandé que vos éléments soient entre 0 et 255, il vous obéit au doigt et à l'oeil et convertit vos valeurs ! Nous reviendrons là dessus plus tard, mais `numpy` fait en sorte que tous les éléments du tableau tiennent dans la taille que vous avez demandé et tous dans la même taille (non pas un int et un float) quitte à modifier la valeur des éléments pour obéir à cette règle.
+```python
+ma_mat8 = np.array([[5.2, 9, 2], [6, 8, 1], [0, 3, -7], [-5, -8, 7]], dtype=np.uint8)
+ma_mat8
+```
+
+Vous voyez un problème ? Oui bien sûr: vous avez demandé (i) que vos éléments soient entre 0 et 255 et (ii) qu'ils soient des entiers. Il vous obéit et convertit vos valeurs !
+
+Nous reviendrons là dessus plus tard, mais `numpy` fait en sorte que tous les éléments du tableau tiennent dans la taille que vous avez demandé et aient tous le même type (on ne mélange pas des int et des float).
 
 
 A partir de l'objet `numpy.ndarray` on peut accéder à de nombreuses autres informations sur le tableau.
 
 
-### la taille du tableau et de ses éléments en mémoire
+### la taille `size` du tableau
 
 
 Si on veut connaître le nombre d'éléments du tableau, on utilise le champ `size`
 
 ```python
-mat.size
+mat8.size
 ```
+
+### taille des éléments en mémoire `itemsize` et `nbytes`
+
 
 Si on veut connaître la taille qu'occupe en mémoire (en octets) chaque élément, on utilise `itemsize` 
 
 ```python
-mat.itemsize
+mat8.itemsize
 ```
 
 Si on veut connaître le nombre d'octets total qu'occupe notre tableau en mémoire (on l'a déjà vu), on utilise `nbytes`.
 
 ```python
-mat.nbytes
+mat8.nbytes
 ```
 
 <!-- #region tags=["level_basic"] -->
-Maintenant dégourdissez vous les doigts, consultez (i) la taille, (i) la taille des éléments, (iii) le nombre total d'octets et (iv) le type des éléments de votre matrice `ma_mat` 
+Maintenant dégourdissez vous les doigts, consultez (i) la taille, (i) la taille des éléments, (iii) le nombre total d'octets et (iv) le type des éléments de votre matrice `ma_mat8` 
 <!-- #endregion -->
 
 ```python
 # votre code ici
 ```
 
-### la forme et la dimension du tableau
+### la forme `shape` et la dimension  `dim`du tableau
 
 
 Si on veut connaître la forme d'un tableau, on utilise ? Oui `shape` !
@@ -475,7 +484,7 @@ Un petit tableau pour récapituler les méthodes des `numpy.ndarray` (on les a d
 | `numpy.ndarray.nbytes`   | la taille totale du tableau sous-jacent en octet |
 
 
-### création d'un tableau de zéros
+### création d'un tableau de zéros `numpy.zeros`
 
 
 Il existe une deuxième fonction pour créer des tableaux dont les éléments sont initialisés à 0. Qui s'appelle `numpy.zeros`. Alors là vous allez devoir donner la forme de votre tableau, la fonction ne peut pas la deviner ... comme elle le faisait dans l'exemple précécent.
@@ -507,7 +516,7 @@ La correction ci-dessous.
 np.zeros(shape=(6, 2), dtype=int).dtype
 ```
 
-### création d'un tableau de *rien*
+### création d'un tableau de *rien* `numpy.empty`
 
 <!-- #region tags=["level_basic"] -->
 Il existe une fonction qui permet de ne pas initialiser les éléments du tableau. Alors bien sûr on se pose des tas des questions, au moins deux: A quoi ca sert ? Dans quel cas est-il intéressant de l'utiliser ? Qu'en pensez-vous ?
@@ -540,7 +549,10 @@ rien
 Et oui vous voyez que vous avez n'importe quoi comme valeurs: `numpy` laisse simplement la mémoire comme elle était avant la création du tableau. Puisque toute case mémoire contient soit un 0 soit un 1, le contenu des cases est mis dans le type des éléments de votre tableau, avec 8 bits je vais avoir des nombres compris entre -128 à 127.
 <!-- #endregion -->
 
-### on récapitule les fonctions (que nous avons vues) pour créer un ndarray
+### on récapitule les fonctions de créationde `numpy.ndarray`
+
+
+les fonctions que nous avons vues jusqu'à présent
 
 
 | les méthodes | ce qu'elles font |
@@ -551,84 +563,104 @@ Et oui vous voyez que vous avez n'importe quoi comme valeurs: `numpy` laisse sim
 | `numpy.ones` | renvoie un ndarray rempli de *1.* (float) |
 
 
+Les cours étant très condensés, les quiz et les exercices sont plutôt à faire en temps réel avec les élèves ou en fin de séance si il reste du temps 
+
+<!-- #region tags=["level_intermediate"] -->
 ## quiz
+<!-- #endregion -->
 
-
+<!-- #region tags=["level_intermediate"] -->
 considérons le tableau `np.array([[1, 2, 3], [ 4, 5, 6]])`
    - quelle est sa forme `(2, 3)` ou `(3, 2)`
-   - quelle est la taille de ce tableau `2` ou `6`
-   
+   - quelle est la taille de ce tableau `2` ou `6`   
+<!-- #endregion -->
 
-
+<!-- #region tags=["level_intermediate"] -->
 Qu'obtient-on si on fait:
    - `np.array([256, 257, 258]).astype('uint8')` ? `[256, 257, 258]` ou `[0, 1, 2]`
+<!-- #endregion -->
 
-
+<!-- #region tags=["level_intermediate"] -->
 Que donne la méthode `size` d'un `numpy.ndarray` ?
    - `le nombre d'éléments` ou `la taille du tableau` ou `la taille d'un élément`
+<!-- #endregion -->
 
-
+<!-- #region tags=["level_intermediate"] -->
 ## quelques petits exercices
+<!-- #endregion -->
 
-
+<!-- #region tags=["level_intermediate"] -->
 ### on s'échauffe
+<!-- #endregion -->
 
-
+<!-- #region tags=["level_intermediate"] -->
 Créez une matrice de 1 de taille 2 x 3 x 4 et affichez là. Qu'est-ce-que vous obtenez ?
+<!-- #endregion -->
 
-```python
+```python tags=["level_intermediate"]
 # votre code ici
 ```
 
-```python
+```python tags=["level_intermediate"]
 np.ones(shape=(2, 3, 4))
 ```
 
+<!-- #region tags=["level_intermediate"] -->
 ### comparaison des temps de constructions de tableaux initialisés et non
+<!-- #endregion -->
 
-
+<!-- #region tags=["level_intermediate"] -->
 Pour comparer des temps de calcul, nous allons utiliser une fonction (un peu magique) des notebooks qui s'appelle `timeit` et qui va appeler de nombreuses fois le calcul et faire la moyenne des temps d'exécution.
 
 En voici un exemple l'exécution de la cellule suivante vous donnera la moyenne des temps d'exécution d'un certain nombre d'exécution du code *1 + 1* 
+<!-- #endregion -->
 
+<!-- #region tags=["level_intermediate"] -->
+Temps calculé sur l'exécution de la ligne (avec un seul `%`)
+<!-- #endregion -->
 
-Temps calculé sur l'exécution de la ligne:
-
-```python
+```python tags=["level_intermediate"]
 %timeit 1 + 1
 ```
 
-Temps calculé sur l'exécution de la cellule:
+<!-- #region tags=["level_intermediate"] -->
+Temps calculé sur l'exécution de toute la cellule (avec deux `%%`)
+<!-- #endregion -->
 
-```python
+```python tags=["level_intermediate"]
 %%timeit
 1 + 1
 ```
 
+<!-- #region tags=["level_intermediate"] -->
 Mon ordi met 6.12 nano-secondes.
+<!-- #endregion -->
 
-
+<!-- #region tags=["level_intermediate"] -->
 Maintenant utiliser ce calcul des temps d'exécution pour comparer:
    1. la création d'un `numpy.ndarray` à partir d'une liste Python comportant 10.000 floats initialisés à 0.
    1. la création d'un `numpy.ndarray` de 10.000 éléments initialisés à 0.
    1. la création d'un `numpy.ndarray` de 10.000 éléments non-initialisés.
    
 Pour la version Python créez la liste Python avant de calculer le temps de calcul.   
+<!-- #endregion -->
 
-```python
-# vote code ici
-```
-
-```python
+```python tags=["level_intermediate"]
 # votre code ici
 ```
 
-```python
+```python tags=["level_intermediate"]
 # votre code ici
 ```
 
-```python
+```python tags=["level_intermediate"]
 # votre code ici
 ```
 
+```python tags=["level_intermediate"]
+# votre code ici
+```
+
+<!-- #region tags=["level_intermediate"] -->
 Qu'en concluez-vous ?
+<!-- #endregion -->

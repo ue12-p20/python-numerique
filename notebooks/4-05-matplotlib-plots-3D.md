@@ -118,12 +118,6 @@ def f(x, y):
     return np.power(x, 2) - np.power(y, 2)
 ```
 
-On l'essaie:
-
-```python
-f([10, 20, 30], [20, 30, 40])
-```
-
 ### on construit une grille de points
 
 
@@ -131,7 +125,7 @@ Il nous faut maintenant les appliquer la fonction $f$ à un ensemble de points c
 
 Par exemple si je veux dessiner la fonction entre les abscisses 1 et 4 et les ordonnées 4 à 6, je vais vouloir calculer $f$ sur les points suivants (je ne donne que des valeurs entières pour la simplicité de l'exemple):
 
-<img src='meida/points-meshgrid.png' width=300>
+<img src='media/points-meshgrid.png' width=300>
 
 Si on regarde en matrices `np.ndarray`, $f$ va devoir être calculée sur une sorte de produit cartésien des abscisses et des ordonnées de cette manière:
 
@@ -224,10 +218,10 @@ On peut aussi s'amuser à afficher la fonction comme une image:
 plt.imshow(v_z);
 ```
 
-## Exercices
+## exercices
 
 
-### Fonction par morceaux
+### fonction par morceaux
 
 
 $f(x)=\frac{(x^3−1)}{(x−3)}\ si\ x < −1$
@@ -238,20 +232,20 @@ $f(x)=x−1\ si\ x\geq -1$
 Si vous avez un problème pensez à vectoriser (avec `np.vectorize` l'intérêt est de pouvoir appliquer cette fonction à des arguments *x* et *y* donnés sous la forme de `np.ndarray` et pas uniquement à des scalaires).
 
 
-### La gaussienne en 3D
+### la gaussienne en 3D
 
 Visualisez la gaussienne $\Gamma(x, y)= \dfrac{1}{(2 \pi \sigma^2)}e^{-\dfrac{[(x-\mu_x)^2+(y-\mu_y)^2]}{(2 \sigma^2))}}$ avec $x$ entre $-2\pi$ et $2\pi$ et $y$ entre 0 et 5.
 
-### Une autre fonction
 
+### une autre fonction
 
 Visualisez la fonction $f(x, y)=\sin(\sqrt{|x^2 - y^2|})$.
 
 
-## Corrections
+## corrections
 
 
-### Fonction par morceaux
+### fonction par morceaux
 
 
 $f(x)=\frac{(x^3−1)}{(x−3)}\ si\ x < −1$
@@ -286,7 +280,7 @@ plt.axis('on')  # to show the axis
 cc = plt.colorbar()
 ```
 
-### La gaussienne en 3D
+### la gaussienne en 3d
 
 ```python
 def gamma(x, y, mu_x, mu_y, sigma):

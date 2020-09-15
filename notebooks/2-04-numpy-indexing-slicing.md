@@ -21,19 +21,6 @@ jupyter:
 </div>
 
 
-Un petit aparté vers ceux qui se demandent 
-> à quoi cela peut bien me servir d'avoir une intuition de la manière dont la librarie `numpy` travaille en mémoire ?!
-
-Une première raison: afin que vous preniez des décisions en connaissance de cause ou du moins en essayant de comprendre les conséquences de vos choix.
-
-Une seconde raison: afin que vous ne soyez pas complètement dépourvus le jour où vos codes, en se complexifiant, deviendront beaucoup trop lents ou prendront trop d'espace mémoire pour traiter vos données ...
-
-Une troisième raison: afin de vous familiariser avec l'informatique et comprendre des mécanismes sous-jacents qui expliquent les choix des concepteurs de libraries.
-
-Une dernière raison, afin d'avoir une petite culture informatique technique bien formée pour ne jamais penser que c'est magique, incompréhensible ou trop compliqué ! Donc si vous ne comprenez pas bien une notion, vous le dites !
-
-
-
 # indexation et slicing
 
 où on accède aux éléments, et à des sous-tableaux
@@ -44,22 +31,27 @@ import numpy as np
 
 ## accéder aux éléments d'un `ndarray`
 
+
 Il est naturellement possible d'accéder (*accessing*) aux éléments d'un tableau `np.ndarray`, comme nous le faisons pour les listes Python.
 
 
 Rappel sur les fonctions vectorisées:
 
-La possibilité d'accéder aux éléments d'un ndarray ne doit pas vous faire oublier que l'appel de **fonctions vectorisées** doit toujours être **priviligié**: c'est LA meilleure manière de coder. Vous vous rappelez pourquoi ? Parce que l'application d'une fonction vectorisée ne se fait pas en utilisant des fonctions codées en Python mais des fonctions codées dans un langage de programmation beaucoup proche de la mémoire de l'ordinateur et qui va (entre autres) très rapidement d'une case (un élément) à une autre case du tableau.
+La possibilité d'accéder aux éléments d'un ndarray ne doit pas vous faire oublier que l'appel de **fonctions vectorisées** doit toujours être **priviligié**: c'est LA meilleure manière de coder.
 
-Il ne faut donc jamais utiliser l'accés aux éléments d'un tableau dans des itérations où vous pourriez appliquer directement des fonctions vectorisées.
+Vous vous rappelez pourquoi ? Parce que l'application d'une fonction vectorisée ne se fait pas en utilisant des fonctions codées en Python mais des fonctions codées dans un langage de programmation beaucoup proche de la mémoire de l'ordinateur et qui va (entre autres) très rapidement d'une case (un élément) à une autre case du tableau.
+
+Il ne faut donc **jamais** utiliser l'accés aux éléments d'un tableau dans des itérations où vous pourriez appliquer directement des fonctions vectorisées. 
 
 
-Ceci dit, accéder aux éléments et aux sous-tableaux d'un tableau `numpy` , va (par exemple) vous servir à appliquer des fonctions vectorisées à des sous-parties de votre tableau.
+Ceci dit, accéder aux éléments et aux sous-tableaux d'un tableau `numpy` , va (par exemple) vous servir à appliquer des fonctions vectorisées à des sous-parties de votre tableau donc elles sont **très** utiles 
 
 
 La manière d'accéder aux éléments d'un tableau `numpy` va dépendre tout naturellement ... de quoi ? oui bien sûr de la forme du tableau !
 
-Vous vous rappelez que la forme d'un `np.ndarray` est donnée par une indexation sur le segment mémoire sous-jacent de votre tableau.
+Vous vous rappelez que la forme d'un `np.ndarray` est donnée par une indexation sur le segment mémoire sous-jacent continu de votre tableau.
+
+Par exemple, le segment $\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$ peut être indexé avec les formes (12,), (1, 12), (2, 6), (3, 4), (12, 1) ... (2, 3, 2)... 
 
 
 ### en dimension 1
@@ -96,9 +88,9 @@ vec
 
 Le tableau a bien été modifié ! ... mais est-ce exactement comme en Python ? Rien de spécial ?
 
-ah heu si, vous avez un **3** là où vous attendiez **π** !
+ah heu si (on l'a déjà vu): vous avez un **3** là où vous attendiez **π** !
 
-Gardez bien à l'esprit que, contrairement à Python, les tableaux numpy sont typés et de taille fixe. Donc si vous tentez de mettre une valeur flottante à la place d'un entier, la valeur flottante sera silencieusement (et implicitement) coupée ... et ce comportement peut ne pas vous convenir du tout !
+Gardez bien à l'esprit que, contrairement à Python, les tableaux numpy sont typés et de **taille fixe**. Donc si vous tentez de mettre une valeur flottante à la place d'un entier, la valeur flottante sera silencieusement (et implicitement) coupée ... et ce comportement peut ne pas vous convenir du tout !
 
 Faites bien attention à ce que vous faites.
 
@@ -106,16 +98,16 @@ Faites bien attention à ce que vous faites.
 ### en dimension supérieure à 1
 
 
-En dimension supérieure à 1, naturellement l'accès à un élément du tableau va dépendre de la forme du tableau donc de ses indices.
+En dimension supérieure à 1, naturellement l'accès à un élément du tableau va dépendre de la forme du tableau donc de ses indices dans chacune des dimensions.
 
 Construisons un tableau avec des valeurs de 1 à 12 et donnons lui une forme de matrice 3 lignes et 4 colonnes 
 
-Nous allons pour cela utiliser la fonction `np.ndarray.resize` qui modifie la forme d'un tableau *en place* c'est à dire que la fonction ne crée pas un nouveau tableau mais modifie celui auquel elle est appliquée.
+Nous allons pour cela utiliser la fonction `np.ndarray.resize` qui modifie la forme d'un tableau *en place* c'est à dire que la fonction bien sûr ne crée pas un nouveau tableau mais modifie l'indexation de celui auquel elle est appliquée.
 
-Il existe une autre fonction `np.ndarray.reshape` qui fait la même chose en créant un nouveau tableau, donc il ne faut l'utiliser que quand on a besoin des deux tableaux l'original et sa version redimensionnée !
+Il existe une autre fonction `np.ndarray.reshape` qui fait la même chose en créant un nouvelle indexation (donc vous avez désormais 2 indexations différentes sur la même mémoire sous-jacente, vous vous rappelez des références partagées ?).
 
 
-Le voilà en dimension 1
+Notre tableau en dimension 1:
 
 ```python
 vec = np.arange(1, 13)
@@ -125,8 +117,15 @@ vec
 Le voila redimensionné en dimension 3 x 4
 
 ```python
-vec.resize((3, 4))
+vec.resize(3, 4)
 vec
+```
+
+Le voilà indexé par une nouvelle forme:
+
+```python
+vec1 = vec.reshape(6, 2)
+vec1
 ```
 
 Pour accéder à un élément on voit bien que nous allons avoir besoin de 2 indices: celui des lignes et celui des colonnes.
@@ -153,6 +152,12 @@ Notez qu'en grande dimension, les deux derniers indices correspondent toujours �
 c'est pourquoi on a utilisé $l$ et $c$ comme noms pour les deux derniers indices
 <!-- #endregion -->
 
+Sauriez-vous dire la dimension de votre tableau ? 
+
+```python
+vec.ndim # attention au n de ndim
+```
+
 Sauriez-vous lister le nombre d'éléments dans chacune des dimensions ? 
 
 ```python
@@ -177,7 +182,7 @@ ce qui revient à dire qu'en fait
 len(vec.shape) == vec.ndim 
 ```
 
-On peut modifier l'élément, en faisant attention comme tout à l'heure: ici on attend des entiers ! toute valeur d'un autre type sera convertie dans le type entier avec plus ou moins d'effet: `True` deviendra `1`, `False` deviendra `0`, un flottant sera réduit à sa *partie  entière*, etc...
+On peut modifier l'élément, en faisant attention comme tout à l'heure: ici on attend des entiers ! toute valeur d'un autre type sera convertie (lorsque c'est possible) dans le type entier avec plus ou moins d'effet: `True` deviendra `1`, `False` deviendra `0`, un flottant sera réduit à sa *partie  entière*, etc...
 
 ```python cell_style="split"
 vec
@@ -199,6 +204,12 @@ vec
 
 ah bien oui ! il a coupé 0.99 !
 
+
+Vérifions que `vec1` a bien été modifié ?
+
+```python
+vec1[0, 0] # oui !
+```
 
 Et vous pouvez comme en Python utiliser les indices négatifs qui se traduisent facilement en indices positifs
 
@@ -228,7 +239,9 @@ vec[3-2, 4-2]
 <!-- #region {"cell_style": "center"} -->
 Souvenez-vous, dans toutes les dimensions $\ge2$, on remarque que les tableaux ont leurs lignes à l'indice -2 (avant-dernière dimension) et leurs colonnes à l'indice -1 (dernière dimension)
 
-A vous de jouer, faites un `np.ndarray` contenant des 1, de dimension 3 x 2 x 5 x 4, i) affichez le, vous allez bien voir trois groupes de 2 matrices de 5 lignes sur 4 colonnes, ii) afficher le nombre des éléments des dimensions -2 et -1 (un indice la forme c'est `np.ndarray.shape`.
+A vous de jouer, faites un `np.ndarray` contenant des 1, de dimension 3 x 2 x 5 x 4,  
+i) affichez le, vous allez bien voir trois groupes de 2 matrices de 5 lignes sur 4 colonnes,  
+ii) afficher le nombre des éléments des dimensions -2 et -1 (un indice la forme c'est `np.ndarray.shape`).
 <!-- #endregion -->
 
 ```python
@@ -237,12 +250,18 @@ A vous de jouer, faites un `np.ndarray` contenant des 1, de dimension 3 x 2 x 5 
 
 ## accéder à un sous-tableau (slicing)
 
-Maintenant nous allons voir comment accéder un sous-tableau d'un tableau existant. Là encore vous pourrez avoir des sous-tableaux de n'importe quelle dimension !
 
-Cette opération de *slicing* sera syntaxiquement équivalent au slicing des listes et autres séquences en Python; toutefois il y aura une différence très importante entre le slicing-python et le slicing-numpy ? La connaissez-vous ? Nous y reviendrons.
+Maintenant nous allons voir comment accéder à un sous-tableau d'un tableau existant.
+
+Là encore vous pourrez obtenir des sous-tableaux de différentes dimensions !
+
+Cette opération de *slicing* sera syntaxiquement équivalent au slicing des listes et autres séquences en Python (toutefois il y aura une différence très importante entre le slicing-python et le slicing-numpy; nous y reviendrons).
 
 
 ### en dimension 1
+
+
+#### rappel du slicing Python
 
 
 Prenons un exemple Python d'une liste contenant les 10 premiers entier positifs  
@@ -263,14 +282,17 @@ On peut utiliser des indices négatifs `-1` est le dernier élément, `-2` l'ava
 Extrayons la liste partant du deuxième élément de la liste (donc d'indice 1), en allant jusqu'au dernier (donc soit 9 soit -1), en considérant un élément tous les 2 éléments.  
 
 ```python
-L[1:-1:2] # oui
+L[1:-1:2]
 ```
 
 ```python
-L[1:9:2] # oui aussi
+L[1:9:2]
 ```
 
 À l'identique le découpage (*slicing*) d'un `np.ndarray` de dimension 1.
+
+
+#### slicing d'un `np.ndarray`
 
 ```python
 # oui on réutilise L (on reste très paresseux puisque c'est souvent bien de l'être)
@@ -291,9 +313,9 @@ Si le pas est négatif, alors il faut faire attention aux indices du début et d
 v[-2:0:-2]
 ```
 
-On part de l'avant dernier $-2$ on va jusqu'à l'indice 0 et on descend avec un pas de -2. On remarque que l'élément d'indice 0 n'est pas compris ! oui c'est calculé comme cela.
+On part de l'avant dernier $-2$ on va jusqu'à l'indice 0 et on descend avec un pas de -2. On remarque que l'élément d'indice 0 n'est pas compris ! oui c'est calculé comme cela `to` n'est pas compris).
 
-Si on voulait avoir le dernier élément ? et bien, tout simplement, on n'indique pas la valeur de l'indice de début de tableau, il prendra tous les éléments par défaut.
+Si on voulait avoir le dernier élément ? et bien, tout simplement, on n'indique pas la valeur de `to`, il prendra tous les éléments par défaut.
 
 ```python
 # remarquez le :: qui indique 
@@ -321,11 +343,12 @@ Passons en accés pour des dimensions supérieures à 1:
 ### en dimension supérieure à 1
 
 
-Si nous reprenons l'exemple du *vec* en dimension 4 de forme $(n, m, l, c)$. Avec $vec[i_n, i_m, i_l, i_c]$ où les $i_j$ sont des indices corrects (qui sont dans les bornes de leur dimension), on accède a un élément.
+Si nous reprenons l'exemple du *vec* en dimension 4 de forme $(n, m, l, c)$. Avec $vec[i_n, j_m, k_l, l_c]$ (où les indices sont corrects i.e dans les bornes de leur dimension) on accède a un élément.
 
-Si à la place de mettre des indices uniques ($i_j$), vous utiliser une syntaxe de *slicing* (en `a:b:c` comme on vient de le revoir), vous allez accéder à un sous-tableau.
+Si à la place de mettre des indices uniques, vous utilisez une syntaxe de *slicing* (en `a:b:c` comme on vient de le re-voir), vous allez accéder à un sous-tableau.
 
-Faisons un tableau de $40$ éléments qui vont de $0$ à $39$ (en valeur). Redimensionnons-le en une forme $2 \times 5 \times 4$, et affichons-le: on voit bien les deux matrices.
+Faisons un tableau de $40$ éléments qui vont de $0$ à $39$ (en valeur).  
+Redimensionnons-le en une forme $2 \times 5 \times 4$, et affichons-le: on voit bien les deux matrices.
 
 ```python
 mat = np.arange(0, 40)
@@ -334,7 +357,7 @@ print(mat)
 ```
 
 Disons qu'on cherche à extraire, dans la première matrice, la sous-matrice du milieu  
-(obtebnue en enlevant une épaisseur de 1 sur le pourtour), donc ici pour nous  
+(obtebnue en enlevant une épaisseur de largeur 1 sur le pourtour), donc ici pour nous  
 $\begin{pmatrix} 5 & 6 \\ 9 & 10 \\ 13 & 14 \\ \end{pmatrix}$
 
 Donc on veut la première matrice (0), puis les éléments qui vont du deuxième élément (1) à l'avant dernier compris (-1) pour les lignes et les colonnes:
@@ -377,7 +400,7 @@ C'est super tout cela !
 
 Maintenant nous allons voir comment modifier les valeurs de nos sous-tableaux ... mais avant de modifier, il faudrait comprendre ce qu'on va modifier !
 
-En effet, les sous-tableaux (les slices) "*Sont-ils des vues sur le tableau existant ou des copies du tableau*"  ou encore "*Va-t-on modifier le tableau initial ou une copie du tableau initial ?*"
+En effet, les sous-tableaux (les slices) **Sont-ils des vues sur le tableau existant ou des copies du tableau**  ou encore **Va-t-on modifier le tableau initial ou une copie du tableau initial ?**
 
 Alors votre idée ? 
 
@@ -385,7 +408,8 @@ Alors votre idée ?
 ## les slices sont des vues et non des copies
 
 
-En effet la question qui se pose est la suivante. Est-ce que le slicing a créé un nouveau `np.ndarray` avec son propre segment de mémoire ? Ou est-ce qu'il a calculé une nouvelle vue (view) sur le segment mémoire du tableau existant ?
+En effet la question qui se pose est la suivante:  
+Est-ce que le slicing a créé un nouveau `np.ndarray` avec son propre segment de mémoire ? Ou est-ce qu'il a calculé une nouvelle vue (view) sur le segment mémoire du tableau existant ?
 
 Prenons un exemple:
 
@@ -407,14 +431,17 @@ $mat1$ est-il un nouveau `np.ndarray` ou une vue sur le `np.ndarray` de *mat* ?
 
 On se doute bien que `numpy` veut garder sa première place de LA librairie rapide et bien codée de tableaux pour Python.
 
-SI on choisissait de construire un nouveau `np.ndarray` en mémoire à chaque fois qu'on accède à une sous-partie d'un tableau `np.ndarray` existant ... et bien ça pénaliserait fortement tous les codes !
+Si ils avaient choisi de construire un nouveau segment unidimensionnel dans mémoire, pour les données, à chaque fois qu'on accèdait à une sous-partie d'un tableau `np.ndarray` existant ... et bien ça pénaliserait fortement tous les codes !
 
-D'autre part, les utilisateurs de `numpy` savent pertinemment si ils veulent une vue ou une copie pour leur sous-tableau…
+D'autre part, les utilisateurs de `numpy` savent pertinemment si ils veulent une vue ou une copie pour leur sous-tableau...
 
-Donc ? et bien oui, un nouvel objet `np.ndarray` est bien créé, et oui il est différent de l'objet `np.ndarray` initial, mais ils **partagent** la mémoire (le segment unidimensionnel)
+Donc ? et bien oui:
+   - un nouvel objet `np.ndarray` est bien créé,
+   - il est différent de l'objet `np.ndarray` initial
+   - mais ils **partagent** la mémoire (le segment unidimensionnel)
 
 
-Donc `mat` et `mat1` sont deux objects de type `np.ndarray` et ils sont différents
+Donc `mat` et `mat1` sont bien deux objects de type `np.ndarray` et ils sont différents
 
 ```python
 type(mat), type(mat1)
@@ -425,9 +452,10 @@ mat is mat1
 ```
 
 <!-- #region {"tags": ["level_intermediate"]} -->
-Pour les avancés ou les curieux rapides (les autres pourront y revenir lors de leurs révisions, parce que naturellement vous révisez vos cours d'une fois sur l'autre ? non ?
+Pour les avancés ou les curieux rapides (les autres pourront y revenir lors de leurs révisions, parce que naturellement vous révisez vos cours d'une fois sur l'autre ? du moins quand ce n'est pas du matin pour l'après-midi ?
 
-Dans un objet `np.ndarray` je peux savoir si cet objet est une vue ! Oui le champ *base* m'indique si mon `ndarray` est *basé* sur un autre `ndarray` !  
+Dans un objet `np.ndarray` je peux savoir si cet objet est une vue !  
+Oui le champ `base` m'indique si mon `ndarray` est *basé* sur un autre `ndarray`!  
 <!-- #endregion -->
 
 ```python tags=["level_intermediate"]
@@ -539,7 +567,7 @@ $[\begin{pmatrix} 24 & 22 & 20 \\ 18 & 16 & 14 \\ \end{pmatrix}, \begin{pmatrix}
 et on veut mettre 999 à la place de 2 et afficher le premier tableau.
 
 ```python
-# votre code ici (une correction en section dédiée)
+# votre code ici
 ```
 
 Nous l'avons déjà bien dit mais il est important de le rappeler: ces tranches de tableaux (slices) ne sont que des vues sur le tableau initial et non des copies. Si vous les modifiez, c'est bien le tableau initial qui est modifié.
@@ -552,9 +580,11 @@ Et là c'est très différent de Python, où les sous-listes obtenues par slicin
 ## modifier les sous-tableaux
 
 
-Maintenant que vous savez accéder, naturellement vous voulez modifier ?
+Maintenant que vous savez accéder à une slice d'un tableau, naturellement vous allez vouloir la modifier ?
 
-Il va falloir faire attention: i) au type des éléments, mais aussi maintenant ii) à la forme du tableau
+Il va falloir faire attention:  
+i) au type des éléments  
+ii), mais aussi maintenant à la forme du tableau
 
 
 Prenons un vecteur `vec`:
@@ -574,49 +604,41 @@ Modifions ces nombres tous en une seule fois:
 
 ```python
 vec[1::2] = [20, 40, 60]
-```
-
-L'a-t-il fait ?
-
-```python
 vec
 ```
 
-Oui il l'a fait.
+Il l'a fait.
 
-On essaie de le tromper ? si je ne lui donne pas assez d'éléments pour remplir sa slice : 
+Essayons de le tromper ? si je ne lui donne pas assez d'éléments pour remplir sa slice : 
 
 ```python tags=["raises-exception"]
 vec[1::2] = [2, 4]
 ```
 
-Ah il s'en apercoit ! Il ne sait donc pas déduire un tableau de taille 3 à partir de \[2, 4\]. Et on le comprend ! Quelle valeur choisir pour l'élément manquant ? Rien de simple ne nous saute à l'esprit !
+Il s'en apercoit: il ne sait donc pas déduire un tableau de taille 3 à partir de \[2, 4\]. Et on le comprend ! Quelle valeur choisir pour l'élément manquant ? Rien de logique ne nous vient à l'esprit.
 
-Essayons encore ?
+Essayons d'une autre manière:
 
 ```python
 vec[1::2] = [ 999 ]
-```
-
-Oh mais que s'est-il passé ! `numpy` accepte parfaitement de faire l'affectation !
-
-Mais comment a-t-il considéré \[999\] ? Regardons vite ce qu'il y a dans `vec` !
-
-```python
 vec
 ```
 
-```python
-vec[1::2]
-```
+Que s'est-il passé ! `numpy` a  parfaitement accepté de faire l'affectation !
 
-Il a considéré \[ 999 \] comme étant \[ 999, 999, 999 \] ! Et oui là il trouve une manière intelligente de transformer (d'élargir, d'agrandir), un tableau réduit à un seul élément (\[ 999 \]) en tableau à 3 éléments: il met 3 fois le même ! Vous auriez indiqué juste 999 il l'aurait fait aussi !
+Comment a-t-il considéré \[999\] ?
 
-C'est ce qu'on appelle le *broadcasting*, on y reviendra plus tard. C'est super utile: quand c'est possible, `numpy` se permet d'enlargir vos tableaux de manière à pouvoir faire l'opération.
+Il a considéré \[ 999 \] comme étant \[ 999, 999, 999 \] !
+
+Et oui là il trouve une manière intelligente de transformer (d'élargir, d'agrandir), un tableau réduit à un seul élément (\[ 999 \]) en tableau à 3 éléments: il met 3 fois le même !
+
+Vous auriez indiqué juste 999 il l'aurait fait aussi !
+
+C'est ce qu'on appelle le *broadcasting*, on y reviendra plus tard. C'est super utile ! Quand c'est possible `numpy` *élargit* vos tableaux de manière à pouvoir faire l'opération.
 
 ```python
 # la manière classique de faire, mais l'autre est plus jolie et plus rapide
-vec[1::2] = [ 1000, 1000, 1000 ] 
+vec[1::2] = [ 999, 999, 999 ] 
 ```
 
 Et en plus, ça va même plus vite ! En effet quand vous voulez faire une opération du genre "*ajouter 10 à tous les éléments d'un vecteur de taille 800*", `numpy` va éviter de créer un nouveau tableau de taille 800 rempli de 10, avant de l'ajouter, il va donc être plus rapide que vous !
@@ -639,7 +661,7 @@ Et combien de temps si on doit créer le tableau de 10 ?
 
 ```python
 %%timeit
-m10 = np.ones(800)*10 # ne regarder pas trop cela (oui on utilise là aussi le broadcast ...)
+m10 = np.ones(800)*10 # l'utilisation classique de la fonction ones (on utilise là aussi le broadcast)
 m+m10
 ```
 
@@ -649,25 +671,120 @@ Et bien oui on met naturellement la création du tableau dans le code dont le te
 On y reviendra. Oublions pour le moment le broadcasting, 
 
 
-## Exercices
+## exercices
 
+
+avant d'aborder ces exercices, je vous signale un utilitaire très pratique (parmi les 2347 que nous n'avons pas eu le temps de couvrir ;); il s'agit de `numpy.indices()`
+
+commençons par un exemple :
+
+```python
+lignes, colonnes = np.indices((3, 5))
+```
+
+```python cell_style="split"
+lignes
+```
+
+```python cell_style="split"
+colonnes
+```
+
+vous remarquerez que dans le tableau qui s'appelle `lignes`, la valeur dans le tableau correspond au numéro de ligne; dit autrement :
+
+* `lignes[i, j] == i` pour tous les $(i, j)$,
+    
+et dans l'autre sens bien sûr 
+
+* `colonnes[i, j] == j`
+
+```python cell_style="split"
+lignes[1, 4]
+```
+
+```python cell_style="split"
+colonnes[1, 4]
+```
+
+Pourquoi est-ce qu'on parle de ça me direz-vous ? 
+
+Eh bien en guise d'indice, je vous renvoie à la notion de programmation vectorielle.
+
+Ainsi par exemple si je veux créer une matrice de taille (3,5) dans laquelle `M[i, j] == i + j`, je **ne vais surtout par écrire une boucle `for`**, et au contraire je vais écrire simplement
+
+```python
+I, J = np.indices((3, 5))
+M = I + J
+M
+```
 
 ### les rayures
 
 
-Écrivez une fonction *zebre*, qui prend en argument un entier *n* et qui fabrique un tableau de rayures verticales, figurées par une alternance de lignes verticales de *n* zéros et de *n* uns.
+Écrivez une fonction `zebre`, qui prend en argument un entier *n* et qui fabrique un tableau carré de coté $n$, formé d'une alternance de colonnes de 0 et de colonnes de 1.
 
 
+par exemple pour $n=4$ on s'attend à ceci
+
+```console
+0 1 0 1 
+0 1 0 1 
+0 1 0 1 
+0 1 0 1 
+```
+
+<!-- #region -->
 ### le damier
 
-
-Écrivez une fonction  *damier*, qui prend en argument la taille *n* d'une case du damier, qui crée un tableau `numpy` carré, et qui le remplit comme un damier avec des cases de taille *n x n* avec des 0 pour les cases noires et des 1 pour les blanches.
-
-Un damier a 100 cases.
+Écrivez une fonction *checkers*, qui prend en argument la taille *n* du damier, et un paramètre optionnel qui indique la valeur de la case (0, 0), et qui crée un tableau `numpy` carré de coté $n$, et le remplit avec des 0 et 1 comme un damier (0 pour les cases noires et 1 pour les cases blanches).
 
 
 https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x1-checkers
+<!-- #endregion -->
 
+<!-- #region {"tags": ["level_advanced"]} -->
+### le damier (variante)
+<!-- #endregion -->
+
+<!-- #region {"tags": ["level_advanced"]} -->
+Il y a beaucoup de méthodes pour faire cet exercice de damier; elles ne vont pas toutes se généraliser pour la variante :
+
+**Variante** écrivez une fonction `super_checkers` qui crée 
+
+* un damier de coté $k.n \times k.n$ 
+* composé de blocs de $k\times k$ homogènes (tous à 0 ou tous à 1)
+* eux mêmes en damiers
+* on décide que le premier bloc (en 0,0) vaut 0
+
+c'est-à-dire par exemple pour $n=4$ et $k=3$ cela donnerait ceci :
+
+```
+0 0 0 1 1 1 0 0 0 1 1 1 
+0 0 0 1 1 1 0 0 0 1 1 1 
+0 0 0 1 1 1 0 0 0 1 1 1 
+1 1 1 0 0 0 1 1 1 0 0 0 
+1 1 1 0 0 0 1 1 1 0 0 0 
+1 1 1 0 0 0 1 1 1 0 0 0 
+0 0 0 1 1 1 0 0 0 1 1 1 
+0 0 0 1 1 1 0 0 0 1 1 1 
+0 0 0 1 1 1 0 0 0 1 1 1 
+1 1 1 0 0 0 1 1 1 0 0 0 
+1 1 1 0 0 0 1 1 1 0 0 0 
+1 1 1 0 0 0 1 1 1 0 0 0 
+```
+
+<!-- #endregion -->
+
+```python tags=["level_advanced"]
+def super_checkers(n, k):
+    ...
+```
+
+```python tags=["level_advanced"]
+# doit vous donner la figure ci-dessus
+# éventuellement avec des False/True au lieu de 0/1
+super_checkers(4, 3)
+```
 
 ### les escaliers
 
@@ -681,40 +798,35 @@ https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x1-checke
 https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x3-stairs
 
 
-### les dès (difficile)
+<!-- #region {"tags": ["level_advanced"]} -->
+### calculs imbriqués (avancé)
+<!-- #endregion -->
 
+<!-- #region {"tags": ["level_advanced"]} -->
+Regardez le code suivant :
+<!-- #endregion -->
 
-On étudie les probabilités d'obtenir une certaine somme avec plusieurs dés. 
+```python tags=["level_advanced"]
+# une fonction vectorisée
+def pipeline(array):
+    array2a = np.sin(array)
+    array2b = np.cos(array)
+    array3 = np.exp(array2a + array2b)
+    array4 = np.log(array3+1)
+    return array4
+```
 
-Tout le monde connaît le cas classique avec deux dés à 6 faces, ou l'on construit mentalement la grille suivante:
+<!-- #region {"tags": ["level_advanced"]} -->
+Les questions : j'ai un tableau `X` typé `float64` et de forme `(1000,)`
 
-|  +  | &#124; | 1 | 2 | 3 | 4 | 5 | 6 |
-|:---:|:------:|:-:|:-:|:-:|:-:|:-:|:-:|
-| *1* | &#124; | 2 | 3 | 4 | 5 | 6 | 7 | 
-| *2* | &#124; | 3 | 4 | 5 | 6 | 7 | 8 | 
-| *3* | &#124; | 4 | 5 | 6 | 7 | 8 | 9 | 
-| *4* | &#124; | 5 | 6 | 7 | 8 | 9 |10 | 
-| *5* | &#124; | 6 | 7 | 8 | 9 |10 |11 | 
-| *6* | &#124; | 7 | 8 | 9 |10 |11 |12 | 
+* j'appelle `pipeline(X)`, combien de mémoire est-ce que `pipeline` va devoir allouer pour faire son travail ?
+* quel serait le minimum de mémoire dont on a besoin pour faire cette opération ?
+* voyez-vous un moyen d'optimiser `pipeline` pour atteindre ce minimum ?
+<!-- #endregion -->
 
-Imaginons que vous êtes un étudiant, vous venez de faire un exercice de maths qui vous a mené à une formule qui permet de calculer, pour un jeu à `nb_dice` dés, chacun à `sides` faces, le nombre de tirages qui donnent une certaine somme `target`.
+<!-- #region {"tags": ["level_advanced"]} -->
+**indice**
 
-Vous voulez vérifer votre formule, en appliquant une méthode de force brute.
-
-C'est l'objet de cet exercice. Vous devez écrire une fonction `dice` qui prend en paramètres:
-
-* `target` : la somme ci
-ble à atteindre,
-* `nb_dice` : le nombre de dés,
-* `sides`: le nombre de faces sur chaque dé.
-
-On convient que par défaut `nb_dice`=2 et `sides`=6, qui correspond au cas habituel.
-
-Dans ce cas-là par exemple, on voit, en comptant la longueur des diagonales sur la figure, que `dice(7)` doit valoir 6, puisque le tableau comporte 6 cases contenant 7 sur la diagonale.
-
-À nouveau, on demande explicitement ici un parcours de type force brute.
-
-Faites le en np.
-
-
-https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x4-dice
+* l'exercice vous invite à réfléchir à l'utilisation du paramètre `out=` qui est supporté dans les fonction vectorisées de numpy
+* dans ce cadre, sachez qu'on peut presque toujours remplacer l'usage d'un opérateur (comme ici `+`) par une fonction vectorisée (ici `np.add`)
+<!-- #endregion -->

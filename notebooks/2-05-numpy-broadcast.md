@@ -41,15 +41,11 @@ ou comment faire des opérations sur des tableaux qui ont des formes différente
 Vous savez désormais construire des tableaux `np.ndarray` en leur donnant des formes (vecteurs, matrices, images...) et vous savez faires des opérations vectorielles (vectorisées) sur ces tableaux `np.ndarray`.
 
 
-Donc par exemple, construisons deux matrices en faisant attention qu'elles aient la même forme, on va leur mettre des types différents. Par exemple faisons deux matrices:
-   - *m1* de forme 3 x 4 et de type entier contenant les valeurs de 1 à 12
-   - *m2* de forme 3 x 4 et de type float contenant des valeurs entre 0 et 1
+Construisons deux matrices donnons leur la même **forme** et (par exemple) des types différents:
+   - `m1` de forme (3, 4) et de type entier contenant les valeurs de 1 à 12
+   - `m2` de forme (3, 4) et de type float contenant des valeurs entre 0 et 1
    
-Essayez de les faire avant de regarder la suite ?   
-
-```python
-# votre code
-```
+Pour les ajouter il n'y aura pas de problème: leur formes sont indentiques (bien sûr si les types ne sont pas cohérents pour l'addition vous aurez des erreurs mais d'un autre genre).    
 
 ```python
 m1 = np.arange(1, 13).reshape(3, 4)
@@ -68,7 +64,7 @@ Pour que ce soit plus lisible, on va arrondir les valeurs de la matrice `m2` à 
 np.round(m2, 2, out=m2)
 ```
 
-Maintenant ajoutons `m1` et `m2`, c'est bien ce qu'on attendait:
+Maintenant ajoutons `m1` et `m2`, On obtient bien ce qu'on attendait:
 
 ```python
 m1 + m2
@@ -80,13 +76,13 @@ Donc jusqu'ici nous avons fait une addition sous une forme vectorisée, rien de 
 ## opération sur tableaux de formes différentes (*broadcasting*)
 
 
-Mais supposons maintenant que nous voulions ajouter **le même scalaire** à tous les éléments d'une matrice. Par exemple on a une matrice d'entiers de taille $3000 \times 3000$ et on veut ajouter 1 à tous les éléments.
+Mais supposons maintenant que nous voulions ajouter **le même scalaire** à tous les éléments d'une matrice. Par exemple on a une matrice d'entiers de taille (3000, 3000) et on veut ajouter 1 à tous les éléments.
 
-Pour le faire, on peut créer une nouvelle matrice de *1* de la même taille et les ajouter...
+Pour le faire, on peut créer une nouvelle matrice de `1` de la même taille et les ajouter...
 
-Mais franchement, cela demande des manipulations mémoire qui ne sont vraiment pas très intéressantes: déjà elles apportent une information inutile parce que redondante (on a quand même copié ce fameux `1` 9 millions de fois !), ensuite elles n'améliorent pas le code voire elles nuisent à sa lisibilité du code (on va retrouver des ndarray intermédiaires inutiles dans le code).
+Franchement, cela demande des manipulations mémoire qui prennent une place inutile et ne sont pas informatives (on a une matrice  de 9 millions de `1`), ensuite elles n'améliorent pas le code voire elles nuisent à sa lisibilité.
 
-Bref c'est complètement sous-optimal. Nous allons présenter la manière que propose `numpy` pour *agrandir* la forme des tableaux de manière à ce que leurs tailles deviennent compatibles pour l'opération.
+Bref c'est complètement sous-optimal. `numpy` propose une manière abrégée d'écrire afin de ne pas avoir à créer de tableaux inutiles, `numpy` se chargera de faire les *bonnes* opérations.
 
 On appelle cela le broadcasting
 
@@ -95,17 +91,17 @@ On appelle cela le broadcasting
 
 
 Souvenez-vous, en `numpy` les tableaux peuvent être de différentes dimensions:
-   - en dimension 1 ce sont de simples tables de taille *n* avec *shape=(n,)*
+   - en dimension 1 ce sont de simples vecteurs de taille *n* avec *shape=(n,)*
    - en dimension 2 ce sont des  matrices avec *shape=(l, c)* où *l* est le nombre de lignes et *c* de colonnes (qui peuvent être 1)
    - en dimension supérieures avec shape=$(n_1, ..., n_m, l, c)$ les deux dernières dimensions vont être une matrice
 
-<!-- #region {"tags": ["level_intermediate"]} -->
-et à la limite d'ailleurs, une matrice (1, 1) est de dimension 2:
+<!-- #region {"tags": []} -->
+Une matrice (1, 1) est aussi de dimension 2...
 <!-- #endregion -->
 
-```python tags=["level_intermediate"]
+```python tags=[]
 mat = np.array([1]).reshape(1, 1)
-# utilisation d'un f-string (super pratique)
+# utilisation d'un f-string (c'est super pratique)
 print(f'mat={mat} est de dimension {mat.ndim} !')
 ```
 
@@ -149,7 +145,7 @@ tab + [ 10 ]
 Que s'est-il passé ?
 
 Oui là, le scalaire `10` a été considéré comme un tableau, de la même forme que `tab`
-, i.e. de 6 éléments (avec la valeur 10). Nous disons "*considéré*" parce que l'intérêt est bien que ce tableau n'ait pas été créé du tout, mais géré dans le code `numpy` sous-jacent.
+, i.e. de 6 éléments (avec la valeur 10). Nous disons "*considéré*" parce que l'intérêt est bien que ce tableau n'ait jamais été créé du tout, l'opération est gérée dans le code `numpy` sous-jacent.
 
 
 En Python qu'est ce que cela donnerait sur une liste ? Essayons :
@@ -187,7 +183,7 @@ mat
 
 Qu'est ce que `numpy` peut faire si nous ajoutons, à la matrice `mat` de 3 lignes et 5 colonnes, un tableau de la forme d'une ligne de `mat` ?
 
-C'est à dire de forme `(5,)` ou encore de forme `(1, 5)` ? Voici la première:
+C'est à dire de forme `(5,)` ou encore de forme `(1, 5)` ? Voici une ligne de la première forme:
 
 ```python
 line = np.array([100, 200, 300, 400, 500])
@@ -200,7 +196,7 @@ mat + line
 ```
 
 Donc ici, `numpy` décide de répéter 3 fois cette ligne pour obtenir une matrice de la même forme que `mat` i.e. (3, 5).  
-On fait de même avec une ligne de forme (1, 5):
+On fait de même avec une matrice de dimension (1, 5) donc 1 ligne et 5 colonnes.
 
 ```python
 line1 = line.reshape(1, 5)
@@ -212,10 +208,10 @@ line1.shape
 mat + line1
 ```
 
-Et donc il accepte aussi: il répéte 3 fois ce vecteur-ligne pour obtenir une matrice de la même forme que `mat`
+Et donc il accepte aussi: il répéte 3 fois cette matrice-ligne pour obtenir une matrice de la même forme que `mat`
 
 
-Vous essayez avec les colonnes ? Il va donc falloir ajouter, à notre matrice de 3 lignes et 5 colonnes, un vecteur-colonne. Ce vecteur-colonne sera donc un tableau de taille (3, 1), il aura 3 lignes et 1 colonne.
+Vous essayez avec les colonnes ? Il va donc falloir ajouter, à notre matrice de 3 lignes et 5 colonnes, une matrice composée d'une seule colonne et de 3 lignes, qui sera un tableau de taille (3, 1).
 
 ```python
 col = np.array([1000, 2000, 3000]).reshape(3, 1)
@@ -227,10 +223,10 @@ col.shape
 mat + col
 ```
 
-Mais ca fait exactement ce à quoi on s'attend !
+ca fait exactement ce à quoi on s'attend !
 
 
-Et si on essayait d'ajouter un vecteur ligne (par exemple de taille (1, 5)) avec un vecteur colonne (par exemple de taille (3, 1)) ?
+Et si on essayait d'ajouter une matrice comportant une seule ligne (par exemple de taille (1, 5)) avec une matrice comportant une seule colonne (par exemple de taille (3, 1)) ?
 
 
 Donc on va ajouter ces deux objets
@@ -259,16 +255,19 @@ Pour les avancés on peut regarder la règle.
 ## règles de broadcasting (pour les avancés)
 <!-- #endregion -->
 
+<!-- #region {"tags": ["level_intermediate"]} -->
 Les dimensions des deux tableaux (sur lesquels une opération élément-par-élément est appliquée), sont comparées de droite à gauche.
 
 Dans cet ordre, les dimensions sont prises par paire, le broadcasting sera possible:
    1. soit si les deux dimensions sont identiques
    1. soit si l'une des 2 dimensions vaut 1 et auquel cas elle est élargie à la dimension compatible
+<!-- #endregion -->
 
-
+<!-- #region {"tags": ["level_intermediate"]} -->
 Explicitons sur un exemple. 
+<!-- #endregion -->
 
-
+<!-- #region {"tags": ["level_intermediate"]} -->
 on se donne $A=\begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\  \end{pmatrix}$ et $b$ un tableau à un scalaire, donc de forme `(1,)`
 
 on calcule `A + b`
@@ -286,32 +285,38 @@ on compare les dimensions suivantes, $2_a$ est comparé à $1_b$, et de nouveau 
   $\begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\  \end{pmatrix} + \begin{pmatrix} b & b & b \\ b & b & b \end{pmatrix} = \begin{pmatrix} a_{11} + b & a_{12} + b & a_{13} + b \\ a_{21} + b & a_{22} + b & a_{23} + b \\  \end{pmatrix}$   
    
 les formes sont désormais compatibles, les deux tableaux peuvent être ajoutés !
+<!-- #endregion -->
 
-
+<!-- #region {"tags": ["level_intermediate"]} -->
 Et naturellement quand les formes ne sont pas consistantes, `numpy` va rejeter le programme en vous envoyant une erreur de type `ValueError`.
+<!-- #endregion -->
 
-```python cell_style="center" hide_input=false tags=["raises-exception"]
+```python cell_style="center" hide_input=false tags=["raises-exception", "level_intermediate"]
 m1 = np.arange(6).reshape(2, 3)
 m2 = np.arange(8).reshape(2, 4)
 
 m1 + m2
 ```
 
+<!-- #region {"tags": ["level_intermediate"]} -->
 On la rattrape ?
+<!-- #endregion -->
 
-```python cell_style="center"
+```python cell_style="center" tags=["level_intermediate"]
 try:
     m1 + m2
 except ValueError as exc:
     print(f'{m1}\n+\n{m2}\n ➡ {exc}')
 ```
 
-Encore un exemple où on ajoute un vecteur-ligne à un vecteur-colonne pour avoir une matrice.
+<!-- #region {"tags": ["level_intermediate"]} -->
+Encore un exemple où on ajoute une matrice comportant une seule ligne à une matrice comportant une seule colonne pour avoir une nouvelle matrice.
+<!-- #endregion -->
 
-<!-- #region -->
+<!-- #region {"tags": ["level_intermediate"]} -->
 on veut faire l'opération $\begin{pmatrix} a_{1} & a_{2} & a_{3} \end{pmatrix} + \begin{pmatrix} b_1 \\ b_2 \\ b_3 \\ b_4 \end{pmatrix}$
 
-la forme du vecteur-ligne *a* est $(1_a, 3_a)$, la forme du vecteur-colonne *b* est $(4_b, 1_b)$
+la forme de la matrice *a* est $(1_a, 3_a)$, la forme de la matrice *b* est $(4_b, 1_b)$
 
 `numpy` compare $3_a$ à $1_b$ et il élargit *b* à $\begin{pmatrix} b_1 & b_1 & b_1 \\ b_2 & b_2 & b_2 \\ b_3 & b_3 & b_3 \\ b_4 & b_a & b_4 \end{pmatrix}$
 
@@ -347,22 +352,22 @@ ajout d'un scalaire
 m + 10
 ```
 
-ajout d'un vecteur-ligne
+ajout d'une matrice comportant une seule ligne ... il l'ajoute à toutes les lignes
 
 ```python
 m + np.array([100, 200, 300, 400])
 ```
 
-ajout d'un vecteur-colonne
+ajout d'une matrice comportant une seule colonne
 
 ```python
 m + np.array([[1000], [2000], [3000]])
 ```
 
-ajout de 2 vecteurs-lignes de forme donc (2, 1, 4)
+ajout de 2 matrices comportant 1 seule ligne dont la forme est (2, 1, 4)
 
 ```python
-vecl = np.array([10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000]).reshape(2, 1, 4)
+vecl = np.array([10000, 20000, 30000, 40000, -50000, -60000, -70000, -80000]).reshape(2, 1, 4)
 vecl
 ```
 
@@ -370,7 +375,7 @@ vecl
 m + vecl
 ```
 
-ajout de 2 vecteurs-colonne de forme donc (2, 3, 1)
+ajout de 2 matrices comportant une seule colonne donc de forme (2, 3, 1)
 
 ```python
 vecc = np.array([100000, 200000, 300000, 400000, 500000, 600000]).reshape(2, 3, 1)
@@ -388,49 +393,183 @@ A vous de jouer. Essayer d'ajouter un tableau (généré par `np.arange` qui con
 ```
 
 <!-- #region {"tags": ["level_advanced"]} -->
-Si vous avez du temps, à vous de jouer. Sauriez-vous coder en Python, la fonction qui détermine si deux formes (données par des tuples) sont compatibles pour le broadcasting ?
+Si vous êtes fort en Python, et que vous avez du temps, sauriez-vous coder en Python, la fonction qui détermine si deux formes (données par des tuples) sont compatibles pour le broadcasting ? à vous de jouer…
 <!-- #endregion -->
 
 ```python tags=["level_advanced"]
 # votre code ici
+
+def are_broadcast_compatible(shape1, shape2):
+    ...
 ```
 
 ## conclusion
 
 
-Le broadcasting est très efficace. Les éléments broadcastés ne sont naturellement pas réellement créés en mémoire mais le broadcasting est basé sur du code C optimisé qui va avoir le même genre d'efficacité que les opérations vectorisées. Donc à utiliser (intelligemment) !
+Le broadcasting est très efficace. Les éléments broadcastés ne sont naturellement pas réellement créés en mémoire, mais le broadcasting est basé sur du code C optimisé qui va avoir le même genre d'efficacité que les opérations vectorisées. Donc à utiliser (intelligemment) !
 
 
 ## exercices
 
 
-### ajouter un scalaire à une matrice
+### comparaison des temps d'exécution de l'ajout d'un scalaire à une matrice
 
 
 Construisez une matrice de forme *(3000, 3000)* contenant les entiers à partir de 1.
    1. Calculer le temps pour ajouter le scalaire *10* à cette matrice
    1. Calculer le temps pour ajouter une matrice de taille de *(3000, 3000)* remplie de `1` à cette matrice.
 
-Pour la deuxième option, envisagez deux variantes dans lesquelles vous comptez ou non le temps nécessaire à la construction de la matrice temporaire   
+Pour la deuxième option, envisagez deux variantes dans lesquelles vous comptez ou non le temps nécessaire à la construction de la matrice temporaire
 
-
-## correction
-
-
-### ajouter un scalaire à une matrice
+Expliquez pourquoi on fait ça…
 
 ```python
-m = np.arange(1, 9000001).reshape(3000,3000)
+# votre code
 ```
 
-```python
-%timeit m+10
-```
+### résultats du tirage de `n` dès à `s` faces
+
+
+Deux versions pour cet exercice:
+   - la première est pour les débutants, elle est guidée et amène à construire le résultat pas à pas
+   - la deuxième est pour les forts qui se débrouillent tout seuls
+
+
+#### version pour les débutants
+
+
+On veut calculer les résultats des tirages de `n` dés à `s` faces. Afin, par exemple de faire des probabilités d'obtention de certains tirages. De combien de manières différentes peut-on obtenir `7` avec `3` dès à `6` faces. 
+
+
+Si nous prenons un seul dès à `6` faces. Quels sont les tirages possibles ?
+
+oui `1, 2, 3, 4, 5, 6`
+
+Construisez alors un `numpy.ndarray` contenant les tirages d'un dès à `s` faces.
 
 ```python
-uns = np.ones(shape=(3000,3000))
+# votre code ici
 ```
 
+<!-- #region -->
+Maintenant si on prend `n=2` dès à `s=6` faces. Quels sont les tirages possibles ?
+
+Oui:
+
+|  +  | &#124; | 1 | 2 | 3 | 4 | 5 | 6 |
+|:---:|:------:|:-:|:-:|:-:|:-:|:-:|:-:|
+| *1* | &#124; | 2 | 3 | 4 | 5 | 6 | 7 | 
+| *2* | &#124; | 3 | 4 | 5 | 6 | 7 | 8 | 
+| *3* | &#124; | 4 | 5 | 6 | 7 | 8 | 9 | 
+| *4* | &#124; | 5 | 6 | 7 | 8 | 9 |10 | 
+| *5* | &#124; | 6 | 7 | 8 | 9 |10 |11 | 
+| *6* | &#124; | 7 | 8 | 9 |10 |11 |12 | 
+
+
+Construisez alors un `numpy.ndarray` contenant les tirages de `n=2` dès à `s=6` faces. Un indice ? Utilisez le `broadcasting`:
+
+On vous fait un rappel. Si on ajoute en `numpy` un tableau de forme `(3,)` à un tableau de forme `(3, 1)` on obtient la matrice suivante: $\begin{pmatrix} a_{1} & a_{2} & a_{3} \end{pmatrix} + \begin{pmatrix} b_1 \\ b_2 \\ b_3 \end{pmatrix} = \begin{pmatrix} a_{1} + b_1 & a_{2} + b_1 & a_{3} + b_1 \\ a_{1} + b_2 & a_{2} + b_2 & a_{3} + b_2 \\ a_{1} + b_3 & a_{2} + b_3 & a_{3}  + b_3\\ a_{1} + b_4 & a_{2} + b_4 & a_{3} + b_4 \end{pmatrix}$
+ 
+<!-- #endregion -->
+
 ```python
-%timeit m+uns
+# votre code ici
+```
+
+On remarque que la dimension de notre tableau est le nombre de dès.
+
+
+On continue.
+
+Maintenant si je prends `3` dès avec `6` faces, je suis en dimension `3` et je veux donc obtenir un *cube* (avec tous les résultats). Pour obtenir ce cube, je pars de ma matrice (de forme `(s, s)`) des tirages en dimension 2 et j'utilise le broadcast pour lui ajouter une troisième dimension.
+
+Quelle est la forme de ce vecteur ? Il doit déclencher le broadcast donc il doit être de forme `(s, 1, 1)`.
+
+En effet  
+(i) la forme `(s, )` c'est la forme des lignes de la matrice  
+(ii) la forme `(s, 1)` est celle des colonnes  
+(iii) la forme `(1, ..., 1, s)` se broadcast en ligne comme `(1, s)` ou `(s,)` (essayez)
+(iv) la forme `(s, 1, 1)` forcera le broadcast en un cube
+
+Vous avez maintenant tous les indices pour généraliser en dimension `n` dès (vous aurez naturellement une boucle mais bien sûr pas sur les éléments d'un `numpy.ndarray` !)
+
+```python
+# votre code ici
+```
+
+<!-- #region -->
+```python
+def tirages (n, s):
+    pass
+```
+<!-- #endregion -->
+
+Cet espace des tirage pourra nous resservir dans de futurs exercices.
+
+Vous remarquez qu'on est dans une manière de faire qui **explicite l'ensemble des solutions** ce qu'on appelle une méthode en force brute. Ces méthodes sont clairement exponentielles.
+
+<!-- #region {"tags": ["level_advanced"]} -->
+#### les dès version  pour les forts
+<!-- #endregion -->
+
+<!-- #region {"tags": ["level_advanced"]} -->
+On étudie les probabilités d'obtenir une certaine somme avec plusieurs dés. 
+
+Tout le monde connaît le cas classique avec deux dés à 6 faces, ou l'on construit mentalement la grille suivante:
+
+|  +  | &#124; | 1 | 2 | 3 | 4 | 5 | 6 |
+|:---:|:------:|:-:|:-:|:-:|:-:|:-:|:-:|
+| *1* | &#124; | 2 | 3 | 4 | 5 | 6 | 7 | 
+| *2* | &#124; | 3 | 4 | 5 | 6 | 7 | 8 | 
+| *3* | &#124; | 4 | 5 | 6 | 7 | 8 | 9 | 
+| *4* | &#124; | 5 | 6 | 7 | 8 | 9 |10 | 
+| *5* | &#124; | 6 | 7 | 8 | 9 |10 |11 | 
+| *6* | &#124; | 7 | 8 | 9 |10 |11 |12 | 
+
+Imaginons que vous êtes un étudiant, vous venez de faire un exercice de maths qui vous a mené à une formule qui permet de calculer, pour un jeu à `nb_dice` dés, chacun à `sides` faces, le nombre de tirages qui donnent une certaine somme `target`.
+
+Vous voulez **vérifier votre formule**, en appliquant une **méthode de force brute**. C'est-à-dire constuire un hypercube avec toutes les possibilités de tirage, puis calculer pour chaque point dans l'hypercube la somme correspondante; de cette façon on pourra compter les occurrences de `target`.
+
+C'est l'objet de cet exercice. Vous devez écrire une fonction `dice` qui prend en paramètres:
+
+* `target` : la somme cible à atteindre,
+* `nb_dice` : le nombre de dés,
+* `sides`: le nombre de faces sur chaque dé.
+
+On convient que par défaut `nb_dice`=2 et `sides`=6, qui correspond au cas habituel.
+
+Dans ce cas-là par exemple, on voit, en comptant la longueur des diagonales sur la figure, que `dice(7)` doit valoir 6, puisque le tableau comporte 6 cases contenant 7 sur la diagonale.
+
+À nouveau, on demande explicitement ici un parcours de type force brute; c'est-à-dire de créer sous la forme d'un tableau `numpy`, un hypercube qui énumère toutes les combinaisons possibles; et sans faire de `for` sur les éléments d'un tableau.
+<!-- #endregion -->
+
+<!-- #region {"tags": ["level_advanced"]} -->
+https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x4-dice
+<!-- #endregion -->
+
+<!-- #region {"tags": ["level_advanced"]} -->
+**Indice**
+
+Il existe en `numpy` une astuce pour augmenter la dimension d'un tableau, ça s'appelle `np.newaxis`, et ça s'utilise comme ceci
+<!-- #endregion -->
+
+```python cell_style="center" tags=["level_advanced"]
+dice_1 = np.arange(1, 7)
+dice_2 = dice_1[:, np.newaxis]
+```
+
+```python cell_style="split" tags=["level_advanced"]
+dice_1
+```
+
+```python cell_style="split" tags=["level_advanced"]
+dice_2
+```
+
+<!-- #region {"tags": ["level_advanced"]} -->
+et remarquez que pour créer le tableau ci-dessus il suffit de faire
+<!-- #endregion -->
+
+```python tags=["level_advanced"]
+dice_1 + dice_2
 ```

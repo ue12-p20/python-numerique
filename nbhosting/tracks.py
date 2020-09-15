@@ -29,19 +29,19 @@ def tracks(coursedir):
            ('Python primer', 'notebooks/1-[01]*.md'),
            ('exos', 'notebooks/1-[56]*.md'),
          ]),
-#        ('cours #3: numpy' , 'programmation vectorielle', 'numpy',
-#         [ 
-#           ('quiz Python', 'notebooks/1-[89]*.md'),
-#           ('numpy', 'notebooks/2-[01]*.md'), 
-#           ('exos', 'notebooks/2-[56]*.md'), 
-#           ('quiz', 'notebooks/2-[89]*.md'), 
-#        ]),
-#        ('cours #4: pandas & dataviz' , 'outils pour la data science', 'datascience',
-#         [ 
-#           ('pandas & dataviz', 'notebooks/[34]-[01]*.md'),
-#           ('exos', 'notebooks/[34]-[56]*.md'),
-#           ('quiz', 'notebooks/[34]-[89]*.md'),
-#         ]),
+        ('cours #3: numpy' , 'programmation vectorielle', 'numpy',
+         [ 
+           ('quiz & annonces', 'notebooks/1-[89]*.md'),
+           ('numpy', 'notebooks/2-[01]*.md'), 
+           ('exos', 'notebooks/2-[56]*.md'), 
+           ('quiz', 'notebooks/2-[89]*.md'), 
+        ]),
+        ('cours #4: pandas & dataviz' , 'outils pour la data science', 'datascience',
+         [ 
+           ('pandas & dataviz', 'notebooks/[34]-[01]*.md'),
+           ('exos', 'notebooks/[34]-[56]*.md'),
+           ('quiz', 'notebooks/[34]-[89]*.md'),
+         ]),
         ]
 
     return [Track(coursedir, 

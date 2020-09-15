@@ -132,7 +132,7 @@ on vous laisse leur mettre une taille de fonte
 
 ```{code-cell} ipython3
 plt.xlabel('abscisses')
-plt.ylabel('ordonnées')
+plt.ylabel('ordonnées', fontsize=25)
 plt.plot(x, y);
 ```
 
@@ -147,7 +147,7 @@ z = np.cos(x)
 plt.scatter(x, z);
 ```
 
-## mettre une légende aux plots (*label=*)
+## mettre une légende à plusieurs plots sur la même figure (*label=*)
 
 +++
 
@@ -234,11 +234,11 @@ On précise aussi la taille des marqueurs de points.
 ```{code-cell} ipython3
 plt.plot(x, y, 'g--',) # pointillés verts green --
 
-plt.plot(x, y, 'rs', markersize=10) # rectangles rouges red s(quare)
+plt.plot(x, y, 'rs', markersize=10) # rectangles r(red) et s(quare)
 
-plt.plot(x, y, 'y^', markersize=4); # triangles jaunes yellow ^
+plt.plot(x, y, 'y^', markersize=4); # ^triangles y(yellow)
 
-plt.plot(x+0.5, y+0.5, 'mv', markersize=6); # triangles tête en bas majenta
+plt.plot(x+0.5, y+0.5, 'mv', markersize=6); # triangles tête en bas majenta ...
 ```
 
 ## écrire du texte à une position
@@ -273,16 +273,4 @@ plt.savefig('my_figure.jpg')
 
 Et pour voir le résultat..
 
-éditez cette cellule de texte, qui contient la balise markdown `![](my_figure.jpg)`
-
-elle contient donc le nom du fichier que vous venez de produire
-
-![](my_figure.jpg)
-
-+++
-
-## Exercices
-
-```{code-cell} ipython3
-
-```
+<img src='my_figure.jpg'>
