@@ -41,7 +41,7 @@ La possibilité d'accéder aux éléments d'un ndarray ne doit pas vous faire ou
 
 Vous vous rappelez pourquoi ? Parce que l'application d'une fonction vectorisée ne se fait pas en utilisant des fonctions codées en Python mais des fonctions codées dans un langage de programmation beaucoup proche de la mémoire de l'ordinateur et qui va (entre autres) très rapidement d'une case (un élément) à une autre case du tableau.
 
-Il ne faut donc **jamais** utiliser l'accés aux éléments d'un tableau dans des itérations où vous pourriez appliquer directement des fonctions vectorisées. 
+Il ne faut donc **jamais** utiliser l'accès aux éléments d'un tableau dans des itérations où vous pourriez appliquer directement des fonctions vectorisées. 
 
 
 Ceci dit, accéder aux éléments et aux sous-tableaux d'un tableau `numpy` , va (par exemple) vous servir à appliquer des fonctions vectorisées à des sous-parties de votre tableau donc elles sont **très** utiles 
@@ -337,7 +337,7 @@ On a tout le tableau, et dans l'autre sens aussi:
 v[::-1]
 ```
 
-Passons en accés pour des dimensions supérieures à 1:
+Passons en accès pour des dimensions supérieures à 1:
 
 
 ### en dimension supérieure à 1

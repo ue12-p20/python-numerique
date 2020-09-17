@@ -125,7 +125,7 @@ Ca veut dire qu'une fois le tableau créé, vous n'allez pas pouvoir modifier la
 
 A quoi servent toutes ces restrictions ?
 
-Vous avez là les ingrédients qui permettent à `numpy` d'être très rapide dans sa mamipulation de tableaux !
+Vous avez là les ingrédients qui permettent à `numpy` d'être très rapide dans sa manipulation de tableaux !
 
 <!-- #region tags=[] -->
 ### les secrets de la rapidité des tableaux `numpy`  (avancé mais important)

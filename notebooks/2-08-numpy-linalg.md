@@ -277,7 +277,7 @@ On peut créer une matrice diagonale à partir de la liste des éléments de sa 
 np.diag([1., 2, 3])
 ```
 
-On peut aussi la matrice diagonale d'une matrice.
+On peut aussi extraire la matrice diagonale d'une matrice.
 
 ```python
 A = np.random.randint(-100, +100, size=(3, 3))

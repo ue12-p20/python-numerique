@@ -295,7 +295,7 @@ Oui je sais, on voit le type `dtype='object'` des éléments mais nous parlerons
 
 +++
 
-Qui dit index dit accés, donc nous allons bien pouvoir accéder aux colonnes de la table.
+Qui dit index dit accès, donc nous allons bien pouvoir accéder aux colonnes de la table.
 
 +++
 
@@ -525,7 +525,7 @@ Regardons la colonne des `Cabin`.
 df['Cabin']
 ```
 
-Vous remarquez que dans ce cas là aussi, la valeur manquante est undiquée par un *NaN*, avec un type des éléments `object` (on y reviendra plus tard sur les types).
+Vous remarquez que dans ce cas là aussi, la valeur manquante est indiquée par un *NaN*, avec un type des éléments `object` (on reviendra plus tard sur les types).
 
 À vous de jouer. Calculez le nombre de valeurs manquantes dans la colonne des numéros des cabines.
 

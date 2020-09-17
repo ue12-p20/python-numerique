@@ -343,7 +343,7 @@ np.min(al, axis=1)
 np.argmin(al, axis=1)
 ```
 
-La suite de ce notebok sort des bases utiles et n'est que l'extension de l'agrégation en dimension > à 2 qui est immédiate. Elle n'est là que pour dire que ca existe.
+La suite de ce notebook sort des bases utiles et n'est que l'extension de l'agrégation en dimension > à 2 qui est immédiate. Elle n'est là que pour dire que ca existe.
 
 <!-- #region {"tags": ["level_advanced"]} -->
 Pour les avancés, sauriez vous faire sur un ndarray en 2 dimensions, la fonction qui, étant donné une forme du tableau, l'axe et une liste d'indices dans cet axe, calcule la paire d'index ? Sauriez-vous généraliser cette fonction ?

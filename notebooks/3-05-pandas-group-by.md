@@ -57,7 +57,7 @@ df_by_sex = df.groupby('Sex')
 `pandas` calcule les différentes valeurs de la colonne en question (ici `Sex`), et partitionne la dataframe en autant de dataframes que de valeurs différentes.
 
 
-`pandas` met les regroupements dans un objet de type `DataFrameGroupBy` (ici de nom `df_by_sex`) qui vous donne accés à de nombreuses fonctionnalités (regardez le help pour plus de détails), nous allons voir ici très peu de choses ici.
+`pandas` met les regroupements dans un objet de type `DataFrameGroupBy` (ici de nom `df_by_sex`) qui vous donne accès à de nombreuses fonctionnalités (regardez le help pour plus de détails), nous allons voir ici très peu de choses ici.
 
 
 ### les tailles des groupes

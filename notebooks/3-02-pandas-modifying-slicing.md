@@ -80,11 +80,11 @@ df['Deceased'] = 1 - df['Survived']
 df.head(3)
 ```
 
-## contextualisons l'accés et la modification de parties d'une dataframe
+## contextualisons l'accès et la modification de parties d'une dataframe
 
 +++
 
-Pour accéder ou modifier des sous-parties de dataframe, vous pourriez être tenté d'utiliser les syntaxes classiques d'accés aux éléments d'un tableau par leur indice, comme vous le feriez en Python.
+Pour accéder ou modifier des sous-parties de dataframe, vous pourriez être tenté d'utiliser les syntaxes classiques d'accès aux éléments d'un tableau par leur indice, comme vous le feriez en Python.
 
 Comme par exemple en Python:
 
@@ -103,7 +103,7 @@ L[1:2] = [100, 200, 300]
 L
 ```
 
-Ou encore, d'utiliser l'accés à un tableau par une paires d'**indices**, comme vous le feriez en `numpy`:
+Ou encore, d'utiliser l'accès à un tableau par une paires d'**indices**, comme vous le feriez en `numpy`:
 
 ```{code-cell} ipython3
 mat = np.arange(25).reshape((5, 5))   # je crée la matrice 5x5 d'éléments 0 à 24
@@ -297,7 +297,7 @@ Ce qu'il faut retenir c'est que
 
 +++
 
-### accés à une liste explicite de lignes ou colonnes
+### accès à une liste explicite de lignes ou colonnes
 
 +++
 
@@ -495,7 +495,7 @@ On va voir rapidement le problème de *tentative* de modification d'une copie d'
 
 +++ {"tags": ["level_intermediate"]}
 
-Supposez qu'on accède à une colonne, par exemple celle de la survie qui s'appelle `Survived`, en utilisant la syntaxe classique d'accés à une clé d'un dictionnaire.
+Supposez qu'on accède à une colonne, par exemple celle de la survie qui s'appelle `Survived`, en utilisant la syntaxe classique d'accès à une clé d'un dictionnaire.
 
 ```{code-cell} ipython3
 :tags: [level_intermediate]
@@ -509,7 +509,7 @@ On obtient une seule colonne, elle est de type `pandas.Series`, on le savait dé
 
 +++ {"tags": ["level_intermediate"]}
 
-Maintenant que j'ai une colonne, rien ne m'empêche d'accéder à un élément de la colonne, avec la simple notation d'accés à un élément d'un tableau comme dans Python, prenons l'élément d'index 1.
+Maintenant que j'ai une colonne, rien ne m'empêche d'accéder à un élément de la colonne, avec la simple notation d'accès à un élément d'un tableau comme dans Python, prenons l'élément d'index 1.
 
 ```{code-cell} ipython3
 :tags: [level_intermediate]
