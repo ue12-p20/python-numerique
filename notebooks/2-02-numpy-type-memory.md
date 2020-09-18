@@ -52,6 +52,15 @@ Une dernière raison, afin d'avoir une petite culture informatique technique bie
 Donc si vous ne comprenez pas bien une notion, vous le dites !
 et on vous l'explique
 
+```python
+# une cellule pour définir le style de présentation 
+# utilisé dans la suite pour les dessins de la mémoire
+
+my_stylesheet = "<style> .memory {font-size: 180%; line-height: 1.2;}</style>"
+
+from IPython.display import HTML
+HTML(my_stylesheet)
+```
 
 # numpy et la mémoire
 
@@ -156,19 +165,29 @@ et les ordis font ca super super vite !
 <!-- #endregion -->
 
 <!-- #region tags=[] -->
-Voici des cases mémoire contiguës en mémoire qui forment un tableau (DESSIN moche).
+Voici des cases mémoire contiguës en mémoire qui forment un tableau.
 
-$\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}$
+<div class="memory"> 
+
+```
+☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐
+```
+<div>
 <!-- #endregion -->
 
 <!-- #region tags=[] -->
-Voici des cases mémoire un peu partout (DESSIN aussi moche).
+Voici des cases mémoire un peu partout (pour tenter de décrire le type de fragmentation qu'on obtient quand on utilise des types de base de Python, comme par exemple une liste de listes)
 
+<div class="memory">
 
-...$\fbox{}$.......$\fbox{}$..$\fbox{}$....$\fbox{}$...  
-$\fbox{}$....$\fbox{}$.....$\fbox{}$.....$\fbox{}$.....  
-......$\fbox{}$...$\fbox{}$.....$\fbox{}$......$\fbox{}$...  
-$\fbox{}$..........$\fbox{}$.......$\fbox{}$...$\fbox{}$....
+```
+...☐.......☐..☐....☐...  
+☐....☐.....☐.....☐.....  
+..☐...☐.....☐......☐...  
+☐.....☐.......☐...☐....
+```
+
+</div>
 <!-- #endregion -->
 
 <!-- #region tags=[] -->
@@ -342,7 +361,7 @@ Essayer d'imposer le type flottant à la création du tableau
 # votre code ici avec le type
 ```
 
-```python
+```python hide_input=false tags=["raises-exception"]
 # solution
 np.array(l, dtype=np.float)
 ```
@@ -368,7 +387,13 @@ que la taille des éléments est fixe
 
 Revoici des cases mémoire contiguës en mémoire qui forment un tableau
 
-$\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}$
+<div class="memory">
+
+```
+☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐
+```
+
+</div>
 
 
 Vous avez aussi vu que cette mémoire va être organisée (*indexée*) pour lui donner la forme d'un tableau multi-dimensionnel. Pour l'instant on a vu des matrices donc des tableaux de forme $(d_1, d_2)$. Mais un tableau peut naturellement prendre n'importe quelle dimension.
@@ -424,23 +449,36 @@ Et dont la dimension est la suivante:
 seg.ndim
 ```
 
+Disons que cette forme est celle d'un vecteur *ligne*. Dans ce cas on n'a donc besoin que d'un seul index pour parcourir ce tableau (si on voulait le parcourir). On serait dans ce cas (où $o$ désigne l'offset par rapport au début de la mémoire du tableau; du coup bien sûr ici l'offset se confond avec l'indice)
+
+<div class="memory">
+
+```
+☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐
+               ↑
+```
+
+</div>
+
+$\;\;\;\;\;\;\;\;\;\;\;$ vecteur de 30 élements : ${0\leq i < 30} \;\;\;\;\;\; i = 15 \longrightarrow o = 15$
+
 <!-- #region -->
-Disons que cette forme est celle d'un vecteur *ligne*. Dans ce cas on n'a donc besoin que d'un seul index pour parcourir ce tableau (si on voulait le parcourir). On serait dans ce cas:
-
-
-$\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}$  
-$\uparrow$  
-$i=0$  
-
 Et si nous voulions que ce tableau de 30 cases prenne une nouvelle forme: on ne veut plus le considérer comme un vecteur ligne mais comme, par exemple, une matrice avec 3 lignes et 10 colonnes ?
 
 On a bien le même nombre d'éléments (30) dans les deux formes, simplement dans la seconde forme, on est en dimension 2. C'est à dire qu'on aura besoin de deux indices (un pour les lignes et un pour les colonnes) pour parcourir notre matrice (si on voulait la parcourir). On serait dans ce cas:
 
 
-$\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}$  
-$\uparrow$  
-$(i=0, j=0)_{0\leq i < 3,\ 0 \leq j < 10}$
+<div class="memory">
 
+```
+☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐
+↑
+```
+
+</div>
+
+
+$\;\;\;\;\;\;\;\;\;\;\;$ matrice 3 x 10 : ${0\leq i < 3,\ 0 \leq j < 10} \;\;\;\;\;\; (i=0, j=0) \longrightarrow o=0$
 <!-- #endregion -->
 
 Et bien `np.ndarray` comporte deux fonctions pour ré-indexer la mémoire unidimensionnelle sous-jacente.  
@@ -503,11 +541,19 @@ seg
 
 Parlons un peu de ce qu'on a appelé précédemment décalages ou offsets pour les relier à notre problème de forme.
 
-<!-- #region -->
-Pour la matrice 3 x 10  
-$\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}$  
-$\uparrow$  
-$(i=0, j=0)_{0\leq i < 3,\ 0 \leq j < 10}$
+
+Illustrons l'offset $o$ qu'il faut utiliser pour accéder à une case d'une matrice 3 x 10
+<div class="memory">
+
+```
+☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐
+↑
+```
+
+</div>
+
+$\;\;\;\;\;\;\;\;\;\;\;$ matrice 3 x 10 : ${0\leq i < 3,\ 0 \leq j < 10} \;\;\;\;\;\; (i=0, j=0) \longrightarrow o=0$
+
 
 Si je suis sur un élément en début d'une ligne, pour passer directement à l'élément en début de la ligne suivante, combien me faudra-t-il *sauter*  d'éléments?
 
@@ -515,32 +561,61 @@ i.e. de combien me faudra-t-il me décaler sur mon segment unidimensionnel sous-
 
 Oui il faudra "sauter" 10 éléments et 10, on le connait ce chiffre ! c'est la valeur de la deuxième dimension de notre forme (le nombre de colonnes).
 
-Pour la matrice 3 x 10  
-$\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}$  
-$\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\uparrow$  
-$\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;(i=1, j=0)_{0\leq i < 3,\ 0 \leq j < 10}$
+<div class="memory">
 
-(si vous avez de plus jolis dessins, faites nous un *pull-request github*)
+```
+☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐
+          ↑
+```
 
-Si je voulais passer de l'élément de début d'une colonne à l'élément en début de la colonne suivante ? De combien je dois *sauter* ?  Oui ok 3 ! qui est la taille de la première dimension (le nombre de lignes).
+</div>
 
-Pour la matrice 3 x 10  
-$\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}$  
-$\;\;\;\;\;\;\;\uparrow$  
-$\;\;\;\;\;\;\;(i=0, j=1)_{0\leq i < 3,\ 0 \leq j < 10}$
-
-Et si je suis en début de la dernière colonne et que je saute 3 éléments ?
+$\;\;\;\;\;\;\;\;\;\;\;$ matrice 3 x 10 : ${0\leq i < 3,\ 0 \leq j < 10} \;\;\;\;\;\; (i=i, j=0) \longrightarrow o=10$
 
 
-Pour la matrice 3 x 10  
-$\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}\fbox{}$  
-$\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\uparrow$  
-$\;\;\;\;\;\;\;(i=0, j=9)_{0\leq i < 3,\ 0 \leq j < 10}$
+Si je voulais passer de cet élément à celui situé 5 cases à sa droite, je dois simplement sauter 5 nouvelles cases
 
-Et bien j'arrive en dehors de la mémoire qui m'a été attribuée et là c'est pas bon du tout du tout du tout du tout!  
+<div class="memory">
+
+```
+☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐
+               ↑
+```
+
+</div>
+    
+$\;\;\;\;\;\;\;\;\;\;\;$ matrice 3 x 10 : ${0\leq i < 3,\ 0 \leq j < 10} \;\;\;\;\;\; (i=1, j=5) \longrightarrow o=15$
+
+<!-- #region -->
+Et donc la dernière colonne de la dernière ligne se trouve logiquement à la fin de la mémoire 
+
+
+<div class="memory">
+
+```
+☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐☐
+                             ↑
+```
+
+</div>
+
+$\;\;\;\;\;\;\;\;\;\;\;$ matrice 3 x 10 : ${0\leq i < 3,\ 0 \leq j < 10} \;\;\;\;\;\; (i=2, j=9) \longrightarrow o=29$
+<!-- #endregion -->
+
+Et bien sûr si de là j'essaie d'avancer encore (parce que je me suis trompé de formule, ou que j'ai utilisé un $i$ ou un $j$ trop grand), eh bien j'arrive en dehors de la mémoire qui m'a été attribuée et là c'est pas bon du tout du tout du tout du tout!  
 Allez-vous vous attirer les foudres de l'ordi en essayant d'aller dans un segment (une zone mémoire) qui n'est pas à vous?  
 ... non heureusement `numpy` va vérifier avant d'y aller, que vous restez dans les bornes  
 il vous indiquera que vous en sortez avec une erreur !
+
+<!-- #region tags=["level_advanced"] -->
+On voit que la formule qui donne l'offset à partir de $i$ et $j$ est
+
+$o = (10*i) + j\;\;\;\;\;\;\;\;\;$ (*row-major* est le défaut avec `numpy`)
+
+
+En fait c'est vrai pour les tableaux qu'on appelle rangés dans l'ordre *row-major*, qui est le défaut en *numpy*; on peut lui demander de les ranger dans l'autre sens - qui s'appelle donc logiquement *column-major* - et dans ce cas la formule devient bien sûr
+
+$o = (3*j) + i\;\;\;\;\;\;\;\;\;$  (*column-major*, en option à la construction du tableau)
 <!-- #endregion -->
 
 À vous de jouer: transformez votre `seg` en 2 matrices de 5 lignes et 3 colonnes:
