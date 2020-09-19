@@ -12,6 +12,7 @@ jupyter:
     language: python
     name: python3
 notebookname: des graphiques en 3D
+version: '1.0'
 ---
 
 <div class="licence">

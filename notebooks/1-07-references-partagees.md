@@ -11,6 +11,7 @@ kernelspec:
   language: python
   name: python3
 notebookname: "r\xE9f\xE9rences partag\xE9es"
+version: '1.0'
 rise:
   autolaunch: true
   slideNumber: c/t

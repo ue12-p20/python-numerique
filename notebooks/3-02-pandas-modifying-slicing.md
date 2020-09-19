@@ -10,6 +10,7 @@ kernelspec:
   language: python
   name: python3
 notebookname: slicing et dataframe
+version: '1.0'
 ---
 
 +++ {"tags": []}

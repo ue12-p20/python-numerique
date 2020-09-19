@@ -11,6 +11,7 @@ kernelspec:
   language: python
   name: python3
 notebookname: "notebook de d\xE9mo"
+version: '1.0'
 ---
 
 # UE 12 - micro-notebook de démonstration

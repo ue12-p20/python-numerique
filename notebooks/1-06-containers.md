@@ -11,6 +11,7 @@ kernelspec:
   language: python
   name: python3
 notebookname: objets containers
+version: '1.0'
 rise:
   autolaunch: true
   slideNumber: c/t

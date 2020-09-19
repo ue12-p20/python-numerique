@@ -11,6 +11,7 @@ kernelspec:
   language: python
   name: python3
 notebookname: checklist
+version: '1.0'
 ---
 
 # checklist

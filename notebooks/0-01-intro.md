@@ -11,6 +11,7 @@ kernelspec:
   language: bash
   name: calysto_bash
 notebookname: introduction
+version: '1.0'
 ---
 
 <div class="licence">

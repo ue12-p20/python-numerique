@@ -12,6 +12,7 @@ jupyter:
     language: python
     name: python3
 notebookname: figures et sous-figures
+version: '1.0'
 ---
 
 <div class="licence">

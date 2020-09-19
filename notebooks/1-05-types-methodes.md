@@ -1,11 +1,4 @@
 ---
-celltoolbar: Slideshow
-ipub:
-  sphinx:
-    toggle_input: true
-    toggle_input_all: true
-    toggle_output: true
-    toggle_output_all: true
 jupytext:
   cell_metadata_filter: all,-hidden,-heading_collapsed
   formats: md:myst
@@ -18,6 +11,7 @@ kernelspec:
   language: python
   name: python3
 notebookname: "objets, types et m\xE9thodes"
+version: '1.0'
 rise:
   autolaunch: true
   slideNumber: c/t

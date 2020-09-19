@@ -11,6 +11,7 @@ kernelspec:
   language: bash
   name: calysto_bash
 notebookname: "installation miniconda revisit\xE9e"
+version: '1.0'
 ---
 
 <div class="licence">

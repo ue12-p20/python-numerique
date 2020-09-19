@@ -11,6 +11,8 @@ jupyter:
     display_name: Python 3
     language: python
     name: python3
+notebookname: regroupements
+version: '1.0'
 ---
 
 <div class="licence">

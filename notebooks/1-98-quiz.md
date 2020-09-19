@@ -11,7 +11,7 @@ kernelspec:
   language: python
   name: python3
 notebookname: quiz sur Python
-version: 1
+version: '1.0'
 ---
 
 <div class="licence">

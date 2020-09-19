@@ -11,7 +11,8 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-notebookname: intro à matplotlib
+notebookname: "intro \xE0 matplotlib"
+version: '1.0'
 ---
 
 <div class="licence">

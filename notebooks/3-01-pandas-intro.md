@@ -10,6 +10,7 @@ kernelspec:
   language: python
   name: python3
 notebookname: intro à pandas
+version: '1.0'
 ---
 
 # UE12 - pandas et matplotlib
