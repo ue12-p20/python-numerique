@@ -11,8 +11,8 @@ jupyter:
     display_name: Python 3
     language: python
     name: python3
-notebookname: regroupements dans une dataframe
-version: '1.0'
+  notebookname: regroupements dans une dataframe
+  version: '1.0'
 ---
 
 <div class="licence">

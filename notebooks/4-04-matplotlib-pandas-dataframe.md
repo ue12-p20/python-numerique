@@ -11,8 +11,8 @@ jupyter:
     display_name: Python 3
     language: python
     name: python3
-notebookname: matplotlib & pandas
-version: '1.0'
+  notebookname: matplotlib & pandas
+  version: '1.0'
 ---
 
 <div class="licence">
