@@ -11,6 +11,7 @@ jupyter:
     display_name: Python 3
     language: python
     name: python3
+notebookname: figures et sous-figures
 ---
 
 <div class="licence">
