@@ -1,16 +1,15 @@
 ---
-jupyter:
-  jupytext:
-    cell_metadata_filter: all,-hidden,-heading_collapsed
-    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
-    text_representation:
-      extension: .md
-      format_name: markdown
-  kernelspec:
-    display_name: Python 3
-    language: python
-    name: python3
-  notebookname: divers rappels
+jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+notebookname: divers rappels
 ---
 
 # divers annonces / rappels
@@ -19,6 +18,7 @@ cette annexe met simplement en avant quelques informations concernant la mise en
 
 c'est sans incidence pour la session d'aujourd'hui, qu'on va faire sur `https://nbhosting.inria.fr`
 
++++
 
 ## vous avez un accent dans votre nom
 
@@ -26,6 +26,7 @@ les élèves avec un accent dans leur nom sont invités à visiter une procédur
 
 https://nbhosting.inria.fr/auditor/notebook/ue12-python-numerique:intro/notebooks/0-03-install-miniconda-revised
 
++++
 
 ## pour lire localement les notebooks du cours
 
@@ -39,6 +40,7 @@ il est également utile d'installer cette extension Jupyter pour visualiser les 
 
     pip install nb-courselevels
 
++++
 
 ## où trouver les solutions ?
 

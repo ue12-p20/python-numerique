@@ -1,18 +1,17 @@
 ---
-jupyter:
-  jupytext:
-    cell_metadata_filter: all,-hidden,-heading_collapsed
-    cell_metadata_json: true
-    notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
-    text_representation:
-      extension: .md
-      format_name: markdown
-  kernelspec:
-    display_name: Python 3
-    language: python
-    name: python3
-  notebookname: figures et sous-figures
-  version: '1.0'
+jupytext:
+  cell_metadata_filter: all,-hidden,-heading_collapsed
+  cell_metadata_json: true
+  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+notebookname: figures et sous-figures
+version: '1.0'
 ---
 
 <div class="licence">
@@ -21,20 +20,23 @@ jupyter:
 <span><img src="media/ensmp-25-alpha.png" /></span>
 </div>
 
++++
 
 # figures et sous-figures
 
 Où on étudie la façon de produire des figures (*fig*) qui contiennent plusieurs graphiques - pour cela ils incluent des sous-figures (*axis*)
 
++++
 
 Et oui les sous-figures s'appellent des *axis*...
 
++++
 
 Il est souvent intéressant de regrouper plusieurs courbes ensemble sur une même figure. Nous allons voir dans ce notebook comment créer une figure et y positionner des sous-figures sur une grille.
 
 Importons les librairies.
 
-```python
+```{code-cell} ipython3
 import matplotlib.pyplot as plt
 %matplotlib inline
 import pandas as pd
@@ -43,12 +45,13 @@ import numpy as np
 
 ## plusieurs courbes sur une même figure
 
++++
 
 Nous allons créer une figure en lui indiquant une taille puis y dessiner deux courbes. Il existe en `matplotlib` la notion de figure courante i.e. la figure sur laquelle les plots vont être dessinés.
 
 Donc pour commencer rien ne nous empêche de dessiner deux courbes dans le même repère :
 
-```python
+```{code-cell} ipython3
 plt.figure(figsize=(16, 4))
 x = np.linspace(0, 2*np.pi, 500)
 
@@ -61,7 +64,7 @@ plt.plot(x, z);
 
 En appelant la fonction `plt.show` je vais *fermer* une figure i.e. terminer la portée d'une figure, les futurs plots iront sur une autre figure.
 
-```python
+```{code-cell} ipython3
 plt.figure(figsize=(16, 4))
 x = np.linspace(0, 2*np.pi, 500)
 
@@ -74,14 +77,17 @@ z = -2 * np.cos(x)+ 4*np.sin(5*x)
 plt.plot(x, z);
 ```
 
-Notons que si vous utilisez `matplotlib` dans un script et non dans un notebook vous devrez appeler `plt.show()` pour que votre figure s'affiche. 
+Notons que si vous utilisez `matplotlib` dans un script et non dans un notebook vous devrez appeler `plt.show()` pour que votre figure s'affiche.
 
++++
 
 ## dessiner plusieurs sous-figures sur une figure
 
++++
 
-### avec un vecteur de sous-figures (`plt.subplots`) 
+### avec un vecteur de sous-figures (`plt.subplots`)
 
++++
 
 Nous allons maintenant créer une figure, avec plusieurs courbes, mais **chacune avec son repère**;  
 pour cela, on va positionner des **sous-figures** dans la figure.  
@@ -93,14 +99,14 @@ La fonction `fig.subplots` renvoie d'une part la figure, et un tableau `numpy` d
 
 Ainsi si on demande une figure avec 2 lignes et 3 colonnes, on obtient un tableau (un `np.ndarray`) de forme (2, 3), chacun des éléments du tableau étant une sous-figure/*axis*
 
-```python
+```{code-cell} ipython3
 fig, axes = plt.subplots(2, 3)
 axes.shape
 ```
 
-La figure et ses sous-figures ont été dessinées vides. Maintenant on peut attacher des courbes aux axes (sous-figures). On crée l'abscisse x et les listes des valeurs des deux courbes $f(x)=\sin(x)$ et $f(x)=\cos(x)$ en *x* 
+La figure et ses sous-figures ont été dessinées vides. Maintenant on peut attacher des courbes aux axes (sous-figures). On crée l'abscisse x et les listes des valeurs des deux courbes $f(x)=\sin(x)$ et $f(x)=\cos(x)$ en *x*
 
-```python
+```{code-cell} ipython3
 # on va remplir la figure 
 # avec des courbes un peu bateau
 x = np.linspace(0, 2*np.pi, 50)
@@ -110,7 +116,7 @@ z = np.cos(x)
 
 On met un sinus dans la sous-figure en haut et à gauche, donc d'indice (0, 0), et un cosinus dans la sous-figure en bas à droite (1, 2). On utilise les indices du `np.ndarray` de forme (2, 3):
 
-```python
+```{code-cell} ipython3
 axes[0, 0].plot(x, y) 
 
 # pour la dernière on
@@ -122,19 +128,20 @@ axes[-1, -1].plot(x, z)
 fig
 ```
 
-### avec des tailles/positions dans une grille (`plt.subplot`) 
+### avec des tailles/positions dans une grille (`plt.subplot`)
 
-<!-- #region {"cell_style": "center"} -->
++++ {"cell_style": "center"}
+
 Les sous-figures vont pouvoir occuper plusieurs lignes et plusieurs colonnes.
 
 Tout d'abord, on crée une figure sans lui indiquer la taille de sa grille de sous-figures.
-<!-- #endregion -->
 
-```python
+```{code-cell} ipython3
 fig = plt.figure()
 ```
 
-<!-- #region {"cell_style": "center"} -->
++++ {"cell_style": "center"}
+
 Ensuite, on va utiliser la fonction `fig.subplot` (attention il n'y a **pas de `s`** contrairement à la fonction de la section précédente) pour ajouter des sous-figures.
 
 On indique 3 entiers *l*, *c* et *i* à la fonction `fig.subplot` soit en les séparant par des ',' soit en les donnant sous la forme d'un entier des 3 digit *lci*.
@@ -142,11 +149,14 @@ On indique 3 entiers *l*, *c* et *i* à la fonction `fig.subplot` soit en les s�
 Si les trois les entiers sont *l*, *c* et *i* dans l'ordre, la sous-figure prendra la position *i* sur une grille avec *l* lignes et *c* colonnes. *i* commence à 1 en haut à gauche et s'augmente vers la droite.
 
 Ainsi *fig.subplot(lci)* est la même chose que *fig.subplot(l, c, i)*.
-<!-- #endregion -->
+
++++
 
 Refaisons la même figure (2, 3) que précédemment:
 
-```python cell_style="center"
+```{code-cell} ipython3
+:cell_style: center
+
 plt.figure()
 ax1 = plt.subplot(231)
 ax2 = plt.subplot(232)
@@ -159,10 +169,13 @@ plt.show()
 
 Maintenant on peut dessiner des courbes dans les sous-figures, on peut mettre un titre aux sous-figures avec `axi.set_title` (où `axi` est une sous-figure), on peut mettre un titre à la figure globale avec `plt.suptitle`..
 
++++
 
 Remarquez que cette façon de faire est un peu plus flexible que la précédente, puisqu'avec `subplots` on est découpe forcément en une grille régulière, alors qu'ici en jonglant un petit peu, on peut faire des choses un peu plus irrégulières, comme par exemple :
 
-```python cell_style="center"
+```{code-cell} ipython3
+:cell_style: center
+
 # efforcez-vous de vbien comprendre 
 # les paramètres que je passe aux 
 # 6 appels à subplot
@@ -194,5 +207,6 @@ Notons que cette seconde manière de faire rend le code brouillon, peu lisible, 
 
 Du coup si vous avez besoin d'une grille régulière, il est sans doute préférable d'utiliser la fonction `plt.subplots` qui renvoie la figure globale et un tableau des sous-figures.
 
++++
 
 Bien sûr on peut améliorer les sous-figures: nommer abscisses et ordonnées, ajouter des légendes... et des tas d'autres fonctionnalités (dont certaines très avancées), il faut se référer à la documentation  https://matplotlib.org/api/axes_api.html et aux exemples sur Internet.
