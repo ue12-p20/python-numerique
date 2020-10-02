@@ -1,0 +1,142 @@
+quiz:
+  type: Quiz
+  exoname: quiz-python
+  max_attempts: 3
+  max_grade: 20
+  shuffle: false
+  questions: wrong-program code-editor dict-for-indexing index-what-by-what
+
+wrong-program:
+  type: QuizQuestion
+  exactly_one_option: yes
+    # score: 
+  question:
+    text: |
+      **terminal et interpréteur**
+
+      vous apercevez ce fragment sur le terminal d'un de vos camarades 
+      ```
+
+      $ def fact(n):
+      -bash: syntax error near unexpected token `('
+
+      ```
+      que se passe-t-il ici ?
+  explanation: >
+    le premier `$` dans la partie `$ def fact(n):` est un prompt
+    qui indique qu'on est en train de parler au terminal; or la 
+    phrase `def fact(n)` est du langage Python et non pas du bash.
+  options:
+    - text: on a essayé d'exécuter du Python dans le terminal
+      correct: yes
+    - text: on a essayé d'exécuter du bash dans Python
+    - text: |
+        dans l'interpréteur Python on a essayé de définir
+        une fonction mais la syntaxe est erronée
+      explanation: >
+        on n'est pas dans l'interpréteur Python ici, si c'était 
+        le cas le prompt serait `>>> `
+
+    
+code-editor:
+  type: QuizQuestion
+  exactly_one_option: no
+  shuffle: yes
+  question:
+    text: |
+      **éditeurs**
+
+      sélectionnez parmi les outils suivants ceux qui peuvent être
+      utilisés pour les cours d'info de 1A comme éditeur de code
+  options:
+    - text: Microsoft Word
+      explanation: >
+        cet outil sauve votre document dans un format qui préserve la présentation
+        mais beaucoup plus bavard que texte qu'on y a tapé
+    - text: Visual Studio code
+      correct: yes
+    - text: Pyzo
+      explanation: > 
+        cet environnement est explicitement proscrit pour les cours de cette année
+
+
+dict-for-indexing:
+  type: QuizQuestion
+  # score: 
+  exactly_one_option: yes
+  shuffle: yes
+  question:
+    text: |
+      **Liste, dictionnaire et indexation**
+
+      On écrit une application qui gère de l'ordre de $10^7$ livres; 
+      chaque livre est représenté par un objet de type `Book`, qui contient notamment
+      un champ `ISBN` (International Standard Book Number) qui sert d'identifiant 
+      unique pour un livre; 
+      cet identifiant est utilisé dans tout le système,
+      par exemple un objet de type `Order` est susceptible 
+      de contenir les ISBN des livres commandés
+
+      Vous devez choisir une structure de données pour modéliser le catalogue de livres, 
+      est-ce que vous choisissez : 
+  options:
+    - text: une liste d'objets de type `Book`
+      explanation: >
+        les recherches dans le catalogue vont en moyenne demander de faire 5 millions
+        de test en parcourant la liste, les performances seront épouvantables
+    - text: un ensemble d'objets de type `Book`
+      explanation: >
+        l'ensemble permettrait en effet de répondre rapidement à la question 
+        "avons-nous tel livre dans notre catalogue", mais pas de trouver 
+        le livre en question puisque l'ensemble ne contiendra que les ISBN
+        sans référence aux livres
+    - text: > 
+        un dictionnaire d'objets de type `Book` indexés sur leur ISBN  
+
+        c'est-à-dire un dictionnaire dans lequel les clés sont les ISBN,
+
+        avec comme valeur associée l'objet `Book` correspondant
+      correct: yes
+      explanation: >
+        avec cette structure on pourra accéder en temps constant à un livre sur la base 
+        de son seul ISBN
+    - text: >
+        un dictionnaire d'objets de type `Book` indexés sur leur titre  
+
+        c'est-à-dire un dictionnaire dans lequel les clés sont les titres,  
+
+        avec comme valeur associée l'objet `Book` correspondant
+      explanation: >
+        puisque toute l'application utilise le ISBN comme identifiant unique,
+        il est nécessaire d'optimiser les recherches **par ISBN**, c'est donc
+        cela qu'il faut choisir comme clé
+
+
+index-what-by-what:
+  type: QuizQuestion
+  score: [4, -2, 0]
+  question:
+    text: |
+      **indexation**
+      
+      en Python on peut utiliser la forme `objet[index]` avec quels types ?
+      (on dit en raccourci *chaine* pour chaine de caractères)
+
+  options:
+    - text: si `objet` est une chaine et `index` est une chaine
+      explanation: >
+        une chaine ne peut être indexée que par un entier
+    - text: si `objet` est une chaine et `index` est un entier
+      correct: yes
+    - text: si `objet` est une liste et `index` est une chaine
+      explanation: >
+        une liste ne peut être indexée que par un entier
+    - text: si `objet` est une liste et `index` est un entier
+      correct: yes
+    - text: si `objet` est un dictionnaire et `index` est une chaine
+      correct: yes
+    - text: si `objet` est un ensemble et `index` est un entier
+      explanation: >
+        on ne peut pas du tout indexer un ensemble, il n'y a pas d'ordre
+        entre ses éléments
+        
