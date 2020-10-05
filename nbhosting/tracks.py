@@ -34,13 +34,13 @@ def tracks(coursedir):
            ('quiz & annonces', 'notebooks/1-[89]*.md'),
            ('numpy', 'notebooks/2-[01]*.md'), 
            ('exos', 'notebooks/2-[56]*.md'), 
-           ('quiz', 'notebooks/2-[89]*.md'), 
+#           ('quiz', 'notebooks/2-[89]*.md'), 
         ]),
         ('cours #4: pandas & dataviz' , 'outils pour la data science', 'datascience',
          [ 
            ('pandas & dataviz', 'notebooks/[34]-[01]*.md'),
            ('exos', 'notebooks/[34]-[56]*.md'),
-           ('quiz', 'notebooks/[34]-[89]*.md'),
+#           ('quiz', 'notebooks/[34]-[89]*.md'),
          ]),
         ]
 
