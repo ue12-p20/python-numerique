@@ -239,7 +239,7 @@ Pour construire un tableau, de quelles informations peut-t-on avoir besoin ?
 
    - de sa forme, disons par exemple que le tableau est une matrice 4 x 5.
 
-   - du type des éléments que `nunpy` va pouvoir inférer (*deviner*) à partir des valeurs initiales fournies
+   - du type des éléments que `numpy` va pouvoir inférer (*deviner*) à partir des valeurs initiales fournies
 
    - des valeurs, disons que cette matrice est celle que nous avons vu en début du notebook et qui s'appelle `matrice`
 
