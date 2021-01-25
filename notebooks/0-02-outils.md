@@ -330,7 +330,8 @@ ceux qui veulent creuser peuvent
 
 * s'exercer avec un outil en ligne <https://www.codecogs.com/latex/eqneditor.php>
 
-* commencer par cet article <https://www.physicsoverflow.org/15329/mathjax-basic-tutorial-and-quick-reference>
+* commencer par cet article 
+<https://www.physicsoverflow.org/15329/mathjax-basic-tutorial-and-quick-reference>
 
 * approfondir avec celui-ci <https://en.wikibooks.org/wiki/LaTeX/Mathematics>
 
@@ -346,33 +347,92 @@ ceux qui veulent creuser peuvent
 * notre recommandation : miniconda  
   * relativement léger
   * permet d'installer en mode "user" i.e. sans droits administrateur
-* (ca va sans le dire mais surtout pas Python 2.7 !) 
+* (ça va sans le dire mais ne prenez **surtout pas Python 2.7** !) 
 
+nous allons
 
-Nous allons
-
-* faire une démonstration de l'installation miniconda sur Windows à partir de <https://docs.conda.io/en/latest/miniconda.html> (les linux et les macos le font pour leur OS + architectures)
+* faire une démonstration de l'installation miniconda sur Windows à partir de
+  <https://docs.conda.io/en/latest/miniconda.html> (les linux et les macos le font pour
+  leur OS + architectures)
 * puis écrire un ou deux programmes Python très simples
 * et les exécuter dans un terminal
 
 +++
 
-<div style="background-color:#cccccc; border-radius: 6px; margin:12px; padding: 12px;">
-
-<span style="background-color:red; padding:4px; border-radius: 4px;">**EDIT** après la séance en amphi, on a constaté ceci :</span>
-
-* si votre **nom d'utilisateur** sous Windows **contient un accent**, la procédure décrite ici **ne va pas fonctionner** 
-* dans ce cas [je vous renvoie à cette annexe](0-03-install-miniconda-revised.md) qui décrit une procédure légèrement différente, qui marche pour tout le monde quel que soit votre nom
-    
-</div>
+### préparation : création d'un dossier `c:\miniconda`
 
 +++
+
+nous allons pour commencer créer un dossier dont le nom est court et simple,
+et **qui ne contient pas d'accent** (c'est très important que le chemin complet pour
+accéder au dossier où on installe miniconda ne comporte pas d'accents.)
+
+pour cela nous allons lancer la console Windows qui s'appelle `PowerShell`, et créer le
+dossier `c:/miniconda`
+
+en deux étapes, ça se présente comme ceci :
+
++++
+
+(1) pour lancer la console `PowerShell`
+
+![](media/fig-miniconda-powershell-locate.png)
+
++++
+
+(2) on va créer maintenant le dossier dans lequel on installera ensuite miniconda,
+et pour cela il y a une seule ligne à taper
+
+```console
+md c:/miniconda
+```
+
+![](media/fig-miniconda-powershell-md.png)
+
++++
+
+une fois la commande tapée vous pouvez sortir de PowerShell (utiliser la croix en haut à
+droite par exemple)
+
++++
+
+### installation de miniconda
+
++++
+
+à ce stade on peut lancer l'installation de miniconda
 
 ![](media/fig-miniconda-download.png)
 
 +++
 
+vous lancez le `.exe`, vous prenez toutes les options par défaut lorsqu'on vous pose une
+question, **sauf pour les deux écrans qui suivent**
+
++++
+
+(1) sur cet écran vous remplacez le chemin qu'on vous propose par défaut, et vous
+choisissez à la place le dossier qu'on a créé dans l'étape précédente, c'est-à-dire `c:\miniconda`
+
+![](media/fig-miniconda-set-install-dir.png)
+
++++
+
+(2) il est important de bien cocher la case en rouge; l'autre est recommandée également
+
 ![](media/fig-miniconda-install.png)
+
++++
+
+<div style="background-color:#cccccc; border-radius: 6px; margin:12px; padding: 12px;">
+
+en théorie c'est tout ce qu'il y a à faire pour installer conda
+
+toutefois certains élèves nous ont signalé un souci, aussi on vous recommande de lancer à ce stade dans un terminal
+
+`conda init bash`
+
+</div>
 
 +++
 
@@ -380,8 +440,12 @@ Nous allons
 
 +++
 
+juste après l'installation de conda, **quittez vos terminaux actifs**; conda a modifié la séquence d'initialisation des terminaux bash, il faut donc faire les tests qui suivent dans un terminal tout neuf.
+
++++
+
 *** 
-**Attention**  
+**attention**  
 
 * les signes `$ ` ou `>>> ` ne font pas partie de ce que vous devez taper
 * c'est juste une indication pour dire 
@@ -415,7 +479,7 @@ depuis `GitBash`, on va lancer un Python interactif et lui faire calculer $2^{10
 
 <div style="background-color:#cccccc; border-radius: 6px; margin:12px; padding: 12px;">
 
-<span style="background-color:red; padding:4px; border-radius: 4px;">**EDIT** après la séance en amphi, on a constaté ceci :</span>
+<span style="background-color:red; padding:4px; border-radius: 4px;">quelques limitations connues :</span>
 
 * lancer simplement `python` dans `GitBash` ne fonctionne pas  
   (le programme n'affiche pas le prompt et semble boucler sans rien afficher)
