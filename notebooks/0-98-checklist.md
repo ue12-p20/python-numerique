@@ -94,9 +94,10 @@ idéalement à la fin de cette leçon vous devriez être capable
 
 * de cloner les supports de cours qui sont ici  
   <https://github.com/ue12/python-numerique>
-* d'ouvrir sous jupyter le notebook principal `notebooks/0-10-demonstration.md`  
+* d'ouvrir sous jupyter le notebook principal `notebooks/0-10-demonstration.md`
 * de le modifier, ajouter de nouvelles cellules, le sauver, ...
-* en option, regarder les différences entre votre dépôt et le cours d'origine avec `git status` et `git diff`
+* en option, regarder les différences entre votre dépôt et le cours d'origine avec `git
+  status` et `git diff`
 
 +++ {"tags": ["level_intermediate"]}
 
@@ -115,20 +116,22 @@ notez que cela suppose d'avoir :
 
 ## exercices optionnel
 
-ceux qui sont très en avance peuvent 
+ceux qui sont très en avance peuvent
 
-1. d'abord, aider leurs camarades 
+1. d'abord, aider leurs camarades
 1. et ensuite, traiter l'exercice suivant :
 
 **exercice**
 
 * créer un notebook (Python, pas bash)
-* dans lequel vous traitez, une peu comme le fait le notebook de démonstration, un tout petit sujet de maths, avec comme objectif d'écrire a minima
+* dans lequel vous traitez, une peu comme le fait le notebook de démonstration, un tout
+  petit sujet de maths, avec comme objectif d'écrire a minima
   * du markdown un peu structuré
   * des équations simples qui parlent du problème ou de la méthode
   * un petit bout de code, qui implémente une solution au problème
-  
-suggestions de sujets possibles: 
+
+suggestions de sujets possibles:
+
 * fibonacci
 * factoriel
 * combinaisons n parmi p
@@ -138,23 +141,28 @@ suggestions de sujets possibles:
 
 même consigne, pour le calcul de la visibilité à une altitude donnée :
 
-vous êtes sur le globe terrestre au point $B$, c'est-à-dire à une altitude $h$, vous devez calculer la distance à laquelle se situe l'horizon (on admet que c'est la mer tout autour de vous)
+vous êtes sur le globe terrestre au point $B$, c'est-à-dire à une altitude $h$, vous devez
+calculer la distance à laquelle se situe l'horizon (on admet que c'est la mer tout autour
+de vous)
 
 c'est-à-dire que vous devez calculer, à partir de $h$, la distance AB
 
-et réciproquement, étant donné AB, vous devez calculer à quelle hauteur il faut se hisser pour apercevoir un objet à cette ditance
+et réciproquement, étant donné AB, vous devez calculer à quelle hauteur il faut se hisser
+pour apercevoir un objet à cette distance
 
 ![](media/illustration-earth.svg)
 
 applications :
 
-* je suis en mer à 50 nautiques ($\alpha$ = 50') de la Corse, à quelle altitude sont les montagnes qui m'apparaissent au niveau de l'horizon ?
+* je suis en mer à 50 nautiques ($\alpha$ = 50') de la Corse, à quelle altitude sont les
+  montagnes qui m'apparaissent au niveau de l'horizon ?
 
-* à quelle altitude est-ce que dois monter pour voir un point qui flotte à 10 nautiques de moi ?
+* à quelle altitude est-ce que dois monter pour voir un point qui flotte à 10 nautiques de
+  moi ?
 
-**rappels** 
+**rappels**
 
-* la circonférence du globe mesure 40.000 km 
+* la circonférence du globe mesure 40.000 km
 * une mile nautique = 1° de latitude
 
 ```{code-cell} ipython3

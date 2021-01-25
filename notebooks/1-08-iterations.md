@@ -75,8 +75,7 @@ avec ce qu'on a vu jusqu'ici, on serait tenté de
 notamment car ça demande une grosse **allocation mémoire**  
 qui est loin d'être gratuite en termes de performance  
 en fait pour faire cette énumération  
-on n'a besoin que d'**une seule case mémoire** 
-
+on n'a besoin que d'**une seule case mémoire**  
 ```c++
 // en C++ on écrirait quelque chose comme
 for (int i=0; i<=1000000; i++) {
@@ -117,11 +116,11 @@ l'impact sur les performances est majeur !
 
 # option avec itérateur
 
-# temps de construction 
+# temps de construction
 # de l'objet range
 %timeit -n 1000  range(10**6)
 
-# espace mémoire occupé 
+# espace mémoire occupé
 # par le range - en octets
 iterateur = range(10**6)
 import sys
@@ -134,7 +133,7 @@ sys.getsizeof(iterateur)
 # option avec liste
 
 # ici je construis une liste explicite
-# et le plus simple en Python est 
+# et le plus simple en Python est
 # d'appeler list() sur l'itérateur
 
 # temps de construction
@@ -155,7 +154,7 @@ sys.getsizeof(explicit)
 
 sujets = ['james', 'henri', 'louis']
 
-# on veut lister les éléments 
+# on veut lister les éléments
 # avec leur indice, c'-à-d produire
 # 0: james
 # 1: henri
@@ -186,7 +185,7 @@ for i in range(len(sujets)):
 # c'est à ça que sert enumerate()
 
 for i, item in enumerate(sujets):
-    print(f"{i}: {item}")    
+    print(f"{i}: {item}")
 ```
 
 +++ {"cell_style": "center"}
@@ -195,7 +194,11 @@ c'est le propos de la fonction `enumerate()`
 
 +++ {"slideshow": {"slide_type": "notes"}}
 
-Ce style de programmation à base d'indices est tentant, surtout lorsqu'on vient d'un autre langage, mais c'est considéré comme pas du tout pythonique. Il est important de prendre l'habitude d'utiliser la boucle `for` de la bonne façon, notamment car la programmation par indice ne se prête pas du tout aux itérations plus sophistiquées que nous allons étudier.
+ce style de programmation à base d'indices est tentant, surtout lorsqu'on vient d'un autre
+langage, mais c'est considéré comme pas du tout pythonique. Il est important de prendre
+l'habitude d'utiliser la boucle `for` de la bonne façon, notamment car la programmation
+par indice ne se prête pas du tout aux itérations plus sophistiquées que nous allons
+étudier.
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -209,7 +212,7 @@ de manière générale, on peut écrire une boucle `for` sur un très grand nomb
 
 ```{code-cell} ipython3
 # itertools contient des itérateurs pour
-# matérialiser la plupart des combinatoires 
+# matérialiser la plupart des combinatoires
 # habituelles
 
 import itertools
@@ -241,13 +244,14 @@ for tirage in permutations(couleurs):
 
 +++ {"slideshow": {"slide_type": "notes"}}
 
-Dans le cas de la fonction `itertools.product`, remarquez que notre code revient à faire deux boucles imbriquées.
+Dans le cas de la fonction `itertools.product`, remarquez que notre code revient à faire
+deux boucles imbriquées.
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ## `break` et `continue`
 
-dans le corps d'une boucle (`for` ou `while`), on peut utiliser: 
+dans le corps d'une boucle (`for` ou `while`), on peut utiliser:
 
 * `break` pour terminer directement la boucle
 * `continue` pour passer directement à l'itération suivante
@@ -258,8 +262,7 @@ dans le corps d'une boucle (`for` ou `while`), on peut utiliser:
 # pour illustrer break
 
 # les 4 premières permutations seulement
-# remarquez l'emploi de enumerate 
-
+# remarquez l'emploi de enumerate
 for index, tirage in enumerate(
     permutations(couleurs)):
     print(tirage)
@@ -308,12 +311,12 @@ for x in cartes[:2]:
 ```{code-cell} ipython3
 :cell_style: split
 
-# mais le break n'a pas le même 
+# mais le break n'a pas le même
 # comportement dans les deux cas
 for x, y in product(cartes[:2],
                     couleurs[:2]):
     if y == '♧':
-        break        
+        break
     print(f"{x} de {y}")
 ```
 
@@ -325,7 +328,7 @@ for x, y in product(cartes[:2],
 for x in cartes[:2]:
     for y in couleurs[:2]:
         if y in '♧':
-            break        
+            break
         print(f"{x} de {y}")
 ```
 
@@ -370,7 +373,7 @@ cell_style: split
 slideshow:
   slide_type: ''
 ---
-# avec filtrage - avec toutes 
+# avec filtrage - avec toutes
 # les variétés de compréhensions
 {x**2 for x in entrees if x % 2 == 0}
 ```
@@ -394,7 +397,11 @@ cela s'appelle une **expression génératrice**
 
 +++ {"slideshow": {"slide_type": "notes"}}
 
-Le fait de devoir allouer de la mémoire a plusieurs inconvénients. Tout d'abord bien entendu, la mémoire est une ressource finie, qu'il faut donc utiliser avec parcimonie. De plus, lorsqu'un programme a besoin de mémoire il la demande au système d'exploitation, et c'est une opération bien plus lente qu'on pourrait le soupçonner naïvement ; et même sur une machine dotée d'une mémoire énorme, ce temps d'allocation pénalise les performances.
+Le fait de devoir allouer de la mémoire a plusieurs inconvénients. Tout d'abord bien
+entendu, la mémoire est une ressource finie, qu'il faut donc utiliser avec parcimonie. De
+plus, lorsqu'un programme a besoin de mémoire il la demande au système d'exploitation, et
+c'est une opération bien plus lente qu'on pourrait le soupçonner naïvement ; et même sur
+une machine dotée d'une mémoire énorme, ce temps d'allocation pénalise les performances.
 
 +++ {"cell_style": "center", "slideshow": {"slide_type": "slide"}}
 
@@ -443,8 +450,8 @@ sys.getsizeof(generatrice)
 
 pour itérer sur une suite (un itérable) d'entrées
 
-* on peut écrire un `for`, 
-* ou une compréhension, 
+* on peut écrire un `for`,
+* ou une compréhension,
 * ou une expression génératrice
 
 on n'itère **jamais** sur `range(len(iterable))`  
@@ -452,5 +459,5 @@ on utilise `enumerate` à la place
 
 dans tous les cas où c'est possible
 
-* on recommande d'utiliser un itérateur 
+* on recommande d'utiliser un itérateur
 * de préférence à une allocation explicite des résultats

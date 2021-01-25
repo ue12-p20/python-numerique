@@ -19,11 +19,14 @@ version: '1.0'
 +++
 
 voici un petit notebook, principalement conçu pour votre démarrage en Jupyter  
-vous êtes invités à l'ouvrir **sur votre ordinateur** une fois que vous avez installé les outils, et cloné le cours
+vous êtes invités à l'ouvrir **sur votre ordinateur** une fois que vous avez installé les
+outils, et cloné le cours
 
-il utilise cette fois un kernel Python - ce qui le rend plus facile d'accès que le cours d'introduction, qui requiert une installation supplémentaire car il utilise bash 
+il utilise cette fois un kernel Python - ce qui le rend plus facile d'accès que le cours
+d'introduction, qui requiert une installation supplémentaire car il utilise bash
 
-et de toutes façons, l'énorme majorité des notebooks du cours sont en Python, c'est mieux de commencer par là
+et de toutes façons, l'énorme majorité des notebooks du cours sont en Python, c'est mieux
+de commencer par là
 
 +++
 
@@ -31,15 +34,18 @@ et de toutes façons, l'énorme majorité des notebooks du cours sont en Python,
 
 +++
 
-on peut produire des tas d'effets rien qu'en écrivant du texte; du **gras**, de l'*italique*, `du code`
+on peut produire des tas d'effets rien qu'en écrivant du texte; du **gras**, de
+l'*italique*, `du code`
 
 +++
 
-lorsque vous faites `Entrée` dans une zone de texte vous passez en mode édition, vous voyez le code markdown; lorsque vous évaluez la cellule le code markdown est transformé (on dit qu'il est *rendu*) en HTML
+lorsque vous faites `Entrée` dans une zone de texte vous passez en mode édition, vous
+voyez le code markdown; lorsque vous évaluez la cellule le code markdown est transformé
+(on dit qu'il est *rendu*) en HTML
 
 +++
 
-la plupart du temps on évalue les cellules avec `Shift-Enter` mais on peut aussi faire 
+la plupart du temps on évalue les cellules avec `Shift-Enter` mais on peut aussi faire
 
 * `Control-Enter` pour évaluer la cellule **sans passer à la suivante**
 * `Alt-Enter` pour évaluer **et insérer une nouvelle cellule au dessous**
@@ -48,12 +54,12 @@ entrainez-vous à modifier une cellule
 
 +++
 
-on peut produire 
+on peut produire
 
 * des listes
 * à bullets
 
-et aussi 
+et aussi
 
 1. des listes
 1. à numéros
@@ -65,7 +71,7 @@ et aussi
   * pour produire
   * un peu de structure
 * on **peut** imbriquer beaucoup
-  * mais je vous conseille, de vous limiter 
+  * mais je vous conseille, de vous limiter
   * à une profondeur de 2 seulement,
     * donc ne faites pas comme ici..
 
@@ -78,7 +84,8 @@ et aussi
 pour les liens hypertexte, on a plusieurs choix de présentation
 
 * on peut simplement mettre l'URL telle quelle https://www.youtube.com/watch?v=QJYmyhnaaek
-* on peut aussi [l'habiller un peu](https://www.youtube.com/watch?v=QJYmyhnaaek) et pour ça on utilise la notation markdown
+* on peut aussi [l'habiller un peu](https://www.youtube.com/watch?v=QJYmyhnaaek) et pour
+  ça on utilise la notation markdown
 
     [le texte](url de la cible)
 
@@ -88,20 +95,22 @@ pour les liens hypertexte, on a plusieurs choix de présentation
 
 +++ {"tags": []}
 
-pour les images enfin, c'est un peu la même syntaxe que les liens, mais avec un `!` devant, ça donne ceci
+pour les images enfin, c'est un peu la même syntaxe que les liens, mais avec un `!`
+devant, ça donne ceci
 
     ![](url de l'image)
-    
-par exemple comme ceci 
 
-* on peut insérer une image au format vectoriel (ici du svg) ![](https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/atom.svg)
+par exemple comme ceci
+
+* on peut insérer une image au format vectoriel (ici du svg)
+  ![](https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/atom.svg)
 * en format bitmap (ici du jpg) ![](media/pexels-markus-spiske-1089440.jpg)
 
 ***
 
 +++ {"tags": []}
 
-**remarque** : les deux exemples précédents sont différents à un autre titre  
+**remarque** : les deux exemples précédents sont différents à un autre titre
 
 * le premier utilise une **URL distante** (sur le site du consortium W3C)
 * le second utilise une **URL locale**
@@ -130,14 +139,16 @@ $$
 
 +++
 
-pour générer cet ensemble on considère 
+pour générer cet ensemble on considère
 
 * d'abord l'ensemble des complexes à parties réelles et imaginaires entières
 $C_{\mathbb{N}} = \{z = n + im \;/\; (n, m) \in \mathbb{Z}^2\}$
 
 * puis l'ensemble de leurs carrés $C_{\mathbb{N}}^2 = \{z^2, z\in C_{\mathbb{N}} \}$
 
-vous vous convaincrez facilement - ce n'est pas du tout notre sujet ici - que cette méthode permet d'énumérer des triplets pythagoriciens… (mais regardez la vidéo youtube citée plus haut si vous voulez en savoir plus)
+vous vous convaincrez facilement - ce n'est pas du tout notre sujet ici - que cette
+méthode permet d'énumérer des triplets pythagoriciens… (mais regardez la vidéo youtube
+citée plus haut si vous voulez en savoir plus)
 
 +++
 
@@ -156,7 +167,7 @@ def hey():
 ```
 
 ```{code-cell} ipython3
-# quand vous évaluez ceci 
+# quand vous évaluez ceci
 # ça doit afficher le message
 
 hey()
@@ -166,14 +177,16 @@ hey()
 
 +++
 
-voici un petit bout de code Python qui utilise notre méthode pour énumérer les triplets pythagoriciens; bien sûr vous n'avez pas encore le bagage pour tout comprendre, mais vous pouvez déjà l'exécuter !
+voici un petit bout de code Python qui utilise notre méthode pour énumérer les triplets
+pythagoriciens; bien sûr vous n'avez pas encore le bagage pour tout comprendre, mais vous
+pouvez déjà l'exécuter !
 
 ```{code-cell} ipython3
 import math
 
 def pythagore(N):
     """
-    retourne un ensemble de triplets pythagoriciens obtenus en 
+    retourne un ensemble de triplets pythagoriciens obtenus en
     calculant le carré des complexes n + im
     avec 1 <= n <= N  et 1 <= m <= N
     """
@@ -188,7 +201,7 @@ def pythagore(N):
             if a and b:
                 solution = int(abs(a)), int(abs(b))
                 solutions.add(solution)
-    # l'avantage d'utiliser un ensemble est qu'on n'a 
+    # l'avantage d'utiliser un ensemble est qu'on n'a
     # pas besoin d'éliminer les doublons
     return solutions
 ```
@@ -196,7 +209,7 @@ def pythagore(N):
 ```{code-cell} ipython3
 # affichons ce qu'on a trouvé
 for a, b in pythagore(7):
-    # en Python pour calculer x au carré 
+    # en Python pour calculer x au carré
     # on peut - par exemple - écrire x**2
     c = math.sqrt(a**2 + b**2)
     print(f"racine({a}*{a} + {b}*{b}) = {c}")
@@ -220,7 +233,9 @@ for a, b in pythagore(7):
 
 +++
 
-dans un notebook on peut aussi tracer des figures; ici encore, on verra les détails bientôt, mais juste pour illustrer ce trait, voici comment dessiner la courbe de la fonction $ f(x) = e^{-x^2} $ sur l'ntervalle $[\pi, \pi]$
+dans un notebook on peut aussi tracer des figures; ici encore, on verra les détails
+bientôt, mais juste pour illustrer ce trait, voici comment dessiner la courbe de la
+fonction $ f(x) = e^{-x^2} $ sur l'ntervalle $[\pi, \pi]$
 
 ```{code-cell} ipython3
 # dès qu'on fait du calcul scientifique on utilise la librairie numpy

@@ -24,7 +24,7 @@ version: '1.0'
 
 # quiz
 
-pour vous évaluer sur 
+pour vous évaluer sur
 
 * la séance d'installation et introduction aux outils
 * le cours de survol du langage Python

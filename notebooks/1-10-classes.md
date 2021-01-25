@@ -41,7 +41,7 @@ sont pratiques et puissants
 
 +++
 
-**MAIS** souvent cela n'est pas suffisant 
+**MAIS** souvent cela n'est pas suffisant
 pour traiter des problèmes réels
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -67,8 +67,7 @@ mais c'est vite un peu lourd et très limité
 
 +++ {"cell_style": "center", "slideshow": {"slide_type": "slide"}}
 
-## `class` 
-
+## `class`  
 dans ces cas-là (et dans bien d'autres)  
 il est plus flexible de se définir **un nouveau type**  
 qui permette de créer des objets qui ont les propriétés en question  
@@ -226,7 +225,7 @@ stack
 à nouveau, remarquez que la **définition** d'une méthode  
 prévoit un paramètre de plus que l'appel de la méthode  
 car `obj.methode(...)`  
-est équivalent à   
+est équivalent à
 `methode(obj, ...)`
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -241,8 +240,7 @@ est équivalent à
   facile à passer à d'autres fonctions
 
 * invariants: garantir de bonnes propriétés  
-  si on utilise les objets au travers des méthodes 
-
+  si on utilise les objets au travers des méthodes  
 * organise les espaces de noms  
   e.g. pas de conflit entre Class1.name et Class2.name
 
@@ -274,7 +272,7 @@ exemples, selon le type de `obj` :
 
 ## exemple - `if obj:`
 
-remarquez qu'on peut toujours écrire un test `if` (ou `while`)   
+remarquez qu'on peut toujours écrire un test `if` (ou `while`)
 même si le sujet du test n'est pas un booléen
 
 ```{code-cell} ipython3
@@ -424,15 +422,11 @@ slideshow:
 class Quaternion:
 
     def __init__(self, a, b, c, d):
-        self.implem = (a, b, c, d)
-
-
+        self.implem = (a, b, c, d)  
     # c'est la partie intéressante
     def __add__(self, other):
         """defines q1 + q2)"""
-        return Quaternion(*(x+y for x, y in zip(self.implem, other.implem)))
-
-
+        return Quaternion(*(x+y for x, y in zip(self.implem, other.implem)))  
     def __mul__(self, other):
         """defines q1 * q2"""
         a1, b1, c1, d1 = self.implem
@@ -441,14 +435,10 @@ class Quaternion:
         b = a1 * b2 + b1 * a2 + c1 * d2 - d1 * c2
         c = a1 * c2 + c1 * a2 + d1 * b2 - b1 * d2
         d = a1 * d2 + d1 * a2 + b1 * c2 - c1 * b2
-        return Quaternion(a, b, c, d)
-
-
+        return Quaternion(a, b, c, d)  
     def __eq__(self, other):
         """implements q1 == q2"""
-        return self.implem == other.implem
-
-
+        return self.implem == other.implem  
     def __repr__(self):
         a, b, c, d = self.implem
         return f"({a}, {b}, {c}, {d})"
@@ -526,9 +516,7 @@ slideshow:
   slide_type: skip
 ---
     # pour affichage
-    labels = ['', 'i', 'j', 'k']
-
-
+    labels = ['', 'i', 'j', 'k']  
     # un code possible pour un affichage plus élégant
 
     # affichage

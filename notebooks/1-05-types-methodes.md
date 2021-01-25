@@ -101,11 +101,11 @@ la syntaxe est donc
 ```python
 objet.methode(parametre)
 ```
-    
+
 ce qui se passe c'est que
 
 * on cherche la méthode **à partir du type** de `objet`  
-* on trouve une **fonction**, et on l'appelle 
+* on trouve une **fonction**, et on l'appelle
 * avec en premier argument l'objet
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -125,7 +125,7 @@ chaine
 ```{code-cell} ipython3
 :cell_style: split
 
-# la recherche de 'capitalize' 
+# la recherche de 'capitalize'
 # à partir de `chaine`
 # trouve une fonction rangée
 # dans le type `str`
@@ -145,7 +145,7 @@ chaine.capitalize()
 :cell_style: split
 
 # c'est comme si on avait
-# écrit 
+# écrit
 la_methode(chaine)
 ```
 

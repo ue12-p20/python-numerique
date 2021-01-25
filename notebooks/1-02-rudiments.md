@@ -53,7 +53,7 @@ et sera ignoré par l'interpréteur Python
 ```{code-cell} ipython3
 :cell_style: split
 
-# entiers 
+# entiers
 10
 ```
 
@@ -97,7 +97,7 @@ a = 10
 ```{code-cell} ipython3
 :cell_style: split
 
-# l'utilité c'est bien sûr 
+# l'utilité c'est bien sûr
 # de garder un résultat pour
 # s'en reservir ensuite
 a + a
@@ -114,7 +114,7 @@ on définit une fonction avec le mot-clé `def`
 
 # on définit une fonction en donnant un nom
 # aux paramètres
-# 
+#
 # à nouveau ici on ne va rien afficher
 def P(x):
     return x**2 + 3*x + 2
@@ -148,7 +148,7 @@ on ne peut pas les utiliser comme noms de variable
 
 ```python
 # ceci provoque une erreur
-if = 2 
+if = 2
 
   File "<ipython-input>", line 3
     if = 2
@@ -182,9 +182,9 @@ import math
 ```
 
 ```{code-cell} ipython3
-# attention cette façon d'obtenir de l'aide est 
+# attention cette façon d'obtenir de l'aide est
 # spécifique à IPython / notebooks
-# avec un interprète Python standard, on ferait 
+# avec un interprète Python standard, on ferait
 # help(math)
 math?
 ```
@@ -212,13 +212,14 @@ math.pi
 
 # ça devrait être 0 mais ...
 math.sin(math.pi)
-# ... c'est simplement tout petit 
+# ... c'est simplement tout petit
 # 0.00000000000000012246467991473532
 ```
 
 +++ {"slideshow": {"slide_type": "notes"}}
 
-Remarquez qu'ici on devrait obtenir 0, mais les calculs sur les flottants sont faits de manière approchée.
+Remarquez qu'ici on devrait obtenir 0, mais les calculs sur les flottants sont faits de
+manière approchée.
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -255,8 +256,8 @@ bien sûr un flottant est représenté comme une suite de bits 0 ou 1
 cela induit des calculs avec une précision imparfaite
 
 ```{code-cell} ipython3
-# sur les architectures actuelles 
-# un flottant est encodé sur 64 bits 
+# sur les architectures actuelles
+# un flottant est encodé sur 64 bits
 0.2 + 0.1
 ```
 
@@ -281,8 +282,8 @@ qui est efficace car supporté par le processeur
 le plus souvent avec les ordis actuels (64 bits)  
 la précision des calculs est de l'ordre de **$10^{-15}$**
 
-
-voir un [convertisseur en ligne](http://www.binaryconvert.com/convert_double.html) pour visuels
+voir un [convertisseur en ligne](http://www.binaryconvert.com/convert_double.html) pour
+visuels
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -352,7 +353,7 @@ on peut l'appeler avec autant d'arguments qu'on veut
 # simplement pour illustration des possibilités d'appel de fonction
 # car on va voir plus loin une forme beaucoup plus pratique
 # pour faire ce genre de choses
-# 
+#
 print("la somme de", 12, "et", 13, "vaut", 12+13)
 ```
 
@@ -370,7 +371,7 @@ qui retourne la longeur d'un objet
 
 # sur une chaine len()
 # retourne le nombre de caractères
-# 
+#
 # remarquez que les guillemets ne comptent pas
 len("abc")
 ```
@@ -378,7 +379,7 @@ len("abc")
 ```{code-cell} ipython3
 :cell_style: split
 
-# on compte les caractères 
+# on compte les caractères
 # et pas les octets
 
 len("été")
@@ -394,7 +395,7 @@ utilisez `"""` au lieu de `"`  -- (ou `'''`)
 ```{code-cell} ipython3
 :cell_style: split
 
-# ici je mets un \ pour couper 
+# ici je mets un \ pour couper
 # la ligne et continuer sur la ligne en dessous
 
 bafouille = \
@@ -426,8 +427,8 @@ print(court)
 ```{code-cell} ipython3
 :cell_style: split
 
-# le changement de ligne compte 
-# pour un caractère (newline) 
+# le changement de ligne compte
+# pour un caractère (newline)
 # les caractères sont 'a', '\n', et 'b'
 len(court)
 ```
@@ -442,7 +443,7 @@ le plus simple est la *f-string*
 ```{code-cell} ipython3
 :cell_style: split
 
-# une f-string se présente comme une chaine 
+# une f-string se présente comme une chaine
 # mais préfixée par un f collé
 # avant le guillement ouvrant
 # (qui peut être ' ou " ou """ ou ''')
@@ -452,7 +453,7 @@ f"une f-string"
 ```{code-cell} ipython3
 :cell_style: split
 
-# l'intérêt est qu'on peut 
+# l'intérêt est qu'on peut
 # alors insérer des variables
 # directement dans la chaine
 # en les mettant entre {}
@@ -501,7 +502,7 @@ longue_chaine = "une liste de mots à découper"
 ```{code-cell} ipython3
 :cell_style: split
 
-# sert à découper une chaine 
+# sert à découper une chaine
 # en morceaux
 
 mots = longue_chaine.split()
@@ -539,7 +540,7 @@ chaine.capitalize()
 
 # avec paramètres si besoin
 
-# par exemple, cette méthode 
+# par exemple, cette méthode
 # sert à centrer en précisant
 # avec quoi remplir
 

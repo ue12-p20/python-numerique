@@ -34,9 +34,11 @@ version: '1.0'
 
 +++
 
-pour pouvoir facilement modifier le contenu de nos fichiers texte, comme tout à l'heure le fichier `foo.txt`, on va utiliser un programme qui s'appelle un **éditeur de code**
+pour pouvoir facilement modifier le contenu de nos fichiers texte, comme tout à l'heure le
+fichier `foo.txt`, on va utiliser un programme qui s'appelle un **éditeur de code**
 
-en effet, il ne faut **pas utiliser un outil comme Word** pour éditer des programmes: c'est un éditeur de texte pas un éditeur de code !
+en effet, il ne faut **pas utiliser un outil comme Word** pour éditer des programmes:
+c'est un éditeur de texte pas un éditeur de code !
 
 > l'enseignant lance Visual Studio Code et le montre très très rapidement
 
@@ -46,19 +48,26 @@ en effet, il ne faut **pas utiliser un outil comme Word** pour éditer des progr
 
 +++
 
-forts de notre expérience de l'année dernière, cette année 2020-2021, nous demandons à **tous** les élèves d'installer et de savoir utiliser vs-code
+forts de notre expérience de l'année dernière, cette année 2020-2021, nous demandons à
+**tous** les élèves d'installer et de savoir utiliser vs-code
 
-et **ATTENTION** il y a eu **beaucoup de problèmes** l'an passé avec les éditeurs de type *pyzo*, ne les utilisez surtout pas dans nos cours, vous allez perdre un temps précieux et en faire perdre à vos enseignants pour des raisons inintéressantes et extérieures à Python
+et **ATTENTION** il y a eu **beaucoup de problèmes** l'an passé avec les éditeurs de type
+*pyzo*, ne les utilisez surtout pas dans nos cours, vous allez perdre un temps précieux et
+en faire perdre à vos enseignants pour des raisons inintéressantes et extérieures à Python
 
 +++
 
-On y va. Le site est là <https://code.visualstudio.com/>. Vous voulez installer donc il va falloir que vous alliez dans une section *download* ... vous la voyez ? à vous de jouer maintenant, l'enseignant va montrer les étapes pour les élèves sous Windows. Lisez bien les messages et posez nous vos questions.
+On y va. Le site est là <https://code.visualstudio.com/>. Vous voulez installer donc il va
+falloir que vous alliez dans une section *download* ... vous la voyez ? à vous de jouer
+maintenant, l'enseignant va montrer les étapes pour les élèves sous Windows. Lisez bien
+les messages et posez nous vos questions.
 
 +++
 
 **conseil**
 
-en cochant ces cases lors de l'installation, vous pourrez lancer vs-code avec un clic droit depuis un dossier ou un fichier
+en cochant ces cases lors de l'installation, vous pourrez lancer vs-code avec un clic
+droit depuis un dossier ou un fichier
 
 ![](media/fig-explorer-vs-code.png)
 
@@ -68,15 +77,19 @@ en cochant ces cases lors de l'installation, vous pourrez lancer vs-code avec un
 
 +++
 
-Que vous ayez réussi à installer visual studio code sur votre portable ou pas encore, suivez maintenant ce que montre l'enseignant.
+Que vous ayez réussi à installer visual studio code sur votre portable ou pas encore,
+suivez maintenant ce que montre l'enseignant.
 
-Si vous avez rencontré des problèmes imprévus lors de l'installation (ce qui n'est pas rare en informatique), venez nous voir plus tard pour que nous vous aidions et postez vos problèmes/questions sur *discourse* pour qu'on y regroupe les réponses aux mêmes problèmes.
+Si vous avez rencontré des problèmes imprévus lors de l'installation (ce qui n'est pas
+rare en informatique), venez nous voir plus tard pour que nous vous aidions et postez vos
+problèmes/questions sur *discourse* pour qu'on y regroupe les réponses aux mêmes
+problèmes.
 
 +++ {"tags": []}
 
 > micro démo de Visual Code sur le fichier `foo.txt`
 
-* depuis le terminal, aller dans le bon répertoire et lancer 
+* depuis le terminal, aller dans le bon répertoire et lancer
   ```
   code .
   ```
@@ -87,7 +100,7 @@ Si vous avez rencontré des problèmes imprévus lors de l'installation (ce qui 
   * afficher/cacher l'explorateur de fichiers
   * modifier `foo.txt`, sauver la version modifiée
   * créer un nouveau fichier `bar.txt`, le sauver
-  * observer le contenu des fichiers depuis le terminal avec `cat` 
+  * observer le contenu des fichiers depuis le terminal avec `cat`
   * montrer comment se manifeste la fin de ligne
 
 ***
@@ -101,8 +114,8 @@ Si vous avez rencontré des problèmes imprévus lors de l'installation (ce qui 
 * montrer comment :
   * chercher une extension  (prétexte : l'extension Python)
   * installer/désinstaller
-  * activer/désactiver une nouvelle extension 
- 
+  * activer/désactiver une nouvelle extension
+
 ***
 
 * montrer comment :
@@ -114,12 +127,12 @@ Si vous avez rencontré des problèmes imprévus lors de l'installation (ce qui 
 * de retour dans vs-code, montrer la palette :
   * `⇧ ⌘ P` Shift-Command-P (mac)
   * `⇧ ⌃ P` Shift-Control-P (windows)
-  
+
 * sur Windows, pour choisir 'bash' comme terminal
-  * utiliser la palette et taper  
+  * utiliser la palette et taper
   * `Select Default Shell`
-  
-* montrer comment lancer le terminal 
+
+* montrer comment lancer le terminal
   * Control \` - la deuxième fois on le ferme
 
 +++
@@ -131,13 +144,19 @@ https://code.visualstudio.com/docs/getstarted/userinterface
 
 exercice :
 
-* refaire les manipulations vous-mêmes une fois l'installation de l'éditeur de code terminée.
+* refaire les manipulations vous-mêmes une fois l'installation de l'éditeur de code
+  terminée.
 
 +++ {"tags": ["level_intermediate"]}
 
-il est recommandé, avec vs-code, de prendre l'habitude d'ouvrir un **répertoire** plutôt qu'un fichier
+il est recommandé, avec vs-code, de prendre l'habitude d'ouvrir un **répertoire** plutôt
+qu'un fichier
 
-si vous ouvrez un fichier (par exemple par un clic droit sur le fichier dans l'explorateur de fichiers), vs-code va vous ouvrir le fichier dans une fenêtre déjà ouverte - souvent ça va arriver comme un cheveu sur la soupe, dans un autre répertoire; si votre objectif c'est d'ouvrir une nouvelle fenêtre, préfèrez ouvrir le dossier (toujours avec le clic droit, mais sur le dossier lui-même et non le fichier)
+si vous ouvrez un fichier (par exemple par un clic droit sur le fichier dans l'explorateur
+de fichiers), vs-code va vous ouvrir le fichier dans une fenêtre déjà ouverte - souvent ça
+va arriver comme un cheveu sur la soupe, dans un autre répertoire; si votre objectif c'est
+d'ouvrir une nouvelle fenêtre, préfèrez ouvrir le dossier (toujours avec le clic droit,
+mais sur le dossier lui-même et non le fichier)
 
 +++
 
@@ -145,9 +164,10 @@ si vous ouvrez un fichier (par exemple par un clic droit sur le fichier dans l'e
 
 +++
 
-c'est un format simple, léger et bien pensé pour mettre en forme facilement vos textes, il est devenu le couteau suisse pour écrire des documents
+c'est un format simple, léger et bien pensé pour mettre en forme facilement vos textes, il
+est devenu le couteau suisse pour écrire des documents
 
-* avec un minimum de présentation 
+* avec un minimum de présentation
   * sections
   * listes
   * gras, italique, code
@@ -164,7 +184,8 @@ format **très populaire** en ce moment, supporté e.g. :
 * dans github
 * sur whatsapp (en partie), …
 
-et plus généralement dans tous les sites web de forums/blogs, où on peut entrer du texte directement depuis le navigateur
+et plus généralement dans tous les sites web de forums/blogs, où on peut entrer du texte
+directement depuis le navigateur
 
 +++
 
@@ -180,12 +201,12 @@ et plus généralement dans tous les sites web de forums/blogs, où on peut entr
   * listes avec et sans numérotation
   * gras, italique
 * insister sur les plusieurs façons de mettre du code,
-  * soit `inline` sans saut de ligne, ou alors 
+  * soit `inline` sans saut de ligne, ou alors
   * avec des "triple ticks" <code>```</code>
   * avec 4 espaces de marge
 * images et liens
-  * montrer le code markdown de cette cellule notebook 
-  
+  * montrer le code markdown de cette cellule notebook
+
 cheatsheet <https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf>
 
 +++
@@ -218,13 +239,14 @@ $$
 
 à la base markdown utilise pour ça le signe `$`
 
-si vous voulez mettre des maths dans un paragraphe (on dit *inline*), vous utilisez un seul `$` au début et à la fin de l'équation; c-a-d si vous écrivez
+si vous voulez mettre des maths dans un paragraphe (on dit *inline*), vous utilisez un
+seul `$` au début et à la fin de l'équation; c-a-d si vous écrivez
 
 ```latex
 voici une petite équation $y = x^2 +2x +1$ au milieu de la ligne
 ```
 
-vous obtenez 
+vous obtenez
 
 voici une petite équation $y = x^2 +2x +1$ au milieu de la ligne
 
@@ -260,7 +282,8 @@ au passage, vous remarquez que les commandes $\LaTeX$  commencent par `\`
 
 +++
 
-ça dépasse complètement notre périmètre que d'essayer de faire le tour de $\LaTeX$; je préfère commencer par quelques exemples qui devraient vous permettre de démarrer
+ça dépasse complètement notre périmètre que d'essayer de faire le tour de $\LaTeX$; je
+préfère commencer par quelques exemples qui devraient vous permettre de démarrer
 
 +++ {"cell_style": "split"}
 
@@ -289,12 +312,12 @@ x_1=\frac{-b+\sqrt{b^2-4ac}}{2a}
 +++ {"cell_style": "split"}
 
 $$
-A_{m,n} = 
+A_{m,n} =
  \begin{pmatrix}
   a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
   a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
   \vdots  & \vdots  & \ddots & \vdots  \\
-  a_{m,1} & a_{m,2} & \cdots & a_{m,n} 
+  a_{m,1} & a_{m,2} & \cdots & a_{m,n}
  \end{pmatrix}
 $$
 
@@ -302,12 +325,12 @@ $$
 
 ```
 $$
-A_{m,n} = 
+A_{m,n} =
  \begin{pmatrix}
   a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
   a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
   \vdots  & \vdots  & \ddots & \vdots  \\
-  a_{m,1} & a_{m,2} & \cdots & a_{m,n} 
+  a_{m,1} & a_{m,2} & \cdots & a_{m,n}
  \end{pmatrix}
 $$
 ```
@@ -326,7 +349,7 @@ $$
 
 +++ {"tags": ["level_intermediate"]}
 
-ceux qui veulent creuser peuvent 
+ceux qui veulent creuser peuvent
 
 * s'exercer avec un outil en ligne <https://www.codecogs.com/latex/eqneditor.php>
 
@@ -344,10 +367,10 @@ ceux qui veulent creuser peuvent
 ### installation de base
 
 * il y a de très nombreuses distributions disponibles
-* notre recommandation : miniconda  
+* notre recommandation : miniconda
   * relativement léger
   * permet d'installer en mode "user" i.e. sans droits administrateur
-* (ça va sans le dire mais ne prenez **surtout pas Python 2.7** !) 
+* (ça va sans le dire mais ne prenez **surtout pas Python 2.7** !)
 
 nous allons
 
@@ -412,7 +435,8 @@ question, **sauf pour les deux écrans qui suivent**
 +++
 
 (1) sur cet écran vous remplacez le chemin qu'on vous propose par défaut, et vous
-choisissez à la place le dossier qu'on a créé dans l'étape précédente, c'est-à-dire `c:\miniconda`
+choisissez à la place le dossier qu'on a créé dans l'étape précédente, c'est-à-dire
+`c:\miniconda`
 
 ![](media/fig-miniconda-set-install-dir.png)
 
@@ -428,7 +452,8 @@ choisissez à la place le dossier qu'on a créé dans l'étape précédente, c'e
 
 en théorie c'est tout ce qu'il y a à faire pour installer conda
 
-toutefois certains élèves nous ont signalé un souci, aussi on vous recommande de lancer à ce stade dans un terminal
+toutefois certains élèves nous ont signalé un souci, aussi on vous recommande de lancer à
+ce stade dans un terminal
 
 `conda init bash`
 
@@ -440,22 +465,26 @@ toutefois certains élèves nous ont signalé un souci, aussi on vous recommande
 
 +++
 
-juste après l'installation de conda, **quittez vos terminaux actifs**; conda a modifié la séquence d'initialisation des terminaux bash, il faut donc faire les tests qui suivent dans un terminal tout neuf.
+juste après l'installation de conda, **quittez vos terminaux actifs**; conda a modifié la
+séquence d'initialisation des terminaux bash, il faut donc faire les tests qui suivent
+dans un terminal tout neuf.
 
 +++
 
-*** 
-**attention**  
+***
+**attention**
 
 * les signes `$ ` ou `>>> ` ne font pas partie de ce que vous devez taper
-* c'est juste une indication pour dire 
+* c'est juste une indication pour dire
   * avec `$ ` :  que la commande s'adresse au terminal  
   c-à-d à nouveau : GitBash sur Windows, Terminal sur MacOS,  
   et n'importe quel terminal bash sur linux
   * avec `>>> ` : que la commande s'adresse à l'interpréteur Python
 ***
 
-ça signifie que ce que vous voyez ici correspond à ce qui sera affiché dans le terminal, mais si vous suivez bien les indications vous n'avez pas à taper le `$` ou les `>>>`, ce sera déjà affiché lorsque vous taperez vos commandes
+ça signifie que ce que vous voyez ici correspond à ce qui sera affiché dans le terminal,
+mais si vous suivez bien les indications vous n'avez pas à taper le `$` ou les `>>>`, ce
+sera déjà affiché lorsque vous taperez vos commandes
 
 +++
 
@@ -473,7 +502,8 @@ si à ce stade vous avez un `python: not found* c'est que vous n'avez pas bien c
 
 #### lancer python en mode interactif
 
-depuis `GitBash`, on va lancer un Python interactif et lui faire calculer $2^{100}$, afficher un texte, puis quitter l'interpréteur.
+depuis `GitBash`, on va lancer un Python interactif et lui faire calculer $2^{100}$,
+afficher un texte, puis quitter l'interpréteur.
 
 ***
 
@@ -486,13 +516,13 @@ depuis `GitBash`, on va lancer un Python interactif et lui faire calculer $2^{10
 * dans `GitBash` vous **devez** tapez à la place `python -i`  
   (le `-i` est pour *interactive*) pour avoir un interpréteur interactif
 * depuis le terminal embarqué dans vscode, vous pouvez faire simplement `python`  
-  (`python -i` fonctionne bien aussi d'ailleurs) 
+  (`python -i` fonctionne bien aussi d'ailleurs)
 * depuis GitBash et le terminal vs-code, vous pouvez lancer normalement `ipython`  
   (dont on parle un peu plus bas)
-    
-</div>    
 
-*** 
+</div>
+
+***
 
 ```console
 # pensez à bien mettre le -i - voyez ci-dessus
@@ -510,7 +540,8 @@ hello world
 
 +++
 
-dans le répertoire de votre choix, ouvrez *vs-code* et créez un fichier qui s'appelle `fact.py` contenant ce texte (n'hésitez pas à copier-coller) :
+dans le répertoire de votre choix, ouvrez *vs-code* et créez un fichier qui s'appelle
+`fact.py` contenant ce texte (n'hésitez pas à copier-coller) :
 
 ```{code-cell}
 cat ../demo/fact.py
@@ -526,7 +557,8 @@ python ../demo/fact.py 10
 
 +++
 
-c'est toujours utile d'être bien sûr de la version qu'on a sous la main (surtout avec les environnments virtuels)
+c'est toujours utile d'être bien sûr de la version qu'on a sous la main (surtout avec les
+environnments virtuels)
 
 ```{code-cell}
 python --version
@@ -547,21 +579,22 @@ pour cela python vient avec une commande qui s'appelle `pip`
 qui s'utilise directement **depuis le terminal**
 
 ```{code-cell}
-# pour avoir la liste des librairies installées on peut faire 
+# pour avoir la liste des librairies installées on peut faire
 pip list
 ```
 
 #### installer d'autres librairies avec `pip install`
 
-nous allons utliser `pip install` pour installer IPython, et pour ça vous allez taper (dans un terminal)
+nous allons utliser `pip install` pour installer IPython, et pour ça vous allez taper
+(dans un terminal)
 
 ```console
 pip install ipython
 ```
 
 ```{code-cell}
-# la première fois qu'on installe une librairie, ça peut prendre 
-# un petit moment pour aller chercher les packages 
+# la première fois qu'on installe une librairie, ça peut prendre
+# un petit moment pour aller chercher les packages
 # sur Internet et les installer
 
 pip install ipython
@@ -571,9 +604,11 @@ pip install ipython
 
 +++
 
-si vous devez taper du code Python directement dans le terminal, je vous recommande d'utiliser la commande `ipython` plutôt que l'interpréteur standard `python`
+si vous devez taper du code Python directement dans le terminal, je vous recommande
+d'utiliser la commande `ipython` plutôt que l'interpréteur standard `python`
 
-voilà à quoi ça ressemblerait si on devait refaire le calcul de $2^{100}$ comme on l'a fait plus haut
+voilà à quoi ça ressemblerait si on devait refaire le calcul de $2^{100}$ comme on l'a
+fait plus haut
 
 
 ```console
@@ -591,7 +626,8 @@ hello world
 In [3]: exit()
 ```
 
-comme vous le voyez c'est presque pareil; simplement avec ipython c'est beaucoup plus pratique dès qu'on va au delà de ce genre de session de démo, notamment pour
+comme vous le voyez c'est presque pareil; simplement avec ipython c'est beaucoup plus
+pratique dès qu'on va au delà de ce genre de session de démo, notamment pour
 
 * remonter et modifier l'historique
 * obtenir de l'aide en ligne
@@ -603,7 +639,8 @@ comme vous le voyez c'est presque pareil; simplement avec ipython c'est beaucoup
 
 +++
 
-le calcul scientifique en Python se fait avec 3 librairies très très communes, sur lesquelles on reviendra très prochainement
+le calcul scientifique en Python se fait avec 3 librairies très très communes, sur
+lesquelles on reviendra très prochainement
 
 pour l'instant nous allons les installer avec la commande
 
@@ -618,12 +655,13 @@ pip install numpy pandas matplotlib
 pour vérifier, vous pouvez d'abord, depuis le terminal, faire
 
     pip show numpy
-    
+
 qui vous montrera en plus le numéro de version de `numpy`
 
 +++
 
-vous pouvez aussi importer la librairie `numpy` depuis `ipython`, ça donne une session qui ressemble à ceci (vous ne devez pas avoir d'erreur du type `ModuleNotFound`)
+vous pouvez aussi importer la librairie `numpy` depuis `ipython`, ça donne une session qui
+ressemble à ceci (vous ne devez pas avoir d'erreur du type `ModuleNotFound`)
 
 ```
 $ ipython
@@ -642,18 +680,22 @@ Out[2]: '1.19.1'
 
 +++
 
-ce qu'on appelle complétion, c'est la capacité d'un outil à vous aider à taper votre code; exemple :
+ce qu'on appelle complétion, c'est la capacité d'un outil à vous aider à taper votre code;
+exemple :
 
 * on lance `ipython`
-* on tape le début d'une commande, par exemple `import frac` 
+* on tape le début d'une commande, par exemple `import frac`
 * à ce point, on appuie sur la touche `Tabulation`
-* ipython se rend compte que le seul mot qui fait du sens dans ce contexte et qui commence par `frac` est `fractions`, du coup il remplit la commande
+* ipython se rend compte que le seul mot qui fait du sens dans ce contexte et qui commence
+  par `frac` est `fractions`, du coup il remplit la commande
 
 +++
 
-la complétion est un outil **indispensable** pour ne pas perdre un temps précieux; apprenez à la maitriser
+la complétion est un outil **indispensable** pour ne pas perdre un temps précieux;
+apprenez à la maitriser
 
-notez d'ailleurs que **ça existe aussi dans le terminal**, typiquement très utile avec les noms de fichiers, entre autres
+notez d'ailleurs que **ça existe aussi dans le terminal**, typiquement très utile avec les
+noms de fichiers, entre autres
 
 +++
 
@@ -661,10 +703,12 @@ notez d'ailleurs que **ça existe aussi dans le terminal**, typiquement très ut
 
 +++
 
-il est normal de faire des erreurs quand on code, tout le monde en fait  
+il est normal de faire des erreurs quand on code, tout le monde en fait
 
-on verra un peu plus loin comment les détecter le plus tôt possible (grâce à des extensions dans un éditeur de code)  
-mais les cas où ça se produit quand même, la première chose à faire est bien entendu de **lire le message d'erreur**
+on verra un peu plus loin comment les détecter le plus tôt possible (grâce à des
+extensions dans un éditeur de code)  
+mais les cas où ça se produit quand même, la première chose à faire est bien entendu de
+**lire le message d'erreur**
 
 le langage Python s'efforce de vous donner des indications plutôt claires dans ces cas-là
 
@@ -690,8 +734,10 @@ je vous demande en exercice de trouver l'erreur en question
 
 +++
 
-en pratique il arrive qu'on se trouve face à des erreurs plus difficiles à diagnostiquer, mais dans tous les cas **commencez par *RTFEM***  
-ça va de soi mais ça va mieux en le disant, je suis certain qu'on aura l'occasion de le rappeler pendant les cours de langage :)
+en pratique il arrive qu'on se trouve face à des erreurs plus difficiles à diagnostiquer,
+mais dans tous les cas **commencez par *RTFEM***  
+ça va de soi mais ça va mieux en le disant, je suis certain qu'on aura l'occasion de le
+rappeler pendant les cours de langage :)
 
 +++
 
@@ -705,9 +751,11 @@ en pratique il arrive qu'on se trouve face à des erreurs plus difficiles à dia
 
 `git` fait partie des outils dits de "SCM" *source code management*
 
-son rôle est d'aider les développeurs à s'y retrouver dans la gestion des versions d'un projet
+son rôle est d'aider les développeurs à s'y retrouver dans la gestion des versions d'un
+projet
 
-un projet est constitué d'un ensemble de fichiers dont vous souhaitez conserver un historique des modifications
+un projet est constitué d'un ensemble de fichiers dont vous souhaitez conserver un
+historique des modifications
 
 +++
 
@@ -747,7 +795,8 @@ on peut aussi :
   c-a-d: chacun travaille de son coté, et on réconcilie le tout ensuite
 
 git ne fait pas de supposition sur le workflow ou l'organisation,  
-on peut l'adapter à tous les cas d'usage (un seule personne, un petit groupe, plusieurs groupes, open-source, …)
+on peut l'adapter à tous les cas d'usage (un seule personne, un petit groupe, plusieurs
+groupes, open-source, …)
 
 +++
 
@@ -760,7 +809,7 @@ on peut l'adapter à tous les cas d'usage (un seule personne, un petit groupe, p
   * mais ça contient aussi **toutes les versions** successives
 * un *commit* :
   * ça correspond à une version particulière du dépôt (de tous les fichiers du dépôt)
-  
+
 et donc un dépôt contient autant de commits que de versions successives
 
 +++
@@ -780,15 +829,24 @@ dans `media/git-workflow-animations.pdf`)
 
 +++
 
-Dans la petite présentation alice a choisi `GitHub` pour rendre son travail disponible à tout le monde en open-source sur Internet.
+Dans la petite présentation alice a choisi `GitHub` pour rendre son travail disponible à
+tout le monde en open-source sur Internet.
 
-En effet, `GitHub` est un service web dédié à l'hébergement et à la gestion du développement de logiciels (open source ou pas). Il utilise le logiciel de gestion de versions `Git`. Il est actuellement le plus grand hébergeur de code source au monde aussi c'est celui que nous allons vous demander d'utiliser.
+En effet, `GitHub` est un service web dédié à l'hébergement et à la gestion du
+développement de logiciels (open source ou pas). Il utilise le logiciel de gestion de
+versions `Git`. Il est actuellement le plus grand hébergeur de code source au monde aussi
+c'est celui que nous allons vous demander d'utiliser.
 
-Vous devrez (pas tout de suite) allez sur <https://github.com/join> pour y créez un compte. Il va naturellement vous falloir un nom d'utilisateur ... attention depuis janvier 2020, il y a plus de 40 millions d'utilisateurs donc il se peut que le nom que vous vouliez soit déjà pris.
+Vous devrez (pas tout de suite) allez sur <https://github.com/join> pour y créez un
+compte. Il va naturellement vous falloir un nom d'utilisateur ... attention depuis janvier
+2020, il y a plus de 40 millions d'utilisateurs donc il se peut que le nom que vous
+vouliez soit déjà pris.
 
-Nous vous demanderons de nous *faire passer* vos identifiants `GitHub` vu que c'est le moyen que plusieurs UE vont employer pour *relever* vos projets.
+Nous vous demanderons de nous *faire passer* vos identifiants `GitHub` vu que c'est le
+moyen que plusieurs UE vont employer pour *relever* vos projets.
 
-Pour prendre des projets dans `GitHub` vous n'avez pas besoin d'un nom d'utilisateur, c'est pour y mettre des projets que vous en avez besoin.
+Pour prendre des projets dans `GitHub` vous n'avez pas besoin d'un nom d'utilisateur,
+c'est pour y mettre des projets que vous en avez besoin.
 
 +++
 
@@ -816,19 +874,29 @@ git --version
 
 +++
 
-lorsque bob copie le travail qu'alice a publié sur github, il va utiliser `git clone` (on va le faire dans un tout petit moment)
+lorsque bob copie le travail qu'alice a publié sur github, il va utiliser `git clone` (on
+va le faire dans un tout petit moment)
 
-mais il faut évidemment qu'il puisse dire à `git clone` exactement **quoi copier**, parce que l'Internet, c'est grand…
+mais il faut évidemment qu'il puisse dire à `git clone` exactement **quoi copier**, parce
+que l'Internet, c'est grand…
 
-pour ça il a besoin [d'une URL (Uniform Resource Locator)](https://en.wikipedia.org/wiki/URL), pour désigner le dépôt d'Alice
+pour ça il a besoin [d'une URL (Uniform Resource
+Locator)](https://en.wikipedia.org/wiki/URL), pour désigner le dépôt d'Alice
 
 c'est quoi une URL ? vous en connaissez déjà plein d'exemples, comme  
 http://google.com/  
 https://en.wikipedia.org/wiki/URL
 
-* le premier terme (`http` ou `https`) désigne **le protocole** à utiliser pour joindre la ressource
-* le second morceau (`google.com` ou `en.wikipedia.org`) désigne le *hostname* qu'il faut joindre; en fait on utilise un service réseau [qui s'appelle le DNS (Domain Name Server](https://en.wikipedia.org/wiki/Domain_Name_System) pour traduire le nom `www.google.com` en une adresse réseau (et c'est comme ça qu'en fait deux requêtes n'aboutissent pas forcément sur le même serveur, heureusement d'ailleurs)
-* la suite est optionnelle et permet de désigner un item particulier à l'intérieur de ce serveur; c'est comme ça qu'on peut ranger des milliers de pages à l'intérieur du serveur wikipedia
+* le premier terme (`http` ou `https`) désigne **le protocole** à utiliser pour joindre la
+  ressource
+* le second morceau (`google.com` ou `en.wikipedia.org`) désigne le *hostname* qu'il faut
+  joindre; en fait on utilise un service réseau [qui s'appelle le DNS (Domain Name
+  Server](https://en.wikipedia.org/wiki/Domain_Name_System) pour traduire le nom
+  `www.google.com` en une adresse réseau (et c'est comme ça qu'en fait deux requêtes
+  n'aboutissent pas forcément sur le même serveur, heureusement d'ailleurs)
+* la suite est optionnelle et permet de désigner un item particulier à l'intérieur de ce
+  serveur; c'est comme ça qu'on peut ranger des milliers de pages à l'intérieur du serveur
+  wikipedia
 
 +++
 
@@ -841,7 +909,7 @@ https://en.wikipedia.org/wiki/URL
 https://github.com/python/cpython  
 https://github.com/gvanrossum/cpython
 
-* le premier étage (`python` ou `gvanrossum`) désigne une organisation ou un individu 
+* le premier étage (`python` ou `gvanrossum`) désigne une organisation ou un individu
 * le second étage (`cpython`) désigne un dépôt  
   (ici par exemple `cpython` pour l'implémetation classique du langage Python)
 
@@ -853,18 +921,19 @@ https://github.com/gvanrossum/cpython
 
 vous avez maintenant tout le bagage pour pouvoir copier le dépôt du cours
 
-il vous suffit pour ça de faire 
+il vous suffit pour ça de faire
 
     git clone https://github.com/ue12/python-numerique
-    
+
 **Attention toutefois**
 
-* cette commande va créer sur votre disque tout un répertoire, dont le nom est `python-numerique`
+* cette commande va créer sur votre disque tout un répertoire, dont le nom est
+  `python-numerique`
 * notez qu'il sera créé **dans votre répertoire de travail** (`pwd`)
-* donc commencez par **vous mettre au bon endroit** 
+* donc commencez par **vous mettre au bon endroit**
 * le nom `python-numerique` est déduit de la dernière partie de l'URL  
   et si cela ne vous convient pas comme nom vous pouvez en choisir un autre :
-  
+
       git clone https://github.com/ue12/python-numerique ue12-python-numerique
 
 +++
@@ -873,8 +942,8 @@ pour vérifier que tout s'est bien passé :
 
     # si vous avez utilisé la deuxième forme
     # votre répertoire local s'appelle ue12-python-numerique et pas juste python-numerique
-    cd ue12-python-numerique 
-    
+    cd ue12-python-numerique
+
     # le répertoire est rempli avec la dernière version du cours
     cat README.md
 
@@ -884,16 +953,18 @@ pour vérifier que tout s'est bien passé :
 
 +++
 
-pour terminer cette micro-introduction : imaginez que demain je publie des modifications dans ce dépôt
+pour terminer cette micro-introduction : imaginez que demain je publie des modifications
+dans ce dépôt
 
-alors pour mettre à jour votre dépôt local, il vous suffira de faire 
+alors pour mettre à jour votre dépôt local, il vous suffira de faire
 
     # toujours dans le même répertoire bien sûr
     git pull
 
 +++
 
-bon en pratique il arrive que ce soit un peu plus compliqué que ça, mais c'est l'idée générale
+bon en pratique il arrive que ce soit un peu plus compliqué que ça, mais c'est l'idée
+générale
 
 on creusera tout ceci dans le cours dédié à git dans quelques semaines
 
@@ -903,9 +974,12 @@ on creusera tout ceci dans le cours dédié à git dans quelques semaines
 
 +++
 
-Les notebooks sont de petits *cahiers* d'exercices exécutables. Ils sont très pratiques pour expliquer pas à pas ce qu'on fait, comme dans ces cours mais ils ne servent pas uniquement aux cours.
+Les notebooks sont de petits *cahiers* d'exercices exécutables. Ils sont très pratiques
+pour expliquer pas à pas ce qu'on fait, comme dans ces cours mais ils ne servent pas
+uniquement aux cours.
 
-Nous allons vous montrer dans cette section comment installer et lancer `jupyter`, créer des notebooks avec des cellules de texte et des cellules de code...
+Nous allons vous montrer dans cette section comment installer et lancer `jupyter`, créer
+des notebooks avec des cellules de texte et des cellules de code...
 
 +++
 
@@ -921,7 +995,8 @@ pip install jupyter
 
 +++
 
-je vous invite à installer également ceci; c'est optionnel pour débuter avec Jupyter, mais ça sera nécessaire très vite pour lire les notebooks du cours
+je vous invite à installer également ceci; c'est optionnel pour débuter avec Jupyter, mais
+ça sera nécessaire très vite pour lire les notebooks du cours
 
 ```console
 pip install jupytext[myst]
@@ -933,7 +1008,8 @@ pip install jupytext[myst]
 
 +++
 
-si tout s'est bien passé vous devez pouvoir voir les versions des différents morceaux de Jupyter comme ceci :
+si tout s'est bien passé vous devez pouvoir voir les versions des différents morceaux de
+Jupyter comme ceci :
 
 ```{code-cell}
 jupyter --version
@@ -986,7 +1062,8 @@ du coup ça signifie que **le serveur Jupyter doit tourner en permanence**
 
 +++ {"tags": ["level_intermediate"]}
 
-(il est possible aussi de mélanger plusieurs langages dans un notebook, mais c'est d'un usage plus complexe)
+(il est possible aussi de mélanger plusieurs langages dans un notebook, mais c'est d'un
+usage plus complexe)
 
 +++
 
@@ -1011,7 +1088,7 @@ remarquez dans le terminal où vous avez lancé le serveur, un message de confir
 
 +++
 
-choisir le type de la cellule; on peut aussi faire 
+choisir le type de la cellule; on peut aussi faire
 
 * `Control-M M` pour markdown
 * `Control-M Y` pour code (y comme pYthon)
@@ -1020,7 +1097,8 @@ choisir le type de la cellule; on peut aussi faire
 
 il y a aussi des raccourcis pratiques pour créer directement des sections
 
-* `Control-M 1` met la cellule en markdown, et insère si nécessaire un `#` au début de la cellule; on crée ainsi une cellule de titre de rang 1
+* `Control-M 1` met la cellule en markdown, et insère si nécessaire un `#` au début de la
+  cellule; on crée ainsi une cellule de titre de rang 1
 * `Control-M 2` : de rang 2, etc…
 
 +++
@@ -1081,7 +1159,7 @@ du coup on peut par exemple les déplacer toutes ensemble
 
 +++
 
-#### indispensable 
+#### indispensable
 
 pour pouvoir ouvrir un notebook du cours - n'importe lequel - il faut avoir fait ceci
 
@@ -1095,7 +1173,8 @@ autrement, vous allez avoir un affichage bizarre…
 
 #### utile pour ce notebook
 
-pour pouvoir exécuter les notebooks en bash (dont celui-ci, donc), il vous faut également faire
+pour pouvoir exécuter les notebooks en bash (dont celui-ci, donc), il vous faut également
+faire
 
     pip install calysto_bash
 
@@ -1115,7 +1194,8 @@ pour pouvoir exécuter les notebooks en bash (dont celui-ci, donc), il vous faut
 puis vous pouvez
 
 * ouvrir le notebook de démonstration  (*0-10-demonstration.md*)  
-  (je ne recommande pas forcément de commencer avec le présent notebook, car il utilise un kernel `bash` qui n'est pas standard…)
+  (je ne recommande pas forcément de commencer avec le présent notebook, car il utilise un
+  kernel `bash` qui n'est pas standard…)
 * l'exécuter localement
 * et vous amuser à le modifier
 
@@ -1124,8 +1204,9 @@ puis vous pouvez
 je vous demande surtout de
 
 * ouvrir le notebook de checklist, qui résume les compétences attendues
-* et vérifier que vous avez bien tout installé 
-* et si vous êtes en avance, attaquez-vous à l'exercice qui figure à la fin de la checklist
+* et vérifier que vous avez bien tout installé
+* et si vous êtes en avance, attaquez-vous à l'exercice qui figure à la fin de la
+  checklist
 
 +++ {"tags": ["level_advanced"]}
 
@@ -1133,12 +1214,16 @@ je vous demande surtout de
 
 +++ {"tags": ["level_advanced"]}
 
-pour les curieux, sachez qu'il existe une nouvelle interface Jupyter qui s'appelle JupyterLab
+pour les curieux, sachez qu'il existe une nouvelle interface Jupyter qui s'appelle
+JupyterLab
 
-c'est un plus moderne que Jupyter classic que nous utilisons, mais c'est beaucoup plus compliqué à intégrer… quoi qu'il en soit, si vous voulez jeter un coup d'oeil à cet outil, il faut savoir que 
+c'est un plus moderne que Jupyter classic que nous utilisons, mais c'est beaucoup plus
+compliqué à intégrer… quoi qu'il en soit, si vous voulez jeter un coup d'oeil à cet outil,
+il faut savoir que
 
 * on le lance en tapant `jupyter lab` au lieu de `jupyter notebook`
-* et pour ouvrir un notebook en `.md` - comme ceux du cours donc - on ne peut pas double-cliquer dans le .md, il faut utiliser `Open with` comme ceci
+* et pour ouvrir un notebook en `.md` - comme ceux du cours donc - on ne peut pas
+  double-cliquer dans le .md, il faut utiliser `Open with` comme ceci
 
 ![](media/fig-jupyter-lab-open-md.png)
 
@@ -1162,8 +1247,8 @@ si vous avez le temps (section intermédiaire)
 
 +++
 
-maintenant qu'on a installé Python, on peut retourner dans vs-code pour voir à quoi ressemble l'extension Python
-(vérifiez que vous l'avez bien installée)
+maintenant qu'on a installé Python, on peut retourner dans vs-code pour voir à quoi
+ressemble l'extension Python (vérifiez que vous l'avez bien installée)
 
 il y a quelques réglages à faire la toute première fois qu'on s'en sert, voyons cela :
 
@@ -1171,17 +1256,21 @@ il y a quelques réglages à faire la toute première fois qu'on s'en sert, voyo
 
 ### `pylint`
 
-* `pylint` est un outil pour trouver les erreurs dans le code Python  
+* `pylint` est un outil pour trouver les erreurs dans le code Python
 * il détecte beaucoup d'erreurs (erreurs de syntaxe, variables mal orthographiées, etc..)
 
 vs-code vous montre les erreurs :
 
-* l'extension Python de vs-code permet d'afficher **en permanence**  (à chaque sauvegarde) les soucis détectés par `pylint` 
-* c'est pourquoi si `pylint` n'est pas installé, vs-code va automatiquement vous proposer de le faire (choisissez alors de préférence l'option *install with pip*)
+* l'extension Python de vs-code permet d'afficher **en permanence**  (à chaque sauvegarde)
+  les soucis détectés par `pylint`
+* c'est pourquoi si `pylint` n'est pas installé, vs-code va automatiquement vous proposer
+  de le faire (choisissez alors de préférence l'option *install with pip*)
 
 +++ {"tags": []}
 
-pour information, le terme `lint` ou `linter` désigne, de manière générique, un outil qui fait des vérifications statiques (i.e. sans faire tourner le code); ça existe pour beaucoup de langages
+pour information, le terme `lint` ou `linter` désigne, de manière générique, un outil qui
+fait des vérifications statiques (i.e. sans faire tourner le code); ça existe pour
+beaucoup de langages
 
 +++
 
@@ -1189,7 +1278,7 @@ pour information, le terme `lint` ou `linter` désigne, de manière générique,
 
 +++
 
-vs-code a besoin de savoir où est installé Python, pour pouvoir le lancer 
+vs-code a besoin de savoir où est installé Python, pour pouvoir le lancer
 
 ne serait-ce que pour lancer `pylint`,   
 mais il peut aussi, dans un usage plus avancé, vous aider à exécuter votre code;   
@@ -1200,7 +1289,8 @@ et donc ce dont il a besoin c'est que vous lui disiez **lequel** vous voulez uti
 
 +++ {"tags": ["level_advanced"]}
 
-lorsqu'on fait du développement professionnel, on a habituellement une installation Python par projet; une partie optionnelle avancée sera consacrée à ce sujet un peu plus loin
+lorsqu'on fait du développement professionnel, on a habituellement une installation Python
+par projet; une partie optionnelle avancée sera consacrée à ce sujet un peu plus loin
 
 +++
 
@@ -1212,13 +1302,19 @@ lorsqu'on fait du développement professionnel, on a habituellement une installa
 
 +++
 
-votre premier objectif est de pouvoir trouver les erreurs visuellement au fur et à mesure que vous écrivez votre code Python
+votre premier objectif est de pouvoir trouver les erreurs visuellement au fur et à mesure
+que vous écrivez votre code Python
 
-dans l'illustration suivante j'ai fait exprès d'importer le module `mathematic` qui est fantaisiste (on verra que la librarie mathématique s'appelle en fait simplement `math`)
+dans l'illustration suivante j'ai fait exprès d'importer le module `mathematic` qui est
+fantaisiste (on verra que la librarie mathématique s'appelle en fait simplement `math`)
 
-si votre installation est correcte vous devez pouvoir sauver un fichier qui se termine en `.py`, et si vous y insérez la même erreur (et que vous sauvez le fichier) vous devez voir apparaître un *zigouigoui* comme ceci ![](media/fig-vscode-zigouigoui.png)
+si votre installation est correcte vous devez pouvoir sauver un fichier qui se termine en
+`.py`, et si vous y insérez la même erreur (et que vous sauvez le fichier) vous devez voir
+apparaître un *zigouigoui* comme ceci ![](media/fig-vscode-zigouigoui.png)
 
-lorsque le texte est souligné de cette manière, cela indique une erreur; apprenez à les lire et à les corriger **avant même** d'essayer de faire tourner votre code, cela vous fera gagner du temps
+lorsque le texte est souligné de cette manière, cela indique une erreur; apprenez à les
+lire et à les corriger **avant même** d'essayer de faire tourner votre code, cela vous
+fera gagner du temps
 
 +++
 
@@ -1228,14 +1324,17 @@ lorsque le texte est souligné de cette manière, cela indique une erreur; appre
 
 **Avertissement**
 
-Il faut toutefois toujours garder à l'esprit que cette phase de détection préliminaire des erreurs de programmation n'a **qu'une valeur indicative**
+Il faut toutefois toujours garder à l'esprit que cette phase de détection préliminaire des
+erreurs de programmation n'a **qu'une valeur indicative**
 
-`pylint` fait tous ses efforts pour vous faire gagner du temps en trouvant le maximum d'erreurs le plus tôt possible, **mais** : 
+`pylint` fait tous ses efforts pour vous faire gagner du temps en trouvant le maximum
+d'erreurs le plus tôt possible, **mais** :
 
-* ce n'est pas parce qu'un programme n'a pas de zigouigoui qu'il va tourner à coup sûr 
+* ce n'est pas parce qu'un programme n'a pas de zigouigoui qu'il va tourner à coup sûr
 * et réciproquement, il y a des programmes qui tournent alors qu'ils ont exhibé des erreurs
 
-donc il faut garder votre cerveau en marche, et ne pas se fier aveuglément à cette information
+donc il faut garder votre cerveau en marche, et ne pas se fier aveuglément à cette
+information
 
 +++ {"tags": ["level_intermediate"]}
 
@@ -1247,9 +1346,12 @@ si vous avez le temps (section intermédiaire)
 
 +++
 
-vous remarquerez que certaines *features*, disponibles sur nbhosting, ne le sont pas sur votre ordinateur à ce stade; par exemple, les codes de couleur des cellules par niveau, ou la table des matières navigable sur le coté
+vous remarquerez que certaines *features*, disponibles sur nbhosting, ne le sont pas sur
+votre ordinateur à ce stade; par exemple, les codes de couleur des cellules par niveau, ou
+la table des matières navigable sur le coté
 
-Jupyter est un système extensible; sur nbhosting on a activé quelques-unes de ces extensions, et voici comment vous pouvez les activer également de votre côté
+Jupyter est un système extensible; sur nbhosting on a activé quelques-unes de ces
+extensions, et voici comment vous pouvez les activer également de votre côté
 
 ```{code-cell}
 :tags: []
@@ -1259,7 +1361,7 @@ Jupyter est un système extensible; sur nbhosting on a activé quelques-unes de 
 pip install -U ipywidgets
 jupyter nbextension enable --py widgetsnbextension
 
-pip install -U jupyter_contrib_nbextensions 
+pip install -U jupyter_contrib_nbextensions
 jupyter contrib nbextension install
 ```
 
@@ -1273,7 +1375,7 @@ jupyter nbextension enable toc2/main
 # les cellules qui ne prennent que la moitié de la largeur
 jupyter nbextension enable splitcell/splitcell
 
-# les codes de couleur 
+# les codes de couleur
 pip install nb-courselevels
 jupyter nbextension enable courselevels/index
 ```
@@ -1288,14 +1390,20 @@ pour ceux qui sont très en avance (section niveau avancée)
 
 +++
 
-on l'a mentionné un peu plus haut, cela peut être utile de créer plusieurs environnements Python différents; c'est utile notamment :
+on l'a mentionné un peu plus haut, cela peut être utile de créer plusieurs environnements
+Python différents; c'est utile notamment :
 
-* si vous travaillez sur plusieurs projets différents, qui ont chacun leur ensemble de dépendances, pas forcément compatibles entre elles; par exemple, l'un utilise Django-2.x et l'autre Django-3.x
-* et aussi, lors de la sortie d'une nouvelle release de Python, que vous voulez essayer sans tout casser
+* si vous travaillez sur plusieurs projets différents, qui ont chacun leur ensemble de
+  dépendances, pas forcément compatibles entre elles; par exemple, l'un utilise Django-2.x
+  et l'autre Django-3.x
+* et aussi, lors de la sortie d'une nouvelle release de Python, que vous voulez essayer
+  sans tout casser
 
 +++
 
-il existe plusieurs solutions pour gérer cela, notamment la solution `virtualenv`, mais nous allons pour notre part nous concentrer sur miniconda, puisque c'est ce qu'on a installé
+il existe plusieurs solutions pour gérer cela, notamment la solution `virtualenv`, mais
+nous allons pour notre part nous concentrer sur miniconda, puisque c'est ce qu'on a
+installé
 
 +++
 
@@ -1303,27 +1411,32 @@ il existe plusieurs solutions pour gérer cela, notamment la solution `virtualen
 
 +++
 
-c'est un des points forts de miniconda, que de permettre de facilement créer/activer/détruire des environnements multiples; on entend par environnement :
+c'est un des points forts de miniconda, que de permettre de facilement
+créer/activer/détruire des environnements multiples; on entend par environnement :
 
 * un socle `Python` accessible par les commandes `python` et `pip`
-* installé au départ sans aucune librairie tierce (enfin si, disons plutôt le strict minimum, comme `pip`), pour que vous puissiez construire votre environnement de scratch
+* installé au départ sans aucune librairie tierce (enfin si, disons plutôt le strict
+  minimum, comme `pip`), pour que vous puissiez construire votre environnement de scratch
 
 +++
 
 les commandes utiles sont
 
 * `conda env list`
-* `conda create -n mon_environnement python=3.8`  
+* `conda create -n mon_environnement python=3.8`
 * `conda env remove -n mon_environnement`
 
 +++
 
-et pour gérer tout cela, on dispose de commandes pour changer d'environnement; le modèle mental est simple : 
+et pour gérer tout cela, on dispose de commandes pour changer d'environnement; le modèle
+mental est simple :
 
-* lorsque vous créez un terminal, vous êtes dans l'environnement qui s'appelle `base`, c'est celui que vous avez utilisé jusqu'ici
+* lorsque vous créez un terminal, vous êtes dans l'environnement qui s'appelle `base`,
+  c'est celui que vous avez utilisé jusqu'ici
 * vous pouvez passer dans un autre environnement avec  
   `conda activate mon_environnement`  
-  qui a pour effet, entre autres, de modifier votre `PATH` pour que la commande `python` soit cherchée ailleurs
+  qui a pour effet, entre autres, de modifier votre `PATH` pour que la commande `python`
+  soit cherchée ailleurs
 * pour en sortir, et revenir dans `base`, vous faites  
   `conda deactivate`
 
@@ -1335,7 +1448,11 @@ et pour gérer tout cela, on dispose de commandes pour changer d'environnement; 
 
 voici à titre indicatif une session sous MacOS pour illustrer tout ceci
 
-vous remarquerez comme le *prompt* bash reflète **l'environnement dans lequel on se trouve**, ça semble **relativement impératif** si on ne veut pas s'emmêler les pinceaux; surtout n'utilisez pas cette technologie si votre prompt ne montre pas l'environnement courant, c'est beaucoup trop facile de se tirer une balle dans le pied si on n'a pas cet aide-mémoire
+vous remarquerez comme le *prompt* bash reflète **l'environnement dans lequel on se
+trouve**, ça semble **relativement impératif** si on ne veut pas s'emmêler les pinceaux;
+surtout n'utilisez pas cette technologie si votre prompt ne montre pas l'environnement
+courant, c'est beaucoup trop facile de se tirer une balle dans le pied si on n'a pas cet
+aide-mémoire
 
 +++
 
@@ -1456,6 +1573,9 @@ Remove all packages in environment /Users/tparment/miniconda3/envs/demo-py38:
 
 notez que ce réglage est associé au *workspace* vs-code
 
-c'est quoi un *workspace* ? ça correspond en gros à la sauvegarde de l'état de l'éditeur lui-même : la liste des fichiers en cours d'édition, les onglets ouverts, etc…  
+c'est quoi un *workspace* ? ça correspond en gros à la sauvegarde de l'état de l'éditeur
+lui-même : la liste des fichiers en cours d'édition, les onglets ouverts, etc…  
 
-pour expérimenter, créez une session vs-code dans un directory, choisissez votre environnement Python, sortez de la session; ré-ouvrez vs-code sur le même répertoire, vous devez retrouver ce réglage
+pour expérimenter, créez une session vs-code dans un directory, choisissez votre
+environnement Python, sortez de la session; ré-ouvrez vs-code sur le même répertoire, vous
+devez retrouver ce réglage

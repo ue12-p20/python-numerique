@@ -39,7 +39,7 @@ rise:
 permet de créer des collections très souples :
 
 * séquence d'objets de n'importe quel type
-* on peut insérer / détruire des objets 
+* on peut insérer / détruire des objets
 * pas de contrainte sur la taille
 
 ```{code-cell} ipython3
@@ -53,7 +53,7 @@ homogene
 ```{code-cell} ipython3
 :cell_style: split
 
-# on peut mélanger 
+# on peut mélanger
 # les types
 heterogene = [2.3, "abc"]
 heterogene
@@ -89,11 +89,11 @@ cell_style: split
 slideshow:
   slide_type: ''
 ---
-# comme avec les chaines 
-# on peut accéder au i-ème élément 
+# comme avec les chaines
+# on peut accéder au i-ème élément
 # les indices commencent à 0
 
-# le premier élément est 
+# le premier élément est
 # donc le booléen
 groupe[0]
 ```
@@ -109,7 +109,7 @@ groupe
 ```{code-cell} ipython3
 :cell_style: split
 
-# et le dernier 
+# et le dernier
 groupe[-1]
 ```
 
@@ -147,7 +147,7 @@ de nombreux opérateurs sont définis aussi sur les listes
 ```{code-cell} ipython3
 :cell_style: split
 
-# la comparaison est 
+# la comparaison est
 # lexicographique
 
 [1, 2, 3] <= [1, 2, 4]
@@ -185,9 +185,9 @@ for item in groupe:
 
 +++
 
-**À savoir** 
-
-la liste est une structure de données très souple du coup elle n'est que *relativement efficace*  
+**À savoir**  
+la liste est une structure de données très souple du coup elle n'est que *relativement
+efficace*  
 elle est surtout optimisée pour être modifiée **par la fin**  
 habituellement à base des méthodes `append` et `pop`
 
@@ -196,7 +196,7 @@ habituellement à base des méthodes `append` et `pop`
 
 tutu = []
 
-# on n'a pas encore vu le for 
+# on n'a pas encore vu le for
 # mais vous pouvez deviner ce que ça fait
 for c in 'abc':
     tutu.append(c)
@@ -249,12 +249,10 @@ paquet
 une autre forme de container, mais assez différent :  
 
 * comme pour les ensembles mathématiques, un même élément  
-  ne peut apparaitre qu'une seule fois dans un ensemble 
-  
+  ne peut apparaitre qu'une seule fois dans un ensemble
 * la recherche d'un élément dans un ensemble est **très efficace**  
-  contrairement aux listes, on n'a pas besoin de balayer tous les éléments    
+  contrairement aux listes, on n'a pas besoin de balayer tous les éléments
   repose sur la notion de table de hachage - détaillé dans le cours avancé
-  
 * par contre, limitation sur les éléments  
   certains types ne sont pas éligibles
   par ex. on ne peut pas mettre une liste dans un ensemble  
@@ -266,7 +264,7 @@ cell_style: split
 slideshow:
   slide_type: slide
 ---
-# pour créer un ensemble 
+# pour créer un ensemble
 ensemble = {12, "abc"}
 ensemble
 ```
@@ -291,7 +289,7 @@ ensemble
 :cell_style: split
 
 # la recherche est rapide
-# bien sûr, c'est surtout intéressant 
+# bien sûr, c'est surtout intéressant
 # sur des grosses données
 
 12 in ensemble
@@ -380,7 +378,7 @@ annuaire
 ```{code-cell} ipython3
 :cell_style: split
 
-# si la clé existe déjà 
+# si la clé existe déjà
 # on écrase la valeur associée
 annuaire['alice'] = 50
 annuaire
@@ -389,8 +387,7 @@ annuaire
 ```{code-cell} ipython3
 :cell_style: split
 
-# pour effacer une clé 
-
+# pour effacer une clé  
 del annuaire['eve']
 annuaire
 ```
@@ -444,7 +441,7 @@ car les termes à droite de `=` sont tous évalués avant de faire les affectati
 slideshow:
   slide_type: ''
 ---
-# et ainsi on peut par exemple 
+# et ainsi on peut par exemple
 # échanger deux variables
 a, b = b, a
 
@@ -484,7 +481,7 @@ for couple in annuaire.items():
 mécanisme pour définir un nombre quelconque d'arguments à une fonction
 
 ```{code-cell} ipython3
-# parfois on a envie qu'une fonction puisse 
+# parfois on a envie qu'une fonction puisse
 # accepter un nombre variable d'arguments
 
 def foo(fixe, *variable):
@@ -516,8 +513,8 @@ foo(1, 2, 3)
 
 +++ {"slideshow": {"slide_type": "notes"}}
 
-Bien entendu on ne peut définir qu'un seul paramètre de ce genre, et il doit apparaitre en dernier dans la signature de la fonction. 
-
+bien entendu on ne peut définir qu'un seul paramètre de ce genre, et il doit apparaitre en
+dernier dans la signature de la fonction  
 Si on pouvait en mettre plusieurs, il y aurait ambigüité quant à qui reçoit quoi.
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -526,27 +523,27 @@ Si on pouvait en mettre plusieurs, il y aurait ambigüité quant à qui reçoit 
 
 +++
 
-dans l'autre sens, si j'ai un container avec des objets 
+dans l'autre sens, si j'ai un container avec des objets
 que je veux passer individuellement à une fonction
 
 ```{code-cell} ipython3
 # par exemple j'ai une liste
 args = [1, 2, 3]
 
-# et en fait je veux appeler 
+# et en fait je veux appeler
 # foo(1, 2, 3)
-# 
+#
 # je pourrais faire
 # foo(args[0], args[1], arg[2])
-# 
-# mais bien sûr ça ne marchera 
-# que si args contient 3 objets 
+#
+# mais bien sûr ça ne marchera
+# que si args contient 3 objets
 ```
 
 ```{code-cell} ipython3
 :cell_style: split
 
-# dans ce cas on peut utiliser à nouveau 
+# dans ce cas on peut utiliser à nouveau
 # l'étoile, et faire plutôt
 foo(*args)
 ```
@@ -561,20 +558,20 @@ foo(1, 2, 3)
 
 +++ {"slideshow": {"slide_type": "notes"}}
 
-À l'appel de la fonction par contre on peut passer plusieurs arguments étoilés, leurs composants sont simplement ajoutés dans l'ordre aux arguments de la fonction.
+à l'appel de la fonction par contre on peut passer plusieurs arguments étoilés, leurs
+composants sont simplement ajoutés dans l'ordre aux arguments de la fonction.
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ## résumé
 
-Python propose des types prédéfinis 
+Python propose des types prédéfinis
 
 * `list` : un container flexible et ordonné, accessible par indice
 * plus accessoirement, `tuple` pour créer des containers similaires mais non modifiables
 * `set` : un container non-ordonné, sans doublon, et à recherche rapide
 * `dict` : un ensemble d'associations clé → valeur,  
   à recherche rapide, accessible par clé
-
 * la forme `*args` permet aux fonctions d'accepter un nombre quelconque d'arguments
   * définition `def foo(*args):`
   * appel `foo(*args)`

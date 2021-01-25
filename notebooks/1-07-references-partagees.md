@@ -76,7 +76,7 @@ et atteindre le même objet par plusieurs chemins
 ```{code-cell} ipython3
 # créons un objet - ici une liste
 shared = ['a', 'b']
-# si je mentionne cet objet deux fois 
+# si je mentionne cet objet deux fois
 # dans une liste, je crée un partage
 entry = [shared, shared]
 entry
@@ -118,7 +118,7 @@ notamment, les références sont partagées dès qu'on fait :
 a = [100, 200]
 b = a
 # b référence le même
-# objet que a 
+# objet que a
 a[0] = 'boom'
 b
 ```
@@ -129,11 +129,11 @@ b
 
 def boom(x):
     x[0] = 'boom'
-    
+
 c = [100, 200]
 
 # lors de cet appel
-# le 'x' dans la fonction 
+# le 'x' dans la fonction
 # référence le même objet que c
 boom(c)
 
@@ -150,7 +150,7 @@ des références vers des objets :
 * une variable,
 * un paramètre de fonction,
 * un slot dans une liste,
-* une valeur dans un dictionnaire, 
+* une valeur dans un dictionnaire,
 * ...
 
 sont tous des références vers des objets
@@ -183,4 +183,6 @@ sont tous des références vers des objets
 
 +++ {"slideshow": {"slide_type": "notes"}}
 
-On insiste bien sur le fait que les **nombres**  et les **chaines** ne sont **pas mutables** en Python; pour vous en convaincre et à titre d'exercice, essayer de fabriquer une référence partagée dans une chaine de caractères.
+On insiste bien sur le fait que les **nombres**  et les **chaines** ne sont **pas
+mutables** en Python; pour vous en convaincre et à titre d'exercice, essayer de fabriquer
+une référence partagée dans une chaine de caractères.

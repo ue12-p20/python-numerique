@@ -68,7 +68,7 @@ import math
 :cell_style: split
 
 # cela définit une variable, ici 'math'
-# qui est une référence 
+# qui est une référence
 # vers un objet module
 math
 ```
@@ -127,7 +127,7 @@ qui ne fait pas partie de la bibliothèque standard :
 slideshow:
   slide_type: slide
 ---
-# cette astuce avec le ! me permet 
+# cette astuce avec le ! me permet
 # d'appeler une commande normalement destinée au terminal
 # mais depuis Python
   
@@ -199,7 +199,7 @@ $ python3 foo.py
 
 +++ {"cell_style": "split"}
 
-le point d'entrée dans ce cas est   
+le point d'entrée dans ce cas est
 (le module correspondant à) `foo.py`
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -236,7 +236,7 @@ liste largement non exhaustive
 
 * gestion des fichiers: `from pathlib import Path`  
 * génération de nombres aléatoires `import random`
-* télécharger depuis Internet: `import requests` 
+* télécharger depuis Internet: `import requests`
 * ouverture de fichiers au format JSON: `import json` (standard)
 
 * Python scientifique: `numpy`, `pandas`, `matplotlib`, ...
@@ -260,12 +260,12 @@ cell_style: center
 slideshow:
   slide_type: slide
 ---
-# ici Path correspond à une classe 
+# ici Path correspond à une classe
 # on verra la théorie très bientôt
 from pathlib import Path
 
 # on recherche dans le répertoire courant '.'
-# les fichiers/répertoires d'extension '.ipynb' 
+# les fichiers/répertoires d'extension '.ipynb'
 local_files = Path('.').glob('*.ipynb')
 
 # observons les fichiers trouvés
@@ -285,7 +285,8 @@ for file in local_files:
 +++
 
 une fois que vous avez le nom du module,  
-il vous suffit de consulter [la doc complète](https://docs.python.org/3/library/random.html)  
+il vous suffit de consulter [la doc
+complète](https://docs.python.org/3/library/random.html)  
 pour cela taper dans google `python random module`  
 (nous reviendrons sur ce module lors de l'étude des librairies numériques)
 
@@ -313,7 +314,7 @@ random.randint(0, 10)
 +++
 
 télécharger du contenu depuis une URL  
-accéder à l'entête http   
+accéder à l'entête http
 plus flexible que l'équivalent dans la librairie standard `urllib2`
 
 ```{code-cell} ipython3
@@ -328,7 +329,7 @@ url = "https://github.com/timeline.json"
 
 request = requests.get(url)
 
-print(f"code de retour HTTP: {request.status_code}") 
+print(f"code de retour HTTP: {request.status_code}")
 ```
 
 ```{code-cell} ipython3
@@ -415,7 +416,7 @@ with open('tutu.txt') as reader:
 
 sans préciser le mode d'ouverture  
 `open` ouvre le fichier en lecture  
-l'objet `reader` est **itérable**  
+l'objet `reader` est **itérable**
 
 
 la variable `line` contient une fin de ligne  
@@ -426,7 +427,7 @@ pas besoin que `print` en rajoute une
 ## exercice
 
 écrire une fonction `json_random()` qui retourne :
-* une chaine de caractères 
+* une chaine de caractères
 * qui correspond à l'encodage en JSON
 * d'une liste contenant - au hasard - entre 2 et 5 valeurs numériques
 * elles-mêmes tirées au hasard dans l'intervalle $[2 .. 5]$
@@ -434,12 +435,12 @@ pas besoin que `print` en rajoute une
 ```{code-cell} ipython3
 :cell_style: center
 
- # n'oubliez pas d'importer les modules 
+ # n'oubliez pas d'importer les modules
 # dont vous avez besoin
 def random_json():
     """
     returns a JSON-encoded of a list
-    of 2 to 5 values between 2 and 5    
+    of 2 to 5 values between 2 and 5
     """
     # votre code ici
     pass

@@ -47,9 +47,9 @@ b = 25
 ```{code-cell} ipython3
 :cell_style: split
 
-# une petite subtilité 
+# une petite subtilité
 # toutefois avec la division
-# ceci retourne TOUJOURS 
+# ceci retourne TOUJOURS
 # un flottant
 
 25 / 10
@@ -58,8 +58,8 @@ b = 25
 ```{code-cell} ipython3
 :cell_style: split
 
-# la division entière 
-# quant a elle 
+# la division entière
+# quant a elle
 # se note //
 
 25 // 10
@@ -77,13 +77,13 @@ le comportement des opérateurs dépend du type
 
 # ajouter deux chaines permet
 # de les concatener
-'abc' + 'def' 
+'abc' + 'def'
 ```
 
 ```{code-cell} ipython3
 :cell_style: split
 
-# on peut même multiplier 
+# on peut même multiplier
 # par un entier
 3 * 'abc'
 ```
@@ -103,7 +103,7 @@ d = 5
 ```{code-cell} ipython3
 :cell_style: split
 
-# le reste 
+# le reste
 c % d
 ```
 
@@ -126,7 +126,7 @@ d ** c # qu'il est grand !
 ```{code-cell} ipython3
 :cell_style: split
 
-# remarque: pas de limite 
+# remarque: pas de limite
 # de précision avec les entiers
 
 d ** c > 2 ** 64
@@ -253,7 +253,7 @@ chaine[3::]
 ```{code-cell} ipython3
 :cell_style: split
 
-# ce qui serait ici 
+# ce qui serait ici
 # identique à juste
 chaine[3:]
 ```
@@ -269,7 +269,7 @@ chaine[:4:]
 ```{code-cell} ipython3
 :cell_style: split
 
-# ce qui serait ici 
+# ce qui serait ici
 # identique à juste
 chaine[:4]
 ```

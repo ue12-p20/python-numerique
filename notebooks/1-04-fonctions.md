@@ -41,15 +41,14 @@ on définit une fonction avec le mot-clé `def`
 ```{code-cell} ipython3
 :cell_style: split
 
-# remarquez: 
-# . l'indentation 
+# remarquez:
+# . l'indentation
 # . le mot clé return
-# . le docstring 
-
+# . le docstring  
 def P(x):
     """
-    la fonction P implémente 
-    le polynôme 
+    la fonction P implémente
+    le polynôme
     que l'on étudie
     """
     return x**2 + 3*x + 2
@@ -72,7 +71,7 @@ P(100)
 :cell_style: split
 
 # le docstring est rangé
-# dans la fonction 
+# dans la fonction
 help(P)
 ```
 
@@ -99,7 +98,7 @@ et de ne **pas utiliser** de tabulations (trop variables)
 +++ {"cell_style": "split"}
 
 ```c++
-// en Javascript 
+// en Javascript
 // on écrirait
 function foo(i) {
     if (i <= 0) {
@@ -199,7 +198,7 @@ log
 une fonction est censée retourner quelque chose  
 
     resultat = fonction(arguments)
-    
+
 avec `return` on indique ce qui est le résultat  
 l'exécution de la fonction **s'arrête** à ce moment-là  
 si pas de `return`, le retour est `None`
@@ -219,8 +218,7 @@ def broken_abs(n):
 ```{code-cell} ipython3
 :cell_style: split
 
-# avec un négatif 
-
+# avec un négatif  
 broken_abs(-10)
 ```
 
@@ -356,7 +354,7 @@ def fact(n):
         return n
     else:
         return n * fact(n-1)
-    
+
 # pour visualiser la pile d'exécution
 
 x = fact(3)
@@ -403,7 +401,7 @@ def driver():
     time_bomb(1)
     print("will never pass here")
 
-driver()     
+driver()
 ```
 
 +++ {"cell_style": "split"}
@@ -424,8 +422,8 @@ def driver_try():
     except Exception as exc:
         print(f"OOPS {type(exc)}, {exc}")
     print("will do this")
-    
-driver_try()    
+
+driver_try()
 ```
 
 +++ {"cell_style": "split"}
@@ -451,7 +449,8 @@ driver_try()
 
 ## passage d'arguments
 
-les mécanismes de définition et de passage de paramètres sont assez complexes (cf cours avancé)  
+les mécanismes de définition et de passage de paramètres sont assez complexes (cf cours
+avancé)  
 pour cette introduction disons simplement qu'on peut définir des paramètres optionnels :
 
 ```{code-cell} ipython3
@@ -476,7 +475,8 @@ foo(1000)
 
 +++ {"slideshow": {"slide_type": "notes"}}
 
-On verra un peu plus loin comment manipuler un nombre variable d'arguments; mais pour cela on a besoin d'etudier d'abord les types évolués de Python.
+On verra un peu plus loin comment manipuler un nombre variable d'arguments; mais pour cela
+on a besoin d'etudier d'abord les types évolués de Python.
 
 +++ {"cell_style": "center", "slideshow": {"slide_type": "slide"}}
 

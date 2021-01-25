@@ -67,7 +67,7 @@ vous reconnaissez les programmes impliqués dans les différents scénarios:
 * l'interpréteur `Python` : le programme qui exécute du code Python
 * interpréteur `IPython` : une surcouche qui ajoute de la souplesse
   * complétion, aide en ligne, déplacement/édition dans l'historique
-* les notebooks `jupyter`: nos petits cahiers cours/exercices  
+* les notebooks `jupyter`: nos petits cahiers cours/exercices
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -79,12 +79,12 @@ vous reconnaissez les programmes impliqués dans les différents scénarios:
 
 lorsque c'est ambigu, on préfixera :
 
-* la commande à taper dans un terminal, avec un `$`  
+* la commande à taper dans un terminal, avec un `$`
 
 ```bash
     $ python
 ```
-    
+
 * la commande à taper dans un interpréteur Python, avec `>>>`
 
 ```python
@@ -148,8 +148,6 @@ Python2 est une version plus ancienne du langage
 
 +++ {"cell_style": "center", "slideshow": {"slide_type": ""}}
 
-
-
 * pendant la période transitoire les deux ont coexisté
 * d'où les commandes `python2` et `python3` qu'on rencontre parfois
 * pour lancer Python3
@@ -160,19 +158,18 @@ Python2 est une version plus ancienne du langage
 
 ## les fichiers du cours
 
-* vous avez cloné [le cours sur github](https://github.com/ue12/python-numerique/tree/master/demo)
+* vous avez cloné [le cours sur
+  github](https://github.com/ue12/python-numerique/tree/master/demo)
 
-
-* si ce n'est pas déjà fait, dans un terminal, utilisez `git clone` pour dupliquer le repo sur votre ordinateur  
-```bash
-$ git clone https://github.com/ue12/python-numerique
-```
-
-* si vous voulez choisir le nom du dossier du clone 
-```shell
-$ git clone https://github.com/ue12/python-numerique ue12-python-numerique
-```
-  
+* si ce n'est pas déjà fait, dans un terminal, utilisez `git clone` pour dupliquer le repo
+  sur votre ordinateur
+  ```bash
+  $ git clone https://github.com/ue12/python-numerique
+  ```
+* si vous voulez choisir le nom du dossier du clone
+  ```bash
+  $ git clone https://github.com/ue12/python-numerique ue12-python-numerique
+  ```
 * déplacez-vous dans le sous-dossier `demo` `$ cd ue12-python-numerique/demo`
 
 +++ {"slideshow": {"slide_type": "slide"}}
@@ -189,7 +186,7 @@ fact(4) = 24
 fact(25) = 15511210043330985984000000
 ```
 
-*** 
+***
 
 ```bash
 $ python3 users.py
@@ -202,7 +199,10 @@ Julien (Masson), 30 ans
 ## des introductions à Jupyter et VScode
 
 * une introduction rapide à   
-  [l'installation et à l'usage des notebooks](https://nbhosting.inria.fr/auditor/notebook/python-slides:extras/slides-extras/03-1-notebooks-basic)  
+  [l'installation et à l'usage des
+  notebooks](https://nbhosting.inria.fr/auditor/notebook/python-slides:extras/slides-extras/03-1-notebooks-basic)
+  
   est disponible sur nbhosting
 
-* idem en ce qui concerne [Visual Studio Code](https://nbhosting.inria.fr/auditor/notebook/python-slides:extras/slides-extras/07-vscode)
+* idem en ce qui concerne [Visual Studio
+  Code](https://nbhosting.inria.fr/auditor/notebook/python-slides:extras/slides-extras/07-vscode)
