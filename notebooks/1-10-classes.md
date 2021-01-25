@@ -54,8 +54,8 @@ en termes de modèle de données, ce sont des 'enregistrements'
 c'est-à-dire en fait des données composites
 
 ```{code-cell} ipython3
-# une façon naive d'implémenter une donnée composite 
-# est d'utiliser un dictionnaire 
+# une façon naive d'implémenter une donnée composite
+# est d'utiliser un dictionnaire
 
 personne = {'name': 'Dupont', 'age': 32}
 ```
@@ -77,8 +77,8 @@ que dans ce contexte on appelle **des attributs**
 ```{code-cell} ipython3
 :cell_style: split
 
-# voici comment définir 
-# une classe `User` 
+# voici comment définir
+# une classe `User`
 
 class User:
 
@@ -90,9 +90,9 @@ class User:
 ```{code-cell} ipython3
 :cell_style: split
 
-# une fois qu'on a défini une classe, 
+# une fois qu'on a défini une classe,
 # on peut s'en servir pour créer
-# des objets - on dit des instances 
+# des objets - on dit des instances
 # de la classe
 
 user1 = User("Lambert", 25)
@@ -104,14 +104,14 @@ user1 = User("Lambert", 25)
 
 +++
 
-remarquez qu'ici 
+remarquez qu'ici
 
-* on a défini la méthode spéciale `__init__` avec **3** paramètres  
+* on a défini la méthode spéciale `__init__` avec **3** paramètres
 ```
 def __init__(self, name, age)
 ```
 
-* ce qui fait qu'on peut appeler (une fonction du nom de) la classe avec **2** paramètres  
+* ce qui fait qu'on peut appeler (une fonction du nom de) la classe avec **2** paramètres
 ```
 User("Lambert", 25)`
 ```
@@ -178,18 +178,18 @@ qui sont des fonctions qui s'appliquent sur un objet (de cette classe)
 # premier entré dernier sorti
 
 class Stack:
-    
+
     def __init__(self):
-        self.frames = [] 
-        
+        self.frames = []
+
     def push(self, item):
         self.frames.append(item)
-        
+
     def pop(self):
         return self.frames.pop()
-    
+
     def __repr__(self):
-        return " > ".join(self.frames)            
+        return " > ".join(self.frames)
 ```
 
 ```{code-cell} ipython3
@@ -240,7 +240,7 @@ est équivalent à
 * grouper les données qui vont ensemble dans un objet  
   facile à passer à d'autres fonctions
 
-* invariants: garantir de bonnes propriétés 
+* invariants: garantir de bonnes propriétés  
   si on utilise les objets au travers des méthodes 
 
 * organise les espaces de noms  
@@ -262,17 +262,17 @@ selon le type des objets qu'il manipule
 
 exemples, selon le type de `obj` :  
 
-* `print(obj)` 
-* opérateurs comme `obj + x`  
+* `print(obj)`
+* opérateurs comme `obj + x`
 * itération `for item in obj`
 * `len(obj)`
-* test d'appartenance `x in obj` 
-* indexation `obj[x]` 
+* test d'appartenance `x in obj`
+* indexation `obj[x]`
 * etc..
 
 +++ {"cell_style": "center", "slideshow": {"slide_type": "slide"}}
 
-## exemple - `if obj:` 
+## exemple - `if obj:`
 
 remarquez qu'on peut toujours écrire un test `if` (ou `while`)   
 même si le sujet du test n'est pas un booléen
@@ -280,14 +280,14 @@ même si le sujet du test n'est pas un booléen
 ```{code-cell} ipython3
 :cell_style: split
 
-if 0: 
+if 0:
     print('bingo')
 ```
 
 ```{code-cell} ipython3
 :cell_style: split
 
-if 2: 
+if 2:
     print('bingo')
 ```
 
@@ -340,21 +340,21 @@ cell_style: split
 slideshow:
   slide_type: slide
 ---
-# une classe jouet 
+# une classe jouet
 # uniquement à but pédagogique ...
 
 class Fool:
     """
     les objets de cette classe
     se comportent à l'envers
-    par rapport aux tests 
+    par rapport aux tests
     if ou while
     """
-    
+
     def __init__(self, value):
         self.value = value
-    
-    # on triche, le test 
+
+    # on triche, le test
     # va marcher à l'envers !
     def __bool__(self):
         return not bool(self.value)
@@ -363,7 +363,7 @@ class Fool:
 ```{code-cell} ipython3
 :cell_style: split
 
-# un test sur un objet 
+# un test sur un objet
 # de cette classe
 fool_true = Fool(True)
 
@@ -383,7 +383,7 @@ if Fool([]):
 
 ## résumé
 
-* on définit une classe avec le mot clé `class`  
+* on définit une classe avec le mot clé `class`
 * avec les classes on peut étendre les types prédéfinis `int`, `str`, `list`, …
 * un objet dans une classe contient typiquement des attributs
 * une classe définit typiquement des méthodes
@@ -407,8 +407,8 @@ méthodes spéciales `__add__` et `__mul__`
 Application: une micro-classe qui implémente les quaternions
 
 * https://fr.wikipedia.org/wiki/Quaternion
-* le corps non commutatif engendré sur $\mathbb{R}$  
-  par trois éléments $i, j, k$ tels que  
+* le corps non commutatif engendré sur $\mathbb{R}$
+  par trois éléments $i, j, k$ tels que
 
   $$i^2 = j^2 = k^2 = ijk = -1$$
 
@@ -422,7 +422,7 @@ slideshow:
   slide_type: slide
 ---
 class Quaternion:
-    
+
     def __init__(self, a, b, c, d):
         self.implem = (a, b, c, d)
 
@@ -431,7 +431,7 @@ class Quaternion:
     def __add__(self, other):
         """defines q1 + q2)"""
         return Quaternion(*(x+y for x, y in zip(self.implem, other.implem)))
-    
+
 
     def __mul__(self, other):
         """defines q1 * q2"""
@@ -447,8 +447,8 @@ class Quaternion:
     def __eq__(self, other):
         """implements q1 == q2"""
         return self.implem == other.implem
-    
-    
+
+
     def __repr__(self):
         a, b, c, d = self.implem
         return f"({a}, {b}, {c}, {d})"
@@ -514,10 +514,10 @@ i * q
 
 limitations pour cette version rustique :
 
-* manque des opérations 
+* manque des opérations
 * égalité sans doute trop stricte (arrondis)
 * ne sait pas interagir avec `int` ou `float`
-* affichage 
+* affichage
 * ...
 
 ```{code-cell} ipython3
@@ -539,10 +539,10 @@ slideshow:
 
         # on les assemble avec un + au milieu
         full = " + ".join(parts)
-        
+
         # si c'est vide c'est que self est nul
         return full if full != "" else "0"
-    
+
         # ce qui donnerait aussi en version un peu plus condensée
         # mais beaucoup moins lisible
         # return (" + ".join(f"{x:.2f}{label}" for x, label in zip(self.implem, labels) if x) or "0")
