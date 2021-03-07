@@ -1,0 +1,42 @@
+# no mapping needed
+static-mappings: []
+
+tracks:
+  - name: "cours #1: intro & install"
+    description: "survol & mise en place des outils"
+    id: intro
+    sections:
+      - name: introduction
+        notebooks: [ "notebooks/0-[0-8]*.md" ]
+      - name: checklist
+        notebooks: [ "notebooks/0-[89]*.md" ]
+  - name: "cours #2: Python"
+    description: survol du langage Python
+    id: python
+    sections:
+      - name: Python primer
+        notebooks: [ "notebooks/1-[01]*.md" ]
+      - name: exos
+        notebooks: [ "notebooks/1-[56]*.md" ]
+  - name: "cours #3: numpy"
+    description:  programmation vectorielle
+    id: numpy
+    sections:
+      - name: "quiz & annonces"
+        notebooks: [ "notebooks/1-[89]*.md" ]
+      - name: numpy"
+        notebooks: [ "notebooks/2-[01]*.md" ]
+      - name: "exos"
+        notebooks: [ "notebooks/2-[56]*.md" ]
+#      - name: quiz
+#        notebooks: [ "notebooks/2-[89]*.md" ]
+  - name: "cours #4: pandas & dataviz"
+    description: outils pour la data science
+    id: datascience
+    sections:
+      - name: "pandas & dataviz"
+        notebooks: [ "notebooks/[34]-[01]*.md" ]
+      - name: exos"
+        notebooks: [ "notebooks/[34]-[56]*.md" ]
+#      - name: quiz
+#        notebooks: [ "notebooks/[34]-[89]*.md" ]
