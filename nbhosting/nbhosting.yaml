@@ -40,3 +40,10 @@ tracks:
         notebooks: [ "notebooks/[34]-[56]*.md" ]
 #      - name: quiz
 #        notebooks: [ "notebooks/[34]-[89]*.md" ]
+
+builds:
+  - name: handouts
+    directory: notebooks
+    script: |
+      pip install jupyter-book
+      jupyter-book build .
