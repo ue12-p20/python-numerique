@@ -1,19 +1,8 @@
-# Book settings
+# Jupyter Book settings
+
 title: Python numérique
 author: Thierry Parmentelat
 logo: media/logo-python.svg
-
-only_build_toc_files: true
-
-execute:
-  execute_notebooks: force
-
-sphinx:
-  config:
-    nb_custom_formats:
-      .py:
-        - jupytext.reads
-        - fmt: py:percent
 
 repository:
   url: https://github.com/ue12/python-numerique
@@ -25,8 +14,22 @@ html:
   use_edit_page_button: yes
   use_issues_button: yes
 
+###
+
+only_build_toc_files: true
+
+execute:
+#  execute_notebooks: "force"
+  execute_notebooks: cache
+
+sphinx:
+  config:
+    nb_custom_formats:
+      .py:
+        - jupytext.reads
+        - fmt: py:percent
+
+# for raw <img> tags in markdown
 parse:
   myst_enable_extensions:
-    # don't forget to list any other extensions you want enabled,
-    # including those that are enabled by default!
     - html_image
