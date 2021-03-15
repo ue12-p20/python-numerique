@@ -42,7 +42,9 @@ tracks:
 #        notebooks: [ "notebooks/[34]-[89]*.md" ]
 
 builds:
-  - name: handouts
+  - id: handouts
+    name: static html
+    description: searchable static html as produced by jupyter-book
     directory: notebooks
     script: |
       pip install jupyter-book
