@@ -1,8 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed
-  formats: md:myst
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -10,6 +11,9 @@ kernelspec:
   display_name: Calysto Bash
   language: bash
   name: calysto_bash
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: introduction
 version: '1.0'
 ---
@@ -61,7 +65,7 @@ le plus simple pour lire un notebook c'est de
 * taper *Maj-Entrée* (ou *Shift-Return* sur un clavier anglais)  
   ça exécute la cellule courante et ça passe à la suivante; essayez...
 
-```{code-cell}
+```{code-cell} ipython3
 # ma première cellule de code contient
 # un commentaire
 # et une commande toute simple
@@ -413,7 +417,7 @@ un terminal qu'est-ce que c'est ?
 
 le terminal c'est tout simplement un programme qui permet d'exécuter des commandes
 
-```{code-cell}
+```{code-cell} ipython3
 :hide_input: false
 
 # la commande la plus basique est `pwd`
@@ -451,7 +455,7 @@ terminal recherche ses commandes
 la première difficulté rencontrée par les débutants, c'est ce genre de symptôme  
 (rappelez-vous, on exécute les cellules avec *Maj-Entrée*)
 
-```{code-cell}
+```{code-cell} ipython3
 # j'essaie d'appeler une commande qui n'existe pas 
 
 tutu
@@ -480,7 +484,7 @@ ce n'est pas crucial de le savoir, mais si vous êtes curieux, sachez que
   propage d'un processus à l'autre),
 * et que c'est une liste de répertoires où sont cherchées les commandes
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [level_intermediate]
 
 # ici le ':' est un séparateur
@@ -562,7 +566,7 @@ tous les programmes (processus) ont ce qu'on appelle un répertoire courant
 dans le terminal on peut le voir avec la commande `pwd`  
 (*print working directory*)
 
-```{code-cell}
+```{code-cell} ipython3
 # petite digression, ici je suis dans un notebook 'bash'
 # et je peux exécuter des commandes comme dans un terminal
 pwd
@@ -575,13 +579,13 @@ racine des dossiers
 
 je m'explique :
 
-```{code-cell}
+```{code-cell} ipython3
 # on crée un fichier bidon
 
 echo "Hello world" > foo.txt
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # avec la commande `ls`
 # on peut voir la liste des fichiers
 # et donc ici on va voir entre autres
@@ -590,20 +594,20 @@ echo "Hello world" > foo.txt
 ls
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # on peut vérifier que le fichier 'foo.txt' existe bien
 
 ls foo.txt
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # ou avoir plus de détails sur ce fichier
 # sa taille, sa date
 
 ls -l foo.txt
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [level_intermediate]
 
 # pourquoi sa taille est de 12 ?
@@ -620,7 +624,7 @@ ls -l foo.txt
 pour les geeks, petite devinette, pourquoi est-ce que la taille de `bar.txt` est cette
 fois-ci de 13 ?
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [level_advanced]
 
 echo "Hellö World" > bar.txt
@@ -632,21 +636,21 @@ ll bar.txt
 reprenons; une autre commande utile c'est `cat`; ça permet tout simplement de voir le
 contenu d'un fichier
 
-```{code-cell}
+```{code-cell} ipython3
 # le point important c'est que je peux faire référence
 # à ce fichier sous le nom simplement 'foo.txt'
 
 cat foo.txt
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et comme je suis dans le répertoire
 # /home/jovyan/work/notebooks
 
 pwd
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # je pourrais faire aussi
 # (à modifier éventuellement selon votre environnement)
 
@@ -693,30 +697,30 @@ on l'utilise pour fabriquer des chemins du genre de
 
 pour "remonter" dans l'arborescence des dossiers, je peux donc utiliser un chemin relatif
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: []
 
 pwd
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # `cd` ça veut dire *change directory* 
 
 cd ..
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 pwd
 ```
 
 enfin, une astuce utile c'est pour **revenir en arrière** avec `cd -`
 
-```{code-cell}
+```{code-cell} ipython3
 # du coup là je me retrouve à mon point de départ
 cd -
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # pour créer un répertoire je peux utiliser mkdir
 # attention toutefois car on ne peut pas le faire 
 # s'il existe déjà
@@ -726,13 +730,13 @@ cd new-folder
 pwd
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # qui bien sûr est vide 
 
 ls 
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et pour revenir à mon point de départ
 # je pourrais faire comme tout à l'heure
 # cd - 
@@ -752,17 +756,17 @@ indépendamment du système d'exploitation
 
 pour y aller le plus simple est de faire simplement `cd` sans paramètre
 
-```{code-cell}
+```{code-cell} ipython3
 # sans paramètre je retourne tout en haut de mon espace
 cd
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # c'est mon home-directory
 pwd
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # et je peux redescendre là d'où je venais
 cd -
 pwd

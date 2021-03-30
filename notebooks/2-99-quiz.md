@@ -1,7 +1,6 @@
 ---
 jupytext:
   cell_metadata_filter: all,-hidden,-heading_collapsed
-  formats: md:myst
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -30,7 +29,7 @@ pour vous évaluer sur l'introduction à numpy
 
 ## mode d'emploi
 
-```{code-cell} ipython3
+```{code-cell}
 from nbautoeval import quiz_help
 quiz_help("fr")
 ```
@@ -45,7 +44,7 @@ quiz_help("fr")
 
 **évaluez la cellule suivante** pour faire apparaitre le quiz
 
-```{code-cell} ipython3
+```{code-cell}
 :hide_input: false
 :tags: [raises-exception]
 

@@ -1,8 +1,9 @@
 ---
 jupytext:
-  cell_metadata_filter: all,-hidden,-heading_collapsed
-  formats: md:myst
-  notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
+  cell_metadata_filter: all, -hidden, -heading_collapsed, -run_control, -trusted
+  notebook_metadata_filter: all, -jupytext.text_representation.jupytext_version, -jupytext.text_representation.format_version,
+    -language_info.version, -language_info.codemirror_mode.version, -language_info.codemirror_mode,
+    -language_info.file_extension, -language_info.mimetype, -toc
   text_representation:
     extension: .md
     format_name: myst
@@ -10,6 +11,9 @@ kernelspec:
   display_name: Calysto Bash
   language: bash
   name: calysto_bash
+language_info:
+  name: python
+  pygments_lexer: ipython3
 notebookname: outils de base
 version: '1.0'
 ---
@@ -543,13 +547,13 @@ hello world
 dans le répertoire de votre choix, ouvrez *vs-code* et créez un fichier qui s'appelle
 `fact.py` contenant ce texte (n'hésitez pas à copier-coller) :
 
-```{code-cell}
+```{code-cell} ipython3
 cat ../demo/fact.py
 ```
 
 et dans le même répertoire lancez python pour calculer le factoriel d'un nombre
 
-```{code-cell}
+```{code-cell} ipython3
 python ../demo/fact.py 10
 ```
 
@@ -560,7 +564,7 @@ python ../demo/fact.py 10
 c'est toujours utile d'être bien sûr de la version qu'on a sous la main (surtout avec les
 environnments virtuels)
 
-```{code-cell}
+```{code-cell} ipython3
 python --version
 ```
 
@@ -578,7 +582,7 @@ c'est très facile d'installer d'autres librairies au delà de cet ensemble mini
 pour cela python vient avec une commande qui s'appelle `pip`  
 qui s'utilise directement **depuis le terminal**
 
-```{code-cell}
+```{code-cell} ipython3
 # pour avoir la liste des librairies installées on peut faire
 pip list
 ```
@@ -592,7 +596,7 @@ nous allons utliser `pip install` pour installer IPython, et pour ça vous allez
 pip install ipython
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # la première fois qu'on installe une librairie, ça peut prendre
 # un petit moment pour aller chercher les packages
 # sur Internet et les installer
@@ -718,13 +722,13 @@ voici par exemple un fichier très proche de `fact.py` qu'on vient de faire tour
 mais j'y ai intentionnellement glissé une petite erreur de syntaxe  
 voici le code, et ce qui se produit si on essaie de le faire tourner
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 cat ../demo/fact-broken.py
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :cell_style: split
 
 python ../demo/fact-broken.py
@@ -866,7 +870,7 @@ c'est pour y mettre des projets que vous en avez besoin.
 
 pour vérifier votre installation, vous devez pouvoir taper dans le terminal
 
-```{code-cell}
+```{code-cell} ipython3
 git --version
 ```
 
@@ -1011,7 +1015,7 @@ pip install jupytext[myst]
 si tout s'est bien passé vous devez pouvoir voir les versions des différents morceaux de
 Jupyter comme ceci :
 
-```{code-cell}
+```{code-cell} ipython3
 jupyter --version
 ```
 
@@ -1353,7 +1357,7 @@ la table des matières navigable sur le coté
 Jupyter est un système extensible; sur nbhosting on a activé quelques-unes de ces
 extensions, et voici comment vous pouvez les activer également de votre côté
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: []
 
 # d'abord on installe les extensions standard
@@ -1365,7 +1369,7 @@ pip install -U jupyter_contrib_nbextensions
 jupyter contrib nbextension install
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: []
 
 # puis on active celles qui nous intéressent

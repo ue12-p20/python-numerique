@@ -2,7 +2,6 @@
 jupytext:
   cell_metadata_filter: all,-hidden,-heading_collapsed
   cell_metadata_json: true
-  formats: md:myst
   notebook_metadata_filter: all,-language_info,-toc,-jupytext.text_representation.jupytext_version,-jupytext.text_representation.format_version
   text_representation:
     extension: .md
@@ -45,19 +44,19 @@ Pour commencer nous allons dessiner des courbes en 2D.
 
 On l'importe sous son nom standard.
 
-```{code-cell} ipython3
+```{code-cell}
 import matplotlib.pyplot as plt
 ```
 
 On demande aux dessins de s'insérer en ligne dans le notebook et non pas d'être dessinés sur une fenêtre à part.
 
-```{code-cell} ipython3
+```{code-cell}
 %matplotlib inline
 ```
 
 Nous importons aussi les librairies numériques et de dataframe afin de voir leur relation avec `matplotlib`.
 
-```{code-cell} ipython3
+```{code-cell}
 import pandas as pd
 import numpy as np
 ```
@@ -80,13 +79,13 @@ Nous savons faire des tableaux de nombres linéairement espacés avec la fonctio
 
 Voilà vos données pour les abcisses: 50 nombres réels entre 0 et $2\pi$
 
-```{code-cell} ipython3
+```{code-cell}
 x = np.linspace(0, 2*np.pi, 50)
 ```
 
 Et pour les ordonnées : les sinus de ces points. J'applique simplement la fonction (vectorielle) `np.sin` à `x` qui est ... on se rappelle, un `np.ndarray`
 
-```{code-cell} ipython3
+```{code-cell}
 y = np.sin(x)
 ```
 
@@ -96,7 +95,7 @@ y = np.sin(x)
 
 En utilisant la fonction `plot` de `matplotlib.pyplot` donc `plt.plot`, nous allons tracer les 50 couples de points (abscisse, ordonnée) entre 0 et $2\pi$.
 
-```{code-cell} ipython3
+```{code-cell}
 plt.plot(x, y);
 ```
 
@@ -108,7 +107,7 @@ Améliorons un peu notre figure.
 
 ## mettre un titre à la figure (`plt.title`)
 
-```{code-cell} ipython3
+```{code-cell}
 plt.title('un beau sinus')
 plt.plot(x, y);        
 ```
@@ -119,7 +118,7 @@ plt.plot(x, y);
 
 Et si j'y vois mal et que je préfère un titre plus gros:
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: center
 
 plt.title('un beau sinus', fontsize=30)
@@ -132,7 +131,7 @@ on vous laisse leur mettre une taille de fonte
 
 ## mettre des légendes aux axes (`plt.xlabel` et `plt.ylabel`)
 
-```{code-cell} ipython3
+```{code-cell}
 plt.xlabel('abscisses')
 plt.ylabel('ordonnées', fontsize=25)
 plt.plot(x, y);
@@ -144,7 +143,7 @@ plt.plot(x, y);
 
 On affiche les points, plutôt que de les relier pour former une courbe continue.
 
-```{code-cell} ipython3
+```{code-cell}
 z = np.cos(x)
 plt.scatter(x, z);
 ```
@@ -155,7 +154,7 @@ plt.scatter(x, z);
 
 Il faut leur donner un label et ajouter une légende qui utilisera ces labels:
 
-```{code-cell} ipython3
+```{code-cell}
 plt.plot(x, y, label='sinus');
 plt.scatter(x, z, label='cosinus')
 plt.legend()
@@ -167,7 +166,7 @@ plt.legend()
 
 $y=sin(x)$ est calculé entre $0$ et $2\pi$ mais on l'affiche entre 0 et $\pi$ en abscisse et entre 0 et 1 en ordonnées:
 
-```{code-cell} ipython3
+```{code-cell}
 plt.xlim(0, np.pi)
 plt.ylim(0,1)
 
@@ -176,7 +175,7 @@ plt.plot(x, np.sin(x));
 
 ## préciser les *ticks* des axes (`plt.xticks` et `plt.yticks`)
 
-```{code-cell} ipython3
+```{code-cell}
 plt.xticks([0, np.pi/2, np.pi, 3*np.pi/2, 2*np.pi])
 
 plt.yticks([0, 0.5, 1])
@@ -185,7 +184,7 @@ plt.plot(x, np.sin(x));
 
 On peut même donner des noms aux ticks:
 
-```{code-cell} ipython3
+```{code-cell}
 plt.xticks([0, np.pi/2, np.pi, 3*np.pi/2, 2*np.pi],
             [0, 'pi/2', 'pi', '3pi/2', '2pi'])
 
@@ -194,7 +193,7 @@ plt.plot(x, np.sin(x), label='sinus');
 
 On peut utiliser les formules latex - souvenez-vous c'est un trait de markdown, entre deux `$` :
 
-```{code-cell} ipython3
+```{code-cell}
 plt.xticks([0, np.pi/2, np.pi, 3*np.pi/2, 2*np.pi],
            [0, '$\pi/2$', '$\pi$', '$3\pi/2$', '$2\pi$'])
 
@@ -204,7 +203,7 @@ plt.plot(x, np.sin(x), label='sinus');
 
 À vous de jouer. Construisez un tableau d'entiers entre 1 et 10 (non compris) et afficher la courbe $x^3$. Indice utilisez `np.arange` et `np.power`.
 
-```{code-cell} ipython3
+```{code-cell}
 # votre code ici
 ```
 
@@ -214,7 +213,7 @@ plt.plot(x, np.sin(x), label='sinus');
 
 On va le faire sur la courbe de la fonction $x^2$ entre 1 et 10.
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: center
 
 x = np.arange(1, 10)
@@ -233,7 +232,7 @@ Essayez: '-', '--', '-.', ':', ou encore `solid`, `dashed`, `dashdot`, `dotted`
 
 On précise aussi la taille des marqueurs de points.
 
-```{code-cell} ipython3
+```{code-cell}
 plt.plot(x, y, 'g--',) # pointillés verts green --
 
 plt.plot(x, y, 'rs', markersize=10) # rectangles r(red) et s(quare)
@@ -245,7 +244,7 @@ plt.plot(x+0.5, y+0.5, 'mv', markersize=6); # triangles tête en bas majenta ...
 
 ## écrire du texte à une position
 
-```{code-cell} ipython3
+```{code-cell}
 plt.text(1, 1, 'you are here !', fontsize=20)
 plt.plot(1, 1, 'rx')
 ```
@@ -256,7 +255,7 @@ plt.plot(1, 1, 'rx')
 
 On dessine la fonction $f(x)=x^2$. Mettez au fichier l'extension du format que vous préférez: *jpeg*, *jpg*, *pdf*, *png*, *svg*...
 
-```{code-cell} ipython3
+```{code-cell}
 x = np.linspace(-10, 10, 50)
 y = np.power(x, 2)
 
