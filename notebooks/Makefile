@@ -4,30 +4,18 @@
 # (*) fore cleaning things up (only locally for profs)
 #     pip install nbstripout
 
-NOTEBOOKS := $(shell git ls-files *.md)
+all: book
+clean: book-clean
+view: book-open
 
-all: sphinx
-clean: sphinx-clean
+.PHONY: book book-clean book-open
 
-#########################################################################
-# publication
-# 
-# execution is done as part of sphinx-build
-# there is only the need to mention the notebooks
-# in index.rst
-# 
+book:
+	jupyter-book build .
 
-#### sphinx
-
-_build/html/index.html: index.rst conf.py $(NOTEBOOKS) 
-	sphinx-build -b html . _build/html
-
-sphinx: _build/html/index.html
-
-sphinx-view:
-	open _build/html/index.html
-
-sphinx-clean:
+book-clean:
 	rm -rf _build
 
-.PHONY: sphinx sphinx-view sphinx-clean
+# warning: convenience, works on mac only
+book-open:
+	open _build/html/index.html

@@ -16,13 +16,13 @@ master_doc = "index"
 
 source_suffix = {
     '.rst': 'restructuredtext',
-    '.ipynb': 'jupyter_notebook',
-    '.md': 'jupyter_notebook'
 }
 
 exclude_patterns = ['_build', 'build', '**.ipynb_checkpoints']
 
-extensions = ['ipypublish.sphinx.notebook', 'ipypublish.sphinx.gls', 'sphinx.ext.mathjax', 'sphinxcontrib.bibtex', 'sphinx.ext.todo']
+extensions = [
+#    'ipypublish.sphinx.notebook', 'ipypublish.sphinx.gls', 'sphinx.ext.mathjax', 'sphinxcontrib.bibtex', 'sphinx.ext.todo',
+]
 
 ### where to find our custom material
 # conf file itself
@@ -43,7 +43,7 @@ ipysphinx_output_prompt = 'Out:'
 ipysphinx_input_toggle = True
 ipysphinx_output_toggle = True
 html_theme = "sphinx_rtd_theme" 
-html_title = "intro à Python" 
+html_title = "intro Python numérique"
 project = "Python numérique"
 author = "Thierry Parmentelat & Valérie Roy"
 html_theme_options = {
