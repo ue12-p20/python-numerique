@@ -3,6 +3,11 @@ on: [push]
 jobs:
   main:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash -l {0} 
+
     steps:
 
       - name: Checkout repository
@@ -16,7 +21,7 @@ jobs:
 
       - name: Conda debug
         run: conda env list
-        
+
       - name: Build documentation
         run: cd notebooks && make
 
