@@ -18,6 +18,7 @@ jupyter-contrib-nbextensions
 
 # this part is for readthedocs
 #
+jupyter-book
 jupytext
 Sphinx>=3.2
 sphinx-rtd-theme
