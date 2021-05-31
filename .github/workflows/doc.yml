@@ -14,6 +14,9 @@ jobs:
           activate-environment: python-numérique
           environment-file: environment.yml
 
+      - name: Conda debug
+        run: conda list
+
       - name: Build the documentation
         run: cd notebooks && make
 
