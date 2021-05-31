@@ -15,9 +15,9 @@ jobs:
           environment-file: environment.yml
 
       - name: Conda debug
-        run: conda list
-
-      - name: Build the documentation
+        run: conda env list
+        
+      - name: Build documentation
         run: cd notebooks && make
 
       - name: Prepare deployment
