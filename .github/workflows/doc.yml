@@ -8,6 +8,12 @@ jobs:
       - name: Checkout the tepository
         uses: actions/checkout@v2
 
+      - name: Activate conda environment
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: python-numérique
+          environment-file: environment.yml
+
       - name: Build the documentation
         run: cd notebooks & make & cp -rf _build ../docs
 
