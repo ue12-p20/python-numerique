@@ -82,7 +82,7 @@ un résumé des compétences attendues pour commencer les cours d'info
 ## Jupyter
 
 * avoir installé jupyter
-* avoir installé `jupytext[myst]`
+* avoir installé jupytext
 * lancer `jupyter notebook`; savoir :
 * créer un nouveau notebook
 * ajouter des cellules, alterner entre code et markdown

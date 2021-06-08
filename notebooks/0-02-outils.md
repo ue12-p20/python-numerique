@@ -1003,7 +1003,7 @@ je vous invite à installer également ceci; c'est optionnel pour débuter avec 
 ça sera nécessaire très vite pour lire les notebooks du cours
 
 ```console
-pip install jupytext[myst]
+pip install jupytext
 ```
 
 +++ {"tags": []}
@@ -1168,7 +1168,7 @@ du coup on peut par exemple les déplacer toutes ensemble
 pour pouvoir ouvrir un notebook du cours - n'importe lequel - il faut avoir fait ceci
 
 ```console
-pip install jupytext[myst]
+pip install jupytext
 ```
 
 autrement, vous allez avoir un affichage bizarre…

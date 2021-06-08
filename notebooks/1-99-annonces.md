@@ -39,7 +39,7 @@ une information, présente dans les supports de la semaine dernière, mais qui n
 
 pour pouvoir lire les notebooks du cours sur votre ordinateur personnel, il est nécessaire d'installer
 
-    pip install jupytext[myst]
+    pip install jupytext
 
 il est également utile d'installer cette extension Jupyter pour visualiser les couleurs (vert/bleu/rouge) correspondant aux niveaux dans le cours
 
