@@ -16,7 +16,7 @@ parts:
   - file: 1-08-iterations
   - file: 1-09-modules
   - file: 1-10-classes
-- caption: "numpy"
+- caption: numpy
   chapters:
   - file: 2-01-numpy-intro
   - file: 2-02-numpy-type-memory

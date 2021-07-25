@@ -1,3 +1,15 @@
 .ipynb_checkpoints
 .port
 .nbh-git.log
+
+# Python
+*.pyc
+
+# Misc.
+bar.txt
+foo.txt
+tutu.txt
+my_figure.jpg
+
+# Generated HTML
+notebooks/_build

@@ -1,0 +1,38 @@
+name: docs
+on: [push]
+jobs:
+  main:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash -l {0} 
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Activate conda environment
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: python-numérique
+          environment-file: environment.yml
+
+      - name: Conda debug
+        run: conda env list
+
+      - name: Build documentation
+        run: cd notebooks && make
+
+      - name: Prepare deployment
+        run: rm .gitignore && mkdir docs && cp -rf notebooks/_build/html/* docs
+
+      - name: Deploy to gh-pages
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: "docs"
+          SINGLE_COMMIT: true
+          PRESERVE: true

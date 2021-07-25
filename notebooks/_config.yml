@@ -5,7 +5,7 @@ author: Thierry Parmentelat
 logo: media/logo-python.svg
 
 repository:
-  url: https://github.com/ue12/python-numerique
+  url: https://github.com/boisgera/python-numerique
   branch: master
   path_to_book: notebooks
 
