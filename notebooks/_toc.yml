@@ -1,8 +1,10 @@
-- file: 0-01-intro
-- part: "intro et installation"
+format: jb-book
+root: 0-01-intro
+parts:
+- caption: intro et installation
   chapters:
   - file: 0-02-outils
-- part: "Python"
+- caption: Python
   chapters:
   - file: 1-01-environnement
   - file: 1-02-rudiments
@@ -14,7 +16,7 @@
   - file: 1-08-iterations
   - file: 1-09-modules
   - file: 1-10-classes
-- part: "numpy"
+- caption: numpy
   chapters:
   - file: 2-01-numpy-intro
   - file: 2-02-numpy-type-memory
@@ -24,13 +26,13 @@
   - file: 2-06-numpy-aggregate
   - file: 2-07-numpy-array-testing
   - file: 2-08-numpy-linalg
-- part: "pandas"
+- caption: pandas
   chapters:
   - file: 3-01-pandas-intro
   - file: 3-02-pandas-modifying-slicing
   - file: 3-04-pandas-sorting
   - file: 3-05-pandas-group-by
-- part: "matplotlib"
+- caption: matplotlib
   chapters:
   - file: 4-01-matplotlib-intro
   - file: 4-03-matplotlib-figure-and-sub-figures
