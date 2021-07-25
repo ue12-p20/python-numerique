@@ -1,0 +1,1680 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UE 12 - Introduction &#8212; Python numérique</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="outils de base" href="0-02-outils.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Python numérique</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 current">
+  <a class="reference internal" href="#">
+   UE 12 - Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  intro et installation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-02-outils.html">
+   outils de base
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-01-environnement.html">
+   UE12 - Python : généralités
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-02-rudiments.html">
+   rudiments de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-03-operateurs.html">
+   opérateurs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-04-fonctions.html">
+   fonctions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-05-types-methodes.html">
+   objets, types et méthodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-06-containers.html">
+   types évolués
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-07-references-partagees.html">
+   références partagées
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-08-iterations.html">
+   itérations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-09-modules.html">
+   modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-10-classes.html">
+   classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-01-numpy-intro.html">
+   UE12 - numpy : introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-02-numpy-type-memory.html">
+   numpy et la mémoire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-03-numpy-vectorization.html">
+   la vectorisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-04-numpy-indexing-slicing.html">
+   indexation et slicing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-05-numpy-broadcast.html">
+   broadcasting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-06-numpy-aggregate.html">
+   agrégation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-07-numpy-array-testing.html">
+   masques et tableaux booléens
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-08-numpy-linalg.html">
+   algèbre linéaire
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-01-pandas-intro.html">
+   UE12 - pandas et matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-02-pandas-modifying-slicing.html">
+   modifications et
+   <em>
+    slicing
+   </em>
+   de dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-04-pandas-sorting.html">
+   trier une dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-05-pandas-group-by.html">
+   regroupement de données
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas.DataFrame.groupby
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-01-matplotlib-intro.html">
+   dataviz avec
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-03-matplotlib-figure-and-sub-figures.html">
+   figures et sous-figures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-04-matplotlib-pandas-dataframe.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+   &amp;
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-05-matplotlib-plots-3D.html">
+   des graphiques en 3D
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/0-01-intro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/0-01-intro.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/boisgera/python-numerique"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/boisgera/python-numerique/issues/new?title=Issue%20on%20page%20%2F0-01-intro.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/boisgera/python-numerique/edit/master/notebooks/0-01-intro.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/boisgera/python-numerique/master?urlpath=tree/notebooks/0-01-intro.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comment-lire-ce-notebook">
+   comment lire ce notebook
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nbhosting">
+     nbhosting
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shift-enter">
+     <em>
+      Shift-Enter
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#niveaux-de-lecture">
+     niveaux de lecture
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#table-des-matieres">
+     table des matières
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#readthedocs">
+     <em>
+      readthedocs
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectifs">
+   objectifs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objectifs-globaux">
+     objectifs globaux
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objectifs-du-premier-module">
+     objectifs du premier module
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objectifs-aujourd-hui">
+     objectifs aujourd’hui
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#outils-infrastructure">
+   outils (infrastructure)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notebooks-nbhosting">
+     notebooks : nbhosting
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#forum-de-discussion-discourse">
+     forum de discussion : discourse
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#handouts-html-readthedocs">
+     <em>
+      handouts
+     </em>
+     html : readthedocs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#os">
+   OS
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-quoi-ca-sert">
+     à quoi ça sert ?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#role-de-l-os">
+     rôle de l’OS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notion-de-processus-en-anglais-process">
+     notion de
+     <strong>
+      processus
+     </strong>
+     (en anglais
+     <em>
+      process
+     </em>
+     )
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#soyons-precis">
+       soyons précis
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multi-utilisateurs-administrateur">
+     multi-utilisateurs, administrateur
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#historiquement">
+       historiquement
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#les-usages-ont-change">
+       les usages ont changé
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#choisir-un-mode-d-installation-dans-l-espace-utilisateur">
+       choisir un mode d’installation dans l’espace utilisateur
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#le-terminal">
+   le terminal
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bash">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       bash
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#command-not-found">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       command
+      </span>
+      <span class="pre">
+       not
+      </span>
+      <span class="pre">
+       found
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#le-path">
+     le
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       PATH
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installation-de-bash">
+     installation de
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       bash
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lancez-un-terminal">
+     lancez un terminal
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercice">
+     exercice
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dossiers-et-fichiers">
+   dossiers et fichiers
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#repertoire-courant">
+     répertoire courant
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       à quoi ça sert
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chemins-relatifs">
+     chemins relatifs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#repertoire-utilisateur-home-directory">
+     répertoire utilisateur (
+     <em>
+      home directory
+     </em>
+     )
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#organisation-en-dossiers">
+   organisation en dossiers
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#choisissez-vous-un-dossier-principal">
+     choisissez-vous un “dossier principal”
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ne-pas-abuser-sur-la-profondeur-des-arbres">
+     ne pas abuser sur la profondeur des arbres
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#noms-de-fichiers">
+     noms de fichiers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creez-des-raccourcis">
+     créez des raccourcis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#affichez-les-extensions-dans-les-noms-de-fichier">
+     affichez les extensions dans les noms de fichier
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="licence">
+<span>Licence CC BY-NC-ND</span>
+<div style="display:grid">
+    <span>Thierry Parmentelat</span>
+    <span>Valérie Roy</span>
+</div>
+</div>
+<img alt="_images/inria-25-alpha.png" src="_images/inria-25-alpha.png" />
+<img alt="_images/ensmp-25-alpha.png" src="_images/ensmp-25-alpha.png" />
+<div class="section" id="ue-12-introduction">
+<h1>UE 12 - Introduction<a class="headerlink" href="#ue-12-introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="comment-lire-ce-notebook">
+<h2>comment lire ce notebook<a class="headerlink" href="#comment-lire-ce-notebook" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nbhosting">
+<h3>nbhosting<a class="headerlink" href="#nbhosting" title="Permalink to this headline">¶</a></h3>
+<p>pour que vous puissiez lire ce premier cours, alors que vous n’avez encore rien installé
+sur votre ordi, vous pouvez le suivre en ligne sur le serveur de notebooks</p>
+<p>https://nbhosting.inria.fr/auditor/notebook/ue12-python-numerique</p>
+</div>
+<div class="section" id="shift-enter">
+<h3><em>Shift-Enter</em><a class="headerlink" href="#shift-enter" title="Permalink to this headline">¶</a></h3>
+<p>ce document est un <em>notebook</em>; il contient des <strong>cellules</strong>, avec soit du texte (comme
+celle-ci), soit du code (comme la suivante) qu’on peut exécuter au fur et à mesure qu’on
+lit</p>
+<p>le plus simple pour lire un notebook c’est de</p>
+<ul class="simple">
+<li><p>sélectionner une cellule (avec la souris)</p></li>
+<li><p>taper <em>Maj-Entrée</em> (ou <em>Shift-Return</em> sur un clavier anglais)<br />
+ça exécute la cellule courante et ça passe à la suivante; essayez…</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ma première cellule de code contient</span>
+<span class="c1"># un commentaire</span>
+<span class="c1"># et une commande toute simple</span>
+<span class="c1"># qui affiche un message</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;hey there !&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hey there !
+</pre></div>
+</div>
+</div>
+</div>
+<p>vous avez dû provoquer l’affichage de <code class="docutils literal notranslate"><span class="pre">hey</span> <span class="pre">there</span> <span class="pre">!</span></code> comme résultat de l’exécution de la
+cellule juste au dessus de celle-ci;<br />
+continuez la lecture en faisant ‘Maj-Entrée’</p>
+</div>
+<div class="section" id="niveaux-de-lecture">
+<h3>niveaux de lecture<a class="headerlink" href="#niveaux-de-lecture" title="Permalink to this headline">¶</a></h3>
+<p>parfois on verra du contenu un peu technique, qui s’adresse plutôt aux élèves qui ont déjà
+des connaissances poussées<br />
+on utilisera alors un code de couleur, c’est comme pour les pistes de ski :</p>
+<ul class="simple">
+<li><p>vert : niveau de base (mode par défaut)</p></li>
+</ul>
+<ul class="simple">
+<li><p>bleu : niveau intermédiaire</p></li>
+</ul>
+<ul class="simple">
+<li><p>rouge : niveau avancé</p></li>
+</ul>
+<p>lorsqu’il n’y a pas de couleur, c’est comme si c’était vert, ça s’adresse à tout le monde</p>
+<p>si c’est la tête de chapitre ou section qui est en couleur, cette couleur s’applique à
+toute la section; dans ce cas on met en vert, le cas échéant, la tête de section suivante</p>
+</div>
+<div class="section" id="table-des-matieres">
+<h3>table des matières<a class="headerlink" href="#table-des-matieres" title="Permalink to this headline">¶</a></h3>
+<p>vous pouvez en principe activer la tables des matières en cliquant sur ce bouton :<br />
+(sinon, voyez la toute dernière section)</p>
+<p><img alt="" src="_images/fig-jupyter-toc2.png" /></p>
+</div>
+<div class="section" id="readthedocs">
+<h3><em>readthedocs</em><a class="headerlink" href="#readthedocs" title="Permalink to this headline">¶</a></h3>
+<p>je vous signale enfin que les supports du cours sont disponibles également sur<br />
+https://ue12-python-numerique.readthedocs.io/</p>
+<p>ce site est accessible depuis Internet sans authentification, son contenu est <em>statique</em>
+(i.e. on ne peut pas modifier le contenu des cellules de code, ni rien exécuter) … mais
+on peut y <strong>faire des recherches</strong> qui s’appliqueront sur tous les notebooks d’un coup et
+ainsi retrouver des informations.</p>
+</div>
+</div>
+<div class="section" id="objectifs">
+<h2>objectifs<a class="headerlink" href="#objectifs" title="Permalink to this headline">¶</a></h2>
+<p>l’approche pédagogique vise en premier lieu <strong>à vous mener à l’autonomie</strong> en ce qui
+concerne l’utilisation des ressources digitales; c’est pourquoi nous ne sommes <strong>pas en
+salle informatique</strong> comme ça a pu se faire à une époque; l’objectif est que vous sachiez
+à terme utiliser <strong>uniquement votre ordinateur</strong> pour travailler (ce qui a été très
+pratique lors du <em>confinement surprise</em> l’année dernière).</p>
+<p>ce cours d’introduction vise à présenter, et à vous faire installer, les outils de base
+pour le cours d’informatique; il ne présente <strong>aucune difficulté</strong> mais vous êtes invité·e
+malgré tout à le suivre <strong>avec une grande attention</strong> car tous ces éléments sont
+<strong>cruciaux pour la suite</strong></p>
+<div class="section" id="objectifs-globaux">
+<h3>objectifs globaux<a class="headerlink" href="#objectifs-globaux" title="Permalink to this headline">¶</a></h3>
+<p>pour le cours d’informatique de 1ère année :</p>
+<ul class="simple">
+<li><p>prise d’<strong>autonomie</strong></p>
+<ul>
+<li><p>par rapport à un ordinateur personnel</p></li>
+<li><p>par rapport au numérique et à la programmation</p></li>
+<li><p>focus sur quelques outils (du moment)</p></li>
+</ul>
+</li>
+<li><p>pour les mathématiques, le machine-learning et autres enseignements</p>
+<ul>
+<li><p>Python - numpy - pandas - matplotlib</p></li>
+<li><p>notebooks Jupyter</p></li>
+</ul>
+</li>
+<li><p>workflow de gestion de projets de développement</p>
+<ul>
+<li><p>git &amp; github</p></li>
+</ul>
+</li>
+<li><p>approfondissement langage (un parmi 3)</p>
+<ul>
+<li><p>Python</p></li>
+<li><p>C++</p></li>
+<li><p>Java</p></li>
+</ul>
+</li>
+<li><p>culture informatique</p>
+<ul>
+<li><p>notions d’algorithmique et de complexité</p></li>
+<li><p>notions sur les systèmes d’exploitation des ordinateurs (OS)</p></li>
+<li><p>rudiments de programmation Web</p></li>
+<li><p>rudiments sur programmation parallèle</p></li>
+<li><p>rudiments sur l’utilisation du réseau</p></li>
+</ul>
+</li>
+<li><p>projet informatique</p>
+<ul>
+<li><p>en équipe</p></li>
+<li><p>posé par une personne extérieure à l’équipe d’enseignants</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="objectifs-du-premier-module">
+<h3>objectifs du premier module<a class="headerlink" href="#objectifs-du-premier-module" title="Permalink to this headline">¶</a></h3>
+<p>s’agissant du premier bloc de 4 x 3h :</p>
+<ul class="simple">
+<li><p>c’est un pré-requis pour autres cours<br />
+(notamment mathématiques et machine-learning)</p></li>
+<li><p>4 parties</p>
+<ul>
+<li><p>installations (ce cours-ci)</p></li>
+<li><p>le langage Pythonå</p></li>
+<li><p>tableaux et programmation vectorielle (<code class="docutils literal notranslate"><span class="pre">numpy</span></code>)</p></li>
+<li><p>préparation (<code class="docutils literal notranslate"><span class="pre">pandas</span></code>) et<br />
+visualisation (<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>) des données</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="objectifs-aujourd-hui">
+<h3>objectifs aujourd’hui<a class="headerlink" href="#objectifs-aujourd-hui" title="Permalink to this headline">¶</a></h3>
+<p>pour ce premier cours d’introduction/installation</p>
+<ul class="simple">
+<li><p>survol ultra-rapide des concepts de base (simple, basique)</p></li>
+<li><p>survol rapide et installation des outils de base</p>
+<ul>
+<li><p>OS, terminal, dossiers et fichiers</p></li>
+<li><p>éditeur de code, markdown</p></li>
+<li><p>git (ultra-light)</p></li>
+<li><p>Python, Jupyter</p></li>
+</ul>
+</li>
+<li><p>être capable de rapatrier le cours sur votre ordi, et d’y exécuter les notebooks</p></li>
+</ul>
+<p>Notez que</p>
+<ul class="simple">
+<li><p>le cours est <strong>coopératif</strong>, et pas compétitif<br />
+ceux qui savent déjà <strong>aident leurs camarades</strong></p></li>
+<li><p>voyez aussi la checklist des compétences requises - <a class="reference external" href="https://nbhosting.inria.fr/auditor/notebook/ue12-python-numerique:intro/notebooks/0-98-checklist">notebook
+<code class="docutils literal notranslate"><span class="pre">0-98-checklist.md</span></code></a></p>
+<ul>
+<li><p>à terminer pour la prochaine fois si nécessaire</p></li>
+<li><p>posez vos questions sur
+<a class="reference external" href="https://discourse-mines-paristech.fr">discourse.mines-paristech.fr</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="outils-infrastructure">
+<h2>outils (infrastructure)<a class="headerlink" href="#outils-infrastructure" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="notebooks-nbhosting">
+<h3>notebooks : nbhosting<a class="headerlink" href="#notebooks-nbhosting" title="Permalink to this headline">¶</a></h3>
+<p>notebooks prêt à l’emploi</p>
+<ul class="simple">
+<li><p>aucune installation nécessaire</p></li>
+<li><p><a class="reference external" href="https://nbhosting.inria.fr">https://nbhosting.inria.fr</a></p></li>
+<li><p>navigation dans les slides :<br />
+<em>Espace</em> et <em>Shift-Espace</em></p></li>
+<li><p>évaluer une cellule de code :<br />
+<em>Shift-Entrée</em></p></li>
+</ul>
+<p><img alt="" src="_images/nbhosting-shrink.gif" /></p>
+</div>
+<div class="section" id="forum-de-discussion-discourse">
+<h3>forum de discussion : discourse<a class="headerlink" href="#forum-de-discussion-discourse" title="Permalink to this headline">¶</a></h3>
+<p>forum de discussion pour</p>
+<ul class="simple">
+<li><p>tous les cours de maths &amp; info</p></li>
+<li><p><a class="reference external" href="https://discourse.mines-paristech.fr">https://discourse.mines-paristech.fr</a></p></li>
+<li><p>n’a pas été nettoyé - contient les discussions de l’an passé</p></li>
+</ul>
+</div>
+<div class="section" id="handouts-html-readthedocs">
+<h3><em>handouts</em> html : readthedocs<a class="headerlink" href="#handouts-html-readthedocs" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>selon les cours</p></li>
+<li><p>celui-ci est disponible sur <a class="reference external" href="https://ue12-python-numerique.readthedocs.io">https://ue12-python-numerique.readthedocs.io</a></p></li>
+<li><p>c’est un support accessible de partout et <strong>cherchable</strong></p></li>
+<li><p>par contre bien sûr, ce n’est pas interactif, on ne <strong>peut pas exécuter</strong> le code<br />
+(alors que sous nbhosting <strong>on peut l’exécuter, le modifier</strong>, … on va voir ça tout de
+suite)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="os">
+<h2>OS<a class="headerlink" href="#os" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Windows, MacOS, linux</p></li>
+<li><p>quelques différences (très) visibles</p></li>
+<li><p>mais de nombreux concepts communs</p></li>
+</ul>
+<div class="section" id="a-quoi-ca-sert">
+<h3>à quoi ça sert ?<a class="headerlink" href="#a-quoi-ca-sert" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>calculette</p>
+<ul>
+<li><p>un programme a accès à toutes les ressources</p></li>
+<li><p>exemple : je range X dans la case mémoire 1</p></li>
+</ul>
+</li>
+<li><p>ordinateurs</p>
+<ul>
+<li><p>plein de programmes <strong>en même temps</strong></p></li>
+<li><p>accessoirement plein d’utilisateurs</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="role-de-l-os">
+<h3>rôle de l’OS<a class="headerlink" href="#role-de-l-os" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>fournir de l’<strong>isolation</strong> entre les programmes</p>
+<ul>
+<li><p>si deux programmes différents utilisent la case 1<br />
+pour ranger une donnée, ça ne va pas le faire !</p></li>
+</ul>
+</li>
+<li><p>permettre la <strong>concurrence</strong></p>
+<ul>
+<li><p>faire tourner plusieurs programmes en même temps<br />
+sur un nombre fini de processeurs</p></li>
+<li><p>démo Activity Monitor (*)<br />
+typiquement <strong>plusieurs dizaines</strong> de programmes</p></li>
+</ul>
+</li>
+<li><p>fournir de l’<strong>isolation</strong> entre les utilisateurs</p></li>
+</ul>
+<p>(*) comme:  Task Manager* sous Windows, <em>Activity Monitor</em> sous MacOS, <em>top</em> sous linux</p>
+</div>
+<div class="section" id="notion-de-processus-en-anglais-process">
+<h3>notion de <strong>processus</strong> (en anglais <em>process</em>)<a class="headerlink" href="#notion-de-processus-en-anglais-process" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>chaque programme qui tourne constitue un <em>process</em></p></li>
+<li><p>les process sont isolés les uns des autres</p>
+<ul>
+<li><p>notamment la mémoire</p></li>
+</ul>
+</li>
+<li><p>l’OS fait tourner tous les programmes</p>
+<ul>
+<li><p>dans un mode <em>chacun son tour</em></p></li>
+<li><p>à relativement haute fréquence</p></li>
+<li><p>c’est le travail du <em>scheduler</em></p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="soyons-precis">
+<h4>soyons précis<a class="headerlink" href="#soyons-precis" title="Permalink to this headline">¶</a></h4>
+<p>le terme <em>OS</em> - <em>Operating System</em> a plein de significations différentes dans le langage
+courant</p>
+<ul class="simple">
+<li><p>Windows et MacOS : incluent une interface graphique</p></li>
+<li><p>linux : l’interface graphique est plus clairement séparée, on a le choix</p></li>
+</ul>
+<p><strong>mais</strong> nous ici lorsqu’on parle d’OS, on désigne <strong>seulement</strong> ce qu’on appelle aussi le
+<strong>noyau</strong></p>
+<p>c’est-à-dire techniquement :</p>
+<ul class="simple">
+<li><p>le <strong>seul</strong> programme dans l’ordinateur qui a <strong>accès direct</strong> aux périphériques</p></li>
+<li><p>qui “fait tourner” les programmes en leur donner tour à tour accès au processeur</p></li>
+<li><p>fait en sortes qu’ils soient <strong>isolés les uns des autres</strong></p></li>
+<li><p>tous les autres programmes (<em>user land</em>) accèdent à ces ressources au travers
+d’<strong>abstractions</strong></p>
+<ul>
+<li><p>mémoire : <strong>mémoire virtuelle</strong><br />
+la case mémoire ‘1’ est redirigée vers un bout de mémoire allouée au programme</p></li>
+<li><p><strong>système de fichiers</strong><br />
+le disque dur est accessible au travers de dossiers et fichiers</p></li>
+<li><p>etc …</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="multi-utilisateurs-administrateur">
+<h3>multi-utilisateurs, administrateur<a class="headerlink" href="#multi-utilisateurs-administrateur" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="historiquement">
+<h4>historiquement<a class="headerlink" href="#historiquement" title="Permalink to this headline">¶</a></h4>
+<p>le modèle d’usage des ordinateurs (très chers) était<br />
+1 ordi = plusieurs (dizaines/centaines d’) utilisateurs</p>
+<p>ce qui a mis en évidence le rôle de l’<strong>administrateur</strong> (<em>super-user</em>)<br />
+qui se chargeait des tâches de maintenance et d’installation</p>
+<p>les usages ont beaucoup changé, mais cette dualité (user lambda / admin) est restée<br />
+dans beaucoup d’institutions / compagnies c’est la <em>DSI</em> (Direction des Systèmes
+d’Information) qui se charge de l’installation de base et de la sécurité</p>
+<p>jusque récemment, le modèle mental était que :<br />
+“pour faire une installation, il faut les droits d’administrateur”<br />
+de cette façon on peut faire des économies d’échelle<br />
+(installation = processus compliqué, autant le faire 1 bonne fois pour tous les
+utilisateurs)</p>
+</div>
+<div class="section" id="les-usages-ont-change">
+<h4>les usages ont changé<a class="headerlink" href="#les-usages-ont-change" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>non seulement pour les postes de travail c’est maintenant<br />
+1 ordi = 1 personne</p></li>
+<li><p>mais en plus, la <strong>même personne</strong> peut avoir besoin de <strong>plusieurs environnements</strong> par
+exemple, un développeur peut travailler sur plusieurs projets, un en Python-3.6, un
+autre en Python-3.8, avec des combinaisons de librairies différentes pour chaque projet</p></li>
+</ul>
+<p>si bien que la notion d’installation unique pour 1 ordi n’a <strong>que des inconvénients</strong></p>
+<ul class="simple">
+<li><p>c’est compliqué d’avoir les droits d’administrateur : la DSI y veille, et même sans DSI ça demande des manipulations en plus</p></li>
+<li><p>et ça rend très compliqué la mise à disposition de multiples environnements<br />
+si tout le monde a le même Python, a fortiori un développeur aura toujours le même Python</p></li>
+</ul>
+</div>
+<div class="section" id="choisir-un-mode-d-installation-dans-l-espace-utilisateur">
+<h4>choisir un mode d’installation dans l’espace utilisateur<a class="headerlink" href="#choisir-un-mode-d-installation-dans-l-espace-utilisateur" title="Permalink to this headline">¶</a></h4>
+<p>c’est pourquoi je vous recommande de choisir, lorsque c’est possible, un mode
+d’installation <strong>dans l’espace utilisateur</strong> plutôt qu’une installation dans la zone
+système</p>
+<p>ainsi vos installations seront plus simples, et plus extensibles : vous pourrez plus
+facilement jongler entre les environnements lorsque vous serez plus agiles avec tout ceci</p>
+<p>pour anticiper un peu, c’est la raison pour laquelle on vous recommandera d’installer
+Python avec miniconda (dans la section qui traite de Python)</p>
+<p>ça veut dire en pratique que si à un moment de l’installation on vous demande un mot de
+passe administrateur, c’est que vous vous êtes fourvoyés et qu’il faut changer d’angle
+d’attaque</p>
+</div>
+</div>
+</div>
+<div class="section" id="le-terminal">
+<h2>le terminal<a class="headerlink" href="#le-terminal" title="Permalink to this headline">¶</a></h2>
+<p>le premier outil que nous allons voir c’est ce qu’on appelle le terminal;<br />
+un terminal qu’est-ce que c’est ?</p>
+<p>le terminal c’est tout simplement un programme qui permet d’exécuter des commandes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># la commande la plus basique est `pwd`</span>
+<span class="c1"># pour afficher le répertoire courant</span>
+
+<span class="nb">pwd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/python-numerique/python-numerique/notebooks
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="bash">
+<h3><code class="docutils literal notranslate"><span class="pre">bash</span></code><a class="headerlink" href="#bash" title="Permalink to this headline">¶</a></h3>
+<p>il y a plein de types de terminal selon les systèmes d’exploitation, mais pour que nous
+travaillions tous ensemble sur le même objet, nous allons choisir un terminal qui
+s’appelle <code class="docutils literal notranslate"><span class="pre">bash</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bash</span></code> vient avec l’installation de base sur MacOS et linux</p></li>
+<li><p>sur Windows, il faut l’installer séparément.<br />
+nous allons vous guider dans l’installation d’une app qui s’appelle <em><strong>git for
+windows</strong></em> qui est cool parce qu’elle contient</p>
+<ul>
+<li><p>le terminal <code class="docutils literal notranslate"><span class="pre">bash</span></code>, comme ça tout le monde a le même sur tous les OS</p></li>
+<li><p>et <code class="docutils literal notranslate"><span class="pre">git</span></code>, on va bientôt en parler, bref on fait d’une pierre deux coups</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>mais attendez un peu avant de vous précipiter à installer ça !</strong></p>
+<p>en effet avant de voir cette installation, on va faire une digression sur la façon dont le
+terminal recherche ses commandes</p>
+</div>
+<div class="section" id="command-not-found">
+<h3><code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code><a class="headerlink" href="#command-not-found" title="Permalink to this headline">¶</a></h3>
+<p>la première difficulté rencontrée par les débutants, c’est ce genre de symptôme<br />
+(rappelez-vous, on exécute les cellules avec <em>Maj-Entrée</em>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># j&#39;essaie d&#39;appeler une commande qui n&#39;existe pas </span>
+
+tutu
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Command &#39;tutu&#39; not found, did you mean:
+
+  command &#39;tudu&#39; from deb tudu (0.10.3-1build1)
+
+Try: apt install &lt;deb name&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>ce message d’erreur <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code> - ou <code class="docutils literal notranslate"><span class="pre">commande</span> <span class="pre">introuvable</span></code> - vous indique le plus
+souvent qu’il y a quelque chose de mal installé</p>
+</div>
+<div class="section" id="le-path">
+<h3>le <code class="docutils literal notranslate"><span class="pre">PATH</span></code><a class="headerlink" href="#le-path" title="Permalink to this headline">¶</a></h3>
+<p>le <code class="docutils literal notranslate"><span class="pre">PATH</span></code> c’est le mécanisme qui permet au terminal de trouver les commandes</p>
+<p>du coup quand on installe un nouveau logiciel, comme on va le faire tout de suite avec
+‘git for windows’, il est parfois nécessaire de modifier le <code class="docutils literal notranslate"><span class="pre">PATH</span></code> pour que les nouvelles
+commandes deviennent accessibles depuis le terminal</p>
+<p>ce n’est pas crucial de le savoir, mais si vous êtes curieux, sachez que</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PATH</span></code> c’est ce qu’on appelle une variable d’environnement (ça veut dire qu’elle se
+propage d’un processus à l’autre),</p></li>
+<li><p>et que c’est une liste de répertoires où sont cherchées les commandes</p></li>
+</ul>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ici le &#39;:&#39; est un séparateur</span>
+<span class="nb">echo</span> <span class="nv">$PATH</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/python-numérique/bin:/usr/share/miniconda/condabin:/usr/share/miniconda/condabin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/runner/.local/bin:/opt/pipx_bin:/usr/share/rust/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/snap/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/runner/.dotnet/tools
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="installation-de-bash">
+<h3>installation de  <code class="docutils literal notranslate"><span class="pre">bash</span></code><a class="headerlink" href="#installation-de-bash" title="Permalink to this headline">¶</a></h3>
+<p>Vous êtes sous linux ou sur MacOs donc vous avez déjà <code class="docutils literal notranslate"><span class="pre">bash</span></code>.</p>
+<p>Vous êtes sous Windows : on a vu qu’en installant <em><strong>git for windows</strong></em> on va faire d’une
+pierre deux coups, et installer à la fois <code class="docutils literal notranslate"><span class="pre">bash</span></code> et <code class="docutils literal notranslate"><span class="pre">git</span></code></p>
+<ul class="simple">
+<li><p>allez sur le site là  <a class="reference external" href="https://gitforwindows.org/">https://gitforwindows.org/</a>, on va vous guider (en vous montrant
+son installation pas à pas)</p></li>
+</ul>
+<blockquote>
+<div><p>le professeur fait une installation en live de gitforwindows (éventuellement sur une virtualbox)</p>
+</div></blockquote>
+<p>à la question <em><strong>Adjusting your PATH environment</strong></em> :<br />
+choisissez au moins l’option recommandée (#2), idéalement l’option #3</p>
+<p><img alt="" src="_images/fig-set-path-git-for-windows.png" /></p>
+</div>
+<div class="section" id="lancez-un-terminal">
+<h3>lancez un terminal<a class="headerlink" href="#lancez-un-terminal" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="_images/fig-git-for-windows.png" /></p>
+</div>
+<div class="section" id="exercice">
+<h3>exercice<a class="headerlink" href="#exercice" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>installer <em>git for windows</em> si vous êtes sur windows</p></li>
+<li><p>lancez un terminal</p></li>
+<li><p>le cas échéant créez un raccourci pour pouvoir lancer un terminal rapidement</p></li>
+<li><p>tapez les commandes suivantes :</p></li>
+</ul>
+<p><img alt="" src="_images/fig-terminal.png" /></p>
+</div>
+</div>
+<div class="section" id="dossiers-et-fichiers">
+<h2>dossiers et fichiers<a class="headerlink" href="#dossiers-et-fichiers" title="Permalink to this headline">¶</a></h2>
+<p>le contenu du disque dur est organisé en <strong>dossiers</strong> et <strong>fichiers</strong></p>
+<p>le <strong>dossier</strong> est juste un cas particulier de fichier</p>
+<ul class="simple">
+<li><p>qui <strong>contient d’autres fichiers</strong> (ou dossiers, donc)</p></li>
+<li><p>au lieu de contenir des données</p></li>
+</ul>
+<p>termes synonymes :</p>
+<ul class="simple">
+<li><p>dossier, répertoire, <em>folder</em>, <em>directory</em></p></li>
+<li><p>fichier, <em>file</em></p></li>
+</ul>
+<div class="section" id="repertoire-courant">
+<h3>répertoire courant<a class="headerlink" href="#repertoire-courant" title="Permalink to this headline">¶</a></h3>
+<p>tous les programmes (processus) ont ce qu’on appelle un répertoire courant</p>
+<p>dans le terminal on peut le voir avec la commande <code class="docutils literal notranslate"><span class="pre">pwd</span></code><br />
+(<em>print working directory</em>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># petite digression, ici je suis dans un notebook &#39;bash&#39;</span>
+<span class="c1"># et je peux exécuter des commandes comme dans un terminal</span>
+<span class="nb">pwd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/python-numerique/python-numerique/notebooks
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h4>à quoi ça sert<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>c’est uniquement une <strong>commodité</strong> pour ne pas avoir à retaper le chemin complet depuis la
+racine des dossiers</p>
+<p>je m’explique :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># on crée un fichier bidon</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Hello world&quot;</span> &gt; foo.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># avec la commande `ls`</span>
+<span class="c1"># on peut voir la liste des fichiers</span>
+<span class="c1"># et donc ici on va voir entre autres</span>
+<span class="c1"># le fichier &#39;foo.txt&#39; qu&#39;on vient de créer</span>
+
+ls
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0-01-intro.md			  3-05-pandas-group-by.md
+0-02-outils.md			  3-99-quiz.md
+0-10-demonstration.md		  4-01-matplotlib-intro.md
+0-98-checklist.md		  4-03-matplotlib-figure-and-sub-figures.md
+0-99-consignes-rendus.md	  4-04-matplotlib-pandas-dataframe.md
+1-01-environnement.md		  4-05-matplotlib-plots-3D.md
+1-02-rudiments.md		  Makefile
+1-03-operateurs.md		  TODO.md
+1-04-fonctions.md		  __pycache__
+1-05-types-methodes.md		  _build
+1-06-containers.md		  _config.yml
+1-07-references-partagees.md	  _toc.yml
+1-08-iterations.md		  check_random_json.py
+1-09-modules.md			  conf.py
+1-10-classes.md			  corona-par-pays.csv
+1-98-quiz.md			  foo.txt
+1-99-annonces.md		  index.rst
+2-01-numpy-intro.md		  iris-eng.csv
+2-02-numpy-type-memory.md	  iris-simple.csv
+2-03-numpy-vectorization.md	  iris.csv
+2-04-numpy-indexing-slicing.md	  media
+2-05-numpy-broadcast.md		  mod.py
+2-06-numpy-aggregate.md		  my_figure.jpg
+2-07-numpy-array-testing.md	  petit-titanic.csv
+2-08-numpy-linalg.md		  rise.css
+2-99-quiz.md			  titanic-sans-header.csv
+3-01-pandas-intro.md		  titanic.csv
+3-02-pandas-modifying-slicing.md  tutu.txt
+3-04-pandas-sorting.md		  wine.csv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># on peut vérifier que le fichier &#39;foo.txt&#39; existe bien</span>
+
+ls foo.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>foo.txt
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ou avoir plus de détails sur ce fichier</span>
+<span class="c1"># sa taille, sa date</span>
+
+ls -l foo.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-rw-r--r-- 1 runner docker 12 Jul 25 17:26 foo.txt
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># pourquoi sa taille est de 12 ?</span>
+<span class="c1"># on a écrit dedans</span>
+<span class="c1">#</span>
+<span class="c1"># hello (5 caractères)</span>
+<span class="c1"># espace (1 caractère)</span>
+<span class="c1"># world (5 caractères)</span>
+<span class="c1"># newline (1 caractère)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>pour les geeks, petite devinette, pourquoi est-ce que la taille de <code class="docutils literal notranslate"><span class="pre">bar.txt</span></code> est cette
+fois-ci de 13 ?</p>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;Hellö World&quot;</span> &gt; bar.txt
+
+<span class="c1"># ll c&#39;est un raccourci pour ls -l</span>
+ll bar.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ll: command not found
+</pre></div>
+</div>
+</div>
+</div>
+<p>reprenons; une autre commande utile c’est <code class="docutils literal notranslate"><span class="pre">cat</span></code>; ça permet tout simplement de voir le
+contenu d’un fichier</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># le point important c&#39;est que je peux faire référence</span>
+<span class="c1"># à ce fichier sous le nom simplement &#39;foo.txt&#39;</span>
+
+cat foo.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello world
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># et comme je suis dans le répertoire</span>
+<span class="c1"># /home/jovyan/work/notebooks</span>
+
+<span class="nb">pwd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/python-numerique/python-numerique/notebooks
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># je pourrais faire aussi</span>
+<span class="c1"># (à modifier éventuellement selon votre environnement)</span>
+
+cat /home/jovyan/work/notebooks/foo.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cat: /home/jovyan/work/notebooks/foo.txt: No such file or directory
+</pre></div>
+</div>
+</div>
+</div>
+<p>et donc pour moi, parce que je suis dans le répertoire
+<code class="docutils literal notranslate"><span class="pre">/home/jovyan/work/notebooks/</span></code></p>
+<p>c’est pareil de faire</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cat /home/jovyan/work/notebooks/foo.txt</span>
+</pre></div>
+</div>
+<p>ou tout simplement</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">foo</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="chemins-relatifs">
+<h3>chemins relatifs<a class="headerlink" href="#chemins-relatifs" title="Permalink to this headline">¶</a></h3>
+<p>ce serait aussi équivalent de faire</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cat ./foo.txt</span>
+</pre></div>
+</div>
+<p>car le répertoire <code class="docutils literal notranslate"><span class="pre">.</span></code> désigne justement le répertoire courant</p>
+<p>par convention <code class="docutils literal notranslate"><span class="pre">..</span></code> désigne le répertoire “au dessus” du répertoire courant<br />
+on l’utilise pour fabriquer des chemins du genre de</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cat ../frere/neveu
+</pre></div>
+</div>
+<p>pour “remonter” dans l’arborescence des dossiers, je peux donc utiliser un chemin relatif</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">pwd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/python-numerique/python-numerique/notebooks
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># `cd` ça veut dire *change directory* </span>
+
+<span class="nb">cd</span> ..
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">pwd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/python-numerique/python-numerique
+</pre></div>
+</div>
+</div>
+</div>
+<p>enfin, une astuce utile c’est pour <strong>revenir en arrière</strong> avec <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">-</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># du coup là je me retrouve à mon point de départ</span>
+<span class="nb">cd</span> -
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/python-numerique/python-numerique/notebooks
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># pour créer un répertoire je peux utiliser mkdir</span>
+<span class="c1"># attention toutefois car on ne peut pas le faire </span>
+<span class="c1"># s&#39;il existe déjà</span>
+
+mkdir new-folder
+<span class="nb">cd</span> new-folder
+<span class="nb">pwd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/python-numerique/python-numerique/notebooks/new-folder
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># qui bien sûr est vide </span>
+
+ls 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># et pour revenir à mon point de départ</span>
+<span class="c1"># je pourrais faire comme tout à l&#39;heure</span>
+<span class="c1"># cd - </span>
+<span class="c1"># ou encore, puisque je sais que c&#39;est juste un cran au dessus</span>
+
+<span class="nb">cd</span> ..
+<span class="nb">pwd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/python-numerique/python-numerique/notebooks
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="repertoire-utilisateur-home-directory">
+<h3>répertoire utilisateur (<em>home directory</em>)<a class="headerlink" href="#repertoire-utilisateur-home-directory" title="Permalink to this headline">¶</a></h3>
+<p>chaque utilisateur possède un répertoire,<br />
+qui est la racine de l’arbre dans lequel il peut ranger ses affaires<br />
+indépendamment du système d’exploitation</p>
+<p>pour y aller le plus simple est de faire simplement <code class="docutils literal notranslate"><span class="pre">cd</span></code> sans paramètre</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># sans paramètre je retourne tout en haut de mon espace</span>
+<span class="nb">cd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># c&#39;est mon home-directory</span>
+<span class="nb">pwd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># et je peux redescendre là d&#39;où je venais</span>
+<span class="nb">cd</span> -
+<span class="nb">pwd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/python-numerique/python-numerique/notebooks
+/home/runner/work/python-numerique/python-numerique/notebooks
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="organisation-en-dossiers">
+<h2>organisation en dossiers<a class="headerlink" href="#organisation-en-dossiers" title="Permalink to this headline">¶</a></h2>
+<p>quelques conseils pour organiser votre travail en dossiers</p>
+<div class="section" id="choisissez-vous-un-dossier-principal">
+<h3>choisissez-vous un “dossier principal”<a class="headerlink" href="#choisissez-vous-un-dossier-principal" title="Permalink to this headline">¶</a></h3>
+<p>le <em>homedir</em>, c’est une racine tentante pour mettre ses affaires, mais souvent il y a pas
+mal de fourbis dès le départ; sur Windows par exemple si vous regardez son contenu
+(faites-le !), vous verrez que c’est pas mal encombré</p>
+<p>du coup je vous conseille de vous choisir un dossier principal, pas trop profond par
+rapport à votre <em>homedir</em>, mais qui est vide au démarrage</p>
+<p>un choix pas absurde, sur toutes les platesformes, c’est de prendre comme dossier
+principal<br />
+<code class="docutils literal notranslate"><span class="pre">~/Desktop/git</span></code>  (dans bash, <code class="docutils literal notranslate"><span class="pre">~</span></code> représente le <em>homedir</em>)<br />
+l’avantage de choisir un dossier directement sous <code class="docutils literal notranslate"><span class="pre">~/Desktop/</span></code> est qu’on le voit
+apparaitre sur le bureau</p>
+<p>et en dessous de ce dossier principal vous allez ranger vos différents dossiers</p>
+</div>
+<div class="section" id="ne-pas-abuser-sur-la-profondeur-des-arbres">
+<h3>ne pas abuser sur la profondeur des arbres<a class="headerlink" href="#ne-pas-abuser-sur-la-profondeur-des-arbres" title="Permalink to this headline">¶</a></h3>
+<p>évitez de couper les cheveux en 4 en créant plein de sous-répertoires, genre :</p>
+<p>~~<code class="docutils literal notranslate"><span class="pre">/User/dupont/Desktop/git/mines/première-année/info/ue12/python-numerique</span></code>~~</p>
+<p>au contraire :</p>
+<ul class="simple">
+<li><p>si vous créez un dossier par sujet avec un nom explicite</p>
+<ul>
+<li><p>par exemple ce cours pourrait s’appeler <code class="docutils literal notranslate"><span class="pre">ue12-python-numerique</span></code></p></li>
+</ul>
+</li>
+<li><p>et que vous regroupez tous ces dossiers dans <strong>un seul répertoire</strong>,</p></li>
+<li><p>ça peut largement suffire</p></li>
+</ul>
+<p>du coup créez plutôt un dossier<br />
+<code class="docutils literal notranslate"><span class="pre">/User/dupont/Desktop/git/ue12-python-numerique</span></code></p>
+</div>
+<div class="section" id="noms-de-fichiers">
+<h3>noms de fichiers<a class="headerlink" href="#noms-de-fichiers" title="Permalink to this headline">¶</a></h3>
+<p>c’est assez facile (avec l’explorateur de fichiers notamment) de créer des fichiers dont
+le nom contient des caractères biscornus, comme des espaces ou des accents</p>
+<p>mais après ça devient rapidement compliqué de les utiliser, dans le terminal notamment</p>
+<p>c’est pourquoi on recommande d’<strong>éviter les espaces et les accents</strong> dans les noms de
+fichiers</p>
+</div>
+<div class="section" id="creez-des-raccourcis">
+<h3>créez des raccourcis<a class="headerlink" href="#creez-des-raccourcis" title="Permalink to this headline">¶</a></h3>
+<p>pour pouvoir facilement accéder à vos fichiers, investissez un peu de temps pour trouver
+comment on peut créer des raccourcis depuis l’explorateur de fichiers</p>
+<p>sur le screenshot suivant, on a choisi</p>
+<ul class="simple">
+<li><p>de créer un dossier <code class="docutils literal notranslate"><span class="pre">git</span></code> directement dans le Desktop</p></li>
+<li><p>pour l’instant il est vide, mais c’est là qu’on va ranger tous les dossiers de premier
+niveau</p></li>
+<li><p>comme il est créé dans le dossier <code class="docutils literal notranslate"><span class="pre">Desktop</span></code>, on voit ce dossier <code class="docutils literal notranslate"><span class="pre">git</span></code> directement sur le
+bureau</p></li>
+<li><p>et pour faire bon poids on a même créé un raccourci dans l’explorateur de fichiers</p></li>
+<li><p>tout ça pour pouvoir y accéder rapidement en toute circonstance</p></li>
+<li><p>remarquez aussi le menu contextuel; on peut facilement créer un <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">bash</span></code> qui démarrera
+directement dans ce dossier (<code class="docutils literal notranslate"><span class="pre">git</span></code> sera son répertoire courant)</p></li>
+</ul>
+<p><em>pour créer un raccourci dans l’explorateur Windows</em></p>
+<p><img alt="" src="_images/fig-quick-acces-git.png" /></p>
+<p><em>une fois bien installé on peut rapidement accéder à notre dossier principal de plein de
+façons</em></p>
+<p><img alt="" src="_images/fig-dossier-git.png" /></p>
+</div>
+<div class="section" id="affichez-les-extensions-dans-les-noms-de-fichier">
+<h3>affichez les extensions dans les noms de fichier<a class="headerlink" href="#affichez-les-extensions-dans-les-noms-de-fichier" title="Permalink to this headline">¶</a></h3>
+<p>dans l’explorateur Windows par défaut, si vous créez un fichier <code class="docutils literal notranslate"><span class="pre">foo.txt</span></code> on va vous
+montrer dans l’explorateur de fichiers une entrée qui s’affiche avec simplement <code class="docutils literal notranslate"><span class="pre">foo</span></code></p>
+<p>par défaut, on a jugé que c’était “plus simple” de ne pas montrer l’extension, ici <code class="docutils literal notranslate"><span class="pre">.txt</span></code><br />
+personnellement je ne trouve pas ça très pratique…</p>
+<p>voici comment on peut changer ce comportement, pour voir les noms de fichier en entier,
+i.e. comme avec le terminal</p>
+<p><img alt="" src="_images/fig-show-extensions-1.png" />
+<img alt="" src="_images/fig-show-extensions-2.png" /></p>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "calysto_bash"
+        },
+        kernelOptions: {
+            kernelName: "calysto_bash",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'calysto_bash'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='right-next' id="next-link" href="0-02-outils.html" title="next page">outils de base</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thierry Parmentelat<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

@@ -1,0 +1,692 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>figures et sous-figures &#8212; Python numérique</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="matplotlib &amp; pandas" href="4-04-matplotlib-pandas-dataframe.html" />
+    <link rel="prev" title="dataviz avec matplotlib" href="4-01-matplotlib-intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Python numérique</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-01-intro.html">
+   UE 12 - Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  intro et installation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-02-outils.html">
+   outils de base
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-01-environnement.html">
+   UE12 - Python : généralités
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-02-rudiments.html">
+   rudiments de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-03-operateurs.html">
+   opérateurs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-04-fonctions.html">
+   fonctions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-05-types-methodes.html">
+   objets, types et méthodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-06-containers.html">
+   types évolués
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-07-references-partagees.html">
+   références partagées
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-08-iterations.html">
+   itérations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-09-modules.html">
+   modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-10-classes.html">
+   classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-01-numpy-intro.html">
+   UE12 - numpy : introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-02-numpy-type-memory.html">
+   numpy et la mémoire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-03-numpy-vectorization.html">
+   la vectorisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-04-numpy-indexing-slicing.html">
+   indexation et slicing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-05-numpy-broadcast.html">
+   broadcasting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-06-numpy-aggregate.html">
+   agrégation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-07-numpy-array-testing.html">
+   masques et tableaux booléens
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-08-numpy-linalg.html">
+   algèbre linéaire
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-01-pandas-intro.html">
+   UE12 - pandas et matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-02-pandas-modifying-slicing.html">
+   modifications et
+   <em>
+    slicing
+   </em>
+   de dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-04-pandas-sorting.html">
+   trier une dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-05-pandas-group-by.html">
+   regroupement de données
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas.DataFrame.groupby
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  matplotlib
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-01-matplotlib-intro.html">
+   dataviz avec
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   figures et sous-figures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-04-matplotlib-pandas-dataframe.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+   &amp;
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-05-matplotlib-plots-3D.html">
+   des graphiques en 3D
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/4-03-matplotlib-figure-and-sub-figures.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/4-03-matplotlib-figure-and-sub-figures.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/boisgera/python-numerique"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/boisgera/python-numerique/issues/new?title=Issue%20on%20page%20%2F4-03-matplotlib-figure-and-sub-figures.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/boisgera/python-numerique/edit/master/notebooks/4-03-matplotlib-figure-and-sub-figures.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/boisgera/python-numerique/master?urlpath=tree/notebooks/4-03-matplotlib-figure-and-sub-figures.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plusieurs-courbes-sur-une-meme-figure">
+   plusieurs courbes sur une même figure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dessiner-plusieurs-sous-figures-sur-une-figure">
+   dessiner plusieurs sous-figures sur une figure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#avec-un-vecteur-de-sous-figures-plt-subplots">
+     avec un vecteur de sous-figures (
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       plt.subplots
+      </span>
+     </code>
+     )
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#avec-des-tailles-positions-dans-une-grille-plt-subplot">
+     avec des tailles/positions dans une grille (
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       plt.subplot
+      </span>
+     </code>
+     )
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="licence">
+<span>Licence CC BY-NC-ND</span>
+<span>Valérie Roy</span>
+<span><img src="media/ensmp-25-alpha.png" /></span>
+</div><div class="section" id="figures-et-sous-figures">
+<h1>figures et sous-figures<a class="headerlink" href="#figures-et-sous-figures" title="Permalink to this headline">¶</a></h1>
+<p>Où on étudie la façon de produire des figures (<em>fig</em>) qui contiennent plusieurs graphiques - pour cela ils incluent des sous-figures (<em>axis</em>)</p>
+<p>Et oui les sous-figures s’appellent des <em>axis</em>…</p>
+<p>Il est souvent intéressant de regrouper plusieurs courbes ensemble sur une même figure. Nous allons voir dans ce notebook comment créer une figure et y positionner des sous-figures sur une grille.</p>
+<p>Importons les librairies.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="plusieurs-courbes-sur-une-meme-figure">
+<h2>plusieurs courbes sur une même figure<a class="headerlink" href="#plusieurs-courbes-sur-une-meme-figure" title="Permalink to this headline">¶</a></h2>
+<p>Nous allons créer une figure en lui indiquant une taille puis y dessiner deux courbes. Il existe en <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> la notion de figure courante i.e. la figure sur laquelle les plots vont être dessinés.</p>
+<p>Donc pour commencer rien ne nous empêche de dessiner deux courbes dans le même repère :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-03-matplotlib-figure-and-sub-figures_7_0.png" src="_images/4-03-matplotlib-figure-and-sub-figures_7_0.png" />
+</div>
+</div>
+<p>En appelant la fonction <code class="docutils literal notranslate"><span class="pre">plt.show</span></code> je vais <em>fermer</em> une figure i.e. terminer la portée d’une figure, les futurs plots iront sur une autre figure.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># là je ferme la figure courante</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-03-matplotlib-figure-and-sub-figures_9_0.png" src="_images/4-03-matplotlib-figure-and-sub-figures_9_0.png" />
+<img alt="_images/4-03-matplotlib-figure-and-sub-figures_9_1.png" src="_images/4-03-matplotlib-figure-and-sub-figures_9_1.png" />
+</div>
+</div>
+<p>Notons que si vous utilisez <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> dans un script et non dans un notebook vous devrez appeler <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> pour que votre figure s’affiche.</p>
+</div>
+<div class="section" id="dessiner-plusieurs-sous-figures-sur-une-figure">
+<h2>dessiner plusieurs sous-figures sur une figure<a class="headerlink" href="#dessiner-plusieurs-sous-figures-sur-une-figure" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="avec-un-vecteur-de-sous-figures-plt-subplots">
+<h3>avec un vecteur de sous-figures (<code class="docutils literal notranslate"><span class="pre">plt.subplots</span></code>)<a class="headerlink" href="#avec-un-vecteur-de-sous-figures-plt-subplots" title="Permalink to this headline">¶</a></h3>
+<p>Nous allons maintenant créer une figure, avec plusieurs courbes, mais <strong>chacune avec son repère</strong>;<br />
+pour cela, on va positionner des <strong>sous-figures</strong> dans la figure.<br />
+La notion de sous-figure correspond donc en gros à un repère, et c’est pour ça qu’elle s’appelle aussi <code class="docutils literal notranslate"><span class="pre">axis</span></code> dans le code - et d’ailleurs ça perturbe pas mal les débutants…</p>
+<p>Pour pouvoir positionner les sous-figures/<em>axis</em>  dans la figure, on crée une grille virtuelle à l’intérieur de la figure, grâce à la fonction <code class="docutils literal notranslate"><span class="pre">plt.subplots()</span></code>, à laquelle on passe le nombre de lignes et de colonnes de la grille.</p>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">fig.subplots</span></code> renvoie d’une part la figure, et un tableau <code class="docutils literal notranslate"><span class="pre">numpy</span></code> de sous-figures.</p>
+<p>Ainsi si on demande une figure avec 2 lignes et 3 colonnes, on obtient un tableau (un <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>) de forme (2, 3), chacun des éléments du tableau étant une sous-figure/<em>axis</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 3)
+</pre></div>
+</div>
+<img alt="_images/4-03-matplotlib-figure-and-sub-figures_14_1.png" src="_images/4-03-matplotlib-figure-and-sub-figures_14_1.png" />
+</div>
+</div>
+<p>La figure et ses sous-figures ont été dessinées vides. Maintenant on peut attacher des courbes aux axes (sous-figures). On crée l’abscisse x et les listes des valeurs des deux courbes $f(x)=\sin(x)$ et $f(x)=\cos(x)$ en <em>x</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># on va remplir la figure </span>
+<span class="c1"># avec des courbes un peu bateau</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>On met un sinus dans la sous-figure en haut et à gauche, donc d’indice (0, 0), et un cosinus dans la sous-figure en bas à droite (1, 2). On utilise les indices du <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> de forme (2, 3):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> 
+
+<span class="c1"># pour la dernière on</span>
+<span class="c1"># aurait pu mettre aussi bien </span>
+<span class="c1"># axes[1, 2].plot(x, z)</span>
+<span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+
+<span class="c1"># on raffiche fig</span>
+<span class="n">fig</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-03-matplotlib-figure-and-sub-figures_18_0.png" src="_images/4-03-matplotlib-figure-and-sub-figures_18_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="avec-des-tailles-positions-dans-une-grille-plt-subplot">
+<h3>avec des tailles/positions dans une grille (<code class="docutils literal notranslate"><span class="pre">plt.subplot</span></code>)<a class="headerlink" href="#avec-des-tailles-positions-dans-une-grille-plt-subplot" title="Permalink to this headline">¶</a></h3>
+<p>Les sous-figures vont pouvoir occuper plusieurs lignes et plusieurs colonnes.</p>
+<p>Tout d’abord, on crée une figure sans lui indiquer la taille de sa grille de sous-figures.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ensuite, on va utiliser la fonction <code class="docutils literal notranslate"><span class="pre">fig.subplot</span></code> (attention il n’y a <strong>pas de <code class="docutils literal notranslate"><span class="pre">s</span></code></strong> contrairement à la fonction de la section précédente) pour ajouter des sous-figures.</p>
+<p>On indique 3 entiers <em>l</em>, <em>c</em> et <em>i</em> à la fonction <code class="docutils literal notranslate"><span class="pre">fig.subplot</span></code> soit en les séparant par des ‘,’ soit en les donnant sous la forme d’un entier des 3 digit <em>lci</em>.</p>
+<p>Si les trois les entiers sont <em>l</em>, <em>c</em> et <em>i</em> dans l’ordre, la sous-figure prendra la position <em>i</em> sur une grille avec <em>l</em> lignes et <em>c</em> colonnes. <em>i</em> commence à 1 en haut à gauche et s’augmente vers la droite.</p>
+<p>Ainsi <em>fig.subplot(lci)</em> est la même chose que <em>fig.subplot(l, c, i)</em>.</p>
+<p>Refaisons la même figure (2, 3) que précédemment:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">231</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">232</span><span class="p">)</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">233</span><span class="p">)</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">234</span><span class="p">)</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">235</span><span class="p">)</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">236</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-03-matplotlib-figure-and-sub-figures_24_0.png" src="_images/4-03-matplotlib-figure-and-sub-figures_24_0.png" />
+</div>
+</div>
+<p>Maintenant on peut dessiner des courbes dans les sous-figures, on peut mettre un titre aux sous-figures avec <code class="docutils literal notranslate"><span class="pre">axi.set_title</span></code> (où <code class="docutils literal notranslate"><span class="pre">axi</span></code> est une sous-figure), on peut mettre un titre à la figure globale avec <code class="docutils literal notranslate"><span class="pre">plt.suptitle</span></code>..</p>
+<p>Remarquez que cette façon de faire est un peu plus flexible que la précédente, puisqu’avec <code class="docutils literal notranslate"><span class="pre">subplots</span></code> on est découpe forcément en une grille régulière, alors qu’ici en jonglant un petit peu, on peut faire des choses un peu plus irrégulières, comme par exemple :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># efforcez-vous de vbien comprendre </span>
+<span class="c1"># les paramètres que je passe aux </span>
+<span class="c1"># 6 appels à subplot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;titre global d&#39;une figure avec 6 sous-figures de sinus&quot;</span><span class="p">)</span>
+
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;y-.&#39;</span><span class="p">)</span>
+
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;gv&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;sinus dragon&quot;</span><span class="p">)</span>
+
+<span class="n">ax4</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>  
+<span class="n">ax5</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> 
+<span class="n">ax6</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;ms&#39;</span><span class="p">)</span>
+<span class="n">ax6</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r^&#39;</span><span class="p">)</span>
+<span class="n">ax5</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;k--&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-03-matplotlib-figure-and-sub-figures_27_0.png" src="_images/4-03-matplotlib-figure-and-sub-figures_27_0.png" />
+</div>
+</div>
+<p>Notons que cette seconde manière de faire rend le code brouillon, peu lisible, et source d’erreurs (par exemple, il faut se souvenir des noms de variables qu’on a choisis pour désigner les sous-figures, surtout si/quand on voudra modifier les dessins à postériori).</p>
+<p>Du coup si vous avez besoin d’une grille régulière, il est sans doute préférable d’utiliser la fonction <code class="docutils literal notranslate"><span class="pre">plt.subplots</span></code> qui renvoie la figure globale et un tableau des sous-figures.</p>
+<p>Bien sûr on peut améliorer les sous-figures: nommer abscisses et ordonnées, ajouter des légendes… et des tas d’autres fonctionnalités (dont certaines très avancées), il faut se référer à la documentation  https://matplotlib.org/api/axes_api.html et aux exemples sur Internet.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="4-01-matplotlib-intro.html" title="previous page">dataviz avec <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a>
+    <a class='right-next' id="next-link" href="4-04-matplotlib-pandas-dataframe.html" title="next page"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thierry Parmentelat<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

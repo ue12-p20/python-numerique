@@ -1,0 +1,658 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UE12 - Python : généralités &#8212; Python numérique</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="rudiments de Python" href="1-02-rudiments.html" />
+    <link rel="prev" title="outils de base" href="0-02-outils.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Python numérique</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-01-intro.html">
+   UE 12 - Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  intro et installation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-02-outils.html">
+   outils de base
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   UE12 - Python : généralités
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-02-rudiments.html">
+   rudiments de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-03-operateurs.html">
+   opérateurs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-04-fonctions.html">
+   fonctions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-05-types-methodes.html">
+   objets, types et méthodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-06-containers.html">
+   types évolués
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-07-references-partagees.html">
+   références partagées
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-08-iterations.html">
+   itérations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-09-modules.html">
+   modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-10-classes.html">
+   classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-01-numpy-intro.html">
+   UE12 - numpy : introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-02-numpy-type-memory.html">
+   numpy et la mémoire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-03-numpy-vectorization.html">
+   la vectorisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-04-numpy-indexing-slicing.html">
+   indexation et slicing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-05-numpy-broadcast.html">
+   broadcasting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-06-numpy-aggregate.html">
+   agrégation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-07-numpy-array-testing.html">
+   masques et tableaux booléens
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-08-numpy-linalg.html">
+   algèbre linéaire
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-01-pandas-intro.html">
+   UE12 - pandas et matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-02-pandas-modifying-slicing.html">
+   modifications et
+   <em>
+    slicing
+   </em>
+   de dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-04-pandas-sorting.html">
+   trier une dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-05-pandas-group-by.html">
+   regroupement de données
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas.DataFrame.groupby
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-01-matplotlib-intro.html">
+   dataviz avec
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-03-matplotlib-figure-and-sub-figures.html">
+   figures et sous-figures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-04-matplotlib-pandas-dataframe.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+   &amp;
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-05-matplotlib-plots-3D.html">
+   des graphiques en 3D
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/1-01-environnement.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/1-01-environnement.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/boisgera/python-numerique"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/boisgera/python-numerique/issues/new?title=Issue%20on%20page%20%2F1-01-environnement.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/boisgera/python-numerique/edit/master/notebooks/1-01-environnement.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/boisgera/python-numerique/master?urlpath=tree/notebooks/1-01-environnement.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lancer-python">
+   lancer Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nos-cas-d-usage">
+   nos cas d’usage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sachez-a-qui-vous-parlez">
+   sachez à qui vous parlez
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#note-a-propos-de-windows">
+     note à propos de Windows
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#savoir-si-python-est-installe">
+   savoir si Python est installé
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#note-historique">
+   note historique
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#les-fichiers-du-cours">
+   les fichiers du cours
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testez-votre-installation">
+   testez votre installation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#des-introductions-a-jupyter-et-vscode">
+   des introductions à Jupyter et VScode
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="licence">
+<span>Licence CC BY-NC-ND</span>
+<span>Thierry Parmentelat</span>
+</div>
+<img alt="_images/inria-25-alpha.png" src="_images/inria-25-alpha.png" />
+<div class="section" id="ue12-python-generalites">
+<h1>UE12 - Python : généralités<a class="headerlink" href="#ue12-python-generalites" title="Permalink to this headline">¶</a></h1>
+<p>ce notebook reprend très rapidement quelques informations<br />
+issues de la partie initiale de ce cours <code class="docutils literal notranslate"><span class="pre">intro</span> <span class="pre">&amp;</span> <span class="pre">install</span></code><br />
+pour être sûr que vous avez tout ce qu’il faut pour travailler</p>
+<div class="section" id="lancer-python">
+<h2>lancer Python<a class="headerlink" href="#lancer-python" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>exécuter un programme déjà fait<br />
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">python</span> <span class="pre">monprogramme.py</span></code></p></li>
+<li><p>lancer un interpréteur interactif<br />
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">python</span></code><br />
+ou encore mieux<br />
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">ipython</span></code></p></li>
+<li><p>mode ‘mixte’ dans des notebooks<br />
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">jupyter</span> <span class="pre">notebook</span></code></p></li>
+</ol>
+<p><strong>illustration</strong></p>
+<p>ces usages sont explicités dans cette
+<a class="reference external" href="https://youtu.be/ULzWaZQa1Dc">vidéo introductive</a></p>
+</div>
+<div class="section" id="nos-cas-d-usage">
+<h2>nos cas d’usage<a class="headerlink" href="#nos-cas-d-usage" title="Permalink to this headline">¶</a></h2>
+<p>vous reconnaissez les programmes impliqués dans les différents scénarios:</p>
+<ul class="simple">
+<li><p>le <code class="docutils literal notranslate"><span class="pre">terminal</span></code>: la façon la plus simple de lancer d’autres programmes</p></li>
+<li><p>l’interpréteur <code class="docutils literal notranslate"><span class="pre">Python</span></code> : le programme qui exécute du code Python</p></li>
+<li><p>interpréteur <code class="docutils literal notranslate"><span class="pre">IPython</span></code> : une surcouche qui ajoute de la souplesse</p>
+<ul>
+<li><p>complétion, aide en ligne, déplacement/édition dans l’historique</p></li>
+</ul>
+</li>
+<li><p>les notebooks <code class="docutils literal notranslate"><span class="pre">jupyter</span></code>: nos petits cahiers cours/exercices</p></li>
+</ul>
+</div>
+<div class="section" id="sachez-a-qui-vous-parlez">
+<h2>sachez à qui vous parlez<a class="headerlink" href="#sachez-a-qui-vous-parlez" title="Permalink to this headline">¶</a></h2>
+<p><strong>convention</strong></p>
+<p>lorsque c’est ambigu, on préfixera :</p>
+<ul class="simple">
+<li><p>la commande à taper dans un terminal, avec un <code class="docutils literal notranslate"><span class="pre">$</span></code></p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>    $ python
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>la commande à taper dans un interpréteur Python, avec <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+<div class="section" id="note-a-propos-de-windows">
+<h3>note à propos de Windows<a class="headerlink" href="#note-a-propos-de-windows" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>la notation avec un <code class="docutils literal notranslate"><span class="pre">$</span></code> réfère au terminal et vient historiquement de Unix<br />
+(aujourd’hui Linux et MacOS)</p></li>
+<li><p>le programme en question s’appelle un <code class="docutils literal notranslate"><span class="pre">shell</span></code><br />
+(on l’apparente à l’application <code class="docutils literal notranslate"><span class="pre">Terminal</span></code>)</p></li>
+<li><p>sur Windows cette sorte de terminal n’est pas native<br />
+(vous avez installé <strong>git for windows</strong><br />
+et obtenu la variante du <code class="docutils literal notranslate"><span class="pre">shell</span></code> appelée <code class="docutils literal notranslate"><span class="pre">bash</span></code>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="savoir-si-python-est-installe">
+<h2>savoir si Python est installé<a class="headerlink" href="#savoir-si-python-est-installe" title="Permalink to this headline">¶</a></h2>
+<p>vous devez avoir python installé sur votre portable; pour le savoir tapez dans un terminal</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python --version
+</pre></div>
+</div>
+<p>ou encore</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 --version
+</pre></div>
+</div>
+<p>si vous lisez:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.6.n</span></code> ou <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.7.n</span></code> : vous avez un Python installé</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.x</span></code> avec $x &lt;= 5$ : votre Python a besoin d’une mise à jour</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">2.x</span></code> : ne pas utiliser Python 2 !</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code> : Python n’est pas installé (il faudra le faire rapidement)</p></li>
+</ul>
+</div>
+<div class="section" id="note-historique">
+<h2>note historique<a class="headerlink" href="#note-historique" title="Permalink to this headline">¶</a></h2>
+<p>Python2 est une version plus ancienne du langage</p>
+<ul class="simple">
+<li><p>elle <strong>n’est pas compatible</strong> et il ne <strong>faut surtout surtout surtout pas</strong> l’utiliser</p></li>
+<li><p>sa fin de vie est prévue en Janvier 2020 (plus du tout de support)</p></li>
+<li><p>ce qui achève une période de transition de 10 ans…</p></li>
+</ul>
+<ul class="simple">
+<li><p>pendant la période transitoire les deux ont coexisté</p></li>
+<li><p>d’où les commandes <code class="docutils literal notranslate"><span class="pre">python2</span></code> et <code class="docutils literal notranslate"><span class="pre">python3</span></code> qu’on rencontre parfois</p></li>
+<li><p>pour lancer Python3</p>
+<ul>
+<li><p>sur certains systèmes on tape encore <code class="docutils literal notranslate"><span class="pre">python3</span></code></p></li>
+<li><p>mais de plus en plus <code class="docutils literal notranslate"><span class="pre">python</span></code> tout court suffit</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="les-fichiers-du-cours">
+<h2>les fichiers du cours<a class="headerlink" href="#les-fichiers-du-cours" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>vous avez cloné <a class="reference external" href="https://github.com/ue12/python-numerique/tree/master/demo">le cours sur
+github</a></p></li>
+<li><p>si ce n’est pas déjà fait, dans un terminal, utilisez <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> pour dupliquer le repo
+sur votre ordinateur</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/ue12/python-numerique
+</pre></div>
+</div>
+</li>
+<li><p>si vous voulez choisir le nom du dossier du clone</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/ue12/python-numerique ue12-python-numerique
+</pre></div>
+</div>
+</li>
+<li><p>déplacez-vous dans le sous-dossier <code class="docutils literal notranslate"><span class="pre">demo</span></code> <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">cd</span> <span class="pre">ue12-python-numerique/demo</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="testez-votre-installation">
+<h2>testez votre installation<a class="headerlink" href="#testez-votre-installation" title="Permalink to this headline">¶</a></h2>
+<p>Vous êtes dans le répertoire <code class="docutils literal notranslate"><span class="pre">demo</span></code>, lancez les deux programmes</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 fact.py
+fact<span class="o">(</span><span class="m">4</span><span class="o">)</span> <span class="o">=</span> <span class="m">24</span>
+fact<span class="o">(</span><span class="m">25</span><span class="o">)</span> <span class="o">=</span> <span class="m">15511210043330985984000000</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 users.py
+Emilie <span class="o">(</span>Lambert<span class="o">)</span>, <span class="m">25</span> ans
+Julien <span class="o">(</span>Masson<span class="o">)</span>, <span class="m">30</span> ans
+</pre></div>
+</div>
+</div>
+<div class="section" id="des-introductions-a-jupyter-et-vscode">
+<h2>des introductions à Jupyter et VScode<a class="headerlink" href="#des-introductions-a-jupyter-et-vscode" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>une introduction rapide à<br />
+<a class="reference external" href="https://nbhosting.inria.fr/auditor/notebook/python-slides:extras/slides-extras/03-1-notebooks-basic">l’installation et à l’usage des
+notebooks</a></p>
+<p>est disponible sur nbhosting</p>
+</li>
+<li><p>idem en ce qui concerne <a class="reference external" href="https://nbhosting.inria.fr/auditor/notebook/python-slides:extras/slides-extras/07-vscode">Visual Studio
+Code</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="0-02-outils.html" title="previous page">outils de base</a>
+    <a class='right-next' id="next-link" href="1-02-rudiments.html" title="next page">rudiments de Python</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thierry Parmentelat<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

@@ -1,0 +1,1811 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>indexation et slicing &#8212; Python numérique</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="broadcasting" href="2-05-numpy-broadcast.html" />
+    <link rel="prev" title="la vectorisation" href="2-03-numpy-vectorization.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Python numérique</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-01-intro.html">
+   UE 12 - Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  intro et installation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-02-outils.html">
+   outils de base
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-01-environnement.html">
+   UE12 - Python : généralités
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-02-rudiments.html">
+   rudiments de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-03-operateurs.html">
+   opérateurs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-04-fonctions.html">
+   fonctions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-05-types-methodes.html">
+   objets, types et méthodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-06-containers.html">
+   types évolués
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-07-references-partagees.html">
+   références partagées
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-08-iterations.html">
+   itérations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-09-modules.html">
+   modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-10-classes.html">
+   classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  numpy
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-01-numpy-intro.html">
+   UE12 - numpy : introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-02-numpy-type-memory.html">
+   numpy et la mémoire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-03-numpy-vectorization.html">
+   la vectorisation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   indexation et slicing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-05-numpy-broadcast.html">
+   broadcasting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-06-numpy-aggregate.html">
+   agrégation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-07-numpy-array-testing.html">
+   masques et tableaux booléens
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-08-numpy-linalg.html">
+   algèbre linéaire
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-01-pandas-intro.html">
+   UE12 - pandas et matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-02-pandas-modifying-slicing.html">
+   modifications et
+   <em>
+    slicing
+   </em>
+   de dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-04-pandas-sorting.html">
+   trier une dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-05-pandas-group-by.html">
+   regroupement de données
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas.DataFrame.groupby
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-01-matplotlib-intro.html">
+   dataviz avec
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-03-matplotlib-figure-and-sub-figures.html">
+   figures et sous-figures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-04-matplotlib-pandas-dataframe.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+   &amp;
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-05-matplotlib-plots-3D.html">
+   des graphiques en 3D
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/2-04-numpy-indexing-slicing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/2-04-numpy-indexing-slicing.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/boisgera/python-numerique"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/boisgera/python-numerique/issues/new?title=Issue%20on%20page%20%2F2-04-numpy-indexing-slicing.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/boisgera/python-numerique/edit/master/notebooks/2-04-numpy-indexing-slicing.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/boisgera/python-numerique/master?urlpath=tree/notebooks/2-04-numpy-indexing-slicing.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acceder-aux-elements-d-un-ndarray">
+   accéder aux éléments d’un
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ndarray
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#en-dimension-1">
+     en dimension 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#en-dimension-superieure-a-1">
+     en dimension supérieure à 1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acceder-a-un-sous-tableau-slicing">
+   accéder à un sous-tableau (slicing)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     en dimension 1
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rappel-du-slicing-python">
+       rappel du slicing Python
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#slicing-d-un-np-ndarray">
+       slicing d’un
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         np.ndarray
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     en dimension supérieure à 1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#les-slices-sont-des-vues-et-non-des-copies">
+   les slices sont des vues et non des copies
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modifier-les-sous-tableaux">
+   modifier les sous-tableaux
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercices">
+   exercices
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-rayures">
+     les rayures
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#le-damier">
+     le damier
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#le-damier-variante">
+     le damier (variante)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-escaliers">
+     les escaliers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculs-imbriques-avance">
+     calculs imbriqués (avancé)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="licence">
+<span>Licence CC BY-NC-ND</span>
+<span>Valérie Roy</span>
+</div>
+<img alt="_images/ensmp-25-alpha.png" src="_images/ensmp-25-alpha.png" />
+<div class="section" id="indexation-et-slicing">
+<h1>indexation et slicing<a class="headerlink" href="#indexation-et-slicing" title="Permalink to this headline">¶</a></h1>
+<p>où on accède aux éléments, et à des sous-tableaux</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="acceder-aux-elements-d-un-ndarray">
+<h2>accéder aux éléments d’un <code class="docutils literal notranslate"><span class="pre">ndarray</span></code><a class="headerlink" href="#acceder-aux-elements-d-un-ndarray" title="Permalink to this headline">¶</a></h2>
+<p>Il est naturellement possible d’accéder (<em>accessing</em>) aux éléments d’un tableau <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>, comme nous le faisons pour les listes Python.</p>
+<p>Rappel sur les fonctions vectorisées:</p>
+<p>La possibilité d’accéder aux éléments d’un ndarray ne doit pas vous faire oublier que l’appel de <strong>fonctions vectorisées</strong> doit toujours être <strong>priviligié</strong>: c’est LA meilleure manière de coder.</p>
+<p>Vous vous rappelez pourquoi ? Parce que l’application d’une fonction vectorisée ne se fait pas en utilisant des fonctions codées en Python mais des fonctions codées dans un langage de programmation beaucoup proche de la mémoire de l’ordinateur et qui va (entre autres) très rapidement d’une case (un élément) à une autre case du tableau.</p>
+<p>Il ne faut donc <strong>jamais</strong> utiliser l’accès aux éléments d’un tableau dans des itérations où vous pourriez appliquer directement des fonctions vectorisées.</p>
+<p>Ceci dit, accéder aux éléments et aux sous-tableaux d’un tableau <code class="docutils literal notranslate"><span class="pre">numpy</span></code> , va (par exemple) vous servir à appliquer des fonctions vectorisées à des sous-parties de votre tableau donc elles sont <strong>très</strong> utiles</p>
+<p>La manière d’accéder aux éléments d’un tableau <code class="docutils literal notranslate"><span class="pre">numpy</span></code> va dépendre tout naturellement … de quoi ? oui bien sûr de la forme du tableau !</p>
+<p>Vous vous rappelez que la forme d’un <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> est donnée par une indexation sur le segment mémoire sous-jacent continu de votre tableau.</p>
+<p>Par exemple, le segment $\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$$\fbox{}$ peut être indexé avec les formes (12,), (1, 12), (2, 6), (3, 4), (12, 1) … (2, 3, 2)…</p>
+<div class="section" id="en-dimension-1">
+<h3>en dimension 1<a class="headerlink" href="#en-dimension-1" title="Permalink to this headline">¶</a></h3>
+<p>Commencons par un petit tableau de dimension 1 qui contient les dix entiers de 10 à 19.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">vec</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10, 11, 12, 13, 14, 15, 16, 17, 18, 19])
+</pre></div>
+</div>
+</div>
+</div>
+<p>L’indexation prise sur le tableau ne comporte qu’une dimension i.e. on n’a besoin que d’un index pour accéder à un élément.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<p>Quelles sont les bornes de cet index ? dit autrement, on peut aller de 0 à ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ceci retourne un tuple, </span>
+<span class="c1"># mais à un seul élément (puisqu&#39;en dimension 1)</span>
+<span class="c1"># d&#39;où la présentation un peu bizarre avec la virgule</span>
+<span class="n">vec</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10,)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Et osons modifier cet élément !</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+<span class="n">vec</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 3, 11, 12, 13, 14, 15, 16, 17, 18, 19])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Le tableau a bien été modifié ! … mais est-ce exactement comme en Python ? Rien de spécial ?</p>
+<p>ah heu si (on l’a déjà vu): vous avez un <strong>3</strong> là où vous attendiez <strong>π</strong> !</p>
+<p>Gardez bien à l’esprit que, contrairement à Python, les tableaux numpy sont typés et de <strong>taille fixe</strong>. Donc si vous tentez de mettre une valeur flottante à la place d’un entier, la valeur flottante sera silencieusement (et implicitement) coupée … et ce comportement peut ne pas vous convenir du tout !</p>
+<p>Faites bien attention à ce que vous faites.</p>
+</div>
+<div class="section" id="en-dimension-superieure-a-1">
+<h3>en dimension supérieure à 1<a class="headerlink" href="#en-dimension-superieure-a-1" title="Permalink to this headline">¶</a></h3>
+<p>En dimension supérieure à 1, naturellement l’accès à un élément du tableau va dépendre de la forme du tableau donc de ses indices dans chacune des dimensions.</p>
+<p>Construisons un tableau avec des valeurs de 1 à 12 et donnons lui une forme de matrice 3 lignes et 4 colonnes</p>
+<p>Nous allons pour cela utiliser la fonction <code class="docutils literal notranslate"><span class="pre">np.ndarray.resize</span></code> qui modifie la forme d’un tableau <em>en place</em> c’est à dire que la fonction bien sûr ne crée pas un nouveau tableau mais modifie l’indexation de celui auquel elle est appliquée.</p>
+<p>Il existe une autre fonction <code class="docutils literal notranslate"><span class="pre">np.ndarray.reshape</span></code> qui fait la même chose en créant un nouvelle indexation (donc vous avez désormais 2 indexations différentes sur la même mémoire sous-jacente, vous vous rappelez des références partagées ?).</p>
+<p>Notre tableau en dimension 1:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">vec</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Le voila redimensionné en dimension 3 x 4</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">vec</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  2,  3,  4],
+       [ 5,  6,  7,  8],
+       [ 9, 10, 11, 12]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Le voilà indexé par une nouvelle forme:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec1</span> <span class="o">=</span> <span class="n">vec</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">vec1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  2],
+       [ 3,  4],
+       [ 5,  6],
+       [ 7,  8],
+       [ 9, 10],
+       [11, 12]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pour accéder à un élément on voit bien que nous allons avoir besoin de 2 indices: celui des lignes et celui des colonnes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># le premier élément</span>
+<span class="n">vec</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># le dernier élément</span>
+<span class="n">vec</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pour un tableau <em>vec</em> en dimension 4 de dimensions $(n, m, l, c)$ et bien vous allez indiquer pour un élément les indices dans chacune de ses dimensions;<br />
+donc $vec[i_n, i_m, i_l, i_c]$, avec<br />
+$0&lt;=i_n&lt;n$,<br />
+$0&lt;=i_m&lt;m$,<br />
+etc…</p>
+<p>Notez qu’en grande dimension, les deux derniers indices correspondent toujours à<br />
+…, ligne, colonne<br />
+c’est pourquoi on a utilisé $l$ et $c$ comme noms pour les deux derniers indices</p>
+<p>Sauriez-vous dire la dimension de votre tableau ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span><span class="o">.</span><span class="n">ndim</span> <span class="c1"># attention au n de ndim</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sauriez-vous lister le nombre d’éléments dans chacune des dimensions ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Remarquez qu’on pourrait aussi écrire, puisque le tableau a <code class="docutils literal notranslate"><span class="pre">np.ndarray.ndim</span></code> dimensions et que le nombre d’éléments dans chaque dimension est donné par <code class="docutils literal notranslate"><span class="pre">np.ndarray.shape</span></code>:</p>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">vec</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">vec</span><span class="o">.</span><span class="n">ndim</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3, 4]
+</pre></div>
+</div>
+</div>
+</div>
+<p>ce qui revient à dire qu’en fait</p>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># c&#39;est toujours vrai pour un tableau numpy</span>
+<span class="c1"># et ici la valeur commune est 2, la dimension de notre tableau</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">vec</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="n">vec</span><span class="o">.</span><span class="n">ndim</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>On peut modifier l’élément, en faisant attention comme tout à l’heure: ici on attend des entiers ! toute valeur d’un autre type sera convertie (lorsque c’est possible) dans le type entier avec plus ou moins d’effet: <code class="docutils literal notranslate"><span class="pre">True</span></code> deviendra <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code> deviendra <code class="docutils literal notranslate"><span class="pre">0</span></code>, un flottant sera réduit à sa <em>partie  entière</em>, etc…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  2,  3,  4],
+       [ 5,  6,  7,  8],
+       [ 9, 10, 11, 12]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">vec</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0,  2,  3,  4],
+       [ 5,  6,  7,  8],
+       [ 9, 10, 11, 12]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0,  2,  3,  4],
+       [ 5,  6,  7,  8],
+       [ 9, 10, 11, 12]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">150.99</span>
+<span class="n">vec</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[150,   2,   3,   4],
+       [  5,   6,   7,   8],
+       [  9,  10,  11,  12]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>ah bien oui ! il a coupé 0.99 !</p>
+<p>Vérifions que <code class="docutils literal notranslate"><span class="pre">vec1</span></code> a bien été modifié ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># oui !</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>150
+</pre></div>
+</div>
+</div>
+</div>
+<p>Et vous pouvez comme en Python utiliser les indices négatifs qui se traduisent facilement en indices positifs</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># dernier élément ou élément d&#39;indice (3-1, 4-2)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span><span class="p">[</span><span class="mi">3</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># oui c&#39;est bien cela</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># un autre élément donc d&#39;indice (3-2, 4-2) </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span><span class="p">[</span><span class="mi">3</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<p>À vous de jouer, créez un tableau de 30 valeurs entre 0 et 30 non compris. Donnez lui la dimension de 2 matrices de 5 lignes et 3 colonnes, et accédez à l’élément qui se situe dans la 2ième matrice, 4ième ligne, 3ième colonne ? vous obtenez quelle valeur ? 26 ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># à vous de jouer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Souvenez-vous, dans toutes les dimensions $\ge2$, on remarque que les tableaux ont leurs lignes à l’indice -2 (avant-dernière dimension) et leurs colonnes à l’indice -1 (dernière dimension)</p>
+<p>A vous de jouer, faites un <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> contenant des 1, de dimension 3 x 2 x 5 x 4,<br />
+i) affichez le, vous allez bien voir trois groupes de 2 matrices de 5 lignes sur 4 colonnes,<br />
+ii) afficher le nombre des éléments des dimensions -2 et -1 (un indice la forme c’est <code class="docutils literal notranslate"><span class="pre">np.ndarray.shape</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="acceder-a-un-sous-tableau-slicing">
+<h2>accéder à un sous-tableau (slicing)<a class="headerlink" href="#acceder-a-un-sous-tableau-slicing" title="Permalink to this headline">¶</a></h2>
+<p>Maintenant nous allons voir comment accéder à un sous-tableau d’un tableau existant.</p>
+<p>Là encore vous pourrez obtenir des sous-tableaux de différentes dimensions !</p>
+<p>Cette opération de <em>slicing</em> sera syntaxiquement équivalent au slicing des listes et autres séquences en Python (toutefois il y aura une différence très importante entre le slicing-python et le slicing-numpy; nous y reviendrons).</p>
+<div class="section" id="id1">
+<h3>en dimension 1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="rappel-du-slicing-python">
+<h4>rappel du slicing Python<a class="headerlink" href="#rappel-du-slicing-python" title="Permalink to this headline">¶</a></h4>
+<p>Prenons un exemple Python d’une liste contenant les 10 premiers entier positifs<br />
+<code class="docutils literal notranslate"><span class="pre">L</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">8,</span> <span class="pre">9,</span> <span class="pre">]</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="p">]</span> <span class="c1"># ou tout autre manière de faire</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Extrayons de <code class="docutils literal notranslate"><span class="pre">L</span></code> une sous-liste.</p>
+<p>On vous rappelle que le <em>slicing</em> (découpage) Python de la liste <code class="docutils literal notranslate"><span class="pre">L</span></code> s’écrira syntaxiquement comme<br />
+<code class="docutils literal notranslate"><span class="pre">L[from_included,</span> <span class="pre">to_excluded,</span> <span class="pre">step]</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">from_included</span></code> et <code class="docutils literal notranslate"><span class="pre">to_excluded</span></code> étant respectivement les indices de départ et d’arrivée, et <code class="docutils literal notranslate"><span class="pre">step</span></code> le pas; i.e. un pas de 1 veut dire tous les éléments, un pas de 2 signifie un élément sur deux …</p>
+<p>On peut utiliser des indices négatifs <code class="docutils literal notranslate"><span class="pre">-1</span></code> est le dernier élément, <code class="docutils literal notranslate"><span class="pre">-2</span></code> l’avant dernier …</p>
+<p>Extrayons la liste partant du deuxième élément de la liste (donc d’indice 1), en allant jusqu’au dernier (donc soit 9 soit -1), en considérant un élément tous les 2 éléments.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 3, 5, 7]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">9</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 3, 5, 7]
+</pre></div>
+</div>
+</div>
+</div>
+<p>À l’identique le découpage (<em>slicing</em>) d’un <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> de dimension 1.</p>
+</div>
+<div class="section" id="slicing-d-un-np-ndarray">
+<h4>slicing d’un <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code><a class="headerlink" href="#slicing-d-un-np-ndarray" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># oui on réutilise L (on reste très paresseux puisque c&#39;est souvent bien de l&#39;être)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> 
+<span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 3, 5, 7])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">9</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 3, 5, 7])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Là aussi on peut utiliser des indices négatifs (donc <code class="docutils literal notranslate"><span class="pre">-1</span></code> est le dernier élément, <code class="docutils literal notranslate"><span class="pre">-2</span></code>
+l’avant dernier …)</p>
+<p>Si le pas est négatif, alors il faut faire attention aux indices du début et de la fin dans l’expression de slicing <code class="docutils literal notranslate"><span class="pre">vec[debut:fin:pas]</span></code>, puisque pour descendre on partira d’un indice supérieur (oui logique):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([8, 6, 4, 2])
+</pre></div>
+</div>
+</div>
+</div>
+<p>On part de l’avant dernier $-2$ on va jusqu’à l’indice 0 et on descend avec un pas de -2. On remarque que l’élément d’indice 0 n’est pas compris ! oui c’est calculé comme cela <code class="docutils literal notranslate"><span class="pre">to</span></code> n’est pas compris).</p>
+<p>Si on voulait avoir le dernier élément ? et bien, tout simplement, on n’indique pas la valeur de <code class="docutils literal notranslate"><span class="pre">to</span></code>, il prendra tous les éléments par défaut.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># remarquez le :: qui indique </span>
+<span class="c1"># que le to_excluded n&#39;est pas indiqué </span>
+<span class="c1"># du coup par défaut la slice</span>
+<span class="c1"># va jusqu&#39;à la fin du tableau</span>
+<span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">::</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([8, 6, 4, 2, 0])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Et si on n’indique rien ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="p">[::]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+</pre></div>
+</div>
+</div>
+</div>
+<p>On a tout le tableau, et dans l’autre sens aussi:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Passons en accès pour des dimensions supérieures à 1:</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>en dimension supérieure à 1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Si nous reprenons l’exemple du <em>vec</em> en dimension 4 de forme $(n, m, l, c)$. Avec $vec[i_n, j_m, k_l, l_c]$ (où les indices sont corrects i.e dans les bornes de leur dimension) on accède a un élément.</p>
+<p>Si à la place de mettre des indices uniques, vous utilisez une syntaxe de <em>slicing</em> (en <code class="docutils literal notranslate"><span class="pre">a:b:c</span></code> comme on vient de le re-voir), vous allez accéder à un sous-tableau.</p>
+<p>Faisons un tableau de $40$ éléments qui vont de $0$ à $39$ (en valeur).<br />
+Redimensionnons-le en une forme $2 \times 5 \times 4$, et affichons-le: on voit bien les deux matrices.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<span class="n">mat</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[ 0  1  2  3]
+  [ 4  5  6  7]
+  [ 8  9 10 11]
+  [12 13 14 15]
+  [16 17 18 19]]
+
+ [[20 21 22 23]
+  [24 25 26 27]
+  [28 29 30 31]
+  [32 33 34 35]
+  [36 37 38 39]]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Disons qu’on cherche à extraire, dans la première matrice, la sous-matrice du milieu<br />
+(obtebnue en enlevant une épaisseur de largeur 1 sur le pourtour), donc ici pour nous<br />
+$\begin{pmatrix} 5 &amp; 6 \ 9 &amp; 10 \ 13 &amp; 14 \ \end{pmatrix}$</p>
+<p>Donc on veut la première matrice (0), puis les éléments qui vont du deuxième élément (1) à l’avant dernier compris (-1) pour les lignes et les colonnes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vous essayez ? la solution est dessous</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 5,  6],
+       [ 9, 10],
+       [13, 14]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Maintenant si je veux extraire la même zone, mais pour les deux matrices, et bien je dis, pour la dimension du nombre de matrice, que je prends tous les éléments, avec ‘::’</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span><span class="p">[::,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[ 5,  6],
+        [ 9, 10],
+        [13, 14]],
+
+       [[25, 26],
+        [29, 30],
+        [33, 34]]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>ce qui, comme dans la syntaxe des slicing de listes Python, s’abrège en ‘:’</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[ 5,  6],
+        [ 9, 10],
+        [13, 14]],
+
+       [[25, 26],
+        [29, 30],
+        [33, 34]]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>et ainsi de suite … si je veux toute la première ligne de la seconde matrice ? Et bien je peux le faire comme ceci</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1 parce que la seconde matrice</span>
+<span class="c1"># 0 parce la première ligne</span>
+<span class="c1"># : parce que toutes les colonnes</span>
+<span class="n">mat</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([20, 21, 22, 23])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pour vérifier visuellement</span>
+<span class="n">mat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[ 0,  1,  2,  3],
+        [ 4,  5,  6,  7],
+        [ 8,  9, 10, 11],
+        [12, 13, 14, 15],
+        [16, 17, 18, 19]],
+
+       [[20, 21, 22, 23],
+        [24, 25, 26, 27],
+        [28, 29, 30, 31],
+        [32, 33, 34, 35],
+        [36, 37, 38, 39]]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>C’est super tout cela !</p>
+<p>Maintenant nous allons voir comment modifier les valeurs de nos sous-tableaux … mais avant de modifier, il faudrait comprendre ce qu’on va modifier !</p>
+<p>En effet, les sous-tableaux (les slices) <strong>Sont-ils des vues sur le tableau existant ou des copies du tableau</strong>  ou encore <strong>Va-t-on modifier le tableau initial ou une copie du tableau initial ?</strong></p>
+<p>Alors votre idée ?</p>
+</div>
+</div>
+<div class="section" id="les-slices-sont-des-vues-et-non-des-copies">
+<h2>les slices sont des vues et non des copies<a class="headerlink" href="#les-slices-sont-des-vues-et-non-des-copies" title="Permalink to this headline">¶</a></h2>
+<p>En effet la question qui se pose est la suivante:<br />
+Est-ce que le slicing a créé un nouveau <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> avec son propre segment de mémoire ? Ou est-ce qu’il a calculé une nouvelle vue (view) sur le segment mémoire du tableau existant ?</p>
+<p>Prenons un exemple:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">mat1</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[</span><span class="mi">2</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2, 3, 4])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 4])
+</pre></div>
+</div>
+</div>
+</div>
+<p>$mat1$ est-il un nouveau <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> ou une vue sur le <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> de <em>mat</em> ?</p>
+<p>On se doute bien que <code class="docutils literal notranslate"><span class="pre">numpy</span></code> veut garder sa première place de LA librairie rapide et bien codée de tableaux pour Python.</p>
+<p>Si ils avaient choisi de construire un nouveau segment unidimensionnel dans mémoire, pour les données, à chaque fois qu’on accèdait à une sous-partie d’un tableau <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> existant … et bien ça pénaliserait fortement tous les codes !</p>
+<p>D’autre part, les utilisateurs de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> savent pertinemment si ils veulent une vue ou une copie pour leur sous-tableau…</p>
+<p>Donc ? et bien oui:</p>
+<ul class="simple">
+<li><p>un nouvel objet <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> est bien créé,</p></li>
+<li><p>il est différent de l’objet <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> initial</p></li>
+<li><p>mais ils <strong>partagent</strong> la mémoire (le segment unidimensionnel)</p></li>
+</ul>
+<p>Donc <code class="docutils literal notranslate"><span class="pre">mat</span></code> et <code class="docutils literal notranslate"><span class="pre">mat1</span></code> sont bien deux objects de type <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> et ils sont différents</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">mat</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">mat1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(numpy.ndarray, numpy.ndarray)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="ow">is</span> <span class="n">mat1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pour les avancés ou les curieux rapides (les autres pourront y revenir lors de leurs révisions, parce que naturellement vous révisez vos cours d’une fois sur l’autre ? du moins quand ce n’est pas du matin pour l’après-midi ?</p>
+<p>Dans un objet <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> je peux savoir si cet objet est une vue !<br />
+Oui le champ <code class="docutils literal notranslate"><span class="pre">base</span></code> m’indique si mon <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> est <em>basé</em> sur un autre <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>!</p>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span><span class="o">.</span><span class="n">base</span> <span class="c1"># None: mat n&#39;a pas de base !</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat1</span><span class="o">.</span><span class="n">base</span> <span class="c1"># ah et bien voila mat ! qui est la base de mat1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2, 3, 4])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ceci nous montre que mat1 a été</span>
+<span class="c1"># construit à partir de mat</span>
+<span class="n">mat1</span><span class="o">.</span><span class="n">base</span> <span class="ow">is</span> <span class="n">mat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ce sont bien deux objets différents</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">mat</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">mat1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(139658310838192, 139658310838288)
+</pre></div>
+</div>
+</div>
+</div>
+<p>a contrario, si je prends une référence vers l’objet <code class="docutils literal notranslate"><span class="pre">mat</span></code> et que je l’appelle <code class="docutils literal notranslate"><span class="pre">mat2</span></code></p>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat2</span> <span class="o">=</span> <span class="n">mat</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>alors là par contre, <em>mat</em> et <em>mat2</em> sont bien les mêmes objets !</p>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="ow">is</span> <span class="n">mat2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>On arrête les informations pour les avancés et on revient à notre mémoire: Réfléchissez à une manière de voir si <em>mat</em> et <em>mat1</em> partagent la même mémoire sous-jacente ?</p>
+<p>Oui par exemple: si vous modifiez un élément de l’un, cet élément apparaîtra modifié dans l’autre !</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2, 3, 4])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 4])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># en touchant à mat1 ...</span>
+<span class="n">mat1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4444</span>
+
+<span class="c1"># en fait je modifie **aussi** mat</span>
+<span class="n">mat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([   0,    1,    2,    3, 4444])
+</pre></div>
+</div>
+</div>
+</div>
+<p>et c’est bien cela qui se passe: <em>mat</em> a été modifié ! Donc <code class="docutils literal notranslate"><span class="pre">mat1</span></code> est donc une <em>autre</em> vue sur le segment mémoire sous-jacent de <code class="docutils literal notranslate"><span class="pre">mat</span></code>.</p>
+<p>Et si vous vouliez vraiment construire un nouveau <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> à partir d’un slicing ? Il va falloir indiquer clairement que vous voulez faire une <em>copy</em></p>
+<p>Pour ça on peut tout simplement utiliser la méthode <code class="docutils literal notranslate"><span class="pre">copy()</span></code> sur n’importe quel tableau, donc en particulier sur la slice; illustrons-le</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">mat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2, 3, 4, 5])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matc</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[</span><span class="mi">2</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">matc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 4])
+</pre></div>
+</div>
+</div>
+</div>
+<p>cette fois-ci <code class="docutils literal notranslate"><span class="pre">matc</span></code> est un nouveau <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>, qui n’a plus rien à voir avec <code class="docutils literal notranslate"><span class="pre">mat</span></code>. La preuve :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># cette fois-ci je peux toucher </span>
+<span class="c1"># à la copie sans affecter l&#39;original</span>
+<span class="n">matc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4444</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ici, changement</span>
+<span class="n">matc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([   2, 4444])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mais ici, intact</span>
+<span class="n">mat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2, 3, 4, 5])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bien sûr ne faites des copies que lorsque vous avez besoin de copies, par exemple lorsque vous devez garder votre tableau initial intact.</p>
+<p>Pour les avancés: quelle est la base de <code class="docutils literal notranslate"><span class="pre">matc</span></code> ?</p>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>À vous tous de jouer (exercice sur les deux matrices renversées).<br />
+On veut créer un tableau qui est formé des deux matrices<br />
+$[\begin{pmatrix} 2 &amp; 4 &amp; 6\ 8 &amp; 10 &amp; 12 \end{pmatrix}, \begin{pmatrix} 14 &amp; 16 &amp; 18 \ 20 &amp; 22 &amp; 24 \end{pmatrix}]$.</p>
+<p>On veut ensuite le <em>slicer</em> pour obtenir<br />
+$[\begin{pmatrix} 24 &amp; 22 &amp; 20 \ 18 &amp; 16 &amp; 14 \ \end{pmatrix}, \begin{pmatrix} 12 &amp; 10 &amp; 8 \ 6 &amp; 4 &amp; 2\end{pmatrix}] $,</p>
+<p>et on veut mettre 999 à la place de 2 et afficher le premier tableau.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nous l’avons déjà bien dit mais il est important de le rappeler: ces tranches de tableaux (slices) ne sont que des vues sur le tableau initial et non des copies. Si vous les modifiez, c’est bien le tableau initial qui est modifié.</p>
+<p>Le seul objet qui est créé est une nouvelle vue sur votre tableau, un nouvel <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> qui sait qu’il est une vue !</p>
+<p>Et là c’est très différent de Python, où les sous-listes obtenues par slicing sont des copies de la liste initiale !</p>
+</div>
+<div class="section" id="modifier-les-sous-tableaux">
+<h2>modifier les sous-tableaux<a class="headerlink" href="#modifier-les-sous-tableaux" title="Permalink to this headline">¶</a></h2>
+<p>Maintenant que vous savez accéder à une slice d’un tableau, naturellement vous allez vouloir la modifier ?</p>
+<p>Il va falloir faire attention:<br />
+i) au type des éléments<br />
+ii), mais aussi maintenant à la forme du tableau</p>
+<p>Prenons un vecteur <code class="docutils literal notranslate"><span class="pre">vec</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">vec</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3, 4, 5, 6])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Prenons une vue sur les nombres pairs du vecteur <code class="docutils literal notranslate"><span class="pre">vec</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 4, 6])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Modifions ces nombres tous en une seule fois:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>
+<span class="n">vec</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1, 20,  3, 40,  5, 60])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Il l’a fait.</p>
+<p>Essayons de le tromper ? si je ne lui donne pas assez d’éléments pour remplir sa slice :</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2195</span><span class="o">/</span><span class="mf">4077494719.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">vec</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="ne">ValueError</span>: could not broadcast input array from shape (2,) into shape (3,)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Il s’en apercoit: il ne sait donc pas déduire un tableau de taille 3 à partir de [2, 4]. Et on le comprend ! Quelle valeur choisir pour l’élément manquant ? Rien de logique ne nous vient à l’esprit.</p>
+<p>Essayons d’une autre manière:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">999</span> <span class="p">]</span>
+<span class="n">vec</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([  1, 999,   3, 999,   5, 999])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Que s’est-il passé ! <code class="docutils literal notranslate"><span class="pre">numpy</span></code> a  parfaitement accepté de faire l’affectation !</p>
+<p>Comment a-t-il considéré [999] ?</p>
+<p>Il a considéré [ 999 ] comme étant [ 999, 999, 999 ] !</p>
+<p>Et oui là il trouve une manière intelligente de transformer (d’élargir, d’agrandir), un tableau réduit à un seul élément ([ 999 ]) en tableau à 3 éléments: il met 3 fois le même !</p>
+<p>Vous auriez indiqué juste 999 il l’aurait fait aussi !</p>
+<p>C’est ce qu’on appelle le <em>broadcasting</em>, on y reviendra plus tard. C’est super utile ! Quand c’est possible <code class="docutils literal notranslate"><span class="pre">numpy</span></code> <em>élargit</em> vos tableaux de manière à pouvoir faire l’opération.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># la manière classique de faire, mais l&#39;autre est plus jolie et plus rapide</span>
+<span class="n">vec</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span> <span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Et en plus, ça va même plus vite ! En effet quand vous voulez faire une opération du genre “<em>ajouter 10 à tous les éléments d’un vecteur de taille 800</em>”, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> va éviter de créer un nouveau tableau de taille 800 rempli de 10, avant de l’ajouter, il va donc être plus rapide que vous !</p>
+<p>On essaie ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">800</span><span class="p">)</span> <span class="c1"># des tas de 1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Combien de temps pour ajouter 10 à chacune des cases de ce tableau:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="n">m</span><span class="o">+</span><span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.3 µs ± 2.85 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Et combien de temps si on doit créer le tableau de 10 ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="n">m10</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">800</span><span class="p">)</span><span class="o">*</span><span class="mi">10</span> <span class="c1"># l&#39;utilisation classique de la fonction ones (on utilise là aussi le broadcast)</span>
+<span class="n">m</span><span class="o">+</span><span class="n">m10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.21 µs ± 5.61 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Et bien oui on met naturellement la création du tableau dans le code dont le temps d’exécution est mesurée, sinon naturellement <code class="docutils literal notranslate"><span class="pre">numpy</span></code> sera plus rapide si il n’a pas de broadcasting à faire !</p>
+<p>On y reviendra. Oublions pour le moment le broadcasting,</p>
+</div>
+<div class="section" id="exercices">
+<h2>exercices<a class="headerlink" href="#exercices" title="Permalink to this headline">¶</a></h2>
+<p>avant d’aborder ces exercices, je vous signale un utilitaire très pratique (parmi les 2347 que nous n’avons pas eu le temps de couvrir ;); il s’agit de <code class="docutils literal notranslate"><span class="pre">numpy.indices()</span></code></p>
+<p>commençons par un exemple :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lignes</span><span class="p">,</span> <span class="n">colonnes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">indices</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lignes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 0, 0, 0, 0],
+       [1, 1, 1, 1, 1],
+       [2, 2, 2, 2, 2]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colonnes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 1, 2, 3, 4],
+       [0, 1, 2, 3, 4],
+       [0, 1, 2, 3, 4]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>vous remarquerez que dans le tableau qui s’appelle <code class="docutils literal notranslate"><span class="pre">lignes</span></code>, la valeur dans le tableau correspond au numéro de ligne; dit autrement :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">lignes[i,</span> <span class="pre">j]</span> <span class="pre">==</span> <span class="pre">i</span></code> pour tous les $(i, j)$,</p></li>
+</ul>
+<p>et dans l’autre sens bien sûr</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">colonnes[i,</span> <span class="pre">j]</span> <span class="pre">==</span> <span class="pre">j</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lignes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colonnes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pourquoi est-ce qu’on parle de ça me direz-vous ?</p>
+<p>Eh bien en guise d’indice, je vous renvoie à la notion de programmation vectorielle.</p>
+<p>Ainsi par exemple si je veux créer une matrice de taille (3,5) dans laquelle <code class="docutils literal notranslate"><span class="pre">M[i,</span> <span class="pre">j]</span> <span class="pre">==</span> <span class="pre">i</span> <span class="pre">+</span> <span class="pre">j</span></code>, je <strong>ne vais surtout par écrire une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code></strong>, et au contraire je vais écrire simplement</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">I</span><span class="p">,</span> <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">indices</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">I</span> <span class="o">+</span> <span class="n">J</span>
+<span class="n">M</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 1, 2, 3, 4],
+       [1, 2, 3, 4, 5],
+       [2, 3, 4, 5, 6]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="les-rayures">
+<h3>les rayures<a class="headerlink" href="#les-rayures" title="Permalink to this headline">¶</a></h3>
+<p>Écrivez une fonction <code class="docutils literal notranslate"><span class="pre">zebre</span></code>, qui prend en argument un entier <em>n</em> et qui fabrique un tableau carré de coté $n$, formé d’une alternance de colonnes de 0 et de colonnes de 1.</p>
+<p>par exemple pour $n=4$ on s’attend à ceci</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">0 1 0 1 </span>
+<span class="go">0 1 0 1 </span>
+<span class="go">0 1 0 1 </span>
+<span class="go">0 1 0 1 </span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="le-damier">
+<h3>le damier<a class="headerlink" href="#le-damier" title="Permalink to this headline">¶</a></h3>
+<p>Écrivez une fonction <em>checkers</em>, qui prend en argument la taille <em>n</em> du damier, et un paramètre optionnel qui indique la valeur de la case (0, 0), et qui crée un tableau <code class="docutils literal notranslate"><span class="pre">numpy</span></code> carré de coté $n$, et le remplit avec des 0 et 1 comme un damier (0 pour les cases noires et 1 pour les cases blanches).</p>
+<p>https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x1-checkers</p>
+</div>
+<div class="section" id="le-damier-variante">
+<h3>le damier (variante)<a class="headerlink" href="#le-damier-variante" title="Permalink to this headline">¶</a></h3>
+<p>Il y a beaucoup de méthodes pour faire cet exercice de damier; elles ne vont pas toutes se généraliser pour la variante :</p>
+<p><strong>Variante</strong> écrivez une fonction <code class="docutils literal notranslate"><span class="pre">super_checkers</span></code> qui crée</p>
+<ul class="simple">
+<li><p>un damier de coté $k.n \times k.n$</p></li>
+<li><p>composé de blocs de $k\times k$ homogènes (tous à 0 ou tous à 1)</p></li>
+<li><p>eux mêmes en damiers</p></li>
+<li><p>on décide que le premier bloc (en 0,0) vaut 0</p></li>
+</ul>
+<p>c’est-à-dire par exemple pour $n=4$ et $k=3$ cela donnerait ceci :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> 
+<span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> 
+<span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> 
+<span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> 
+<span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> 
+<span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> 
+<span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> 
+<span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> 
+<span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> 
+<span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> 
+<span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> 
+<span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> 
+</pre></div>
+</div>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">super_checkers</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># doit vous donner la figure ci-dessus</span>
+<span class="c1"># éventuellement avec des False/True au lieu de 0/1</span>
+<span class="n">super_checkers</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="les-escaliers">
+<h3>les escaliers<a class="headerlink" href="#les-escaliers" title="Permalink to this headline">¶</a></h3>
+<p>Écrivez une fonction <em>escalier</em>, qui prend en argument un entier <em>n</em>, qui crée un tableau de taille <em>2n+1</em>, et qui le remplit de manière à ce que:</p>
+<ul class="simple">
+<li><p>aux quatre coins du tableau on trouve la valeur <em>0</em></p></li>
+<li><p>dans la case centrale on trouve la valeur <em>2n</em></p></li>
+<li><p>et si vous partez de n’importe quelle case  et que vous vous déplacez d’une case (horizontalement ou verticalement), en vous dirigeant vers une case plus proche du centre, la valeur que vous trouvez est <em>1</em> de plus que la valeur de la case où vous étiez.</p></li>
+</ul>
+<p>https://nbhosting.inria.fr/auditor/notebook/python-mooc:exos/w7/w7-s05-x3-stairs</p>
+</div>
+<div class="section" id="calculs-imbriques-avance">
+<h3>calculs imbriqués (avancé)<a class="headerlink" href="#calculs-imbriques-avance" title="Permalink to this headline">¶</a></h3>
+<p>Regardez le code suivant :</p>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># une fonction vectorisée</span>
+<span class="k">def</span> <span class="nf">pipeline</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+    <span class="n">array2a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="n">array2b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="n">array3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">array2a</span> <span class="o">+</span> <span class="n">array2b</span><span class="p">)</span>
+    <span class="n">array4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">array3</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">array4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Les questions : j’ai un tableau <code class="docutils literal notranslate"><span class="pre">X</span></code> typé <code class="docutils literal notranslate"><span class="pre">float64</span></code> et de forme <code class="docutils literal notranslate"><span class="pre">(1000,)</span></code></p>
+<ul class="simple">
+<li><p>j’appelle <code class="docutils literal notranslate"><span class="pre">pipeline(X)</span></code>, combien de mémoire est-ce que <code class="docutils literal notranslate"><span class="pre">pipeline</span></code> va devoir allouer pour faire son travail ?</p></li>
+<li><p>quel serait le minimum de mémoire dont on a besoin pour faire cette opération ?</p></li>
+<li><p>voyez-vous un moyen d’optimiser <code class="docutils literal notranslate"><span class="pre">pipeline</span></code> pour atteindre ce minimum ?</p></li>
+</ul>
+<p><strong>indice</strong></p>
+<ul class="simple">
+<li><p>l’exercice vous invite à réfléchir à l’utilisation du paramètre <code class="docutils literal notranslate"><span class="pre">out=</span></code> qui est supporté dans les fonction vectorisées de numpy</p></li>
+<li><p>dans ce cadre, sachez qu’on peut presque toujours remplacer l’usage d’un opérateur (comme ici <code class="docutils literal notranslate"><span class="pre">+</span></code>) par une fonction vectorisée (ici <code class="docutils literal notranslate"><span class="pre">np.add</span></code>)</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="2-03-numpy-vectorization.html" title="previous page">la vectorisation</a>
+    <a class='right-next' id="next-link" href="2-05-numpy-broadcast.html" title="next page">broadcasting</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thierry Parmentelat<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

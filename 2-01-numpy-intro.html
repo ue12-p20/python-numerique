@@ -1,0 +1,1361 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UE12 - numpy : introduction &#8212; Python numérique</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="numpy et la mémoire" href="2-02-numpy-type-memory.html" />
+    <link rel="prev" title="classes" href="1-10-classes.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Python numérique</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-01-intro.html">
+   UE 12 - Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  intro et installation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-02-outils.html">
+   outils de base
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-01-environnement.html">
+   UE12 - Python : généralités
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-02-rudiments.html">
+   rudiments de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-03-operateurs.html">
+   opérateurs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-04-fonctions.html">
+   fonctions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-05-types-methodes.html">
+   objets, types et méthodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-06-containers.html">
+   types évolués
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-07-references-partagees.html">
+   références partagées
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-08-iterations.html">
+   itérations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-09-modules.html">
+   modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-10-classes.html">
+   classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  numpy
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   UE12 - numpy : introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-02-numpy-type-memory.html">
+   numpy et la mémoire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-03-numpy-vectorization.html">
+   la vectorisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-04-numpy-indexing-slicing.html">
+   indexation et slicing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-05-numpy-broadcast.html">
+   broadcasting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-06-numpy-aggregate.html">
+   agrégation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-07-numpy-array-testing.html">
+   masques et tableaux booléens
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-08-numpy-linalg.html">
+   algèbre linéaire
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-01-pandas-intro.html">
+   UE12 - pandas et matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-02-pandas-modifying-slicing.html">
+   modifications et
+   <em>
+    slicing
+   </em>
+   de dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-04-pandas-sorting.html">
+   trier une dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-05-pandas-group-by.html">
+   regroupement de données
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas.DataFrame.groupby
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-01-matplotlib-intro.html">
+   dataviz avec
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-03-matplotlib-figure-and-sub-figures.html">
+   figures et sous-figures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-04-matplotlib-pandas-dataframe.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+   &amp;
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-05-matplotlib-plots-3D.html">
+   des graphiques en 3D
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/2-01-numpy-intro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/2-01-numpy-intro.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/boisgera/python-numerique"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/boisgera/python-numerique/issues/new?title=Issue%20on%20page%20%2F2-01-numpy-intro.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/boisgera/python-numerique/edit/master/notebooks/2-01-numpy-intro.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/boisgera/python-numerique/master?urlpath=tree/notebooks/2-01-numpy-intro.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contextualisons-un-peu-python-et-le-numerique">
+   contextualisons un peu Python et le numérique
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#un-exemple-de-matrice">
+     un exemple de matrice
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#un-exemple-de-table-de-donnees">
+     un exemple de table de données
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#un-exemple-de-serie-temporelle">
+     un exemple de série temporelle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#un-exemple-d-image">
+     un exemple d’image
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#que-sont-ces-donnees">
+     que sont ces données ?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#apprenons-a-faire-des-tableaux-numpy-array">
+   apprenons à faire des tableaux
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     numpy.array
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#le-type-de-donnee-numpy-ndarray">
+     le type de donnée
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       numpy.ndarray
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creation-de-notre-premier-np-ndarray">
+     création de notre premier
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       np.ndarray
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#le-type-des-elements-d-un-tableau-numpy-ndarray">
+     le type des éléments d’un tableau
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       numpy.ndarray
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#la-taille-size-du-tableau">
+     la taille
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       size
+      </span>
+     </code>
+     du tableau
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#taille-des-elements-en-memoire-itemsize-et-nbytes">
+     taille des éléments en mémoire
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       itemsize
+      </span>
+     </code>
+     et
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       nbytes
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#la-forme-shape-et-la-dimension-dimdu-tableau">
+     la forme
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       shape
+      </span>
+     </code>
+     et la dimension
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       dim
+      </span>
+     </code>
+     du tableau
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#on-recapitule-les-methodes-des-ndarrays">
+     on récapitule les méthodes des ndarrays
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creation-d-un-tableau-de-zeros-numpy-zeros">
+     création d’un tableau de zéros
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       numpy.zeros
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creation-d-un-tableau-de-rien-numpy-empty">
+     création d’un tableau de
+     <em>
+      rien
+     </em>
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       numpy.empty
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#on-recapitule-les-fonctions-de-creationde-numpy-ndarray">
+     on récapitule les fonctions de créationde
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       numpy.ndarray
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quiz">
+   quiz
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quelques-petits-exercices">
+   quelques petits exercices
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#on-s-echauffe">
+     on s’échauffe
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparaison-des-temps-de-constructions-de-tableaux-initialises-et-non">
+     comparaison des temps de constructions de tableaux initialisés et non
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="licence">
+<span>Licence CC BY-NC-ND</span>
+<span>Valérie Roy</span>
+</div>
+<img alt="_images/ensmp-25-alpha.png" src="_images/ensmp-25-alpha.png" />
+<div style="background-color:LightYellow; padding:20px 50px; font-size:120%"> 
+<p><strong>Avertissement pour les lecteurs: élèves et enseignants</strong></p>
+<p>Après l’introduction à <em>Python</em> viennent les cours d’introduction à python-numérique en <em>numpy</em>, aux tables de données sous <em>pandas</em> et à leur visualisation avec <em>matplotlib</em>.</p>
+<p>Ces cours ne sont pas sous forme de diaporamas (comme ceux sur <em>Python</em> que vous venez d’avoir).</p>
+<p>Cette année nous tentons une expérience, un nouveau format de cours, où les noteboooks prennent la forme de petites histoires …</p>
+<p>Les notebooks déroulent des explications détaillées, qui soulèvent des questions et y répondent, le tout entrecoupés, parfois, de toutes petites choses à faire ou sur lesquelles on peut réfléchir rapidement.</p>
+<p>Ces notebooks jouent deux rôles: celui de <em>poly exécutable</em> (que les élèves peuvent relire en autonomie à-la-Meuh) et celui d’un scénario de base lors des cours en présentiel.</p>
+<p>L’idée serait que l’enseignant déroule les notebooks avec les élèves d’une manière interactive en instaurant un dialogue (rapide) avec la classe autour des questions en bleu qui jalonnent les notebooks.<br />
+L’idée n’est pas que les notebooks soient lus en autonomie par les élèves lors des cours en présentiel.</p>
+<p>Il faut garder un rythme assez soutenu si on veut faire le tour des notobooks. Les questions qui ne sont pas vertes peuvent être regardées par les élèves à-la-maison, et les petites question de code peuvent être sautées ou faites par les élèves qui vont très vite. La correction étant dessous ces petites questions servent à ré-utiliser les fonctions.</p>
+</div><div class="section" id="ue12-numpy-introduction">
+<h1>UE12 - numpy : introduction<a class="headerlink" href="#ue12-numpy-introduction" title="Permalink to this headline">¶</a></h1>
+<p>Cours #3 : Python et le numérique avec <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p>
+<div class="section" id="contextualisons-un-peu-python-et-le-numerique">
+<h2>contextualisons un peu Python et le numérique<a class="headerlink" href="#contextualisons-un-peu-python-et-le-numerique" title="Permalink to this headline">¶</a></h2>
+<p>Alors maintenant vous avez des rudiments du langage de programmation Python, que ce soit grâce à vos années de prépa ou à l’introduction (rapide) que nous venons de faire ou pour toute autre raison.</p>
+<p>Ce langage est plutôt élégant, simple à utiliser, il comporte tout un tas de structures de base pour ranger des données: dictionnaires, ensembles, listes, tuples … et les fonctions afférantes pour les manipuler. On essaie ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">124</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="o">-</span><span class="mi">17</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="o">-</span><span class="mi">65</span><span class="p">]</span>
+<span class="n">l</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-65, -17, 1, 23, 45, 45, 67, 90, 124]
+</pre></div>
+</div>
+</div>
+</div>
+<p>La liste ressort triée, c’est beau ! Tout ceci est top: vous allez pouvoir réaliser les super TP de math1 et de data science en math2.</p>
+<p>Qui dit data science dit données, jusque là vous nous suivez. Toutes ces données il va donc falloir les stocker quelque part à l’intérieur des programmes écrits en Python, pour les manipuler.</p>
+<p>Si vous avez une grande, voire une très grande, quantité de données, il serait judicieux:</p>
+<ol class="simple">
+<li><p>que leur stockage soit bien optimisé en espace mémoire et en temps d’accès à cet espace mémoire</p></li>
+<li><p>que les calculs soient simples à appliquer et s’exécutent le plus rapide possible.</p></li>
+</ol>
+<p>Nous sommes tous d’accord.</p>
+<p>Alors ces données quelle forme vont-elles prendre ? Des idées ?</p>
+<p>Oui vous pouvez avoir des matrices, des tables d’observations, des séries de mesures (par exemple temporelles), des images … on regarde des exemples ?</p>
+<div class="section" id="un-exemple-de-matrice">
+<h3>un exemple de matrice<a class="headerlink" href="#un-exemple-de-matrice" title="Permalink to this headline">¶</a></h3>
+<p>Vous avez là une très jolie matrice (4 x 5) et sa transposée (5 x 4).</p>
+<p><img alt="_images/matrice.png" src="_images/matrice.png" /></img></p>
+<p>Comment pourrions nous représenter cette matrice en Python ? Une idée ? Essayez ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici (ne regardez pas dessous)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En voici une solution sous la forme d’un tuple de tuples:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrice</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> 
+    <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>ou une autre sous la forme d’une liste de listes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrice</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> 
+    <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Quelle est la différence entre les deux solutions ?</p>
+<p>Oui les tuples ne sont pas mutables.</p>
+<p>Maintenant, si nous avions besoin de transposer cette matrice.</p>
+<p>Naturellement nous serions capable de coder la fonction, mais franchement quand une fonction est à ce point utile, il doit bien exister une version, déjà codée par d’autres, qui de plus sera débuggée, testée par de nombreux autres utilisateurs …  donc sûrement plus fiable que votre version et plus rapide à utiliser !</p>
+<p>Premier principe de programmation: être le plus paresseux possible et toujours toujours toujours chercher avant de la coder si la fonction dont vous avez besoin n’existe pas déjà !</p>
+</div>
+<div class="section" id="un-exemple-de-table-de-donnees">
+<h3>un exemple de table de données<a class="headerlink" href="#un-exemple-de-table-de-donnees" title="Permalink to this headline">¶</a></h3>
+<p>Maintenant un autre exemple de données. Voici ci-dessous la table de passagers du (pourtant <em>unsinkable</em>) titanic. Oui oui cette table est disponible dans le domaine public (comme des tas de données), par exemple, là https://public.opendatasoft.com/explore/dataset/titanic-passengers/table).</p>
+<p>Vous voyez en ligne les passagers et en colonnes les quelques informations que nous avons sur eux: numéro d’idenmtification, survie à l’accident, classe (première, seconde, troisième), nom, genre, age, <em>SibSp</em>, <em>Parch</em>, …</p>
+<p>heu … <em>SibSp</em> et <em>Parch</em> ? Vous ne comprennez pas ce que c’est ? Oui nous sommes bien d’accord, ils auraient quand même pu choisir des noms un peu plus parlants (comme vous le faites sûrement toujours dans vos codes). Des indices ? SiblingsSpouse et ParentChildren. Et pour plus de details regardez là https://www.kaggle.com/c/titanic/data (mais pas pendant le cours).</p>
+<p><a class="reference internal" href="_images/titanic.png"><img alt="_images/titanic.png" src="_images/titanic.png" style="width: 1000px;" /></a></img></p>
+</div>
+<div class="section" id="un-exemple-de-serie-temporelle">
+<h3>un exemple de série temporelle<a class="headerlink" href="#un-exemple-de-serie-temporelle" title="Permalink to this headline">¶</a></h3>
+<p>Cédons là à l’actualité. Voici la courbe des valeurs cumulées du <em>nombre d’infections</em> au covid en France entre janvier et août. Où trouve-t-on ce genre d’information ? Nous avons pris nos données là https://www.data.gouv.fr/fr/datasets/coronavirus-covid19-evolution-par-pays-et-dans-le-monde-maj-quotidienne/</p>
+<p>Vous remarquez dans cette figure les abcisses qui sont des dates c’est bien une série temporelle.</p>
+<p><a class="reference internal" href="_images/corona-france.jpg"><img alt="_images/corona-france.jpg" src="_images/corona-france.jpg" style="width: 500px;" /></a></img></p>
+</div>
+<div class="section" id="un-exemple-d-image">
+<h3>un exemple d’image<a class="headerlink" href="#un-exemple-d-image" title="Permalink to this headline">¶</a></h3>
+<p>Encore un exemple de données ? Voici une belle photo, d’un endroit que vous allez apprendre à connaître (si on ne confine pas trop souvent …)</p>
+<a class="reference internal image-reference" href="_images/les-mines.jpg"><img alt="_images/les-mines.jpg" src="_images/les-mines.jpg" style="width: 500px;" /></a>
+</div>
+<div class="section" id="que-sont-ces-donnees">
+<h3>que sont ces données ?<a class="headerlink" href="#que-sont-ces-donnees" title="Permalink to this headline">¶</a></h3>
+<p>Je rappelle notre problème qui est de stocker ces données en mémoire afin de leur appliquer des fonctions.</p>
+<p>Ces données semblent (à première vue) très différentes, mais nous allons souvent vouloir leur appliquer le même genre de fonctions (comme rechercher le passager le plus agé du titanic, les pixels de la couleur la plus foncée, les maxima des lignes de la matrice).</p>
+<p>Ces données vous font-elles penser à quelque chose ? Des idéees ?</p>
+<p>Oui bien sûr à des tableaux !</p>
+<ul class="simple">
+<li><p>la matrice est un tableau de 5 lignes et 4 colonnes, donc une taille (4 x 5)</p></li>
+<li><p>la table des passagers du Titanic est un tableau de 891 lignes et de 9 colonnes (891 x 9)</p></li>
+<li><p>l’image couleur, en codage RGB rouge-vert-bleu, est constituée de trois tables de couleurs primaires de 533 lignes et de 800 colonnes (grâce auxquelles votre écran va reconstituer une jolie image en couleur).</p></li>
+<li><p>la série temporelle sera une suite de valeurs chacune repérée par une date</p></li>
+</ul>
+<p>Les structures de données de Python sont très bien mais, malheureusement, elles ne sont pas du tout adaptées à stocker et manipuler les tableaux de ce genre.</p>
+<p>Pour pallier à ce problème, depuis 2006 une librairie numérique appelée <code class="docutils literal notranslate"><span class="pre">numpy</span></code> est développée.</p>
+<p>Il a même été proposé au concepteur de Python de l’intégrer dans son langage, comme la structure de données de tableaux Python, mais celui-ci a refusé pour des soucis de maintenance de code.</p>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> est une très bonne librarie numérique de manipulation de tableaux multi-dimensionnels qui, elle, comporte <em>toutes</em> les fonctionnalités numériques dont vous avez besoin.</p>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> n’est (définitivement) pas très facile à utiliser contrairement à Python, et si elle s’est imposée comme LA librarie numérique incontournable de Python, c’est parce qu’il n’en existe pas (encore) de meilleure, donc c’est naturellement celle-ci que les mines ont choisi de vous apprendre.</p>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> est donc considérée comme <strong>LA</strong> bibliothèque qui permet d’étendre le langage de programmation Python avec la manipulation de tableaux multidimensionnels.</p>
+<p>C’est une bibliothèque logicielle libre et open source. Elle va vous fournir des tas de fonctions de création et manipulation de tableaux.</p>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> est la base de SciPy (ScientificPython) qui est un regroupement de bibliothèques Python pour le calcul scientifique.</p>
+</div>
+</div>
+<div class="section" id="apprenons-a-faire-des-tableaux-numpy-array">
+<h2>apprenons à faire des tableaux <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code><a class="headerlink" href="#apprenons-a-faire-des-tableaux-numpy-array" title="Permalink to this headline">¶</a></h2>
+<p>Puisque nous allons parler ici de la librarie <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, importons là. Et donnons lui, par convention, son petit-nom <code class="docutils literal notranslate"><span class="pre">np</span></code> qui est le petit-nom standard pour <code class="docutils literal notranslate"><span class="pre">numpy</span></code>: c’est sous ce nom que l’utiliseront la plupart des codes existants, donc utilisez-le aussi !</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Maintenant nous allons créer un tableau et regarder les informations qu’il contient.</p>
+<div class="section" id="le-type-de-donnee-numpy-ndarray">
+<h3>le type de donnée <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code><a class="headerlink" href="#le-type-de-donnee-numpy-ndarray" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> possède donc <strong>un type</strong> de tableau appelé <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>. Alors effectivement ici <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> serait plus juste mais nous allons écrire <code class="docutils literal notranslate"><span class="pre">numpy.</span></code> (et non <code class="docutils literal notranslate"><span class="pre">np.</span></code>) dans nos explications pour plus de clarté.</p>
+<p>Voilà le type <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ce type est une structure de donnée, qui va comporter toutes les fonctions nous permettant de construire et de manipuler des tableaux multi-dimentionnels. Super, on essaie ça.</p>
+</div>
+<div class="section" id="creation-de-notre-premier-np-ndarray">
+<h3>création de notre premier <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code><a class="headerlink" href="#creation-de-notre-premier-np-ndarray" title="Permalink to this headline">¶</a></h3>
+<p>Pour construire un tableau, de quelles informations peut-t-on avoir besoin ?</p>
+<ul class="simple">
+<li><p>de sa forme, disons par exemple que le tableau est une matrice 4 x 5.</p></li>
+<li><p>du type des éléments que <code class="docutils literal notranslate"><span class="pre">numpy</span></code> va pouvoir inférer (<em>deviner</em>) à partir des valeurs initiales fournies</p></li>
+<li><p>des valeurs, disons que cette matrice est celle que nous avons vu en début du notebook et qui s’appelle <code class="docutils literal notranslate"><span class="pre">matrice</span></code></p></li>
+</ul>
+<p>La voila:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrice</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pour construire un tableau on n’utilise pas directement la fonction de bas niveau (le constructeur) <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>.</p>
+<p>D’autres fonctions sont définies pour cela, comme <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy.zeros</span></code> et <code class="docutils literal notranslate"><span class="pre">numpy.empty</span></code>.</p>
+<p>Utilisons la première fonction. Elle initialise ses éléments à partir d’un objet décrivant un tableau, par exemple la liste de listes décrivant la matrice 4 x 5 ci-dessus.</p>
+<p>Comment savons nous tout cela ? Grâce au help sur <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> !</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pour avoir de l&#39;aide dans un notebook,</span>
+<span class="c1"># le plus simple c&#39;est avec le ? comme ceci</span>
+np.array<span class="o">?</span>
+
+<span class="c1"># l&#39;évaluation de cette cellule déclenche l&#39;affichage de l&#39;aide</span>
+<span class="c1"># cliquez sur la croix en haut à droite pour effacer le pop-up</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dès que vous avez un doute sur quelque chose, utilisez le help !</p>
+<p>Disons que la fonction <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code> peut être vue comme la manière de convertir “quelque chose qui en Python décrit un tableau” en une structure de donnée de type <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">matrice</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>et voilà à quoi ressemble le résultat</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  2,  3,  4,  5],
+       [ 6,  7,  8,  9, 10],
+       [11, 12, 13, 14, 15],
+       [16, 17, 18, 19, 20]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Voila <code class="docutils literal notranslate"><span class="pre">mat</span></code>. Elle est super ! Et nous n’avons même pas eu à indiquer ni la forme du tableau, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> l’a déduite de la forme de la liste de listes passée en argument (heureusement) ni le type des éléments, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> l’a déterminé à partir des valeurs initiales (ouf).</p>
+<p>Maintenant à vous de jouer. Créer la matrice $\begin{pmatrix} 5.2 &amp; 9 &amp; 2 \ 6 &amp; 8 &amp; 1 \ 0 &amp; 3 &amp; -7 \ -5 &amp; -8 &amp; 7 \end{pmatrix}$. Appelez la <code class="docutils literal notranslate"><span class="pre">ma_mat</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici (correction ci-dessous)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ma_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">5.2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">]])</span>
+<span class="n">ma_mat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 5.2,  9. ,  2. ],
+       [ 6. ,  8. ,  1. ],
+       [ 0. ,  3. , -7. ],
+       [-5. , -8. ,  7. ]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Essayer de créer un tableau unidimensionnel que vous appelez <code class="docutils literal notranslate"><span class="pre">vec</span></code>. Mettez lui les entiers pairs de 0 à 12 compris.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Oui, on peut bien sûr aussi créer un tableau de dimension 1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">2</span>==0])
+<span class="n">vec</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0,  2,  4,  6,  8, 10, 12])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="le-type-des-elements-d-un-tableau-numpy-ndarray">
+<h3>le type des éléments d’un tableau <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code><a class="headerlink" href="#le-type-des-elements-d-un-tableau-numpy-ndarray" title="Permalink to this headline">¶</a></h3>
+<p>Notre belle matrice, dans la variable Python <code class="docutils literal notranslate"><span class="pre">mat</span></code> est de type <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>.</p>
+<p>On va lui demander quel est le type de ses éléments.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span><span class="o">.</span><span class="n">dtype</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;int64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ok des entiers codés sur 64 bits (on y reviendra).</p>
+<p>Maintenant à vous de jouer. Regardez le type des éléments de votre matrice <code class="docutils literal notranslate"><span class="pre">ma_mat</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici la correction ci-dessous</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ma_mat</span><span class="o">.</span><span class="n">dtype</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;float64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bon dans les deux cas <code class="docutils literal notranslate"><span class="pre">numpy</span></code> a vu large ! Il a choisi d’encoder ses entiers sur 64 bits et leur permettre d’être négatifs. Et cela pour stocker des nombres tous positifs entre 1 et 20…</p>
+<p>64 bits ? ca ne vous dit plus grand chose ? au cas où, un petit rappel</p>
+<ul class="simple">
+<li><p>le plus petit élément de la mémoire est le bit qui ne prend que deux valeurs 0 et 1</p></li>
+<li><p>le regroupement de 8 bits forme un <code class="docutils literal notranslate"><span class="pre">octet</span></code> (ou <code class="docutils literal notranslate"><span class="pre">byte</span></code> en anglais)</p></li>
+<li><p>la quantité de mémoire peut s’exprimer en nombres d’<code class="docutils literal notranslate"><span class="pre">octets</span></code></p></li>
+</ul>
+<p>Combien notre matrice <code class="docutils literal notranslate"><span class="pre">mat</span></code> occupe-t-elle d’octets en mémoire ?</p>
+<p>Il y a 4 x 5 éléments, chacun sur 64 bits, donc sur 8 octets. On a 4x5x8=160 octets.</p>
+<p>Si nous sommes sûrs que nos entiers seront toujours positifs ou nuls et toujours strictements inférieurs à 256 (vous nous voyez venir ?) de combien d’octets aurons-nous besoin ? (la couleur est saumon pas-très-frais: c’est donc une question avancée)</p>
+<p>Oui il suffira d’avoir des entiers non signés sur 8 bits ! (non signés afin de récupérer le bit qui sert normalement à indiquer le signe pour stocker un bit de la valeur).</p>
+<p>Les valeurs iront de <code class="docutils literal notranslate"><span class="pre">00000000</span></code> soit 0 à <code class="docutils literal notranslate"><span class="pre">11111111</span></code> soit 255 ($2^8-1$).</p>
+<p>Ce type s’appelle <code class="docutils literal notranslate"><span class="pre">numpy.uint8</span></code> (<em>u</em> pour <em>u</em>nsigned).</p>
+<p><strong>avec n bits</strong></p>
+<ul class="simple">
+<li><p>on représente $2^n$ valeurs entières</p>
+<ul>
+<li><p>soit des entiers signés $\in [ -2^{n-1}$, $2^{n-1}-1]$</p></li>
+<li><p>soit des entiers non signés $\in [0, 2^n-1]$</p></li>
+</ul>
+</li>
+</ul>
+<p>Alors indiquons donc à <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code>, à la construction du tableau, que nous voulons ce type précis pour nos éléments.</p>
+<p>Nous faisons cela, grâce au paramètre <code class="docutils literal notranslate"><span class="pre">dtype</span></code> de la fonction <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat8</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">matrice</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span> <span class="c1"># vous pouvez aussi dire dtype=&#39;uint8&#39; mais c&#39;est moins joli </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat8</span><span class="o">.</span><span class="n">dtype</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;uint8&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Combien notre tableau occupe-t-il en mémoire maintenant … alors oui on peut le calculer mais nous rappelons la première règle de la programmation <em>être le plus paresseux possible</em> donc ne jamais calculer quelque chose qui est déjà connu !</p>
+<p>Nous allons donc demander directement à <code class="docutils literal notranslate"><span class="pre">mat8</span></code> de nous indiquer sa taille en octets (1 octet = 8 bits) parce que i) on est sûr qu’il la connait parfaitement et ii) il ne fera pas d’erreur en nous l’indiquant alors que nous pourrions faire des erreurs en la calculant (oui en fin de journée un peu fatigué et hop on oublie de multiplier par le nombre de lignes … et après on a un bug).</p>
+<p>On utilise pour cela un attribut (ou encore <em>champ</em>) de l’objet <code class="docutils literal notranslate"><span class="pre">mat8</span></code>. Ce n’est pas une fonction, juste un champ à consulter qui s’appelle <code class="docutils literal notranslate"><span class="pre">numpy.ndarray.nbytes</span></code> (bytes==octets)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat8</span><span class="o">.</span><span class="n">nbytes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20
+</pre></div>
+</div>
+</div>
+</div>
+<p>Oui 20 octets 1 par élément !</p>
+<p>Maintenant à vous de jouer: Re-construisez votre matrice <code class="docutils literal notranslate"><span class="pre">ma_mat8</span></code> en lui imposant le type <code class="docutils literal notranslate"><span class="pre">uint8</span></code> pour ses éléments. Affichez-là.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ma_mat8</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">5.2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="n">ma_mat8</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[  5,   9,   2],
+       [  6,   8,   1],
+       [  0,   3, 249],
+       [251, 248,   7]], dtype=uint8)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vous voyez un problème ? Oui bien sûr: vous avez demandé (i) que vos éléments soient entre 0 et 255 et (ii) qu’ils soient des entiers. Il vous obéit et convertit vos valeurs !</p>
+<p>Nous reviendrons là dessus plus tard, mais <code class="docutils literal notranslate"><span class="pre">numpy</span></code> fait en sorte que tous les éléments du tableau tiennent dans la taille que vous avez demandé et aient tous le même type (on ne mélange pas des int et des float).</p>
+<p>A partir de l’objet <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> on peut accéder à de nombreuses autres informations sur le tableau.</p>
+</div>
+<div class="section" id="la-taille-size-du-tableau">
+<h3>la taille <code class="docutils literal notranslate"><span class="pre">size</span></code> du tableau<a class="headerlink" href="#la-taille-size-du-tableau" title="Permalink to this headline">¶</a></h3>
+<p>Si on veut connaître le nombre d’éléments du tableau, on utilise le champ <code class="docutils literal notranslate"><span class="pre">size</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat8</span><span class="o">.</span><span class="n">size</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="taille-des-elements-en-memoire-itemsize-et-nbytes">
+<h3>taille des éléments en mémoire <code class="docutils literal notranslate"><span class="pre">itemsize</span></code> et <code class="docutils literal notranslate"><span class="pre">nbytes</span></code><a class="headerlink" href="#taille-des-elements-en-memoire-itemsize-et-nbytes" title="Permalink to this headline">¶</a></h3>
+<p>Si on veut connaître la taille qu’occupe en mémoire (en octets) chaque élément, on utilise <code class="docutils literal notranslate"><span class="pre">itemsize</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat8</span><span class="o">.</span><span class="n">itemsize</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si on veut connaître le nombre d’octets total qu’occupe notre tableau en mémoire (on l’a déjà vu), on utilise <code class="docutils literal notranslate"><span class="pre">nbytes</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat8</span><span class="o">.</span><span class="n">nbytes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20
+</pre></div>
+</div>
+</div>
+</div>
+<p>Maintenant dégourdissez vous les doigts, consultez (i) la taille, (i) la taille des éléments, (iii) le nombre total d’octets et (iv) le type des éléments de votre matrice <code class="docutils literal notranslate"><span class="pre">ma_mat8</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="la-forme-shape-et-la-dimension-dimdu-tableau">
+<h3>la forme <code class="docutils literal notranslate"><span class="pre">shape</span></code> et la dimension  <code class="docutils literal notranslate"><span class="pre">dim</span></code>du tableau<a class="headerlink" href="#la-forme-shape-et-la-dimension-dimdu-tableau" title="Permalink to this headline">¶</a></h3>
+<p>Si on veut connaître la forme d’un tableau, on utilise ? Oui <code class="docutils literal notranslate"><span class="pre">shape</span></code> !</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4, 5)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Et enfin, si on veut connaître la dimension du tableau (non on ne la calcule pas avec la longueur de la liste indiquant la forme) ! On utilise <code class="docutils literal notranslate"><span class="pre">dim</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Maintenant à vous de jouer: Demandez la forme et la dimension de votre <code class="docutils literal notranslate"><span class="pre">ma_mat</span></code>. Oui je sais c’est juste au dessus mais c’est pour que vous utilisiez au moins une fois ces deux fonctions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="on-recapitule-les-methodes-des-ndarrays">
+<h3>on récapitule les méthodes des ndarrays<a class="headerlink" href="#on-recapitule-les-methodes-des-ndarrays" title="Permalink to this headline">¶</a></h3>
+<p>Un petit tableau pour récapituler les méthodes des <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> (on les a déjà toutes vues, vous pouvez passer très rapidement).</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>les méthodes</p></th>
+<th class="head"><p>ce qu’elles font</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">numpy.ndarray.shape</span></code></p></td>
+<td><p>la forme du tableau (tuple)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">numpy.ndarray.ndim</span></code></p></td>
+<td><p>le nombre de dimensions du tableau</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">numpy.ndarray.dtype</span></code></p></td>
+<td><p>le type des éléments</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">numpy.ndarray.size</span></code></p></td>
+<td><p>le nombre d’éléments du tableau</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">numpy.ndarray.itemsize</span></code></p></td>
+<td><p>la taille en octet d’un élément</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">numpy.ndarray.nbytes</span></code></p></td>
+<td><p>la taille totale du tableau sous-jacent en octet</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="creation-d-un-tableau-de-zeros-numpy-zeros">
+<h3>création d’un tableau de zéros <code class="docutils literal notranslate"><span class="pre">numpy.zeros</span></code><a class="headerlink" href="#creation-d-un-tableau-de-zeros-numpy-zeros" title="Permalink to this headline">¶</a></h3>
+<p>Il existe une deuxième fonction pour créer des tableaux dont les éléments sont initialisés à 0. Qui s’appelle <code class="docutils literal notranslate"><span class="pre">numpy.zeros</span></code>. Alors là vous allez devoir donner la forme de votre tableau, la fonction ne peut pas la deviner … comme elle le faisait dans l’exemple précécent.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zorro</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">zorro</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans votre idée, vu l’affichage de <em>zorro</em>, quel est le type choisi ici, par défaut, par <code class="docutils literal notranslate"><span class="pre">numpy</span></code> ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Encore à vous de jouer ! Créer une matrice de 6 lignes et 2 colonnes de zéros entiers de simples <code class="docutils literal notranslate"><span class="pre">int</span></code> et afficher le type choisi.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>La correction ci-dessous.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">dtype</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;int64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="creation-d-un-tableau-de-rien-numpy-empty">
+<h3>création d’un tableau de <em>rien</em> <code class="docutils literal notranslate"><span class="pre">numpy.empty</span></code><a class="headerlink" href="#creation-d-un-tableau-de-rien-numpy-empty" title="Permalink to this headline">¶</a></h3>
+<p>Il existe une fonction qui permet de ne pas initialiser les éléments du tableau. Alors bien sûr on se pose des tas des questions, au moins deux: A quoi ca sert ? Dans quel cas est-il intéressant de l’utiliser ? Qu’en pensez-vous ?</p>
+<p>A quoi ca sert ? À ne pas perdre de temps à initialiser ! Quand votre tableau est très très très grand, faire mettre inutilement une valeur dans chaque case par <code class="docutils literal notranslate"><span class="pre">numpy</span></code> est une très très très grande perte de temps. Bien sûr, en traitement de données, surtout quand on a beaucoup de données, on essaie de ne pas faire de choses qui ne servent à rien.</p>
+<p>Dans quels cas ? Et bien par exemple vous savez que vous allez initialiser ces éléments par la suite.</p>
+<p>Allons-y. Faisons un tableau non-initialisé de taille 3 x 6 et demandons lui comme type des éléments des entiers 8 bits signés (par exemple).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rien</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>C’est le moment où vous vous dites, à juste titre, que pourtant ces cases vont exister en mémoire. Oui bien sûr. Donc vous allez pouvoir regarder ce qu’elles contiennent ! Oui tout à fait ! Mais alors que pensez-vous trouver comme valeur dans une case non initialisée ?</p>
+<p>Ben non pas 0, sauf si … sauf si c’est la valeur qui se trouvait dans la mémoire avant que cette case n’y soit crée, pur hasard.</p>
+<p>Affichez votre tableau <code class="docutils literal notranslate"><span class="pre">rien</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rien</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-48, -28, -10, -68,  52,  86],
+       [  0,   0,   0,   0,   0,   0],
+       [  0,   0,   0,   0,  32,   0]], dtype=int8)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Et oui vous voyez que vous avez n’importe quoi comme valeurs: <code class="docutils literal notranslate"><span class="pre">numpy</span></code> laisse simplement la mémoire comme elle était avant la création du tableau. Puisque toute case mémoire contient soit un 0 soit un 1, le contenu des cases est mis dans le type des éléments de votre tableau, avec 8 bits je vais avoir des nombres compris entre -128 à 127.</p>
+</div>
+<div class="section" id="on-recapitule-les-fonctions-de-creationde-numpy-ndarray">
+<h3>on récapitule les fonctions de créationde <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code><a class="headerlink" href="#on-recapitule-les-fonctions-de-creationde-numpy-ndarray" title="Permalink to this headline">¶</a></h3>
+<p>les fonctions que nous avons vues jusqu’à présent</p>
+<p>| les méthodes | ce qu’elles font |
+| ————————— | ——————— ———————- |
+| <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code> | renvoie la version ndarray d’un tableau existant |
+| <code class="docutils literal notranslate"><span class="pre">numpy.empty</span></code> | renvoie un ndarray vide i.e. sans initialiser ses éléments |
+| <code class="docutils literal notranslate"><span class="pre">numpy.zeros</span></code> | renvoie un ndarray rempli de <em>0.</em> (float) |
+| <code class="docutils literal notranslate"><span class="pre">numpy.ones</span></code> | renvoie un ndarray rempli de <em>1.</em> (float) |</p>
+<p>Les cours étant très condensés, les quiz et les exercices sont plutôt à faire en temps réel avec les élèves ou en fin de séance si il reste du temps</p>
+</div>
+</div>
+<div class="section" id="quiz">
+<h2>quiz<a class="headerlink" href="#quiz" title="Permalink to this headline">¶</a></h2>
+<p>considérons le tableau <code class="docutils literal notranslate"><span class="pre">np.array([[1,</span> <span class="pre">2,</span> <span class="pre">3],</span> <span class="pre">[</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6]])</span></code></p>
+<ul class="simple">
+<li><p>quelle est sa forme <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">3)</span></code> ou <code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">2)</span></code></p></li>
+<li><p>quelle est la taille de ce tableau <code class="docutils literal notranslate"><span class="pre">2</span></code> ou <code class="docutils literal notranslate"><span class="pre">6</span></code></p></li>
+</ul>
+<p>Qu’obtient-on si on fait:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">np.array([256,</span> <span class="pre">257,</span> <span class="pre">258]).astype('uint8')</span></code> ? <code class="docutils literal notranslate"><span class="pre">[256,</span> <span class="pre">257,</span> <span class="pre">258]</span></code> ou <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2]</span></code></p></li>
+</ul>
+<p>Que donne la méthode <code class="docutils literal notranslate"><span class="pre">size</span></code> d’un <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> ?</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">le</span> <span class="pre">nombre</span> <span class="pre">d'éléments</span></code> ou <code class="docutils literal notranslate"><span class="pre">la</span> <span class="pre">taille</span> <span class="pre">du</span> <span class="pre">tableau</span></code> ou <code class="docutils literal notranslate"><span class="pre">la</span> <span class="pre">taille</span> <span class="pre">d'un</span> <span class="pre">élément</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="quelques-petits-exercices">
+<h2>quelques petits exercices<a class="headerlink" href="#quelques-petits-exercices" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="on-s-echauffe">
+<h3>on s’échauffe<a class="headerlink" href="#on-s-echauffe" title="Permalink to this headline">¶</a></h3>
+<p>Créez une matrice de 1 de taille 2 x 3 x 4 et affichez là. Qu’est-ce-que vous obtenez ?</p>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[1., 1., 1., 1.],
+        [1., 1., 1., 1.],
+        [1., 1., 1., 1.]],
+
+       [[1., 1., 1., 1.],
+        [1., 1., 1., 1.],
+        [1., 1., 1., 1.]]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="comparaison-des-temps-de-constructions-de-tableaux-initialises-et-non">
+<h3>comparaison des temps de constructions de tableaux initialisés et non<a class="headerlink" href="#comparaison-des-temps-de-constructions-de-tableaux-initialises-et-non" title="Permalink to this headline">¶</a></h3>
+<p>Pour comparer des temps de calcul, nous allons utiliser une fonction (un peu magique) des notebooks qui s’appelle <code class="docutils literal notranslate"><span class="pre">timeit</span></code> et qui va appeler de nombreuses fois le calcul et faire la moyenne des temps d’exécution.</p>
+<p>En voici un exemple l’exécution de la cellule suivante vous donnera la moyenne des temps d’exécution d’un certain nombre d’exécution du code <em>1 + 1</em></p>
+<p>Temps calculé sur l’exécution de la ligne (avec un seul <code class="docutils literal notranslate"><span class="pre">%</span></code>)</p>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> 1 + 1
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.38 ns ± 0.0225 ns per loop (mean ± std. dev. of 7 runs, 100000000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Temps calculé sur l’exécution de toute la cellule (avec deux <code class="docutils literal notranslate"><span class="pre">%%</span></code>)</p>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.36 ns ± 0.000645 ns per loop (mean ± std. dev. of 7 runs, 100000000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mon ordi met 6.12 nano-secondes.</p>
+<p>Maintenant utiliser ce calcul des temps d’exécution pour comparer:</p>
+<ol class="simple">
+<li><p>la création d’un <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> à partir d’une liste Python comportant 10.000 floats initialisés à 0.</p></li>
+<li><p>la création d’un <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> de 10.000 éléments initialisés à 0.</p></li>
+<li><p>la création d’un <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> de 10.000 éléments non-initialisés.</p></li>
+</ol>
+<p>Pour la version Python créez la liste Python avant de calculer le temps de calcul.</p>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Qu’en concluez-vous ?</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="1-10-classes.html" title="previous page">classes</a>
+    <a class='right-next' id="next-link" href="2-02-numpy-type-memory.html" title="next page">numpy et la mémoire</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thierry Parmentelat<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

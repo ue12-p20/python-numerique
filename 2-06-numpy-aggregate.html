@@ -1,0 +1,1246 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>agrégation &#8212; Python numérique</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="masques et tableaux booléens" href="2-07-numpy-array-testing.html" />
+    <link rel="prev" title="broadcasting" href="2-05-numpy-broadcast.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Python numérique</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-01-intro.html">
+   UE 12 - Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  intro et installation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-02-outils.html">
+   outils de base
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-01-environnement.html">
+   UE12 - Python : généralités
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-02-rudiments.html">
+   rudiments de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-03-operateurs.html">
+   opérateurs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-04-fonctions.html">
+   fonctions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-05-types-methodes.html">
+   objets, types et méthodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-06-containers.html">
+   types évolués
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-07-references-partagees.html">
+   références partagées
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-08-iterations.html">
+   itérations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-09-modules.html">
+   modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-10-classes.html">
+   classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  numpy
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-01-numpy-intro.html">
+   UE12 - numpy : introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-02-numpy-type-memory.html">
+   numpy et la mémoire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-03-numpy-vectorization.html">
+   la vectorisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-04-numpy-indexing-slicing.html">
+   indexation et slicing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-05-numpy-broadcast.html">
+   broadcasting
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   agrégation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-07-numpy-array-testing.html">
+   masques et tableaux booléens
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-08-numpy-linalg.html">
+   algèbre linéaire
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-01-pandas-intro.html">
+   UE12 - pandas et matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-02-pandas-modifying-slicing.html">
+   modifications et
+   <em>
+    slicing
+   </em>
+   de dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-04-pandas-sorting.html">
+   trier une dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-05-pandas-group-by.html">
+   regroupement de données
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas.DataFrame.groupby
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-01-matplotlib-intro.html">
+   dataviz avec
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-03-matplotlib-figure-and-sub-figures.html">
+   figures et sous-figures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-04-matplotlib-pandas-dataframe.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+   &amp;
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-05-matplotlib-plots-3D.html">
+   des graphiques en 3D
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/2-06-numpy-aggregate.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/2-06-numpy-aggregate.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/boisgera/python-numerique"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/boisgera/python-numerique/issues/new?title=Issue%20on%20page%20%2F2-06-numpy-aggregate.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/boisgera/python-numerique/edit/master/notebooks/2-06-numpy-aggregate.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/boisgera/python-numerique/master?urlpath=tree/notebooks/2-06-numpy-aggregate.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agregation-en-dimension-1">
+   agrégation en dimension 1
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sommons-tous-les-elements">
+     sommons tous les éléments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculons-le-minimum-d-un-vecteur">
+     calculons le minimum d’un vecteur
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testons-les-valeurs-sur-tout-un-vecteur-all-et-any">
+     testons les valeurs sur tout un vecteur (
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       all
+      </span>
+     </code>
+     et
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       any
+      </span>
+     </code>
+     )
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exemples-de-fonctions-d-agregation">
+   exemples de fonctions d’agrégation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agregation-en-dimension-2">
+   agrégation en dimension 2
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sommons-en-dimension-2">
+     sommons en dimension 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculons-les-min-et-max">
+     calculons les min et max
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   agrégation en dimension &gt; 2
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sommons-en-dimension-3">
+     sommons en dimension 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculons-les-min-et-max-en-dimension-4">
+     calculons les min et max en dimension 4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testons-en-dimension-4">
+     testons en dimension 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="licence">
+<span>Licence CC BY-NC-ND</span>
+<span>Valérie Roy</span>
+</div>
+<img alt="_images/ensmp-25-alpha.png" src="_images/ensmp-25-alpha.png" />
+<div class="section" id="agregation">
+<h1>agrégation<a class="headerlink" href="#agregation" title="Permalink to this headline">¶</a></h1>
+<p>ou comment combiner les données dans un tableau, selon certains axes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nous venons de voir des opérations <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui s’appliquent élément par élément. Nous avons ausi abordé la vectorisation et le broadcasting.</p>
+<p>Il existe en <code class="docutils literal notranslate"><span class="pre">numpy</span></code> des fonctions qui travaillent sur tous les éléments le long d’un axe. Par exemple: la somme des lignes, le maximum des colonnes, le maximum global du tableau…</p>
+<p>On va appeler cela l’agrégation de valeurs d’un tableau</p>
+<div class="section" id="agregation-en-dimension-1">
+<h2>agrégation en dimension 1<a class="headerlink" href="#agregation-en-dimension-1" title="Permalink to this headline">¶</a></h2>
+<p>En dimension 1, il n’y a qu’un axe, tous les éléments du tableau sont sur le même axe.
+Donc cela va rester très simple: il suffira d’appliquer la fonction d’agrégation désirée au tableau, en laissant <code class="docutils literal notranslate"><span class="pre">numpy</span></code> déduire l’axe sur lequel l’appliquer … y’en a qu’un !</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span>  <span class="mi">20</span><span class="p">,</span>  <span class="mi">30</span><span class="p">,</span>  <span class="mi">40</span><span class="p">,</span>  <span class="mi">50</span><span class="p">,</span>  <span class="mi">60</span><span class="p">,</span>  <span class="mi">70</span><span class="p">,</span>  <span class="mi">80</span><span class="p">,</span>  <span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">140</span><span class="p">])</span>
+<span class="n">vec</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 10,  20,  30,  40,  50,  60,  70,  80,  90, 100, 110, 120, 130,
+       140])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="sommons-tous-les-elements">
+<h3>sommons tous les éléments<a class="headerlink" href="#sommons-tous-les-elements" title="Permalink to this headline">¶</a></h3>
+<p>Deux manières identiques de faire : on appelle la <strong>fonction</strong> globale <code class="docutils literal notranslate"><span class="pre">np.sum</span></code> ou on appelle la <strong>méthode</strong> des tableaux <code class="docutils literal notranslate"><span class="pre">np.ndarray.sum</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># qu&#39;on utilise une fonction ...</span>
+<span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1050
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ... ou une méthode</span>
+<span class="c1"># le résultat est le même</span>
+<span class="n">vec</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1050
+</pre></div>
+</div>
+</div>
+</div>
+<p>La seule chose à remarquer ici est que <code class="docutils literal notranslate"><span class="pre">sum</span></code> renvoie la valeur calculée. Rien que de très normal.</p>
+<p>Et aucun “<em>piège</em>”. Afin de ne pas retourner une somme fausse, le type de la variable retournée sera:</p>
+<ul class="simple">
+<li><p>celui des éléments votre tableau sauf si …</p></li>
+<li><p>sauf si la <em>version</em> demandée pour ce type (<code class="docutils literal notranslate"><span class="pre">int8</span></code>) le rend <em>plus petit</em> que le type qu’utilise votre ordinateur (<code class="docutils literal notranslate"><span class="pre">int64</span></code>).</p></li>
+</ul>
+<p>Essayons:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span>  <span class="mi">20</span><span class="p">,</span>  <span class="mi">30</span><span class="p">,</span> <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+<span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.uint64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bingo. Il passe en <code class="docutils literal notranslate"><span class="pre">np.int64</span></code> ! Et ce quelle que soit la valeur du résultat. Même si la somme est tout à fait stockable sur 8 bits puisqu’elle vaut .. combien ? oui, 60.</p>
+<p>C’est bien normal une somme d’éléments d’un type <em>peut</em> ne pas pouvoir tenir sur une variable de ce même type. Dans le premier exemple, la somme vaut <em>1050</em> qui ne peut pas être stocké sur un entier non signé de 8 bits … (oui parce que le maximum est ? et bien calculons: $11111111 = 2^8 -1$ en décimal soit 255).</p>
+</div>
+<div class="section" id="calculons-le-minimum-d-un-vecteur">
+<h3>calculons le minimum d’un vecteur<a class="headerlink" href="#calculons-le-minimum-d-un-vecteur" title="Permalink to this headline">¶</a></h3>
+<p>Prenons un tableau de dimension 1, de 15 entiers sur 8 bits, aléatoirement générés entre 1 et 100.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ran</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span>  <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+<span class="n">ran</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([85, 84, 97, 82, 64, 93, 15, 50, 81, 39, 87, 35, 93, 12, 87],
+      dtype=int8)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Deux manières identiques de faire: on appelle la fonction globale <code class="docutils literal notranslate"><span class="pre">np.min</span></code> on appelle la méthode des tableaux <code class="docutils literal notranslate"><span class="pre">np.ndarray.min</span></code>. Vous avez compris l’idée générale…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">ran</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ran</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">ran</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="c1"># notez qu&#39;il conserve le type des éléments</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.int8
+</pre></div>
+</div>
+</div>
+</div>
+<p>Oui là le type que vous avez demandé pour vos éléments suffit ! puisque votre minimum appartient à votre tableau, c’est bien que <code class="docutils literal notranslate"><span class="pre">numpy</span></code> est arrivé à la stocker dans une variable du type que vous avez indiqué.</p>
+<p>De même que vous allez pouvoir calculer le minimum ou le maximum vous allez pouvoir aussi accéder à l’indice du minimum (ou du maximum) dans votre tableau.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">ran</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13
+</pre></div>
+</div>
+</div>
+</div>
+<p>Et on accède à l’élément</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># on retrouve bien le minimum</span>
+<span class="n">ran</span><span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">ran</span><span class="p">)</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+</div>
+<p>Oui bien sûr c’est identique à aller directement chercher le min, mais parfois c’est utile de connaitre à quel indice se situe ce minimum…</p>
+</div>
+<div class="section" id="testons-les-valeurs-sur-tout-un-vecteur-all-et-any">
+<h3>testons les valeurs sur tout un vecteur (<code class="docutils literal notranslate"><span class="pre">all</span></code> et <code class="docutils literal notranslate"><span class="pre">any</span></code>)<a class="headerlink" href="#testons-les-valeurs-sur-tout-un-vecteur-all-et-any" title="Permalink to this headline">¶</a></h3>
+<p>Travaillons maintenant sur un tableau de booléens.</p>
+<p>Comment savoir si tous les éléments de votre tableau sont vrais (sont à True) ? Ou si l’un au moins, d’entre eux, est à vrai ?</p>
+<p>Première idée … on peut en faire la somme (True sera pris comme 1) et regarder si la somme est égale au nombre d’éléments de votre tableau (dans le permier cas) et strictement supérieure à 0 dans le second cas … vous vous voyez faire cela à chaque fois que vous allez vouloir appliquer ce genre de tests ? heu non pas trop.</p>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> vous donne des fonctions pour cela, la première s’appelle <code class="docutils literal notranslate"><span class="pre">all</span></code>  et la seconde <code class="docutils literal notranslate"><span class="pre">any</span></code>; et comme tout à l’heure vous avez les deux versions (la fonction globale de <code class="docutils literal notranslate"><span class="pre">numpy</span></code> et la méthode des <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>).</p>
+<p>Pour créer un tableau de 10 booléens (par exemple)</p>
+<ul class="simple">
+<li><p>je génère 10 entiers aléatoirement entre 0 et 2 (non compris)</p></li>
+<li><p>et je type ce tableau comme étant de type <code class="docutils literal notranslate"><span class="pre">np.bool</span></code> avec la méthode <code class="docutils literal notranslate"><span class="pre">np.ndarray.astype</span></code></p></li>
+</ul>
+<p>vous vous souvenez de <code class="docutils literal notranslate"><span class="pre">astype</span></code> ? nous l’avons vu rapidement dans le tout premier notebook d’introduction à <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
+<span class="n">boo</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2004/3034222896.py:1: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  boo = np.random.randint(0, 2, 10).astype(np.bool)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True, False, False,  True, False,  True, False,  True,
+        True])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Voici le tableau, en dimension 1, <code class="docutils literal notranslate"><span class="pre">boo</span></code> de 10 booléens. Regardons si ils tous vrais ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># la fonction ..</span>
+<span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">boo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># .. ou la méthode</span>
+<span class="c1"># les deux font la même chose</span>
+<span class="n">boo</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Y-en-a-t-il au moins un à <code class="docutils literal notranslate"><span class="pre">True</span></code> ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">boo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boo</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bien sûr <code class="docutils literal notranslate"><span class="pre">any</span></code> ne s’applique pas qu’à des tableaux booléens ! Il va indiquer les valeurs non nulles d’un tableau.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ici comme on a changé l&#39;intervalle,</span>
+<span class="c1"># toutes les valeurs sont non-nulles</span>
+<span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exemples-de-fonctions-d-agregation">
+<h2>exemples de fonctions d’agrégation<a class="headerlink" href="#exemples-de-fonctions-d-agregation" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>fonction</p></th>
+<th class="head"><p>comportement</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">np.sum</span></code></p></td>
+<td><p>somme les éléments sur un axe</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">np.min</span></code></p></td>
+<td><p>retourne le plus petit élément</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">np.max</span></code></p></td>
+<td><p>retourne le plus grand</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">np.argmin</span></code></p></td>
+<td><p>retourne l’indice du plus petit élément</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">np.argmax</span></code></p></td>
+<td><p>retourne l’indice du plus grand élément</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">np.mean</span></code></p></td>
+<td><p>calcule la moyenne des éléments</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">np.std</span></code></p></td>
+<td><p>calcule l’écart type des éléments</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">np.var</span></code></p></td>
+<td><p>calcule la variance des éléments</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">np.all</span></code></p></td>
+<td><p>vrai si aucun élément n’est nul</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">np.any</span></code></p></td>
+<td><p>vrai si au moins un élément n’est pas nul</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">np.where</span></code></p></td>
+<td><p>une condition ternaire</p></td>
+</tr>
+<tr class="row-odd"><td><p>…/…</p></td>
+<td><p>…/…</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="agregation-en-dimension-2">
+<h2>agrégation en dimension 2<a class="headerlink" href="#agregation-en-dimension-2" title="Permalink to this headline">¶</a></h2>
+<p>Effectivement en <code class="docutils literal notranslate"><span class="pre">numpy</span></code> les tableaux peuvent avoir des dimensions supérieures à 1 comme des matrices avec une seule ligne, des matrices avec une seule colonne, des matrices, des paquets de matrices, des groupes de paquets de matrices…</p>
+<div class="section" id="sommons-en-dimension-2">
+<h3>sommons en dimension 2<a class="headerlink" href="#sommons-en-dimension-2" title="Permalink to this headline">¶</a></h3>
+<p>Voici une petite matrice de 3 lignes et 5 colonnes contenant les entiers de 0 à 15.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">mat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0,  1,  2,  3,  4],
+       [ 5,  6,  7,  8,  9],
+       [10, 11, 12, 13, 14]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nous sommes en dimension 2, nous avons 2 axes, celui des lignes et celui des colonnes qui auront respectivement l’indice 0 et l’indice 1 (comme les dimensions apparaissent dans <code class="docutils literal notranslate"><span class="pre">shape</span></code>).</p>
+<p>Pour spécifier l’axe sur lequel on veut faire une opération, il faut passer l’argument <code class="docutils literal notranslate"><span class="pre">axis=0</span></code> ou <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> à <code class="docutils literal notranslate"><span class="pre">np.sum</span></code> ou <code class="docutils literal notranslate"><span class="pre">np.ndarray.sum</span></code>.</p>
+<p>Allons-y ! Demondons à <code class="docutils literal notranslate"><span class="pre">mat</span></code> de sommer ses valeurs sur l’axe <code class="docutils literal notranslate"><span class="pre">0</span></code> des lignes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([15, 18, 21, 24, 27])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Il somme bien suivant l’axe des lignes (vous avez 3 lignes, il les somme entre elles) donc vous obtenez la somme de chacune des colonnes … oui peut être un peu contre-intuitif mais c’est bien cela qui se passe.</p>
+<p>Si je demande de sommer sur l’axe des colonnes, il va créer un tableau avec la somme de chaque ligne.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10, 35, 60])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Et si vous n’indiquer pas d’axe ? Et bien il va sommer tous les éléments entre eux !</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>105
+</pre></div>
+</div>
+</div>
+</div>
+<p>Comme nous l’avons dit dans la section sur la dimension 1. Le type du résultat des sommes d’entier sera le type des entiers de votre ordi. (pour le mien 64 bits) ou celui qui a été indiqué pour votre tableau si il est plus grand donc a plus de précision). Mais les entiers sur 64 bits sont le plus grand type entier proposé par <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
+<p>Pour les flottants pareil avec des flottants sur 64 bits.</p>
+</div>
+<div class="section" id="calculons-les-min-et-max">
+<h3>calculons les min et max<a class="headerlink" href="#calculons-les-min-et-max" title="Permalink to this headline">¶</a></h3>
+<p>Maintenant regardons le minimum et le maximum globaux d’une matrice, ceux de l’axe des lignes et ceux de l’axe des colonnes et l’indice de ces valeurs dans la matrice.</p>
+<p>Prenons une matrice de taille 3 x 5 d’entiers de 1 à 15.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">al</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c1"># 15 éléments</span>
+<span class="n">al</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  2,  3,  4,  5],
+       [ 6,  7,  8,  9, 10],
+       [11, 12, 13, 14, 15]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Le maximum global.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">al</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="c1"># oui bien sûr 15</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+</pre></div>
+</div>
+</div>
+</div>
+<p>Son indice:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">al</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ah mince 14 ? il me donne bien l’indice mais de manière <em>absolue</em> pas l’indice relatif aux lignes et aux colonnes de la matrice !</p>
+<p>Si vous lisez le <em>help</em>, on vous dit que la fonction <em>retourne les indices des valeurs maximales le long d’un axe</em>. Là il n’y a pas d’axe indiqué, le maximum est donc retourné de manière absolue puisque c’est bien le maximum absolu que vous demandez.</p>
+<p>Comment faire pour accéder à l’élément à cette position ?</p>
+<p>Il faut surtout éviter les opérations qui prendraient du temps et de l’espace, comme celles qui recopieraient le tableau (comme le fait la fonction <code class="docutils literal notranslate"><span class="pre">np.ndarray.flatten</span></code>, lisez son help).</p>
+<p>Vous allez utiliser la fonction <strong>dédiée</strong> <code class="docutils literal notranslate"><span class="pre">np.unravel_index</span></code> qui re-calcule les index dans chacune des dimensions à partir de l’indice absolu et de la forme du tableau.</p>
+<p>On le fait:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#np.unravel_index?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unravel_index</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">argmax</span><span class="p">(),</span> <span class="n">al</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notre max est bien à l’indice (2, 4) soit la case de la matrice à la troisième ligne cinquième colonne. On accède à l’élément.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">al</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pour les avancés, sauriez-vous reprogrammer la fonction <code class="docutils literal notranslate"><span class="pre">np.unravel_index</span></code> à partir d’un indice <em>absolu</em> et de la forme d’un tableau ?</p>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Passons aux calculs sur les axes. Calculons les minimums sur l’axe des lignes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">al</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3, 4, 5])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Là vous demandez les minimums dans l’axe des lignes donc vous calculez le minimum de chacune des colonnes.</p>
+<p>Regardons les indices des minimums sur l’axe des lignes ?</p>
+<p>Il vous donne, pour chaque colonne, l’indice de la ligne où vous allez trouver le minimum.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">al</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  2,  3,  4,  5],
+       [ 6,  7,  8,  9, 10],
+       [11, 12, 13, 14, 15]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">al</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, 0, 0])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pour accéder aux éléments ? Comme on peut indicer une matrice par un tuple, vous avez la première partie du tuple (les indices des lignes), il vous reste à donner la liste des indices des colonnes (toutes les colonnes auront un min).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">al</span><span class="p">[</span><span class="n">al</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3, 4, 5])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pour prendre le minimum dans l’axe des colonnes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">al</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1,  6, 11])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">al</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0])
+</pre></div>
+</div>
+</div>
+</div>
+<p>La suite de ce notebook sort des bases utiles et n’est que l’extension de l’agrégation en dimension &gt; à 2 qui est immédiate. Elle n’est là que pour dire que ca existe.</p>
+<p>Pour les avancés, sauriez vous faire sur un ndarray en 2 dimensions, la fonction qui, étant donné une forme du tableau, l’axe et une liste d’indices dans cet axe, calcule la paire d’index ? Sauriez-vous généraliser cette fonction ?</p>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>agrégation en dimension &gt; 2<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Ce n’est sûrement pas très utile d’appliquer des fonctions d’agrégation sur des tableaux autres que des matrices ou des vecteurs, regardons très rapidement ce qui se passe dans certains cas.</p>
+<div class="section" id="sommons-en-dimension-3">
+<h3>sommons en dimension 3<a class="headerlink" href="#sommons-en-dimension-3" title="Permalink to this headline">¶</a></h3>
+<p>Générons 2 matrices de 3 lignes et 4 colonnes. Oui à partir de <code class="docutils literal notranslate"><span class="pre">np.random.randint</span></code> et son argument <em>size</em> par exemple. Cela vous permet de ne pas compter…</p>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">mats</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[ -53,  -58,  -69,   33],
+        [  29,  -24,   93,   -1],
+        [   6,  -83,  -79,  -37]],
+
+       [[ -66,  -98, -100,  -86],
+        [  13,    2,  -71,   19],
+        [  -6,  -25,  -54,  -72]]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Combien cette matrice a-t-elle de dimensions ? Oui 3. Combien d’axes ? Et bien oui 3 ?</p>
+<p>Quels sont les indices de ces axes ? 0, 1 et 2. A quoi correspondent-ils ? respectivement: aux matrices, aux lignes et aux colonnes.</p>
+<p>Si nous sommons sans mention d’axe nous sommons tous les éléments du <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>, dans ses 2 versions</p>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">mats</span><span class="p">),</span> <span class="n">mats</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-787, -787)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si nous sommons sur l’axe des matrices, nous sommons les deux matrices ensemble:</p>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">mats</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-119, -156, -169,  -53],
+       [  42,  -22,   22,   18],
+       [   0, -108, -133, -109]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si nous sommons sur l’axe des lignes nous sommons les lignes ensembles donc obtenons un tableau de la taille des lignes qui donne la somme des colonnes.</p>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">mats</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ -18, -165,  -55,   -5],
+       [ -59, -121, -225, -139]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si nous sommons sur l’axe des colonnes, nous sommons les colonnes ensembles donc obtenons un tableau de la taille des colonnes qui donne la somme des lignes.</p>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">mats</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-147,   97, -193],
+       [-350,  -37, -157]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="calculons-les-min-et-max-en-dimension-4">
+<h3>calculons les min et max en dimension 4<a class="headerlink" href="#calculons-les-min-et-max-en-dimension-4" title="Permalink to this headline">¶</a></h3>
+<p>De la même manière nous pouvons calculer les min et les max ainsi que les arguments des min et des max en dimensions supérieures, par exemple là en dimension 4.</p>
+<p>Supposons que nous prenions un tableau en dimension (2, 3, 4, 5). Dé-commentez les lignes suivantes si vous voulez en voir un.</p>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tab</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">121</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Appelons ce tableau: 4 paquets de 3 matrices de 2 lignes et de 2 colonnes.</p>
+<p>On va pouvoir demander le maximum, le minimum et leurs indices suivant tous les axes. Pour la signification de ces calculs … il faut réfléchir.</p>
+<p>Par exemple, si on demande le maximum sur l’axe 0 où nous avons les 4 paquets. Regardons suivant cet axe, nous voyons (4 fois) 3 matrices avec 2 lignes et 5 colonnes, on aura donc cette forme pour la réponse (3, 2, 5). La dimension qui <em>disparaît</em> est celle de l’axe où on demande le calcul, les autres restent en agrégeant les calculs donc il nous reste (3, 2, 5), la dimension 4 a été agrégée lors du calcul.</p>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tab</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 2, 5)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="testons-en-dimension-4">
+<h3>testons en dimension 4<a class="headerlink" href="#testons-en-dimension-4" title="Permalink to this headline">¶</a></h3>
+<p>Nous avons vu que <code class="docutils literal notranslate"><span class="pre">np.all</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code> si toutes les valeurs du tableau testé sont <code class="docutils literal notranslate"><span class="pre">True</span></code> (aucune n’est nulle) et <code class="docutils literal notranslate"><span class="pre">np.any</span></code> si au moins une n’est pas nulle. Ces fonctions, si-besoin, s’appellent bien sûr suivant les différents axes. Avec les interprétations dont nous avons déjà parlé.</p>
+<p>Prenons un tableau en dimension (2, 3, 4, 5) et demandons sur l’axe des colonnes (3 ou -1) si toutes les valeurs sont non-nulles. On va se retrouver avec une valeur par ligne donc la dimension qui <em>disparaît</em> est celle de l’axe où on demande le calcul, les autres restent en agrégeant les calculs donc il nous reste (2, 3, 4).</p>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tab</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tab</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 3, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<p>On ne va pas aller plus loin. Attendez d’en avoir besoin.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="2-05-numpy-broadcast.html" title="previous page">broadcasting</a>
+    <a class='right-next' id="next-link" href="2-07-numpy-array-testing.html" title="next page">masques et tableaux booléens</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thierry Parmentelat<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

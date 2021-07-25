@@ -1,0 +1,1076 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>matplotlib &amp; pandas &#8212; Python numérique</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="des graphiques en 3D" href="4-05-matplotlib-plots-3D.html" />
+    <link rel="prev" title="figures et sous-figures" href="4-03-matplotlib-figure-and-sub-figures.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Python numérique</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-01-intro.html">
+   UE 12 - Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  intro et installation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-02-outils.html">
+   outils de base
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-01-environnement.html">
+   UE12 - Python : généralités
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-02-rudiments.html">
+   rudiments de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-03-operateurs.html">
+   opérateurs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-04-fonctions.html">
+   fonctions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-05-types-methodes.html">
+   objets, types et méthodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-06-containers.html">
+   types évolués
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-07-references-partagees.html">
+   références partagées
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-08-iterations.html">
+   itérations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-09-modules.html">
+   modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-10-classes.html">
+   classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-01-numpy-intro.html">
+   UE12 - numpy : introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-02-numpy-type-memory.html">
+   numpy et la mémoire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-03-numpy-vectorization.html">
+   la vectorisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-04-numpy-indexing-slicing.html">
+   indexation et slicing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-05-numpy-broadcast.html">
+   broadcasting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-06-numpy-aggregate.html">
+   agrégation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-07-numpy-array-testing.html">
+   masques et tableaux booléens
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-08-numpy-linalg.html">
+   algèbre linéaire
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-01-pandas-intro.html">
+   UE12 - pandas et matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-02-pandas-modifying-slicing.html">
+   modifications et
+   <em>
+    slicing
+   </em>
+   de dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-04-pandas-sorting.html">
+   trier une dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-05-pandas-group-by.html">
+   regroupement de données
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas.DataFrame.groupby
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  matplotlib
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-01-matplotlib-intro.html">
+   dataviz avec
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-03-matplotlib-figure-and-sub-figures.html">
+   figures et sous-figures
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+   &amp;
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-05-matplotlib-plots-3D.html">
+   des graphiques en 3D
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/4-04-matplotlib-pandas-dataframe.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/4-04-matplotlib-pandas-dataframe.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/boisgera/python-numerique"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/boisgera/python-numerique/issues/new?title=Issue%20on%20page%20%2F4-04-matplotlib-pandas-dataframe.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/boisgera/python-numerique/edit/master/notebooks/4-04-matplotlib-pandas-dataframe.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/boisgera/python-numerique/master?urlpath=tree/notebooks/4-04-matplotlib-pandas-dataframe.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importons-un-jeu-de-donnees">
+   importons un jeu de données
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#encodons-les-categories-par-des-entiers">
+   encodons les catégories par des entiers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dessinons-la-dataframe-df-plot">
+   dessinons la dataframe -
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df.plot()
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dessinons-des-boxplots-des-colonnes-df-boxplot">
+   dessinons des boxplots des colonnes -
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df.boxplot
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dessinons-des-histogrammes-df-hist">
+   dessinons des histogrammes -
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df.hist
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dessinons-des-barcharts-dataframe-plot-bar">
+   dessinons des barcharts (
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     DataFrame.plot.bar
+    </span>
+   </code>
+   )
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dessiner-des-paires-de-colonnes-df-plot-scatter">
+   dessiner des paires de colonnes -
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     df.plot.scatter
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice">
+   Exercice
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualisation-de-donnees-sur-des-vins-italiens">
+     visualisation de données sur des vins italiens
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="licence">
+<span>Licence CC BY-NC-ND</span>
+<span>Valérie Roy</span>
+</div>
+<img alt="_images/ensmp-25-alpha.png" src="_images/ensmp-25-alpha.png" />
+<div class="section" id="matplotlib-pandas">
+<h1><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#matplotlib-pandas" title="Permalink to this headline">¶</a></h1>
+<p>Les fonctions de <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> ont été intégrées avec la librairie <code class="docutils literal notranslate"><span class="pre">pandas</span></code> de manière à faciliter leur utilisation à partir d’une dataframe. Nous allons voir quelques unes de ces fonctions. Référez-vous à la documentation pour aller plus loin dans cette utilisation.</p>
+<p>Une dataframe est un table de données en dimension 2 où chacune des colonnes peut être vue comme une variable aléatoire avec une certaine distribution représentant une information: un âge, un genre, une taille…</p>
+<p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> va apporter à <code class="docutils literal notranslate"><span class="pre">pandas</span></code> des facilités pour visualiser les données des colonnes sous des formes classiques comme: les boxplots (boîtes à moustaches), les histogrammes, les barcharts (diagrammes à bandes)…</p>
+<p>Ou encore pour visualiser les paires de valeurs des colonnes comme la taille en fonction de l’âge…</p>
+<p>Nous allons illustrer les quelques fonctions sur un exemple simple.</p>
+<p>Importons les librairies:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="importons-un-jeu-de-donnees">
+<h2>importons un jeu de données<a class="headerlink" href="#importons-un-jeu-de-donnees" title="Permalink to this headline">¶</a></h2>
+<p>Importons le jeu de données classiques sur trois types d’iris (Versicolor, Virginica et Setosa) décrits par quatre paramètres qui sont les longueur et largeurs des pétales et des sépales.</p>
+<p>Exemple des 4 mesures décrites sur un iris versicolor:</p>
+<a class="reference internal image-reference" href="_images/versicolor-petal-sepal.jpg"><img alt="_images/versicolor-petal-sepal.jpg" src="_images/versicolor-petal-sepal.jpg" style="width: 200px;" /></a>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;iris.csv&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SepalLength</th>
+      <th>SepalWidth</th>
+      <th>PetalLength</th>
+      <th>PetalWidth</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Nous voici avec une table qui décrit 150 iris avec 5 paramètres (les 4 mesures et le type):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(150, 5)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Les colonnes sont des nombres flottants pour les 4 mesures et de type <code class="docutils literal notranslate"><span class="pre">object</span></code> pour les types.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SepalLength    float64
+SepalWidth     float64
+PetalLength    float64
+PetalWidth     float64
+Name            object
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>et s’agissant de <code class="docutils literal notranslate"><span class="pre">Name</span></code>, nous en avons bien 3</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name
+Iris-setosa        50
+Iris-versicolor    50
+Iris-virginica     50
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="encodons-les-categories-par-des-entiers">
+<h2>encodons les catégories par des entiers<a class="headerlink" href="#encodons-les-categories-par-des-entiers" title="Permalink to this headline">¶</a></h2>
+<p>Nous allons créer dans la dataframe une nouvelle colonne, de nom <code class="docutils literal notranslate"><span class="pre">Type</span></code>, qui va coder ces trois noms par trois entiers (0, 1 et 2)</p>
+<p>Pourquoi on a envie de faire ça ? eh bien lorsqu’on parle de visualisation, c’est toujours plus facile de visualiser des nombres que des textes</p>
+<p>Pour y arriver :</p>
+<ol class="simple">
+<li><p>on prend la colonne <code class="docutils literal notranslate"><span class="pre">name</span></code> qui est de type <code class="docutils literal notranslate"><span class="pre">object</span></code></p></li>
+<li><p>on la transforme en une colonne de type <code class="docutils literal notranslate"><span class="pre">category</span></code> grâce à la fonction <code class="docutils literal notranslate"><span class="pre">astype</span></code> des dataframes</p></li>
+<li><p>on extrait les codes générés par <code class="docutils literal notranslate"><span class="pre">pandas</span></code> pour les trois noms de types d’iris <code class="docutils literal notranslate"><span class="pre">cat.codes</span></code></p></li>
+<li><p>on ajoute cette colonne de codes (de type entier) à la dataframe, en l’appelant <code class="docutils literal notranslate"><span class="pre">Type</span></code></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># on crée une nouvelle colonne</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vérifions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SepalLength    float64
+SepalWidth     float64
+PetalLength    float64
+PetalWidth     float64
+Name            object
+Type              int8
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>On voit la nouvelle colonne de type <code class="docutils literal notranslate"><span class="pre">int8</span></code>, et elle contient bien ce qu’on veut :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SepalLength</th>
+      <th>SepalWidth</th>
+      <th>PetalLength</th>
+      <th>PetalWidth</th>
+      <th>Name</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="dessinons-la-dataframe-df-plot">
+<h2>dessinons la dataframe - <code class="docutils literal notranslate"><span class="pre">df.plot()</span></code><a class="headerlink" href="#dessinons-la-dataframe-df-plot" title="Permalink to this headline">¶</a></h2>
+<p>Nous pouvons voir dans cet exemple, qu’une simple visualisation des colonnes numériques apporte beaucoup d’informations sur ces données.</p>
+<p>Par exemple, dans ce jeu de données, les mesures semblent discriminer les 3 types d’Iris.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-04-matplotlib-pandas-dataframe_24_0.png" src="_images/4-04-matplotlib-pandas-dataframe_24_0.png" />
+</div>
+</div>
+<p>Naturellement la fonction <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame.plot</span></code> aura les mêmes paramètres que la fonction <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.plot</span></code> ! elles utilisent toutes les deux la même fonction ! Donc vous pourrez changer le titre, les noms des axes…</p>
+<p>Remarquez ici que l’encodage de la famille par notre colonne d’entiers <code class="docutils literal notranslate"><span class="pre">Type</span></code> nous permet de voir immédiatement les 3 familles de fleurs !</p>
+</div>
+<div class="section" id="dessinons-des-boxplots-des-colonnes-df-boxplot">
+<h2>dessinons des boxplots des colonnes - <code class="docutils literal notranslate"><span class="pre">df.boxplot</span></code><a class="headerlink" href="#dessinons-des-boxplots-des-colonnes-df-boxplot" title="Permalink to this headline">¶</a></h2>
+<p>Nous pouvons les dessiner ensemble de manière à ce que les boxplots soient sur la même échelle, et puissent être comparés. Les boxplots comportent: le minimun, le maximum, la médiane, le premier et le troisième quartile…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">boxplot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-04-matplotlib-pandas-dataframe_28_0.png" src="_images/4-04-matplotlib-pandas-dataframe_28_0.png" />
+</div>
+</div>
+<p>Nous pouvons dessiner en donnant la liste des colonnes à afficher.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="s1">&#39;SepalLength&#39;</span><span class="p">,</span> <span class="s1">&#39;SepalWidth&#39;</span><span class="p">,</span> <span class="s1">&#39;PetalLength&#39;</span><span class="p">,</span> <span class="s1">&#39;PetalWidth&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-04-matplotlib-pandas-dataframe_30_0.png" src="_images/4-04-matplotlib-pandas-dataframe_30_0.png" />
+</div>
+</div>
+<p>On remarque des outliers dans la colonne des <code class="docutils literal notranslate"><span class="pre">SepalWidth</span></code>. Les outliers sont des points en <em>dehors</em> de bornes <em>calculées</em> indiquées par les moustaches. Ces points sont potentiellement des points <em>aberrants</em>. Pour comprendre comment sont calculés les points <em>extrèmes</em> lisez les documentations des boîtes à moustache.</p>
+<p>Affichons le boxplot de la colonne <code class="docutils literal notranslate"><span class="pre">SepalWidth</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="s1">&#39;SepalWidth&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-04-matplotlib-pandas-dataframe_32_0.png" src="_images/4-04-matplotlib-pandas-dataframe_32_0.png" />
+</div>
+</div>
+<p>Nous pouvons grouper les boxplots suivant les valeurs d’une colonne. Vous vous rappelez <code class="docutils literal notranslate"><span class="pre">groupby</span></code>. C’est très utile:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="s1">&#39;PetalLength&#39;</span><span class="p">],</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-04-matplotlib-pandas-dataframe_34_0.png" src="_images/4-04-matplotlib-pandas-dataframe_34_0.png" />
+</div>
+</div>
+<p>Nous remarquons que les iris <em>Setosa</em> ont des <code class="docutils literal notranslate"><span class="pre">PetalLength</span></code> bien plus petits que ceux des autres types d’iris.</p>
+</div>
+<div class="section" id="dessinons-des-histogrammes-df-hist">
+<h2>dessinons des histogrammes - <code class="docutils literal notranslate"><span class="pre">df.hist</span></code><a class="headerlink" href="#dessinons-des-histogrammes-df-hist" title="Permalink to this headline">¶</a></h2>
+<p>Nous pouvons dessiner les histogrammes de nos dataframes. Ils représentent la distribution des valeurs d’une colonne. Les valeurs de la colonne sont rangées dans des intervalles (ou <em>bins</em>) et les nombres de valeurs par intervalles sont affichés.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-04-matplotlib-pandas-dataframe_37_0.png" src="_images/4-04-matplotlib-pandas-dataframe_37_0.png" />
+</div>
+</div>
+<p>On peut dessiner l’histogramme d’une seule colonne, on peut décider du nombre d’intervalles (<em>bins=</em>), de la couleur (<em>color=</em>)…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="s1">&#39;SepalLength&#39;</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightblue&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-04-matplotlib-pandas-dataframe_39_0.png" src="_images/4-04-matplotlib-pandas-dataframe_39_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="dessinons-des-barcharts-dataframe-plot-bar">
+<h2>dessinons des barcharts (<code class="docutils literal notranslate"><span class="pre">DataFrame.plot.bar</span></code>)<a class="headerlink" href="#dessinons-des-barcharts-dataframe-plot-bar" title="Permalink to this headline">¶</a></h2>
+<p>On va prendre un exemple qui illustre mieux cette possibilité. Celui des animaux, de leur vitesse et de leur durée de vie.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_animals</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;speed&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">17.5</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">88</span><span class="p">],</span>
+                   <span class="s1">&#39;lifespan&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">28</span><span class="p">]},</span>
+                  <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;snail&#39;</span><span class="p">,</span> <span class="s1">&#39;pig&#39;</span><span class="p">,</span> <span class="s1">&#39;elephant&#39;</span><span class="p">,</span>
+                           <span class="s1">&#39;rabbit&#39;</span><span class="p">,</span> <span class="s1">&#39;giraffe&#39;</span><span class="p">,</span> <span class="s1">&#39;coyote&#39;</span><span class="p">,</span> <span class="s1">&#39;horse&#39;</span><span class="p">])</span>
+<span class="n">df_animals</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>speed</th>
+      <th>lifespan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>snail</th>
+      <td>0.1</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>pig</th>
+      <td>17.5</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>elephant</th>
+      <td>40.0</td>
+      <td>70.0</td>
+    </tr>
+    <tr>
+      <th>rabbit</th>
+      <td>48.0</td>
+      <td>1.5</td>
+    </tr>
+    <tr>
+      <th>giraffe</th>
+      <td>52.0</td>
+      <td>25.0</td>
+    </tr>
+    <tr>
+      <th>coyote</th>
+      <td>69.0</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>horse</th>
+      <td>88.0</td>
+      <td>28.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>On peut avoir des barres verticales:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_animals</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-04-matplotlib-pandas-dataframe_43_0.png" src="_images/4-04-matplotlib-pandas-dataframe_43_0.png" />
+</div>
+</div>
+<p>Des barres horizontales:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_animals</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-04-matplotlib-pandas-dataframe_45_0.png" src="_images/4-04-matplotlib-pandas-dataframe_45_0.png" />
+</div>
+</div>
+<p>On peut indiquer la vitesse par durée de vie:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_animals</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;lifespan&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;speed&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-04-matplotlib-pandas-dataframe_47_0.png" src="_images/4-04-matplotlib-pandas-dataframe_47_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="dessiner-des-paires-de-colonnes-df-plot-scatter">
+<h2>dessiner des paires de colonnes - <code class="docutils literal notranslate"><span class="pre">df.plot.scatter</span></code><a class="headerlink" href="#dessiner-des-paires-de-colonnes-df-plot-scatter" title="Permalink to this headline">¶</a></h2>
+<p>Dessiner en 2D les colonnes les unes par rapport aux autres peut mettre en valeur des informations intéressantes, surtout quand on ajoute des informations d’autres colonnes par des couleurs ou des tailles de points.</p>
+<p>Dans le jeu des données des iris, on peut dessiner une colonne par rapport à une autre en mettant des couleurs différentes aux points suivant le type des iris.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;SepalLength&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;SepalWidth&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-04-matplotlib-pandas-dataframe_50_0.png" src="_images/4-04-matplotlib-pandas-dataframe_50_0.png" />
+</div>
+</div>
+<p>Ce serait bien plus intéressant si on ajoute le type en utilisant une couleur. Par exemple on va considérer que les 3 types, donnés par des entiers, sont 3 couleurs différentes i.e. ces 3 valeurs seront des codes de couleur différents dans la table de couleur par défaut.</p>
+<p>Il faut utiliser le paramètre <em>c=</em> de la fonction <code class="docutils literal notranslate"><span class="pre">scatter</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;SepalLength&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SepalWidth&#39;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-04-matplotlib-pandas-dataframe_52_0.png" src="_images/4-04-matplotlib-pandas-dataframe_52_0.png" />
+</div>
+</div>
+<p>On va donner aux points, une taille proportionnelle à la largeur des pétales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;SepalLength&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SepalWidth&#39;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;PetalWidth&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">50</span><span class="p">);</span> <span class="c1"># parameter s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-04-matplotlib-pandas-dataframe_54_0.png" src="_images/4-04-matplotlib-pandas-dataframe_54_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="exercice">
+<h2>Exercice<a class="headerlink" href="#exercice" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="visualisation-de-donnees-sur-des-vins-italiens">
+<h3>visualisation de données sur des vins italiens<a class="headerlink" href="#visualisation-de-donnees-sur-des-vins-italiens" title="Permalink to this headline">¶</a></h3>
+<p>Ces données sont le résultat d’analyses chimiques de vins, cultivés dans une même région d’Italie, mais issus de trois cultivateurs différents. Les données sont les quantités, trouvées dans les vins, de 13 constituants.</p>
+<p>Le fichier s’appelle <code class="docutils literal notranslate"><span class="pre">wine.csv</span></code>. La première ligne contient les noms des colonnes et la première colonne identifie le cultivaleur 1, 2 et 3.</p>
+<ol class="simple">
+<li><p>lisez le fichier <em>csv</em> en ne gardant que les colonnes [‘cultivator’, ‘alcohol’, ‘malic-acid’, ‘ash’,’total-phenols’, ‘flavanoids’,’Color-intensity’, ‘Hue’]<br />
+(indice utilisez: <code class="docutils literal notranslate"><span class="pre">use_cols</span></code>)</p></li>
+<li><p>afficher le header de la dataframe</p></li>
+<li><p>afficher les types déterminés par <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p></li>
+<li><p>afficher les statistiques simples (minimum, maximum, moyenne, écart-type…)</p></li>
+<li><p>plottez la dataframe en lui passant le paramètre <em>figsize=(10, 10)</em></p></li>
+<li><p>plottez la dataframe restreinte aux deux colonnes [‘flavanoids’, ‘cultivator’]</p></li>
+<li><p>visualisez les boxplots de la dataframe utilisez la fonction <em>plt.xticks(rotation=90)</em> pour mieux voir les labels des abscisses</p></li>
+<li><p>visualisez des histogrammes avec des regroupements de 20 éléments</p></li>
+<li><p>afficher l’alcool en fonction de l’acide malique avec comme couleur les numéros des cultivateurs.</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="4-03-matplotlib-figure-and-sub-figures.html" title="previous page">figures et sous-figures</a>
+    <a class='right-next' id="next-link" href="4-05-matplotlib-plots-3D.html" title="next page">des graphiques en 3D</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thierry Parmentelat<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

@@ -1,0 +1,1603 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>regroupement de données pandas.DataFrame.groupby &#8212; Python numérique</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dataviz avec matplotlib" href="4-01-matplotlib-intro.html" />
+    <link rel="prev" title="trier une dataframe" href="3-04-pandas-sorting.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Python numérique</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-01-intro.html">
+   UE 12 - Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  intro et installation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-02-outils.html">
+   outils de base
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-01-environnement.html">
+   UE12 - Python : généralités
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-02-rudiments.html">
+   rudiments de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-03-operateurs.html">
+   opérateurs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-04-fonctions.html">
+   fonctions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-05-types-methodes.html">
+   objets, types et méthodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-06-containers.html">
+   types évolués
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-07-references-partagees.html">
+   références partagées
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-08-iterations.html">
+   itérations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-09-modules.html">
+   modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-10-classes.html">
+   classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-01-numpy-intro.html">
+   UE12 - numpy : introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-02-numpy-type-memory.html">
+   numpy et la mémoire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-03-numpy-vectorization.html">
+   la vectorisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-04-numpy-indexing-slicing.html">
+   indexation et slicing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-05-numpy-broadcast.html">
+   broadcasting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-06-numpy-aggregate.html">
+   agrégation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-07-numpy-array-testing.html">
+   masques et tableaux booléens
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-08-numpy-linalg.html">
+   algèbre linéaire
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  pandas
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-01-pandas-intro.html">
+   UE12 - pandas et matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-02-pandas-modifying-slicing.html">
+   modifications et
+   <em>
+    slicing
+   </em>
+   de dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-04-pandas-sorting.html">
+   trier une dataframe
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   regroupement de données
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas.DataFrame.groupby
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-01-matplotlib-intro.html">
+   dataviz avec
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-03-matplotlib-figure-and-sub-figures.html">
+   figures et sous-figures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-04-matplotlib-pandas-dataframe.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+   &amp;
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-05-matplotlib-plots-3D.html">
+   des graphiques en 3D
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/3-05-pandas-group-by.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/3-05-pandas-group-by.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/boisgera/python-numerique"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/boisgera/python-numerique/issues/new?title=Issue%20on%20page%20%2F3-05-pandas-group-by.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/boisgera/python-numerique/edit/master/notebooks/3-05-pandas-group-by.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/boisgera/python-numerique/master?urlpath=tree/notebooks/3-05-pandas-group-by.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#groupement-par-critere-unique">
+   groupement par critère unique
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-tailles-des-groupes">
+     les tailles des groupes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#acceder-aux-sous-dataframes">
+     accéder aux sous-dataframes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-groupes-dictionnaire-d-index-par-cles">
+     les groupes (dictionnaire d’index par clés)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#groupement-multi-criteres">
+   groupement multi-critères
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     les tailles des groupes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     accéder aux sous-dataframes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     les groupes (dictionnaire d’index par clés)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decouper-des-intervalles-de-valeurs-dans-une-colonne">
+   découper des intervalles de valeurs dans une colonne
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="licence">
+<span>Licence CC BY-NC-ND</span>
+<span>Valérie Roy</span>
+</div>
+<img alt="_images/ensmp-25-alpha.png" src="_images/ensmp-25-alpha.png" />
+<div class="section" id="regroupement-de-donnees-pandas-dataframe-groupby">
+<h1>regroupement de données  <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame.groupby</span></code><a class="headerlink" href="#regroupement-de-donnees-pandas-dataframe-groupby" title="Permalink to this headline">¶</a></h1>
+<p>Une table de données <code class="docutils literal notranslate"><span class="pre">pandas</span></code> est en 2 dimensions mais elle peut indiquer des sous-divisions de vos données. Par exemple, les passagers du Titanic sont divisés en femmes et hommes, en passagers de première, deuxième et troisiéme classe. On pourrait même les diviser en classe d’âge, enfants, jeunes, adultes…</p>
+<p>Des analyses mettant en exergue ces différents groupes de personnes peuvent être intéressantes. Lors du naufrage du Titanic, valait-il mieux être une femme en première classe ou un enfant en troisième ?</p>
+<p>On reprend nos données</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;titanic.csv&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>3</td>
+      <td>Braund, Mr. Owen Harris</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>A/5 21171</td>
+      <td>7.2500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>PC 17599</td>
+      <td>71.2833</td>
+      <td>C85</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Heikkinen, Miss. Laina</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>STON/O2. 3101282</td>
+      <td>7.9250</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>On va calculer des regroupements en utilisant la fonction <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame.groupby</span></code>, à laquelle on indique un ou plusieurs critères.</p>
+<div class="section" id="groupement-par-critere-unique">
+<h2>groupement par critère unique<a class="headerlink" href="#groupement-par-critere-unique" title="Permalink to this headline">¶</a></h2>
+<p>Par exemple, prenons le seul critère de genre des passagers (<code class="docutils literal notranslate"><span class="pre">Sex</span></code>). Cette colonne a deux valeurs: <code class="docutils literal notranslate"><span class="pre">female</span></code> et <code class="docutils literal notranslate"><span class="pre">male</span></code>, nous allons donc obtenir une partition de notre dataframe en deux dataframes : celle des hommes et celle des femmes, sur lesquelles nous allons pouvoir faire des analyses (moyenne…) différencées par genre.</p>
+<p>Allons-y:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_by_sex</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> calcule les différentes valeurs de la colonne en question (ici <code class="docutils literal notranslate"><span class="pre">Sex</span></code>), et partitionne la dataframe en autant de dataframes que de valeurs différentes.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> met les regroupements dans un objet de type <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code> (ici de nom <code class="docutils literal notranslate"><span class="pre">df_by_sex</span></code>) qui vous donne accès à de nombreuses fonctionnalités (regardez le help pour plus de détails), nous allons voir ici très peu de choses ici.</p>
+<div class="section" id="les-tailles-des-groupes">
+<h3>les tailles des groupes<a class="headerlink" href="#les-tailles-des-groupes" title="Permalink to this headline">¶</a></h3>
+<p>Les objets de type <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code> contiennent une fonction très pratique pour récapituler les groupes : <code class="docutils literal notranslate"><span class="pre">size</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_by_sex</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sex
+female    314
+male      577
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="acceder-aux-sous-dataframes">
+<h3>accéder aux sous-dataframes<a class="headerlink" href="#acceder-aux-sous-dataframes" title="Permalink to this headline">¶</a></h3>
+<p>On peut aussi itérer sur un objet de type <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code> afin de voir les différentes dataframes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">subdf</span> <span class="ow">in</span> <span class="n">df_by_sex</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La dataframe de clé &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; a </span><span class="si">{</span><span class="n">subdf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> éléments sur les </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>La dataframe de clé &#39;female&#39; a 314 éléments sur les 891
+La dataframe de clé &#39;male&#39; a 577 éléments sur les 891
+</pre></div>
+</div>
+</div>
+</div>
+<p>Voilà, la fonction a bien partitionné votre dataframe en autant de dataframes que de genre des personnes.</p>
+</div>
+<div class="section" id="les-groupes-dictionnaire-d-index-par-cles">
+<h3>les groupes (dictionnaire d’index par clés)<a class="headerlink" href="#les-groupes-dictionnaire-d-index-par-cles" title="Permalink to this headline">¶</a></h3>
+<p>Vous pouvez accéder, au travers du champ <code class="docutils literal notranslate"><span class="pre">groups</span></code> des objets de type <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code>, au dictionnaire vous donnant les groupes d’<code class="docutils literal notranslate"><span class="pre">Index</span></code> (ici deux parce <code class="docutils literal notranslate"><span class="pre">male</span></code> et <code class="docutils literal notranslate"><span class="pre">female</span></code>).</p>
+<p>Chaque clé est une des valeurs possibles (donc à nouveau <code class="docutils literal notranslate"><span class="pre">male</span></code> et <code class="docutils literal notranslate"><span class="pre">female</span></code>), et sa valeur est la liste des index des lignes ayant cette valeur:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df_by_sex.groups est un dictionnaire</span>
+<span class="c1"># et voici ses clés et valeurs </span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">df_by_sex</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="se">\t</span><span class="s2">→ </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>female	→ Int64Index([  2,   3,   4,   9,  10,  11,  12,  15,  16,  19,
+            ...
+            867, 872, 875, 876, 880, 881, 883, 886, 888, 889],
+           dtype=&#39;int64&#39;, name=&#39;PassengerId&#39;, length=314)
+male	→ Int64Index([  1,   5,   6,   7,   8,  13,  14,  17,  18,  21,
+            ...
+            874, 877, 878, 879, 882, 884, 885, 887, 890, 891],
+           dtype=&#39;int64&#39;, name=&#39;PassengerId&#39;, length=577)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="groupement-multi-criteres">
+<h2>groupement multi-critères<a class="headerlink" href="#groupement-multi-criteres" title="Permalink to this headline">¶</a></h2>
+<p>Si maintenant on s’intéresse à plusieurs colonnes ? Comment est-ce que ça pourrait se présenter à votre avis ?</p>
+<p>La solution adoptée, c’est de passer à <code class="docutils literal notranslate"><span class="pre">groupby</span></code>, non plus une seule colonne mais .. une liste de colonnes.</p>
+<p>Le fonctionnement de <code class="docutils literal notranslate"><span class="pre">groupby</span></code> dans ce cas consiste à</p>
+<ul class="simple">
+<li><p>calculer pour chaque colonne les valeurs distinctes (comme dans le cas simple)</p></li>
+<li><p>et en faire le <strong>produit cartésien</strong> pour obtenir les clés du groupement (incidemment, sous la forme de tuples)</p></li>
+</ul>
+<p>Ainsi dans notre exemple si nous prenons les critères :  <code class="docutils literal notranslate"><span class="pre">Pclass</span></code> et<code class="docutils literal notranslate"><span class="pre">Sex</span></code>:</p>
+<ul class="simple">
+<li><p>le premier critère donne trois valeurs <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code> et <code class="docutils literal notranslate"><span class="pre">3</span></code> pour les trois classes de navigation</p></li>
+<li><p>le second donne 2 valeurs <code class="docutils literal notranslate"><span class="pre">female</span></code> et <code class="docutils literal notranslate"><span class="pre">male</span></code></p></li>
+</ul>
+<p>et donc on va avoir 6 tuples qui serviront de clés pour le groupement : (1, ‘female’), (1, ‘male’), (2, ‘female’)…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_by_sex_class</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>les tailles des groupes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Pour faire une synthèse on peut utiliser <code class="docutils literal notranslate"><span class="pre">size()</span></code> pour récapituler les groupes; la présentation nous montre bien le produit cartésien qui a été fait</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_by_sex_class</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pclass  Sex   
+1       female     94
+        male      122
+2       female     76
+        male      108
+3       female    144
+        male      347
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>En une seule ligne:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pclass  Sex   
+1       female     94
+        male      122
+2       female     76
+        male      108
+3       female    144
+        male      347
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>accéder aux sous-dataframes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>De même nous pouvons itérer sur les sous-dataframes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pour itérer sur les 6 catégories</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">dataframe</span> <span class="ow">in</span> <span class="n">df_by_sex_class</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dataframe</span><span class="p">)</span><span class="si">}</span><span class="s2"> passagers en classe &#39;</span><span class="si">{</span><span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39; de genre &#39;</span><span class="si">{</span><span class="n">name</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>94 passagers en classe &#39;1&#39; de genre &#39;female&#39;
+122 passagers en classe &#39;1&#39; de genre &#39;male&#39;
+76 passagers en classe &#39;2&#39; de genre &#39;female&#39;
+108 passagers en classe &#39;2&#39; de genre &#39;male&#39;
+144 passagers en classe &#39;3&#39; de genre &#39;female&#39;
+347 passagers en classe &#39;3&#39; de genre &#39;male&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pour les curieux, une petite astuce, utile à ce stade; on pourrait avoir envie d’utiliser la méthode <code class="docutils literal notranslate"><span class="pre">.head()</span></code> pour afficher chacune des sous-dataframes, en écrivant ceci</p>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># malheureusement ceci ne marche pas !!</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">dataframe</span> <span class="ow">in</span> <span class="n">df_by_sex_class</span><span class="p">:</span>
+    <span class="n">dataframe</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En fait ce qui se passe ici, c’est que la méthode <code class="docutils literal notranslate"><span class="pre">.head()</span></code> renvoie un objet que le notebook sait afficher; donc quand on écrit une cellule qui ne contient que (ou dont la dernière instruction est) <code class="docutils literal notranslate"><span class="pre">df.head()</span></code>, cet objet se fait afficher parce que c’est le résultat de la cellule (comme quand <code class="docutils literal notranslate"><span class="pre">40</span></code> se fait affichez quand vous évaluez une cellule avec juste <code class="docutils literal notranslate"><span class="pre">10+30</span></code>)</p>
+<p>Mais dans le cas du <code class="docutils literal notranslate"><span class="pre">for</span></code> qu’on est en train de vouloir écrire, le résultat du for est <code class="docutils literal notranslate"><span class="pre">None</span></code>, et rien ne se fait afficher; il nous faut donc provoquer l’affichage (un peu comme quand on est obligé d’insérer un <code class="docutils literal notranslate"><span class="pre">print()</span></code> au milieu d’une cellule); voici l’astuce pour arriver à provoquer l’affichage souhaité :</p>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pour que ça fonctionne il faut forcer l&#39;affichage </span>
+<span class="c1"># en utilisant display() qui se trouve dans le module IPython</span>
+<span class="kn">import</span> <span class="nn">IPython</span> 
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">dataframe</span> <span class="ow">in</span> <span class="n">df_by_sex_class</span><span class="p">:</span>
+    <span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">dataframe</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>PC 17599</td>
+      <td>71.2833</td>
+      <td>C85</td>
+      <td>C</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>7</th>
+      <td>0</td>
+      <td>1</td>
+      <td>McCarthy, Mr. Timothy J</td>
+      <td>male</td>
+      <td>54.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>17463</td>
+      <td>51.8625</td>
+      <td>E46</td>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Nasser, Mrs. Nicholas (Adele Achem)</td>
+      <td>female</td>
+      <td>14.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>237736</td>
+      <td>30.0708</td>
+      <td>NaN</td>
+      <td>C</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>18</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Williams, Mr. Charles Eugene</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>244373</td>
+      <td>13.0</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Heikkinen, Miss. Laina</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>STON/O2. 3101282</td>
+      <td>7.925</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>3</td>
+      <td>Braund, Mr. Owen Harris</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>A/5 21171</td>
+      <td>7.25</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>À vous de jouer : calculer le <code class="docutils literal notranslate"><span class="pre">groupby</span></code> avec le genre, la classe et si la personne a survécu ou non. Dans quel groupe de personnes reste-il le plus de survivants ? Et le moins ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici (une petite idée de correction ci-dessous)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_by_sex_class_survived</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">,</span> <span class="s1">&#39;Survived&#39;</span><span class="p">])</span>
+<span class="n">df_by_sex_class_survived</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pclass  Sex     Survived
+1       female  0             3
+                1            91
+        male    0            77
+                1            45
+2       female  0             6
+                1            70
+        male    0            91
+                1            17
+3       female  0            72
+                1            72
+        male    0           300
+                1            47
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>les groupes (dictionnaire d’index par clés)<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Lister les clés</p>
+<p>Les clés sont des tuples de valeurs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_by_sex_class_survived</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([(1, &#39;female&#39;, 0), (1, &#39;female&#39;, 1), (1, &#39;male&#39;, 0), (1, &#39;male&#39;, 1), (2, &#39;female&#39;, 0), (2, &#39;female&#39;, 1), (2, &#39;male&#39;, 0), (2, &#39;male&#39;, 1), (3, &#39;female&#39;, 0), (3, &#39;female&#39;, 1), (3, &#39;male&#39;, 0), (3, &#39;male&#39;, 1)])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Les valeurs sont des listes d’index, ça me permet de retrouver les entrées dans la dataframe d’origine.</p>
+<p>Par exemple, si nous voulons accéder aux trois seules femmes de première classe qui n’ont pas survécu. La clé est <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">'female',</span> <span class="pre">0)</span></code>.</p>
+<p>Nous allons, cette fois, les rechercher dans la grande dataframe. Remarquez que bien sûr ici on utilise <code class="docutils literal notranslate"><span class="pre">loc</span></code> puisque nous sommes uniquement dans l’espace des index.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_by_sex_class_survived</span><span class="o">.</span><span class="n">groups</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;female&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>178</th>
+      <td>0</td>
+      <td>1</td>
+      <td>Isham, Miss. Ann Elizabeth</td>
+      <td>female</td>
+      <td>50.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>PC 17595</td>
+      <td>28.7125</td>
+      <td>C49</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>298</th>
+      <td>0</td>
+      <td>1</td>
+      <td>Allison, Miss. Helen Loraine</td>
+      <td>female</td>
+      <td>2.0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>499</th>
+      <td>0</td>
+      <td>1</td>
+      <td>Allison, Mrs. Hudson J C (Bessie Waldo Daniels)</td>
+      <td>female</td>
+      <td>25.0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="decouper-des-intervalles-de-valeurs-dans-une-colonne">
+<h2>découper des intervalles de valeurs dans une colonne<a class="headerlink" href="#decouper-des-intervalles-de-valeurs-dans-une-colonne" title="Permalink to this headline">¶</a></h2>
+<p>Parfois, nous sommes intéressés, non pas par les différentes valeurs d’une colonne (qui seraient trop nombreuses) mais par des intervalles de ces valeurs.</p>
+<p>Prenons par exemple la colonne des âges. Si nous faisons un groupement brutalement sur la colonne <code class="docutils literal notranslate"><span class="pre">Age</span></code>, nous obtenons 88 âges différents, ce qui ne nous apporte pas une information intéressante.</p>
+<p>Par contre ça devient plus intéressant si on raisonne par <strong>classes</strong> d’âges, par exemple les enfants, jeunes, adultes et les plus de 55 ans.</p>
+<ul class="simple">
+<li><p><em>‘enfant’</em> disons entre 0 et 12 ans</p></li>
+<li><p><em>‘jeune’</em> disons entre 12 et 19 ans</p></li>
+<li><p><em>‘adulte’</em> disons entre 19 et 55 ans</p></li>
+<li><p><em>‘+55’</em>  et les personnes de plus de 55 ans</p></li>
+</ul>
+<p>Nous aimerions donc avoir une colonne dans notre dataframe avec ces labels pour compléter les âges.</p>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">pandas.cut</span></code>, appliquée à une colonne de votre dataframe, va vous générer une telle colonne, et vous pouvez donner des labels aux intervalles:</p>
+<p>Nous allons rajouter la colonne à la dataframe. Sachant que les colonnes d’une dataframe sont les clés d’un dictionnaire, pour ajouter une colonne à votre dataframe, il faut faire comme pour les <code class="docutils literal notranslate"><span class="pre">dict</span></code> en Python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &#39;bin&#39; en anglais signifie corbeille ou panier</span>
+<span class="c1"># c&#39;est comme si on mettait les gens dans 4 paniers</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;age-periode&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Je montre les 6 premières lignes des 3 dernières colonnes de la dataframe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># on a rajouté une colonne </span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+      <th>age-periode</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>S</td>
+      <td>(19.0, 55.0]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C85</td>
+      <td>C</td>
+      <td>(19.0, 55.0]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>S</td>
+      <td>(19.0, 55.0]</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>C123</td>
+      <td>S</td>
+      <td>(19.0, 55.0]</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>NaN</td>
+      <td>S</td>
+      <td>(19.0, 55.0]</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>NaN</td>
+      <td>Q</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Je donne des noms aux périodes d’âge (ici on va rajouter encore une colonne)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;name-age-periode&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> 
+                                <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;children&#39;</span><span class="p">,</span> <span class="s1">&#39; young&#39;</span><span class="p">,</span> <span class="s1">&#39;adult&#39;</span><span class="p">,</span> <span class="s1">&#39;old&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Embarked</th>
+      <th>age-periode</th>
+      <th>name-age-periode</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>S</td>
+      <td>(19.0, 55.0]</td>
+      <td>adult</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C</td>
+      <td>(19.0, 55.0]</td>
+      <td>adult</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>S</td>
+      <td>(19.0, 55.0]</td>
+      <td>adult</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>S</td>
+      <td>(19.0, 55.0]</td>
+      <td>adult</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>S</td>
+      <td>(19.0, 55.0]</td>
+      <td>adult</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Q</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Et maintenant nous pouvons utiliser cette colonne dans des <code class="docutils literal notranslate"><span class="pre">groupby</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;name-age-periode&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name-age-periode
+children     69
+ young       95
+adult       510
+old          40
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># etc...</span>
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;name-age-periode&#39;</span><span class="p">,</span> <span class="s1">&#39;Survived&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name-age-periode  Survived
+children          0            29
+                  1            40
+ young            0            56
+                  1            39
+adult             0           311
+                  1           199
+old               0            28
+                  1            12
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># etc..</span>
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">,</span> <span class="s1">&#39;Survived&#39;</span><span class="p">,</span> <span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pclass  Sex     Survived
+1       female  0             3
+                1            91
+        male    0            77
+                1            45
+2       female  0             6
+                1            70
+        male    0            91
+                1            17
+3       female  0            72
+                1            72
+        male    0           300
+                1            47
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vous avez désormais une petite idée de l’utilisation de la fonction <code class="docutils literal notranslate"><span class="pre">groupby</span></code> pour des recherches multi-critères sur une table de données.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="3-04-pandas-sorting.html" title="previous page">trier une dataframe</a>
+    <a class='right-next' id="next-link" href="4-01-matplotlib-intro.html" title="next page">dataviz avec <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thierry Parmentelat<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

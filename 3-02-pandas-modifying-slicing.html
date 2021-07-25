@@ -1,0 +1,3510 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>modifications et slicing de dataframe &#8212; Python numérique</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="trier une dataframe" href="3-04-pandas-sorting.html" />
+    <link rel="prev" title="UE12 - pandas et matplotlib" href="3-01-pandas-intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Python numérique</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-01-intro.html">
+   UE 12 - Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  intro et installation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-02-outils.html">
+   outils de base
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-01-environnement.html">
+   UE12 - Python : généralités
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-02-rudiments.html">
+   rudiments de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-03-operateurs.html">
+   opérateurs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-04-fonctions.html">
+   fonctions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-05-types-methodes.html">
+   objets, types et méthodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-06-containers.html">
+   types évolués
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-07-references-partagees.html">
+   références partagées
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-08-iterations.html">
+   itérations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-09-modules.html">
+   modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-10-classes.html">
+   classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-01-numpy-intro.html">
+   UE12 - numpy : introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-02-numpy-type-memory.html">
+   numpy et la mémoire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-03-numpy-vectorization.html">
+   la vectorisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-04-numpy-indexing-slicing.html">
+   indexation et slicing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-05-numpy-broadcast.html">
+   broadcasting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-06-numpy-aggregate.html">
+   agrégation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-07-numpy-array-testing.html">
+   masques et tableaux booléens
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-08-numpy-linalg.html">
+   algèbre linéaire
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  pandas
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-01-pandas-intro.html">
+   UE12 - pandas et matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   modifications et
+   <em>
+    slicing
+   </em>
+   de dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-04-pandas-sorting.html">
+   trier une dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-05-pandas-group-by.html">
+   regroupement de données
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas.DataFrame.groupby
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-01-matplotlib-intro.html">
+   dataviz avec
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-03-matplotlib-figure-and-sub-figures.html">
+   figures et sous-figures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-04-matplotlib-pandas-dataframe.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+   &amp;
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-05-matplotlib-plots-3D.html">
+   des graphiques en 3D
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/3-02-pandas-modifying-slicing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/3-02-pandas-modifying-slicing.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/boisgera/python-numerique"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/boisgera/python-numerique/issues/new?title=Issue%20on%20page%20%2F3-02-pandas-modifying-slicing.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/boisgera/python-numerique/edit/master/notebooks/3-02-pandas-modifying-slicing.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/boisgera/python-numerique/master?urlpath=tree/notebooks/3-02-pandas-modifying-slicing.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#copier-une-dataframe">
+   copier une dataframe
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creer-une-nouvelle-colonne">
+   créer une nouvelle colonne
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contextualisons-l-acces-et-la-modification-de-parties-d-une-dataframe">
+   contextualisons l’accès et la modification de parties d’une dataframe
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rappels-loc-pour-les-acces-atomiques">
+   rappels :
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     loc
+    </span>
+   </code>
+   pour les accès atomiques
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slicing">
+   slicing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#df-loc-et-bornes-inclusives">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       df.loc
+      </span>
+     </code>
+     et
+     <strong>
+      bornes inclusives
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#df-loc-avec-slicing-sur-les-colonnes">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       df.loc
+      </span>
+     </code>
+     avec slicing sur les colonnes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#df-loc-pour-ecrire-bornes-inclusives">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       df.loc
+      </span>
+     </code>
+     pour écrire :
+     <strong>
+      bornes inclusives
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slicing-generalise">
+     slicing généralisé
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#copied-or-not-copied-that-is-the-question">
+     <em>
+      copied or not copied, that is the question
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#autres-mecanismes-d-indexation">
+   autres mécanismes d’indexation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#acces-a-une-liste-explicite-de-lignes-ou-colonnes">
+     accès à une liste explicite de lignes ou colonnes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recherche-selon-une-formule-booleenne">
+     recherche selon une formule booléenne
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#combinaison-d-expressions-booleennes">
+     combinaison d’expressions booléennes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resume-des-methodes-d-indexation">
+     résumé des méthodes d’indexation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#travailler-avec-les-indices-bornes-habituelles">
+   travailler avec les indices :
+   <strong>
+    bornes habituelles
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probleme-de-modification-de-copies-pour-les-avances">
+   problème de modification de copies (pour les avancés)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modification-par-chainage-d-indexations">
+     modification par chaînage d’indexations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indexation-par-une-liste-et-modification">
+     indexation par une liste et modification
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="modifications-et-slicing-de-dataframe">
+<h1>modifications et <em>slicing</em> de dataframe<a class="headerlink" href="#modifications-et-slicing-de-dataframe" title="Permalink to this headline">¶</a></h1>
+<p>Où on apprend à découper et modifier des parties de dataframe</p>
+<p>Nous allons nous intéresser dans ce notebook à la manière de découper (trancher) slicer les objets <code class="docutils literal notranslate"><span class="pre">pandas</span></code> comme des séries ou des dataframes, et à les manipuler. C’est souvent ce que vous allez faire sur vos tables: appliquer une fonction à une sous-partie de vos données.</p>
+<p>Importons nos bibliothèques et nous allons lire une table des passagers du Titanic pour servir d’exemple.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lisons notre dataframe du Titanic et passons lui comme index des lignes, la colonne <code class="docutils literal notranslate"><span class="pre">PassengerId</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;titanic.csv&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;PassengerId&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>et aussi, comme dans le notebook précédent on va le trier par âge histoire de bien voir la différence entre les index et les indices</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>804</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Thomas, Master. Assad Alexander</td>
+      <td>male</td>
+      <td>0.42</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2625</td>
+      <td>8.5167</td>
+      <td>NaN</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>756</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Hamalainen, Master. Viljo</td>
+      <td>male</td>
+      <td>0.67</td>
+      <td>1</td>
+      <td>1</td>
+      <td>250649</td>
+      <td>14.5000</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>645</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Baclini, Miss. Eugenie</td>
+      <td>female</td>
+      <td>0.75</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2666</td>
+      <td>19.2583</td>
+      <td>NaN</td>
+      <td>C</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="copier-une-dataframe">
+<h2>copier une dataframe<a class="headerlink" href="#copier-une-dataframe" title="Permalink to this headline">¶</a></h2>
+<p>Une chose que nous pouvons apprendre est à copier une dataframe. Pour cela il faut utiliser la méthodes <code class="docutils literal notranslate"><span class="pre">copy</span></code> des <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_copy</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_copy</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>      <span class="c1"># df_copy est une nouvelle dataframe jumelle de l&#39;originale</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>804</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Thomas, Master. Assad Alexander</td>
+      <td>male</td>
+      <td>0.42</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2625</td>
+      <td>8.5167</td>
+      <td>NaN</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>756</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Hamalainen, Master. Viljo</td>
+      <td>male</td>
+      <td>0.67</td>
+      <td>1</td>
+      <td>1</td>
+      <td>250649</td>
+      <td>14.5000</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>645</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Baclini, Miss. Eugenie</td>
+      <td>female</td>
+      <td>0.75</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2666</td>
+      <td>19.2583</td>
+      <td>NaN</td>
+      <td>C</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>voilà <code class="docutils literal notranslate"><span class="pre">df_copy</span></code> est une nouvelle dataframe avec les mêmes valeurs que l’originale mais totalement indépendante.</p>
+</div>
+<div class="section" id="creer-une-nouvelle-colonne">
+<h2>créer une nouvelle colonne<a class="headerlink" href="#creer-une-nouvelle-colonne" title="Permalink to this headline">¶</a></h2>
+<p>Il est souvent pratique de créer une nouvelle colonne, en faisant un calcul à partir des colonnes existantes.<br />
+Les opérations sur les colonnes sont, en pratique, les seules opérations qui utilisent la forme <code class="docutils literal notranslate"><span class="pre">df[nom_de_colonne]</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pour créer une nouvelle colonne</span>
+<span class="c1"># par exemple ici je vais ajouter une colonne &#39;Deceased&#39;</span>
+<span class="c1"># qui est simplement l&#39;opposé de &#39;Survived&#39;</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Deceased&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+      <th>Deceased</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>804</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Thomas, Master. Assad Alexander</td>
+      <td>male</td>
+      <td>0.42</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2625</td>
+      <td>8.5167</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>756</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Hamalainen, Master. Viljo</td>
+      <td>male</td>
+      <td>0.67</td>
+      <td>1</td>
+      <td>1</td>
+      <td>250649</td>
+      <td>14.5000</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>645</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Baclini, Miss. Eugenie</td>
+      <td>female</td>
+      <td>0.75</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2666</td>
+      <td>19.2583</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="contextualisons-l-acces-et-la-modification-de-parties-d-une-dataframe">
+<h2>contextualisons l’accès et la modification de parties d’une dataframe<a class="headerlink" href="#contextualisons-l-acces-et-la-modification-de-parties-d-une-dataframe" title="Permalink to this headline">¶</a></h2>
+<p>Pour accéder ou modifier des sous-parties de dataframe, vous pourriez être tenté d’utiliser les syntaxes classiques d’accès aux éléments d’un tableau par leur indice, comme vous le feriez en Python.</p>
+<p>Comme par exemple en Python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">34</span><span class="p">]</span>
+<span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Hello !&quot;</span>
+<span class="n">L</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Hello !&#39;, 56, 34]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">]</span>
+<span class="n">L</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Hello !&#39;, 100, 200, 300, 34]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ou encore, d’utiliser l’accès à un tableau par une paires d’<strong>indices</strong>, comme vous le feriez en <code class="docutils literal notranslate"><span class="pre">numpy</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>   <span class="c1"># je crée la matrice 5x5 d&#39;éléments 0 à 24</span>
+<span class="n">mat</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>                       <span class="c1"># je modifie l&#39;élément au milieu</span>
+<span class="n">mat</span><span class="p">[::</span><span class="mi">4</span><span class="p">,</span> <span class="p">::</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10000</span>                 <span class="c1"># je modifie les 4 coins (::4 = du début à la fin avec un pas 4)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>                            <span class="c1"># j&#39;affiche la matrice</span>
+<span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>                                <span class="c1"># j&#39;accède à sa première ligne</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[10000     1     2     3 10000]
+ [    5     6     7     8     9]
+ [   10    11   100    13    14]
+ [   15    16    17    18    19]
+ [10000    21    22    23 10000]]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10000,     1,     2,     3, 10000])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mais voilà en <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, c’est très différent: comme on l’a vu déjà, ils ont mis leurs efforts sur la gestion d’une indexation des lignes et des colonnes.</p>
+<p>Ils ont priviligié le repérage des éléments d’une dataframe <strong>par des index</strong> (les <strong>noms</strong> de colonnes et les <strong>labels</strong> de lignes), et <strong>pas</strong> les <strong>indices</strong> comme en Python et en <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p>
+<p>Pourquoi ? parce que si vous utilisez <code class="docutils literal notranslate"><span class="pre">pandas</span></code> c’est que vous avez besoin de voir vos données sous la forme d’une table avec des labels pour indexer les lignes et les colonnes. Si vous n’avez pas besoin d’index particuliers, ça veut dire que vous êtes à l’aise pour manipuler vos données uniquement à base d’indices - des entiers - et dans ce cas-là autant utiliser un simple tableau <code class="docutils literal notranslate"><span class="pre">numpy</span></code> : vous n’allez pas stocker une matrice dans une dataframe ! <code class="docutils literal notranslate"><span class="pre">numpy</span></code> et ses indices ligne, colonne vous suffisent !</p>
+<p>Néanmoins, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> offre des techniques assez similaires, et assez puissantes aussi, que nous allons étudier dans ce notebook.</p>
+</div>
+<div class="section" id="rappels-loc-pour-les-acces-atomiques">
+<h2>rappels : <code class="docutils literal notranslate"><span class="pre">loc</span></code> pour les accès atomiques<a class="headerlink" href="#rappels-loc-pour-les-acces-atomiques" title="Permalink to this headline">¶</a></h2>
+<p>on l’a vu dans le notebook précédent, les accès à un dataframe pandas se font</p>
+<ul class="simple">
+<li><p>le plus souvent à base d’index et non pas d’indices</p></li>
+<li><p>et dans ce cas on utilise <code class="docutils literal notranslate"><span class="pre">df.loc</span></code> pour accéder aux lignes et cellules</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+      <th>Deceased</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>804</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Thomas, Master. Assad Alexander</td>
+      <td>male</td>
+      <td>0.42</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2625</td>
+      <td>8.5167</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>756</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Hamalainen, Master. Viljo</td>
+      <td>male</td>
+      <td>0.67</td>
+      <td>1</td>
+      <td>1</td>
+      <td>250649</td>
+      <td>14.5000</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>645</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Baclini, Miss. Eugenie</td>
+      <td>female</td>
+      <td>0.75</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2666</td>
+      <td>19.2583</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># avec loc, c&#39;est ligne, colonne</span>
+<span class="c1"># et avec des index (pas des indices)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">756</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Hamalainen, Master. Viljo&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pour upgrader un passager</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">645</span><span class="p">,</span> <span class="s1">&#39;Pclass&#39;</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+      <th>Deceased</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>804</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Thomas, Master. Assad Alexander</td>
+      <td>male</td>
+      <td>0.42</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2625</td>
+      <td>8.5167</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>756</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Hamalainen, Master. Viljo</td>
+      <td>male</td>
+      <td>0.67</td>
+      <td>1</td>
+      <td>1</td>
+      <td>250649</td>
+      <td>14.5000</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>645</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Baclini, Miss. Eugenie</td>
+      <td>female</td>
+      <td>0.75</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2666</td>
+      <td>19.2583</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="slicing">
+<h2>slicing<a class="headerlink" href="#slicing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="df-loc-et-bornes-inclusives">
+<h3><code class="docutils literal notranslate"><span class="pre">df.loc</span></code>  et <strong>bornes inclusives</strong><a class="headerlink" href="#df-loc-et-bornes-inclusives" title="Permalink to this headline">¶</a></h3>
+<p>Du coup, la première chose qu’on peut avoir envie de faire, c’est d’accéder à la dataframe par des <em>slices</em>; ça doit commencer à être banal maintenant, puisqu’à chaque fois qu’on voit une structure de données qui s’utilise avec <code class="docutils literal notranslate"><span class="pre">[]</span></code> on finit par étendre le sens de l’opération pour des slices.</p>
+<p>Rappelez-vous qu’en Python une slice c’est de la forme <code class="docutils literal notranslate"><span class="pre">start:stop:step</span></code>, et qu’on peut éluder les morceaux qu’on veut, c’est-à-dire que par exemple <code class="docutils literal notranslate"><span class="pre">:</span></code> désigne une slice qui couvre tout l’espace, <code class="docutils literal notranslate"><span class="pre">::-1</span></code> permet de renverser l’ordre, je vous renvoie aux chapitres idoines si ce n’est plus clair pour vous.</p>
+<p><strong>Par contre</strong>, il faut tout de suite souligner une <strong>différence</strong>, qui est que <strong>dans le cas des index</strong> les slices de dataframes <strong>contiennent les bornes</strong>, ce qui, vous vous souvenez, n’a jamais été le cas jusqu’ici avec les slices en Python ou numpy, où la borne supérieure est toujours exclue; voyons cela</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+      <th>Deceased</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>804</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Thomas, Master. Assad Alexander</td>
+      <td>male</td>
+      <td>0.42</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2625</td>
+      <td>8.5167</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>756</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Hamalainen, Master. Viljo</td>
+      <td>male</td>
+      <td>0.67</td>
+      <td>1</td>
+      <td>1</td>
+      <td>250649</td>
+      <td>14.5000</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>645</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Baclini, Miss. Eugenie</td>
+      <td>female</td>
+      <td>0.75</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2666</td>
+      <td>19.2583</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>470</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Baclini, Miss. Helene Barbara</td>
+      <td>female</td>
+      <td>0.75</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2666</td>
+      <td>19.2583</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Caldwell, Master. Alden Gates</td>
+      <td>male</td>
+      <td>0.83</td>
+      <td>0</td>
+      <td>2</td>
+      <td>248738</td>
+      <td>29.0000</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># je sélectionne les lignes entre </span>
+<span class="c1"># l&#39;index 756 et l&#39;index 470 INCLUSIVEMENT</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">756</span><span class="p">:</span><span class="mi">470</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+      <th>Deceased</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>756</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Hamalainen, Master. Viljo</td>
+      <td>male</td>
+      <td>0.67</td>
+      <td>1</td>
+      <td>1</td>
+      <td>250649</td>
+      <td>14.5000</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>645</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Baclini, Miss. Eugenie</td>
+      <td>female</td>
+      <td>0.75</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2666</td>
+      <td>19.2583</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>470</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Baclini, Miss. Helene Barbara</td>
+      <td>female</td>
+      <td>0.75</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2666</td>
+      <td>19.2583</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Il y a tout de même une certaine logique, c’est que les index sont a priori mélangés (et peuvent être des noms et pas des entiers), mais bon ca reste troublant au début. Et ce ne sera pas le cas pour <code class="docutils literal notranslate"><span class="pre">iloc</span></code> qui travaille sur les indices.</p>
+</div>
+<div class="section" id="df-loc-avec-slicing-sur-les-colonnes">
+<h3><code class="docutils literal notranslate"><span class="pre">df.loc</span></code> avec slicing sur les colonnes<a class="headerlink" href="#df-loc-avec-slicing-sur-les-colonnes" title="Permalink to this headline">¶</a></h3>
+<p>Voyons comment faire du slicing dans l’autre direction</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># si j&#39;écris ceci, je désigne </span>
+<span class="c1"># toutes les lignes de la colonne </span>
+<span class="c1"># donc toute la colonne Pclass</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;Pclass&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PassengerId
+804    3
+756    2
+645    2
+470    3
+79     2
+      ..
+860    3
+864    3
+869    3
+879    3
+889    3
+Name: Pclass, Length: 891, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># d&#39;ailleurs effectivement, c&#39;est optimisé</span>
+<span class="c1"># au point que c&#39;est le même objet en mémoire !</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;Pclass&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Et donc logiquement ici, si je veux sélectionner une plage de colonnes, je vais utiliser deux slices:</p>
+<ul class="simple">
+<li><p>dans la direction des lignes, on prend tout avec une simple slice <code class="docutils literal notranslate"><span class="pre">:</span></code></p></li>
+<li><p>dans la direction des colonnes, le slicing marche aussi <strong>en mode inclusif</strong></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ici comme pour les lignes, comme on est dans l&#39;espace des index</span>
+<span class="c1"># et pas celui des indices, les bornes de la slice sont INCLUSIVES</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">:</span><span class="s1">&#39;Parch&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>804</th>
+      <td>male</td>
+      <td>0.42</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>756</th>
+      <td>male</td>
+      <td>0.67</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>645</th>
+      <td>female</td>
+      <td>0.75</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="df-loc-pour-ecrire-bornes-inclusives">
+<h3><code class="docutils literal notranslate"><span class="pre">df.loc</span></code> pour écrire : <strong>bornes inclusives</strong><a class="headerlink" href="#df-loc-pour-ecrire-bornes-inclusives" title="Permalink to this headline">¶</a></h3>
+<p>On peut parfaitement modifier une dataframe au travers de slices, toujours en utilisant <code class="docutils literal notranslate"><span class="pre">df.loc</span></code>, et toujours avec bornes inclusives bien entendu :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+      <th>Deceased</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>804</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Thomas, Master. Assad Alexander</td>
+      <td>male</td>
+      <td>0.42</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2625</td>
+      <td>8.5167</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>756</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Hamalainen, Master. Viljo</td>
+      <td>male</td>
+      <td>0.67</td>
+      <td>1</td>
+      <td>1</td>
+      <td>250649</td>
+      <td>14.5000</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>645</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Baclini, Miss. Eugenie</td>
+      <td>female</td>
+      <td>0.75</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2666</td>
+      <td>19.2583</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>470</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Baclini, Miss. Helene Barbara</td>
+      <td>female</td>
+      <td>0.75</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2666</td>
+      <td>19.2583</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Caldwell, Master. Alden Gates</td>
+      <td>male</td>
+      <td>0.83</td>
+      <td>0</td>
+      <td>2</td>
+      <td>248738</td>
+      <td>29.0000</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sans vouloir chercher un &quot;use case&quot; très utile</span>
+<span class="c1"># multiplions par 1000 une portion de la dataframe</span>
+
+<span class="c1"># les lignes entre 756 et 470 inclusivement</span>
+<span class="c1"># les colonnes entre SibSp et Parch inclusivement</span>
+
+<span class="c1"># quand on écrit x *= 1000,</span>
+<span class="c1"># cela signifie x = x * 1000</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">756</span><span class="p">:</span><span class="mi">470</span><span class="p">,</span> <span class="s1">&#39;SibSp&#39;</span><span class="p">:</span><span class="s1">&#39;Parch&#39;</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">1000</span>
+
+<span class="c1"># vérifions</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+      <th>Deceased</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>804</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Thomas, Master. Assad Alexander</td>
+      <td>male</td>
+      <td>0.42</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2625</td>
+      <td>8.5167</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>756</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Hamalainen, Master. Viljo</td>
+      <td>male</td>
+      <td>0.67</td>
+      <td>1000</td>
+      <td>1000</td>
+      <td>250649</td>
+      <td>14.5000</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>645</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Baclini, Miss. Eugenie</td>
+      <td>female</td>
+      <td>0.75</td>
+      <td>2000</td>
+      <td>1000</td>
+      <td>2666</td>
+      <td>19.2583</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>470</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Baclini, Miss. Helene Barbara</td>
+      <td>female</td>
+      <td>0.75</td>
+      <td>2000</td>
+      <td>1000</td>
+      <td>2666</td>
+      <td>19.2583</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Caldwell, Master. Alden Gates</td>
+      <td>male</td>
+      <td>0.83</td>
+      <td>0</td>
+      <td>2</td>
+      <td>248738</td>
+      <td>29.0000</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="slicing-generalise">
+<h3>slicing généralisé<a class="headerlink" href="#slicing-generalise" title="Permalink to this headline">¶</a></h3>
+<p>Bon bien sûr on peut mélanger toutes les features que nous connaissons déjà, et écrire des sélections arbitrairement compliquées - pas souvent utiles, mais simplement pour montrer que toute la logique est préservée</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+      <th>Deceased</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>804</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Thomas, Master. Assad Alexander</td>
+      <td>male</td>
+      <td>0.42</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2625</td>
+      <td>8.5167</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>756</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Hamalainen, Master. Viljo</td>
+      <td>male</td>
+      <td>0.67</td>
+      <td>1000</td>
+      <td>1000</td>
+      <td>250649</td>
+      <td>14.5000</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>645</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Baclini, Miss. Eugenie</td>
+      <td>female</td>
+      <td>0.75</td>
+      <td>2000</td>
+      <td>1000</td>
+      <td>2666</td>
+      <td>19.2583</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>470</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Baclini, Miss. Helene Barbara</td>
+      <td>female</td>
+      <td>0.75</td>
+      <td>2000</td>
+      <td>1000</td>
+      <td>2666</td>
+      <td>19.2583</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Caldwell, Master. Alden Gates</td>
+      <td>male</td>
+      <td>0.83</td>
+      <td>0</td>
+      <td>2</td>
+      <td>248738</td>
+      <td>29.0000</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>832</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Richards, Master. George Sibley</td>
+      <td>male</td>
+      <td>0.83</td>
+      <td>1</td>
+      <td>1</td>
+      <td>29106</td>
+      <td>18.7500</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>306</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Allison, Master. Hudson Trevor</td>
+      <td>male</td>
+      <td>0.92</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>828</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Mallet, Master. Andre</td>
+      <td>male</td>
+      <td>1.00</td>
+      <td>0</td>
+      <td>2</td>
+      <td>S.C./PARIS 2079</td>
+      <td>37.0042</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tous ce qu&#39;on a appris jusqu&#39;ici à propos des slices</span>
+<span class="c1"># fonctionne comme attendu, à part cette histoire de </span>
+<span class="c1"># borne supérieure qui est inclusive avec les index</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">804</span><span class="p">:</span><span class="mi">828</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">:</span><span class="s1">&#39;Ticket&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sex</th>
+      <th>SibSp</th>
+      <th>Ticket</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>804</th>
+      <td>male</td>
+      <td>0</td>
+      <td>2625</td>
+    </tr>
+    <tr>
+      <th>645</th>
+      <td>female</td>
+      <td>2000</td>
+      <td>2666</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>male</td>
+      <td>0</td>
+      <td>248738</td>
+    </tr>
+    <tr>
+      <th>306</th>
+      <td>male</td>
+      <td>1</td>
+      <td>113781</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="copied-or-not-copied-that-is-the-question">
+<h3><em>copied or not copied, that is the question</em><a class="headerlink" href="#copied-or-not-copied-that-is-the-question" title="Permalink to this headline">¶</a></h3>
+<p>Pour terminer cette section, pour les curieux, il y a une question parfois épineuse qui se pose lorsqu’on fait des sélections de parties de dataframe.</p>
+<p>Quand une opération sur une dataframe <code class="docutils literal notranslate"><span class="pre">pandas</span></code> renvoie une sous-partie de la dataframe, savoir si cette sélection est en fait <strong>une référence partagée</strong> vers, ou si <strong>c’est une copie</strong> de la dataframe d’origine, … dépend du contexte !!</p>
+<p>Bon très bien, vous dites-vous mais en quoi cela me concerne-t-il ! il gère bien comme il veut ses sous-tableaux, je ne vais pas m’en soucier …</p>
+<p>alors oui cela est vrai … jusqu’à ce que vous vous mettiez à modifier des sous-parties de dataframe …</p>
+<ul class="simple">
+<li><p>si la sous-partie est une <strong>copie</strong> de la sous-partie de dataframe, votre modification ne sera <strong>pas prise en compte</strong> sur la dataframe d’origine ! évidemment…</p></li>
+<li><p>et si c’est une référence partagée vers une partie de la dataframe d’origine, alors vos modifications dans la sélection vont bien se répercuter dans les données d’origine.</p></li>
+</ul>
+<p>ahhh … vous commencez à comprendre: savoir si une opération retourne une copie ou une référence devient important mais dépend du contexte.</p>
+<p>Ce qu’il faut retenir c’est que</p>
+<ul class="simple">
+<li><p>en utilisant la forme <code class="docutils literal notranslate"><span class="pre">df.loc[line,</span> <span class="pre">column]</span></code> on ne crée pas de copie, c’est la bonne façon d’utiliser <code class="docutils literal notranslate"><span class="pre">loc</span></code></p></li>
+<li><p>par contre les formes qui utilisent un <em>chained indexing</em> - que ce soit <code class="docutils literal notranslate"><span class="pre">df[l][c]</span></code> ou <code class="docutils literal notranslate"><span class="pre">df.loc[l][c]</span></code>, on n’est plus du tout sûr du résultat : il ne faut pas les utiliser pour modifier quoi que ce soit !!</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="autres-mecanismes-d-indexation">
+<h2>autres mécanismes d’indexation<a class="headerlink" href="#autres-mecanismes-d-indexation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="acces-a-une-liste-explicite-de-lignes-ou-colonnes">
+<h3>accès à une liste explicite de lignes ou colonnes<a class="headerlink" href="#acces-a-une-liste-explicite-de-lignes-ou-colonnes" title="Permalink to this headline">¶</a></h3>
+<p>Nous voulons maintenant prendre une référence sur une sous-partie d’une dataframe qui <strong>ne s’exprime pas sous la forme d’une slice (tranche)</strong>, mais par contre nous possédons la liste des (index des) lignes et des colonnes que nous souhaitons conserver dans ma sous-partie de dataframe.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> sait parfaitement le faire :</p>
+<ul class="simple">
+<li><p>on utilise <code class="docutils literal notranslate"><span class="pre">df.loc[]</span></code> puisqu’on va désigner des index,</p></li>
+<li><p>et on va passer dans les <code class="docutils literal notranslate"><span class="pre">[]</span></code>,  non plus des slices, mais tout simplement des listes (et de plus, vous donnez les index dans l’ordre qui vous intéresse) :</p></li>
+</ul>
+<p>Prenons ainsi par exemple</p>
+<ul class="simple">
+<li><p>les lignes d’index 450, 3, 67, 800 et 678</p></li>
+<li><p>et les colonnes <code class="docutils literal notranslate"><span class="pre">Age</span></code>, <code class="docutils literal notranslate"><span class="pre">Pclass</span></code> et <code class="docutils literal notranslate"><span class="pre">Survived</span></code></p></li>
+</ul>
+<p>Et comme ce sont des index, nous utilisons <code class="docutils literal notranslate"><span class="pre">loc</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># c&#39;est facile de créer une sélection de lignes et de colonnes </span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">450</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">678</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Pclass&#39;</span><span class="p">,</span> <span class="s1">&#39;Survived&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>Pclass</th>
+      <th>Survived</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>450</th>
+      <td>52.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>26.0</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>29.0</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>800</th>
+      <td>30.0</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>678</th>
+      <td>18.0</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="recherche-selon-une-formule-booleenne">
+<h3>recherche selon une formule booléenne<a class="headerlink" href="#recherche-selon-une-formule-booleenne" title="Permalink to this headline">¶</a></h3>
+<p>Nous avons vu dans le notebook précédent que nous pouvions faire des tests sur toutes les valeurs d’une colonne et que cela nous rendait un tableau de booléens.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># cette expression retourne une Series</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># voyons ce qu&#39;elle contient</span>
+<span class="n">mask</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># un masque de booléens sur la colonne des index donc la colonne PassengerId !</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PassengerId
+804     True
+756    False
+645    False
+470     True
+79     False
+Name: Pclass, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>La dernière manière d’accéder à des sous-parties de dataframe, va être d’<strong>indexer</strong> une dataframe par un <strong>masque de booléens</strong> sur la colonne des <code class="docutils literal notranslate"><span class="pre">index</span></code> i.e. on va isoler de la dataframe les lignes où la valeur du booléen est vraie.</p>
+<p>Par exemple, pour extraire de la dataframe les lignes correspondant aux voyageurs en 3-ième classe, on va utiliser <code class="docutils literal notranslate"><span class="pre">mask</span></code> - un objet de type <code class="docutils literal notranslate"><span class="pre">Series</span></code> donc, qui contient des booléens - comme moyen pour indexer la dataframe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># voyez qu&#39;ici dans les crochets on n&#39;a plus </span>
+<span class="c1"># une slice, ni une liste, </span>
+<span class="c1"># mais une colonne (une Series) de booléens</span>
+<span class="c1"># qu&#39;on appelle un masque</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span> <span class="n">mask</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+      <th>Deceased</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>804</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Thomas, Master. Assad Alexander</td>
+      <td>male</td>
+      <td>0.42</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2625</td>
+      <td>8.5167</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>470</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Baclini, Miss. Helene Barbara</td>
+      <td>female</td>
+      <td>0.75</td>
+      <td>2000</td>
+      <td>1000</td>
+      <td>2666</td>
+      <td>19.2583</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>382</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Nakid, Miss. Maria ("Mary")</td>
+      <td>female</td>
+      <td>1.00</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2653</td>
+      <td>15.7417</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>165</th>
+      <td>0</td>
+      <td>3</td>
+      <td>Panula, Master. Eino Viljami</td>
+      <td>male</td>
+      <td>1.00</td>
+      <td>4</td>
+      <td>1</td>
+      <td>3101295</td>
+      <td>39.6875</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>387</th>
+      <td>0</td>
+      <td>3</td>
+      <td>Goodwin, Master. Sidney Leonard</td>
+      <td>male</td>
+      <td>1.00</td>
+      <td>5</td>
+      <td>2</td>
+      <td>CA 2144</td>
+      <td>46.9000</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>860</th>
+      <td>0</td>
+      <td>3</td>
+      <td>Razi, Mr. Raihed</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2629</td>
+      <td>7.2292</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>864</th>
+      <td>0</td>
+      <td>3</td>
+      <td>Sage, Miss. Dorothy Edith "Dolly"</td>
+      <td>female</td>
+      <td>NaN</td>
+      <td>8</td>
+      <td>2</td>
+      <td>CA. 2343</td>
+      <td>69.5500</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>869</th>
+      <td>0</td>
+      <td>3</td>
+      <td>van Melkebeke, Mr. Philemon</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>345777</td>
+      <td>9.5000</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>879</th>
+      <td>0</td>
+      <td>3</td>
+      <td>Laleff, Mr. Kristo</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>349217</td>
+      <td>7.8958</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>889</th>
+      <td>0</td>
+      <td>3</td>
+      <td>Johnston, Miss. Catherine Helen "Carrie"</td>
+      <td>female</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>2</td>
+      <td>W./C. 6607</td>
+      <td>23.4500</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>490 rows × 12 columns</p>
+</div></div></div>
+</div>
+<p>Notez que bien souvent on ne prendra pas la peine de décortiquer comme ça, et on écrira directement</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># en une seule ligne, c&#39;est un peu moins lisible </span>
+<span class="c1"># mais c&#39;est un idiome fréquent</span>
+
+<span class="c1"># je rajoute .head(3) pour abrèger un peu</span>
+
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+      <th>Deceased</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>804</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Thomas, Master. Assad Alexander</td>
+      <td>male</td>
+      <td>0.42</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2625</td>
+      <td>8.5167</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>470</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Baclini, Miss. Helene Barbara</td>
+      <td>female</td>
+      <td>0.75</td>
+      <td>2000</td>
+      <td>1000</td>
+      <td>2666</td>
+      <td>19.2583</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>382</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Nakid, Miss. Maria ("Mary")</td>
+      <td>female</td>
+      <td>1.00</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2653</td>
+      <td>15.7417</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="combinaison-d-expressions-booleennes">
+<h3>combinaison d’expressions booléennes<a class="headerlink" href="#combinaison-d-expressions-booleennes" title="Permalink to this headline">¶</a></h3>
+<p>Un peu plus sophistiqué, nous pouvons mettre <strong>plusieurs conditions</strong>, par exemple des passagers qui ne sont pas en première classe et dont l’age est supérieur à 70 ans.</p>
+<p>Mais comment écrire ces conditions …</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># on pourrait être tenté d&#39;écrire quelque chose comme ceci</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">70</span> <span class="ow">and</span> <span class="ow">not</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ce n&#39;est pas bon, il me dit &#39;</span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ce n&#39;est pas bon, il me dit &#39;The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Est-ce que cela ne vous rappelle pas quelque chose ?<br />
+Nous avons déjà vu le même comportement lorsqu’il s’était agi d’écrire des conditions sur les tableaux <code class="docutils literal notranslate"><span class="pre">numpy</span></code>;
+alors oui parmi les petites choses que l’on peut trouver parfois contre-intuitives avec <code class="docutils literal notranslate"><span class="pre">numpy</span></code> et <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, il y a les expressions logiques sur les tableaux de booléens.</p>
+<p>Vous ne pouvez <strong>pas</strong> utiliser <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> et <code class="docutils literal notranslate"><span class="pre">not</span></code> !</p>
+<ul class="simple">
+<li><p>soit vous utilisez les <code class="docutils literal notranslate"><span class="pre">np.logical_and</span></code>, <code class="docutils literal notranslate"><span class="pre">np.logical_or</span></code> et <code class="docutils literal notranslate"><span class="pre">np.logical_not</span></code> mais ce n’est pas super lisible …</p></li>
+<li><p>soit vous utilisez les <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code> et <code class="docutils literal notranslate"><span class="pre">~</span></code> (les opérateurs logiques qu’on appelle <em>bitwise</em> i.e. qui travaillent bit à bit) et vous parenthésez bien !</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask_age</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))</span> <span class="c1"># une pandas.Series sur les index</span>
+<span class="n">mask_age</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PassengerId
+804    False
+756    False
+645    False
+dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">mask_age</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+      <th>Deceased</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>673</th>
+      <td>0</td>
+      <td>2</td>
+      <td>Mitchell, Mr. Henry Michael</td>
+      <td>male</td>
+      <td>70.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>C.A. 24580</td>
+      <td>10.500</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>117</th>
+      <td>0</td>
+      <td>3</td>
+      <td>Connors, Mr. Patrick</td>
+      <td>male</td>
+      <td>70.5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>370369</td>
+      <td>7.750</td>
+      <td>NaN</td>
+      <td>Q</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>852</th>
+      <td>0</td>
+      <td>3</td>
+      <td>Svensson, Mr. Johan</td>
+      <td>male</td>
+      <td>74.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>347060</td>
+      <td>7.775</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Ou de la manière concise habituellement utilisée:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plus de 70 ans, et pas en première classe</span>
+<span class="c1"># remarquez que ça se bouscule pas dans cette catégorie...</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span> <span class="p">[</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))</span> <span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+      <th>Deceased</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>673</th>
+      <td>0</td>
+      <td>2</td>
+      <td>Mitchell, Mr. Henry Michael</td>
+      <td>male</td>
+      <td>70.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>C.A. 24580</td>
+      <td>10.500</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>117</th>
+      <td>0</td>
+      <td>3</td>
+      <td>Connors, Mr. Patrick</td>
+      <td>male</td>
+      <td>70.5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>370369</td>
+      <td>7.750</td>
+      <td>NaN</td>
+      <td>Q</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>852</th>
+      <td>0</td>
+      <td>3</td>
+      <td>Svensson, Mr. Johan</td>
+      <td>male</td>
+      <td>74.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>347060</td>
+      <td>7.775</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pareil avec les opérateurs numpy</span>
+<span class="c1"># personnellement je préfère la version précédente mais bon</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span> <span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_not</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))</span> <span class="p">]</span> <span class="c1"># bof ...</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+      <th>Deceased</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>673</th>
+      <td>0</td>
+      <td>2</td>
+      <td>Mitchell, Mr. Henry Michael</td>
+      <td>male</td>
+      <td>70.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>C.A. 24580</td>
+      <td>10.500</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>117</th>
+      <td>0</td>
+      <td>3</td>
+      <td>Connors, Mr. Patrick</td>
+      <td>male</td>
+      <td>70.5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>370369</td>
+      <td>7.750</td>
+      <td>NaN</td>
+      <td>Q</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>852</th>
+      <td>0</td>
+      <td>3</td>
+      <td>Svensson, Mr. Johan</td>
+      <td>male</td>
+      <td>74.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>347060</td>
+      <td>7.775</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="resume-des-methodes-d-indexation">
+<h3>résumé des méthodes d’indexation<a class="headerlink" href="#resume-des-methodes-d-indexation" title="Permalink to this headline">¶</a></h3>
+<p>Pour résumer cette partie, nous avons vu trois méthodes d’indexation utilisables avec <code class="docutils literal notranslate"><span class="pre">loc</span></code> :</p>
+<ul class="simple">
+<li><p>on peut utiliser une slice, et parce qu’on manipule des index et pas des indices dans ce cas <strong>les bornes sont inclusives</strong> (on va voir tout de suite qu’avec les indices par contre les bornes sont les bornes habituelles, avec la fin exclue)</p></li>
+<li><p>on peut utiliser une liste explicite, pour choisir exactement et dans le bon ordre les index qui nous intéressent</p></li>
+<li><p>on peut utiliser un masque, c’est-à-dire une colonne obtenue en appliquant une expression booléenne à la dataframe de départ - cette méthode s’applique sans doute plus volontiers à la sélection de lignes</p></li>
+</ul>
+<p>Remarquez d’ailleurs, pour les geeks, que si on veut on peut même mélanger ces trois méthodes d’indexation; c’est-à-dire par exemple utiliser une liste pour les lignes et une slice pour les colonnes :</p>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># on peut indexer par exemple</span>
+<span class="c1"># les lignes avec une liste</span>
+<span class="c1"># les colonnes avec une slice</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="c1"># dans la dimension des lignes: une liste</span>
+    <span class="p">[</span><span class="mi">450</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">678</span><span class="p">],</span> 
+    <span class="c1"># dans la dimension des colonnes: une slice</span>
+    <span class="s1">&#39;Sex&#39;</span><span class="p">:</span><span class="s1">&#39;Cabin&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sex</th>
+      <th>SibSp</th>
+      <th>Ticket</th>
+      <th>Cabin</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>450</th>
+      <td>male</td>
+      <td>0</td>
+      <td>113786</td>
+      <td>C104</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>female</td>
+      <td>0</td>
+      <td>STON/O2. 3101282</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>female</td>
+      <td>0</td>
+      <td>C.A. 29395</td>
+      <td>F33</td>
+    </tr>
+    <tr>
+      <th>800</th>
+      <td>female</td>
+      <td>1</td>
+      <td>345773</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>678</th>
+      <td>female</td>
+      <td>0</td>
+      <td>4138</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="travailler-avec-les-indices-bornes-habituelles">
+<h2>travailler avec les indices : <strong>bornes habituelles</strong><a class="headerlink" href="#travailler-avec-les-indices-bornes-habituelles" title="Permalink to this headline">¶</a></h2>
+<p>Dans les - rares - cas où on veut travailler avec les indices plutôt qu’avec les index, tout fonctionne presque exactement pareil qu’avec les index, sauf que</p>
+<ul class="simple">
+<li><p>on doit utiliser <code class="docutils literal notranslate"><span class="pre">iloc</span></code> au lieu de <code class="docutils literal notranslate"><span class="pre">loc</span></code>, bien entendu</p></li>
+<li><p>qui supportent les mêmes mécanismes de <em>slicing</em> et d’indexation que l’on vient de voir,</p></li>
+<li><p>et dans ce cas comme on est dans l’espace des indices, <strong>les bornes des slices</strong> se comportent comme les <strong>bornes habituelles (début inclus, fin exclue)</strong></p></li>
+</ul>
+<p>Je vous invite à vérifier ce point par vous même, en remettant à leur valeur originelle la portion de la dataframe que l’on avait un peu arbitrairement multipliée par 1000 tout à l’heure, tout ça en utilisant <code class="docutils literal notranslate"><span class="pre">iloc</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># je vous rappelle où on en est</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+      <th>Deceased</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>804</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Thomas, Master. Assad Alexander</td>
+      <td>male</td>
+      <td>0.42</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2625</td>
+      <td>8.5167</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>756</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Hamalainen, Master. Viljo</td>
+      <td>male</td>
+      <td>0.67</td>
+      <td>1000</td>
+      <td>1000</td>
+      <td>250649</td>
+      <td>14.5000</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>645</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Baclini, Miss. Eugenie</td>
+      <td>female</td>
+      <td>0.75</td>
+      <td>2000</td>
+      <td>1000</td>
+      <td>2666</td>
+      <td>19.2583</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>470</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Baclini, Miss. Helene Barbara</td>
+      <td>female</td>
+      <td>0.75</td>
+      <td>2000</td>
+      <td>1000</td>
+      <td>2666</td>
+      <td>19.2583</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Caldwell, Master. Alden Gates</td>
+      <td>male</td>
+      <td>0.83</td>
+      <td>0</td>
+      <td>2</td>
+      <td>248738</td>
+      <td>29.0000</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre mission si vous l&#39;acceptez</span>
+<span class="c1"># rediviser par 1000 les 6 cases, mais à bases d&#39;indices cette fois-ci</span>
+<span class="c1"># donc en utilisant iloc</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ellipsis
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="probleme-de-modification-de-copies-pour-les-avances">
+<h2>problème de modification de copies (pour les avancés)<a class="headerlink" href="#probleme-de-modification-de-copies-pour-les-avances" title="Permalink to this headline">¶</a></h2>
+<p>En première lecture de ce notebook, cette section ne sera compréhensible que par des élèves avancés, les autres pourront y revenir plus tard.</p>
+<p>On va voir rapidement le problème de <em>tentative</em> de modification d’une copie d’une dataframe.</p>
+<div class="section" id="modification-par-chainage-d-indexations">
+<h3>modification par chaînage d’indexations<a class="headerlink" href="#modification-par-chainage-d-indexations" title="Permalink to this headline">¶</a></h3>
+<p>Supposez qu’on accède à une colonne, par exemple celle de la survie qui s’appelle <code class="docutils literal notranslate"><span class="pre">Survived</span></code>, en utilisant la syntaxe classique d’accès à une clé d’un dictionnaire.</p>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PassengerId
+804    1
+756    1
+645    1
+470    1
+79     1
+      ..
+860    0
+864    0
+869    0
+879    0
+889    0
+Name: Survived, Length: 891, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>On obtient une seule colonne, elle est de type <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code>, on le savait déjà.</p>
+<p>Maintenant que j’ai une colonne, rien ne m’empêche d’accéder à un élément de la colonne, avec la simple notation d’accès à un élément d’un tableau comme dans Python, prenons l’élément d’index 1.</p>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># so far, so good</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Maintenant LA question. Je viens d’accéder à un élément de la colonne <code class="docutils literal notranslate"><span class="pre">Survived</span></code>, puis-je utiliser cette manière d’accéder pour modifier l’élément ?</p>
+<p>Dit autrement, puis-je ressusciter le pauvre passager d’index 1 en faisant passer son état de survie à 1 par l’affectation <code class="docutils literal notranslate"><span class="pre">df['Survived'][1]</span> <span class="pre">=</span> <span class="pre">1</span></code></p>
+<p>La réponse est non ! Pourquoi ? parce que <code class="docutils literal notranslate"><span class="pre">df['Survived'][1]</span></code> est une copie ! pas une référence vers une partie de la dataframe <code class="docutils literal notranslate"><span class="pre">df</span></code> !</p>
+<p>On appelle cela une <em>indexation par chaînage</em> (on chaîne <code class="docutils literal notranslate"><span class="pre">['Survived']</span></code>et <code class="docutils literal notranslate"><span class="pre">[1]</span></code>) et bien: <em>toutes les indexations par chaînage  sont des copies</em> et ne peuvent pas donner lieu à des modifications …</p>
+<p>Vous avez l’obligation d’utiliser <code class="docutils literal notranslate"><span class="pre">loc</span></code> ou <code class="docutils literal notranslate"><span class="pre">iloc</span></code> !</p>
+<p>Pour les avancés ce <em>problème</em> s’appelle le <em>chained indexing</em> et pour plus d’explications regardez là https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy (quand vous en aurez le temps …)</p>
+</div>
+<div class="section" id="indexation-par-une-liste-et-modification">
+<h3>indexation par une liste et modification<a class="headerlink" href="#indexation-par-une-liste-et-modification" title="Permalink to this headline">¶</a></h3>
+<p>On va indexer une dataframe par une liste d’index de colonnes sans utiliser <code class="docutils literal notranslate"><span class="pre">loc</span></code> ni <code class="docutils literal notranslate"><span class="pre">iloc</span></code>. Dans cet exemple on isole les trois colonnes <code class="docutils literal notranslate"><span class="pre">Survived</span></code>, <code class="docutils literal notranslate"><span class="pre">Pclass</span></code> et <code class="docutils literal notranslate"><span class="pre">Sex</span></code></p>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span> <span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">,</span> <span class="s1">&#39;Pclass&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">]</span> <span class="p">]</span>
+<span class="n">df1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Sex</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>804</th>
+      <td>1</td>
+      <td>3</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>756</th>
+      <td>1</td>
+      <td>2</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>645</th>
+      <td>1</td>
+      <td>2</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>470</th>
+      <td>1</td>
+      <td>3</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>1</td>
+      <td>2</td>
+      <td>male</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>On obtient une dataframe que nous appelons <code class="docutils literal notranslate"><span class="pre">df1</span></code>. Donc vous vous rappelez que nous avons deux possibilité pour la sous-partie d’une dataframe, obtenue par découpage de la dataframe d’origine:</p>
+<ul class="simple">
+<li><p>c’est une copie de la dataframe (vous ne devez pas la modifier)</p></li>
+<li><p>c’est une référence sur la dataframe (vous pouvez la modifier).</p></li>
+</ul>
+<p>LA question est donc de savoir si <code class="docutils literal notranslate"><span class="pre">df1</span></code> est une copie ou une référence sur votre dataframe ?</p>
+<p>C’est une copie donc vous ne devez pas tenter de la modifier mais on va le faire.</p>
+<p>On tente de ressusciter notre pauvre passager d’index 1 en utilisant <code class="docutils literal notranslate"><span class="pre">loc</span></code> sur la sous-dataframe <code class="docutils literal notranslate"><span class="pre">df1</span></code> (on a oublié que <code class="docutils literal notranslate"><span class="pre">df1</span></code> était une copie).</p>
+<p>On regarde ce que vaut l’élément qu’on veut modifier:</p>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Survived&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p>ok 0. On tente de le modifier:</p>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Survived&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages/pandas/core/indexing.py:1817: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  self._setitem_single_column(loc, value, pi)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Je recois un warning de <code class="docutils literal notranslate"><span class="pre">pandas</span></code> me disant que j’ai potentiellement un problème. Comme il n’est pas sûr que pour moi ca en soit un, il me donne un simple avertissement et non une erreur.</p>
+<p>En fait, là il m’indique que: si je pensais modifier <code class="docutils literal notranslate"><span class="pre">df</span></code> en passant par <code class="docutils literal notranslate"><span class="pre">df1</span></code> alors je me trompe puisque <code class="docutils literal notranslate"><span class="pre">df1</span></code> est une copie de ma dataframe <code class="docutils literal notranslate"><span class="pre">df</span></code>, donc <code class="docutils literal notranslate"><span class="pre">df</span></code> ne sera pas modifié.</p>
+<p>Il se peut que ce soit ce que vous voulez (que <code class="docutils literal notranslate"><span class="pre">df1</span></code> soit une copie) ! mais alors pourquoi ne l’avez vous pas clairement indiqué en faisant une copie explicite !</p>
+<p>Si mon idée était bien de ne modifier que <code class="docutils literal notranslate"><span class="pre">df1</span></code> parce que je veux une copie de <code class="docutils literal notranslate"><span class="pre">df</span></code>: alors je le code <strong>proprement</strong>:</p>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span> <span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">,</span> <span class="s1">&#39;Pclass&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">]</span> <span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Sex</th>
+    </tr>
+    <tr>
+      <th>PassengerId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>804</th>
+      <td>1</td>
+      <td>3</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>756</th>
+      <td>1</td>
+      <td>2</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>645</th>
+      <td>1</td>
+      <td>2</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>470</th>
+      <td>1</td>
+      <td>3</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>1</td>
+      <td>2</td>
+      <td>male</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell tag_level_intermediate docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Survived&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ah voilà qui est mieux !</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="3-01-pandas-intro.html" title="previous page">UE12 - pandas et matplotlib</a>
+    <a class='right-next' id="next-link" href="3-04-pandas-sorting.html" title="next page">trier une dataframe</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thierry Parmentelat<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

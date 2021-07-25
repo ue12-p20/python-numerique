@@ -1,0 +1,2500 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>outils de base &#8212; Python numérique</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="UE12 - Python : généralités" href="1-01-environnement.html" />
+    <link rel="prev" title="UE 12 - Introduction" href="0-01-intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Python numérique</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-01-intro.html">
+   UE 12 - Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  intro et installation
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   outils de base
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-01-environnement.html">
+   UE12 - Python : généralités
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-02-rudiments.html">
+   rudiments de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-03-operateurs.html">
+   opérateurs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-04-fonctions.html">
+   fonctions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-05-types-methodes.html">
+   objets, types et méthodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-06-containers.html">
+   types évolués
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-07-references-partagees.html">
+   références partagées
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-08-iterations.html">
+   itérations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-09-modules.html">
+   modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-10-classes.html">
+   classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-01-numpy-intro.html">
+   UE12 - numpy : introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-02-numpy-type-memory.html">
+   numpy et la mémoire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-03-numpy-vectorization.html">
+   la vectorisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-04-numpy-indexing-slicing.html">
+   indexation et slicing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-05-numpy-broadcast.html">
+   broadcasting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-06-numpy-aggregate.html">
+   agrégation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-07-numpy-array-testing.html">
+   masques et tableaux booléens
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-08-numpy-linalg.html">
+   algèbre linéaire
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-01-pandas-intro.html">
+   UE12 - pandas et matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-02-pandas-modifying-slicing.html">
+   modifications et
+   <em>
+    slicing
+   </em>
+   de dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-04-pandas-sorting.html">
+   trier une dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-05-pandas-group-by.html">
+   regroupement de données
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas.DataFrame.groupby
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-01-matplotlib-intro.html">
+   dataviz avec
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-03-matplotlib-figure-and-sub-figures.html">
+   figures et sous-figures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-04-matplotlib-pandas-dataframe.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+   &amp;
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-05-matplotlib-plots-3D.html">
+   des graphiques en 3D
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/0-02-outils.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/0-02-outils.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/boisgera/python-numerique"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/boisgera/python-numerique/issues/new?title=Issue%20on%20page%20%2F0-02-outils.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/boisgera/python-numerique/edit/master/notebooks/0-02-outils.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/boisgera/python-numerique/master?urlpath=tree/notebooks/0-02-outils.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#editeur-de-code">
+   éditeur de code
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installation-editeur-de-code">
+     installation éditeur de code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#micro-demo-vs-code">
+     micro-démo vs-code
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#markdown">
+   markdown
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#micro-demo-sous-vs-code">
+     micro-démo sous vs-code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mathjax">
+     mathjax
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#inline">
+       <em>
+        inline
+       </em>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#paragraphe-separe">
+       paragraphe séparé
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#les-mots-du-jargon-latex">
+       les mots du jargon $\LaTeX$
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python">
+   Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installation-de-base">
+     installation de base
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preparation-creation-d-un-dossier-c-miniconda">
+     préparation : création d’un dossier
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       c:\miniconda
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installation-de-miniconda">
+     installation de miniconda
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#premiere-utilisation-verification">
+     première utilisation / vérification
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#verifier-que-python-est-bien-installe">
+       vérifier que Python est bien installé
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#lancer-python-en-mode-interactif">
+       lancer python en mode interactif
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#creer-et-lancer-un-premier-script">
+       créer et lancer un premier script
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#afficher-le-numero-de-version-de-python">
+       afficher le numéro de version de Python
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installation-de-ipython-avec-pip">
+     installation de IPython avec
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       pip
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#installer-d-autres-librairies-avec-pip-install">
+       installer d’autres librairies avec
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         pip
+        </span>
+        <span class="pre">
+         install
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#micro-demo-ipython">
+     micro-démo
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ipython
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installation-de-numpy-pandas-matplotlib">
+     installation de numpy / pandas / matplotlib
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#verification">
+       vérification
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#la-completion">
+     la complétion
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rtfem">
+     <em>
+      RTFEM
+     </em>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#git">
+   git
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#survol">
+     survol
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-quoi-ca-sert-quand-on-travaille-seul">
+     à quoi ça sert - quand on travaille seul
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-quoi-ca-sert-en-equipe">
+     à quoi ça sert - en équipe
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#les-notions-de-base">
+     les notions de base
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#alice-et-bob">
+     alice et bob
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compte-sous-github">
+     compte sous github
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installation">
+     installation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#digression-url">
+     digression : URL
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#les-urls-sur-github">
+       les URLs sur
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         github
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cloner-le-depot-du-cours">
+     cloner le dépôt du cours
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#suivre-les-evolutions">
+     suivre les évolutions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notebooks-jupyter">
+   notebooks Jupyter
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     installation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       vérification
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#utilisation-de-base">
+     utilisation de base
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#le-processus-serveur">
+     le processus serveur
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#micro-demo-jupyter-classic">
+     micro-démo Jupyter classic
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lire-le-cours-localement-sur-votre-portable">
+   lire le cours localement (sur votre portable)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prerequis">
+     prérequis
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#indispensable">
+       indispensable
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#utile-pour-ce-notebook">
+       utile pour ce notebook
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#epilogue">
+     épilogue
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jupyter-lab">
+     jupyter lab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-et-vs-code">
+   Python et vs-code
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pylint">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       pylint
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#l-interpreteur-python">
+     l’interpréteur Python
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#voir-les-erreurs">
+     voir les erreurs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extensions-jupyter">
+   extensions Jupyter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiples-environnements-python">
+   multiples environnements Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#miniconda">
+     miniconda
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemple-de-session">
+     exemple de session
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#la-liste-de-mes-environnements">
+       la liste de mes environnements
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#j-en-cree-un-nouveau-avec-python-3-8">
+       j’en crée un nouveau avec Python-3.8
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#on-le-voit">
+       on le voit
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#pour-entrer-dans-le-nouvel-environnement">
+         pour entrer dans le nouvel environnement
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#les-packages-installes">
+       les packages installés
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#on-y-installe-ce-qu-on-veut">
+       on y installe ce qu’on veut
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#la-version-de-python">
+       la version de python
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sortir">
+       sortir
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       la version de python
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#on-n-a-pas-perturbe-l-environnement-de-depart">
+       on n’a pas perturbé l’environnement de départ
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pour-detruire-l-environnement-en-question">
+       pour détruire l’environnement en question
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#retour-dans-vs-code">
+     retour dans vs-code
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="licence">
+<span>Licence CC BY-NC-ND</span>
+<div style="display:grid">
+    <span>Thierry Parmentelat</span>
+    <span>Valérie Roy</span>
+</div>
+</div>
+<p><span><img alt="_images/inria-25-alpha.png" src="_images/inria-25-alpha.png" /></span>
+<span><img alt="_images/ensmp-25-alpha.png" src="_images/ensmp-25-alpha.png" /></span></p>
+<div class="section" id="outils-de-base">
+<h1>outils de base<a class="headerlink" href="#outils-de-base" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="editeur-de-code">
+<h2>éditeur de code<a class="headerlink" href="#editeur-de-code" title="Permalink to this headline">¶</a></h2>
+<p>pour pouvoir facilement modifier le contenu de nos fichiers texte, comme tout à l’heure le
+fichier <code class="docutils literal notranslate"><span class="pre">foo.txt</span></code>, on va utiliser un programme qui s’appelle un <strong>éditeur de code</strong></p>
+<p>en effet, il ne faut <strong>pas utiliser un outil comme Word</strong> pour éditer des programmes:
+c’est un éditeur de texte pas un éditeur de code !</p>
+<blockquote>
+<div><p>l’enseignant lance Visual Studio Code et le montre très très rapidement</p>
+</div></blockquote>
+<div class="section" id="installation-editeur-de-code">
+<h3>installation éditeur de code<a class="headerlink" href="#installation-editeur-de-code" title="Permalink to this headline">¶</a></h3>
+<p>forts de notre expérience de l’année dernière, cette année 2020-2021, nous demandons à
+<strong>tous</strong> les élèves d’installer et de savoir utiliser vs-code</p>
+<p>et <strong>ATTENTION</strong> il y a eu <strong>beaucoup de problèmes</strong> l’an passé avec les éditeurs de type
+<em>pyzo</em>, ne les utilisez surtout pas dans nos cours, vous allez perdre un temps précieux et
+en faire perdre à vos enseignants pour des raisons inintéressantes et extérieures à Python</p>
+<p>On y va. Le site est là <a class="reference external" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a>. Vous voulez installer donc il va
+falloir que vous alliez dans une section <em>download</em> … vous la voyez ? à vous de jouer
+maintenant, l’enseignant va montrer les étapes pour les élèves sous Windows. Lisez bien
+les messages et posez nous vos questions.</p>
+<p><strong>conseil</strong></p>
+<p>en cochant ces cases lors de l’installation, vous pourrez lancer vs-code avec un clic
+droit depuis un dossier ou un fichier</p>
+<p><img alt="" src="_images/fig-explorer-vs-code.png" /></p>
+</div>
+<div class="section" id="micro-demo-vs-code">
+<h3>micro-démo vs-code<a class="headerlink" href="#micro-demo-vs-code" title="Permalink to this headline">¶</a></h3>
+<p>Que vous ayez réussi à installer visual studio code sur votre portable ou pas encore,
+suivez maintenant ce que montre l’enseignant.</p>
+<p>Si vous avez rencontré des problèmes imprévus lors de l’installation (ce qui n’est pas
+rare en informatique), venez nous voir plus tard pour que nous vous aidions et postez vos
+problèmes/questions sur <em>discourse</em> pour qu’on y regroupe les réponses aux mêmes
+problèmes.</p>
+<blockquote>
+<div><p>micro démo de Visual Code sur le fichier <code class="docutils literal notranslate"><span class="pre">foo.txt</span></code></p>
+</div></blockquote>
+<ul>
+<li><p>depuis le terminal, aller dans le bon répertoire et lancer</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">code</span> <span class="o">.</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>manipulations simples</p>
+<ul>
+<li><p>afficher/cacher l’explorateur de fichiers</p></li>
+<li><p>modifier <code class="docutils literal notranslate"><span class="pre">foo.txt</span></code>, sauver la version modifiée</p></li>
+<li><p>créer un nouveau fichier <code class="docutils literal notranslate"><span class="pre">bar.txt</span></code>, le sauver</p></li>
+<li><p>observer le contenu des fichiers depuis le terminal avec <code class="docutils literal notranslate"><span class="pre">cat</span></code></p></li>
+<li><p>montrer comment se manifeste la fin de ligne</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>montrer des manipulations élémentaires de fenêtres</p>
+<ul>
+<li><p>afficher les deux fichiers côte à côte</p></li>
+<li><p>puis l’un au dessus de l’autre</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>montrer comment :</p>
+<ul>
+<li><p>chercher une extension  (prétexte : l’extension Python)</p></li>
+<li><p>installer/désinstaller</p></li>
+<li><p>activer/désactiver une nouvelle extension</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>montrer comment :</p>
+<ul>
+<li><p>passer d’une application à une autre avec <code class="docutils literal notranslate"><span class="pre">⌥</span> <span class="pre">⇥</span></code> (Alt-Tab)</p></li>
+<li><p>typiquement pour basculer entre vscode et terminal</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>de retour dans vs-code, montrer la palette :</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">⇧</span> <span class="pre">⌘</span> <span class="pre">P</span></code> Shift-Command-P (mac)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">⇧</span> <span class="pre">⌃</span> <span class="pre">P</span></code> Shift-Control-P (windows)</p></li>
+</ul>
+</li>
+<li><p>sur Windows, pour choisir ‘bash’ comme terminal</p>
+<ul>
+<li><p>utiliser la palette et taper</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Select</span> <span class="pre">Default</span> <span class="pre">Shell</span></code></p></li>
+</ul>
+</li>
+<li><p>montrer comment lancer le terminal</p>
+<ul>
+<li><p>Control ` - la deuxième fois on le ferme</p></li>
+</ul>
+</li>
+</ul>
+<p>voir aussi<br />
+https://code.visualstudio.com/docs/getstarted/userinterface</p>
+<p>exercice :</p>
+<ul class="simple">
+<li><p>refaire les manipulations vous-mêmes une fois l’installation de l’éditeur de code
+terminée.</p></li>
+</ul>
+<p>il est recommandé, avec vs-code, de prendre l’habitude d’ouvrir un <strong>répertoire</strong> plutôt
+qu’un fichier</p>
+<p>si vous ouvrez un fichier (par exemple par un clic droit sur le fichier dans l’explorateur
+de fichiers), vs-code va vous ouvrir le fichier dans une fenêtre déjà ouverte - souvent ça
+va arriver comme un cheveu sur la soupe, dans un autre répertoire; si votre objectif c’est
+d’ouvrir une nouvelle fenêtre, préfèrez ouvrir le dossier (toujours avec le clic droit,
+mais sur le dossier lui-même et non le fichier)</p>
+</div>
+</div>
+<div class="section" id="markdown">
+<h2>markdown<a class="headerlink" href="#markdown" title="Permalink to this headline">¶</a></h2>
+<p>c’est un format simple, léger et bien pensé pour mettre en forme facilement vos textes, il
+est devenu le couteau suisse pour écrire des documents</p>
+<ul class="simple">
+<li><p>avec un minimum de présentation</p>
+<ul>
+<li><p>sections</p></li>
+<li><p>listes</p></li>
+<li><p>gras, italique, code</p></li>
+<li><p>liens</p></li>
+<li><p>maths</p></li>
+</ul>
+</li>
+<li><p>toujours dans un <strong>fichier texte</strong> (à nouveau, ≠ Word)</p></li>
+</ul>
+<p>format <strong>très populaire</strong> en ce moment, supporté e.g. :</p>
+<ul class="simple">
+<li><p>dans les notebooks, justement,</p></li>
+<li><p>dans discourse</p></li>
+<li><p>dans github</p></li>
+<li><p>sur whatsapp (en partie), …</p></li>
+</ul>
+<p>et plus généralement dans tous les sites web de forums/blogs, où on peut entrer du texte
+directement depuis le navigateur</p>
+<div class="section" id="micro-demo-sous-vs-code">
+<h3>micro-démo sous vs-code<a class="headerlink" href="#micro-demo-sous-vs-code" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>sous vs-code</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>créer un fichier <code class="docutils literal notranslate"><span class="pre">foo.md</span></code></p></li>
+<li><p>remarquer la petite icône <img alt="" src="_images/fig-vscode-markdown.png" /></p>
+<ul>
+<li><p>afficher côte à côte le markdown brut et rendu</p></li>
+</ul>
+</li>
+<li><p>rapide survol</p>
+<ul>
+<li><p>sections</p></li>
+<li><p>listes avec et sans numérotation</p></li>
+<li><p>gras, italique</p></li>
+</ul>
+</li>
+<li><p>insister sur les plusieurs façons de mettre du code,</p>
+<ul>
+<li><p>soit <code class="docutils literal notranslate"><span class="pre">inline</span></code> sans saut de ligne, ou alors</p></li>
+<li><p>avec des “triple ticks” <code>```</code></p></li>
+<li><p>avec 4 espaces de marge</p></li>
+</ul>
+</li>
+<li><p>images et liens</p>
+<ul>
+<li><p>montrer le code markdown de cette cellule notebook</p></li>
+</ul>
+</li>
+</ul>
+<p>cheatsheet <a class="reference external" href="https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf">https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf</a></p>
+</div>
+<div class="section" id="mathjax">
+<h3>mathjax<a class="headerlink" href="#mathjax" title="Permalink to this headline">¶</a></h3>
+<p>on peut aussi écrire des maths en markdown<br />
+ça se fait en utilisant le langage $\LaTeX$<br />
+c’est un peu abscons au début mais on s’y habitue vite<br />
+parce que c’est vraiment très joli</p>
+<hr class="docutils" />
+<p>$$
+\forall \epsilon \in \mathbb{R}^+, \exists\alpha\in\mathbb{R}^+,
+\forall x, |x-x_0| &lt; \alpha\implies |f(x)-f(x_0)| &lt; \epsilon
+$$</p>
+<hr class="docutils" />
+<p>$$
+\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}
+$$</p>
+<div class="section" id="inline">
+<h4><em>inline</em><a class="headerlink" href="#inline" title="Permalink to this headline">¶</a></h4>
+<p>à la base markdown utilise pour ça le signe <code class="docutils literal notranslate"><span class="pre">$</span></code></p>
+<p>si vous voulez mettre des maths dans un paragraphe (on dit <em>inline</em>), vous utilisez un
+seul <code class="docutils literal notranslate"><span class="pre">$</span></code> au début et à la fin de l’équation; c-a-d si vous écrivez</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span>voici une petite équation <span class="s">$</span><span class="nb">y </span><span class="o">=</span><span class="nb"> x^</span><span class="m">2</span><span class="nb"> </span><span class="o">+</span><span class="m">2</span><span class="nb">x </span><span class="o">+</span><span class="m">1</span><span class="s">$</span> au milieu de la ligne
+</pre></div>
+</div>
+<p>vous obtenez</p>
+<p>voici une petite équation $y = x^2 +2x +1$ au milieu de la ligne</p>
+</div>
+<div class="section" id="paragraphe-separe">
+<h4>paragraphe séparé<a class="headerlink" href="#paragraphe-separe" title="Permalink to this headline">¶</a></h4>
+<p>pour mettre une équation dans un paragraphe séparé on double le dollar de début et de fin</p>
+<p>du coup</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="sb">$$</span><span class="nb"></span>
+<span class="nv">\forall</span><span class="nb"> x </span><span class="nv">\in</span><span class="nb"> </span><span class="nv">\mathbb</span><span class="nb">{R}, </span><span class="nv">\forall</span><span class="nb"> </span><span class="nv">\epsilon</span><span class="nb"> </span><span class="nv">\in</span><span class="nb"> </span><span class="nv">\mathbb</span><span class="nb">{R}^</span><span class="o">+</span><span class="nb">, </span><span class="nv">\exists\alpha\in\mathbb</span><span class="nb">{R}^</span><span class="o">+</span><span class="nb"> </span><span class="nv">\\</span><span class="nb"></span>
+<span class="nb"> |x&#39;</span><span class="o">-</span><span class="nb">x| &lt; </span><span class="nv">\alpha\implies</span><span class="nb"> |f</span><span class="o">(</span><span class="nb">x&#39;</span><span class="o">)-</span><span class="nb">f</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb">| &lt; </span><span class="nv">\epsilon</span><span class="nb"></span>
+<span class="s">$$</span>
+</pre></div>
+</div>
+<p>se présentera comme ceci :</p>
+<p>$$
+\forall x \in \mathbb{R}, \forall \epsilon \in \mathbb{R}^+, \exists\alpha\in\mathbb{R}^+ \
+|x’-x| &lt; \alpha\implies |f(x’)-f(x)| &lt; \epsilon
+$$</p>
+<p>au passage, vous remarquez que les commandes $\LaTeX$  commencent par <code class="docutils literal notranslate"><span class="pre">\</span></code></p>
+</div>
+<div class="section" id="les-mots-du-jargon-latex">
+<h4>les mots du jargon $\LaTeX$<a class="headerlink" href="#les-mots-du-jargon-latex" title="Permalink to this headline">¶</a></h4>
+<p>ça dépasse complètement notre périmètre que d’essayer de faire le tour de $\LaTeX$; je
+préfère commencer par quelques exemples qui devraient vous permettre de démarrer</p>
+<p>$$
+\forall x\in \mathbb{R},
+; \exists y \leq \epsilon
+$$</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>\<span class="n">forall</span> <span class="n">x</span> \<span class="ow">in</span> \<span class="n">mathbb</span><span class="p">{</span><span class="n">R</span><span class="p">},</span>
+\<span class="p">;</span> \<span class="n">exists</span> <span class="n">y</span> \<span class="n">leq</span> \<span class="n">epsilon</span>
+</pre></div>
+</div>
+<p>$$x_1=\frac{-b+\sqrt{b^2-4ac}}{2a}$$</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x_1</span><span class="o">=</span>\<span class="n">frac</span><span class="p">{</span><span class="o">-</span><span class="n">b</span><span class="o">+</span>\<span class="n">sqrt</span><span class="p">{</span><span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="o">-</span><span class="mi">4</span><span class="n">ac</span><span class="p">}}{</span><span class="mi">2</span><span class="n">a</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>$$
+A_{m,n} =
+\begin{pmatrix}
+a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \
+a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \
+\vdots  &amp; \vdots  &amp; \ddots &amp; \vdots  \
+a_{m,1} &amp; a_{m,2} &amp; \cdots &amp; a_{m,n}
+\end{pmatrix}
+$$</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$$
+A_{m,n} =
+ \begin{pmatrix}
+  a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,n} \\
+  a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,n} \\
+  \vdots  &amp; \vdots  &amp; \ddots &amp; \vdots  \\
+  a_{m,1} &amp; a_{m,2} &amp; \cdots &amp; a_{m,n}
+ \end{pmatrix}
+$$
+</pre></div>
+</div>
+<p>$$
+\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}
+$$</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>\<span class="n">sum_</span><span class="p">{</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">}</span><span class="o">^</span><span class="n">n</span> <span class="n">i</span><span class="o">^</span><span class="mi">2</span> <span class="o">=</span> \<span class="n">frac</span><span class="p">{(</span><span class="n">n</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">n</span><span class="p">)(</span><span class="mi">2</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)}{</span><span class="mi">6</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>ceux qui veulent creuser peuvent</p>
+<ul class="simple">
+<li><p>s’exercer avec un outil en ligne <a class="reference external" href="https://www.codecogs.com/latex/eqneditor.php">https://www.codecogs.com/latex/eqneditor.php</a></p></li>
+<li><p>commencer par cet article 
+<a class="reference external" href="https://www.physicsoverflow.org/15329/mathjax-basic-tutorial-and-quick-reference">https://www.physicsoverflow.org/15329/mathjax-basic-tutorial-and-quick-reference</a></p></li>
+<li><p>approfondir avec celui-ci <a class="reference external" href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">https://en.wikibooks.org/wiki/LaTeX/Mathematics</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="python">
+<h2>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installation-de-base">
+<h3>installation de base<a class="headerlink" href="#installation-de-base" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>il y a de très nombreuses distributions disponibles</p></li>
+<li><p>notre recommandation : miniconda</p>
+<ul>
+<li><p>relativement léger</p></li>
+<li><p>permet d’installer en mode “user” i.e. sans droits administrateur</p></li>
+</ul>
+</li>
+<li><p>(ça va sans le dire mais ne prenez <strong>surtout pas Python 2.7</strong> !)</p></li>
+</ul>
+<p>nous allons</p>
+<ul class="simple">
+<li><p>faire une démonstration de l’installation miniconda sur Windows à partir de
+<a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a> (les linux et les macos le font pour
+leur OS + architectures)</p></li>
+<li><p>puis écrire un ou deux programmes Python très simples</p></li>
+<li><p>et les exécuter dans un terminal</p></li>
+</ul>
+</div>
+<div class="section" id="preparation-creation-d-un-dossier-c-miniconda">
+<h3>préparation : création d’un dossier <code class="docutils literal notranslate"><span class="pre">c:\miniconda</span></code><a class="headerlink" href="#preparation-creation-d-un-dossier-c-miniconda" title="Permalink to this headline">¶</a></h3>
+<p>nous allons pour commencer créer un dossier dont le nom est court et simple,
+et <strong>qui ne contient pas d’accent</strong> (c’est très important que le chemin complet pour
+accéder au dossier où on installe miniconda ne comporte pas d’accents.)</p>
+<p>pour cela nous allons lancer la console Windows qui s’appelle <code class="docutils literal notranslate"><span class="pre">PowerShell</span></code>, et créer le
+dossier <code class="docutils literal notranslate"><span class="pre">c:/miniconda</span></code></p>
+<p>en deux étapes, ça se présente comme ceci :</p>
+<p>(1) pour lancer la console <code class="docutils literal notranslate"><span class="pre">PowerShell</span></code></p>
+<p><img alt="" src="_images/fig-miniconda-powershell-locate.png" /></p>
+<p>(2) on va créer maintenant le dossier dans lequel on installera ensuite miniconda,
+et pour cela il y a une seule ligne à taper</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">md c:/miniconda</span>
+</pre></div>
+</div>
+<p><img alt="" src="_images/fig-miniconda-powershell-md.png" /></p>
+<p>une fois la commande tapée vous pouvez sortir de PowerShell (utiliser la croix en haut à
+droite par exemple)</p>
+</div>
+<div class="section" id="installation-de-miniconda">
+<h3>installation de miniconda<a class="headerlink" href="#installation-de-miniconda" title="Permalink to this headline">¶</a></h3>
+<p>à ce stade on peut lancer l’installation de miniconda</p>
+<p><img alt="" src="_images/fig-miniconda-download.png" /></p>
+<p>vous lancez le <code class="docutils literal notranslate"><span class="pre">.exe</span></code>, vous prenez toutes les options par défaut lorsqu’on vous pose une
+question, <strong>sauf pour les deux écrans qui suivent</strong></p>
+<p>(1) sur cet écran vous remplacez le chemin qu’on vous propose par défaut, et vous
+choisissez à la place le dossier qu’on a créé dans l’étape précédente, c’est-à-dire
+<code class="docutils literal notranslate"><span class="pre">c:\miniconda</span></code></p>
+<p><img alt="" src="_images/fig-miniconda-set-install-dir.png" /></p>
+<p>(2) il est important de bien cocher la case en rouge; l’autre est recommandée également</p>
+<p><img alt="" src="_images/fig-miniconda-install.png" /></p>
+<div style="background-color:#cccccc; border-radius: 6px; margin:12px; padding: 12px;">
+<p>en théorie c’est tout ce qu’il y a à faire pour installer conda</p>
+<p>toutefois certains élèves nous ont signalé un souci, aussi on vous recommande de lancer à
+ce stade dans un terminal</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">init</span> <span class="pre">bash</span></code></p>
+</div></div>
+<div class="section" id="premiere-utilisation-verification">
+<h3>première utilisation / vérification<a class="headerlink" href="#premiere-utilisation-verification" title="Permalink to this headline">¶</a></h3>
+<p>juste après l’installation de conda, <strong>quittez vos terminaux actifs</strong>; conda a modifié la
+séquence d’initialisation des terminaux bash, il faut donc faire les tests qui suivent
+dans un terminal tout neuf.</p>
+<hr class="docutils" />
+<p><strong>attention</strong></p>
+<ul class="simple">
+<li><p>les signes <code class="docutils literal notranslate"><span class="pre">$</span> </code> ou <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span> </code> ne font pas partie de ce que vous devez taper</p></li>
+<li><p>c’est juste une indication pour dire</p>
+<ul>
+<li><p>avec <code class="docutils literal notranslate"><span class="pre">$</span> </code> :  que la commande s’adresse au terminal<br />
+c-à-d à nouveau : GitBash sur Windows, Terminal sur MacOS,<br />
+et n’importe quel terminal bash sur linux</p></li>
+<li><p>avec <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span> </code> : que la commande s’adresse à l’interpréteur Python</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<p>ça signifie que ce que vous voyez ici correspond à ce qui sera affiché dans le terminal,
+mais si vous suivez bien les indications vous n’avez pas à taper le <code class="docutils literal notranslate"><span class="pre">$</span></code> ou les <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code>, ce
+sera déjà affiché lorsque vous taperez vos commandes</p>
+<div class="section" id="verifier-que-python-est-bien-installe">
+<h4>vérifier que Python est bien installé<a class="headerlink" href="#verifier-que-python-est-bien-installe" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">type</span> python
+<span class="go">python is /c/Users/Thierry Parmentelat/miniconda3/python</span>
+</pre></div>
+</div>
+<p>si à ce stade vous avez un `python: not found* c’est que vous n’avez pas bien coché la case<br />
+<em>Add Miniconda3 to my PATH environment variable</em></p>
+</div>
+<div class="section" id="lancer-python-en-mode-interactif">
+<h4>lancer python en mode interactif<a class="headerlink" href="#lancer-python-en-mode-interactif" title="Permalink to this headline">¶</a></h4>
+<p>depuis <code class="docutils literal notranslate"><span class="pre">GitBash</span></code>, on va lancer un Python interactif et lui faire calculer $2^{100}$,
+afficher un texte, puis quitter l’interpréteur.</p>
+<hr class="docutils" />
+<div style="background-color:#cccccc; border-radius: 6px; margin:12px; padding: 12px;">
+<p><span style="background-color:red; padding:4px; border-radius: 4px;">quelques limitations connues :</span></p>
+<ul class="simple">
+<li><p>lancer simplement <code class="docutils literal notranslate"><span class="pre">python</span></code> dans <code class="docutils literal notranslate"><span class="pre">GitBash</span></code> ne fonctionne pas<br />
+(le programme n’affiche pas le prompt et semble boucler sans rien afficher)</p></li>
+<li><p>dans <code class="docutils literal notranslate"><span class="pre">GitBash</span></code> vous <strong>devez</strong> tapez à la place <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-i</span></code><br />
+(le <code class="docutils literal notranslate"><span class="pre">-i</span></code> est pour <em>interactive</em>) pour avoir un interpréteur interactif</p></li>
+<li><p>depuis le terminal embarqué dans vscode, vous pouvez faire simplement <code class="docutils literal notranslate"><span class="pre">python</span></code><br />
+(<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-i</span></code> fonctionne bien aussi d’ailleurs)</p></li>
+<li><p>depuis GitBash et le terminal vs-code, vous pouvez lancer normalement <code class="docutils literal notranslate"><span class="pre">ipython</span></code><br />
+(dont on parle un peu plus bas)</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>pensez à bien mettre le -i - voyez ci-dessus
+<span class="gp">$ </span>python -i
+<span class="go">&gt;&gt;&gt; 2 ** 100</span>
+<span class="go">1267650600228229401496703205376</span>
+<span class="go">&gt;&gt;&gt; print(&quot;hello world&quot;)</span>
+<span class="go">hello world</span>
+<span class="go">&gt;&gt;&gt; exit()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creer-et-lancer-un-premier-script">
+<h4>créer et lancer un premier script<a class="headerlink" href="#creer-et-lancer-un-premier-script" title="Permalink to this headline">¶</a></h4>
+<p>dans le répertoire de votre choix, ouvrez <em>vs-code</em> et créez un fichier qui s’appelle
+<code class="docutils literal notranslate"><span class="pre">fact.py</span></code> contenant ce texte (n’hésitez pas à copier-coller) :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat ../demo/fact.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># une fonction qui calcule factorielle
+def fact(n):
+    return 1 if n &lt;= 1 else n * fact(n-1)
+
+
+# on affiche quelques résultats
+for n in [4, 25]:
+    print(f&quot;fact({n}) = {fact(n)}&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>et dans le même répertoire lancez python pour calculer le factoriel d’un nombre</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python ../demo/fact.py <span class="m">10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fact(4) = 24
+fact(25) = 15511210043330985984000000
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="afficher-le-numero-de-version-de-python">
+<h4>afficher le numéro de version de Python<a class="headerlink" href="#afficher-le-numero-de-version-de-python" title="Permalink to this headline">¶</a></h4>
+<p>c’est toujours utile d’être bien sûr de la version qu’on a sous la main (surtout avec les
+environnments virtuels)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python --version
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Python 3.9.5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="installation-de-ipython-avec-pip">
+<h3>installation de IPython avec <code class="docutils literal notranslate"><span class="pre">pip</span></code><a class="headerlink" href="#installation-de-ipython-avec-pip" title="Permalink to this headline">¶</a></h3>
+<p>lorsqu’on installe Python on installe un ensemble minimal de <strong>librairies</strong><br />
+par exemple dans <code class="docutils literal notranslate"><span class="pre">fact.py</span></code> on a fait <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">sys</span></code><br />
+pour pouvoir utiliser la librairie <code class="docutils literal notranslate"><span class="pre">sys</span></code></p>
+<p>c’est très facile d’installer d’autres librairies au delà de cet ensemble minimal<br />
+pour cela python vient avec une commande qui s’appelle <code class="docutils literal notranslate"><span class="pre">pip</span></code><br />
+qui s’utilise directement <strong>depuis le terminal</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># pour avoir la liste des librairies installées on peut faire</span>
+pip list
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Package                           Version
+--------------------------------- -------------------
+alabaster                         0.7.12
+anyio                             3.3.0
+argon2-cffi                       20.1.0
+async-generator                   1.10
+attrs                             20.3.0
+Babel                             2.9.1
+backcall                          0.2.0
+beautifulsoup4                    4.9.3
+bleach                            3.3.1
+calysto-bash                      0.2.2
+certifi                           2021.5.30
+cffi                              1.14.6
+charset-normalizer                2.0.3
+click                             7.1.2
+colorama                          0.4.4
+cycler                            0.10.0
+debugpy                           1.4.1
+decorator                         5.0.9
+defusedxml                        0.7.1
+docutils                          0.16
+entrypoints                       0.3
+gitdb                             4.0.7
+GitPython                         3.1.18
+idna                              3.2
+imagesize                         1.2.0
+importlib-metadata                4.6.1
+ipykernel                         6.0.3
+ipython                           7.25.0
+ipython-genutils                  0.2.0
+ipythontutor                      0.2.0
+ipywidgets                        7.6.3
+jedi                              0.18.0
+Jinja2                            3.0.1
+jsonschema                        3.2.0
+jupyter-book                      0.11.2
+jupyter-cache                     0.4.2
+jupyter-client                    6.1.12
+jupyter-contrib-core              0.3.3
+jupyter-contrib-nbextensions      0.5.1
+jupyter-core                      4.7.1
+jupyter-highlight-selected-word   0.2.0
+jupyter-latex-envs                1.4.6
+jupyter-nbextensions-configurator 0.4.1
+jupyter-server                    1.10.1
+jupyter-server-mathjax            0.2.3
+jupyter-sphinx                    0.3.2
+jupyterlab-widgets                1.0.0
+jupytext                          1.10.3
+kiwisolver                        1.3.1
+latexcodec                        2.0.1
+linkify-it-py                     1.0.1
+lxml                              4.6.3
+markdown-it-py                    0.6.2
+MarkupSafe                        2.0.1
+matplotlib                        3.4.2
+matplotlib-inline                 0.1.2
+mdit-py-plugins                   0.2.6
+metakernel                        0.27.5
+mistune                           0.8.4
+myst-nb                           0.12.3
+myst-parser                       0.13.7
+nbautoeval                        1.7.0
+nbclient                          0.5.3
+nbconvert                         5.6.1
+nbdime                            3.1.0
+nbformat                          5.1.3
+nest-asyncio                      1.5.1
+notebook                          6.4.0
+numpy                             1.21.1
+packaging                         21.0
+pandas                            1.3.1
+pandocfilters                     1.4.3
+parso                             0.8.2
+pexpect                           4.8.0
+pickleshare                       0.7.5
+Pillow                            8.3.1
+pip                               21.1.3
+prometheus-client                 0.11.0
+prompt-toolkit                    3.0.19
+ptyprocess                        0.7.0
+pybtex                            0.24.0
+pybtex-docutils                   1.0.0
+pycparser                         2.20
+pydata-sphinx-theme               0.6.3
+Pygments                          2.9.0
+pyparsing                         2.4.7
+pyrsistent                        0.18.0
+python-dateutil                   2.8.2
+pytz                              2021.1
+PyYAML                            5.4.1
+pyzmq                             22.1.0
+requests                          2.26.0
+requests-unixsocket               0.2.0
+rise                              5.7.1
+Send2Trash                        1.7.1
+setuptools                        52.0.0.post20210125
+six                               1.16.0
+smmap                             4.0.0
+sniffio                           1.2.0
+snowballstemmer                   2.1.0
+soupsieve                         2.2.1
+Sphinx                            3.5.4
+sphinx-book-theme                 0.1.1
+sphinx-comments                   0.0.3
+sphinx-copybutton                 0.4.0
+sphinx-external-toc               0.2.2
+sphinx-jupyterbook-latex          0.4.2
+sphinx-multitoc-numbering         0.1.3
+sphinx-panels                     0.5.2
+sphinx-rtd-theme                  0.5.2
+sphinx-thebe                      0.0.8
+sphinx-togglebutton               0.2.3
+sphinxcontrib-applehelp           1.0.2
+sphinxcontrib-bibtex              2.2.1
+sphinxcontrib-devhelp             1.0.2
+sphinxcontrib-htmlhelp            2.0.0
+sphinxcontrib-jsmath              1.0.1
+sphinxcontrib-qthelp              1.0.3
+sphinxcontrib-serializinghtml     1.1.5
+SQLAlchemy                        1.3.24
+terminado                         0.10.1
+testpath                          0.5.0
+toml                              0.10.2
+tornado                           6.1
+traitlets                         5.0.5
+uc-micro-py                       1.0.1
+urllib3                           1.26.6
+wcwidth                           0.2.5
+webencodings                      0.5.1
+websocket-client                  1.1.0
+wheel                             0.36.2
+widgetsnbextension                3.5.1
+zipp                              3.5.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="installer-d-autres-librairies-avec-pip-install">
+<h4>installer d’autres librairies avec <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code><a class="headerlink" href="#installer-d-autres-librairies-avec-pip-install" title="Permalink to this headline">¶</a></h4>
+<p>nous allons utliser <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> pour installer IPython, et pour ça vous allez taper
+(dans un terminal)</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install ipython</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># la première fois qu&#39;on installe une librairie, ça peut prendre</span>
+<span class="c1"># un petit moment pour aller chercher les packages</span>
+<span class="c1"># sur Internet et les installer</span>
+
+pip install ipython
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ipython in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (7.25.0)
+Requirement already satisfied: setuptools&gt;=18.5 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython) (52.0.0.post20210125)
+Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython) (3.0.19)
+Requirement already satisfied: pygments in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython) (2.9.0)
+Requirement already satisfied: pexpect&gt;4.3 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython) (4.8.0)
+Requirement already satisfied: pickleshare in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython) (0.7.5)
+Requirement already satisfied: decorator in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython) (5.0.9)
+Requirement already satisfied: jedi&gt;=0.16 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython) (0.18.0)
+Requirement already satisfied: backcall in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython) (0.2.0)
+Requirement already satisfied: matplotlib-inline in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython) (0.1.2)
+Requirement already satisfied: traitlets&gt;=4.2 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython) (5.0.5)
+Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jedi&gt;=0.16-&gt;ipython) (0.8.2)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from pexpect&gt;4.3-&gt;ipython) (0.7.0)
+Requirement already satisfied: wcwidth in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0-&gt;ipython) (0.2.5)
+Requirement already satisfied: ipython-genutils in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from traitlets&gt;=4.2-&gt;ipython) (0.2.0)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="micro-demo-ipython">
+<h3>micro-démo <code class="docutils literal notranslate"><span class="pre">ipython</span></code><a class="headerlink" href="#micro-demo-ipython" title="Permalink to this headline">¶</a></h3>
+<p>si vous devez taper du code Python directement dans le terminal, je vous recommande
+d’utiliser la commande <code class="docutils literal notranslate"><span class="pre">ipython</span></code> plutôt que l’interpréteur standard <code class="docutils literal notranslate"><span class="pre">python</span></code></p>
+<p>voilà à quoi ça ressemblerait si on devait refaire le calcul de $2^{100}$ comme on l’a
+fait plus haut</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ipython
+<span class="go">Python 3.8.3 (default, Jul  2 2020, 11:26:31)</span>
+<span class="go">Type &#39;copyright&#39;, &#39;credits&#39; or &#39;license&#39; for more information</span>
+<span class="go">IPython 7.16.1 -- An enhanced Interactive Python. Type &#39;?&#39; for help.</span>
+
+<span class="go">In [1]: 2 ** 100</span>
+<span class="go">Out[1]: 1267650600228229401496703205376</span>
+
+<span class="go">In [2]: print(&quot;hello world&quot;)</span>
+<span class="go">hello world</span>
+
+<span class="go">In [3]: exit()</span>
+</pre></div>
+</div>
+<p>comme vous le voyez c’est presque pareil; simplement avec ipython c’est beaucoup plus
+pratique dès qu’on va au delà de ce genre de session de démo, notamment pour</p>
+<ul class="simple">
+<li><p>remonter et modifier l’historique</p></li>
+<li><p>obtenir de l’aide en ligne</p></li>
+<li><p>utiliser la complétion</p></li>
+</ul>
+</div>
+<div class="section" id="installation-de-numpy-pandas-matplotlib">
+<h3>installation de numpy / pandas / matplotlib<a class="headerlink" href="#installation-de-numpy-pandas-matplotlib" title="Permalink to this headline">¶</a></h3>
+<p>le calcul scientifique en Python se fait avec 3 librairies très très communes, sur
+lesquelles on reviendra très prochainement</p>
+<p>pour l’instant nous allons les installer avec la commande</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install numpy pandas matplotlib</span>
+</pre></div>
+</div>
+<div class="section" id="verification">
+<h4>vérification<a class="headerlink" href="#verification" title="Permalink to this headline">¶</a></h4>
+<p>pour vérifier, vous pouvez d’abord, depuis le terminal, faire</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip show numpy
+</pre></div>
+</div>
+<p>qui vous montrera en plus le numéro de version de <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p>
+<p>vous pouvez aussi importer la librairie <code class="docutils literal notranslate"><span class="pre">numpy</span></code> depuis <code class="docutils literal notranslate"><span class="pre">ipython</span></code>, ça donne une session qui
+ressemble à ceci (vous ne devez pas avoir d’erreur du type <code class="docutils literal notranslate"><span class="pre">ModuleNotFound</span></code>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ipython
+Python 3.8.3 (default, Jul  2 2020, 11:26:31)
+&lt;blabla&gt;
+
+In [1]: import numpy
+
+In [2]: numpy.__version__
+Out[2]: &#39;1.19.1&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="la-completion">
+<h3>la complétion<a class="headerlink" href="#la-completion" title="Permalink to this headline">¶</a></h3>
+<p>ce qu’on appelle complétion, c’est la capacité d’un outil à vous aider à taper votre code;
+exemple :</p>
+<ul class="simple">
+<li><p>on lance <code class="docutils literal notranslate"><span class="pre">ipython</span></code></p></li>
+<li><p>on tape le début d’une commande, par exemple <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">frac</span></code></p></li>
+<li><p>à ce point, on appuie sur la touche <code class="docutils literal notranslate"><span class="pre">Tabulation</span></code></p></li>
+<li><p>ipython se rend compte que le seul mot qui fait du sens dans ce contexte et qui commence
+par <code class="docutils literal notranslate"><span class="pre">frac</span></code> est <code class="docutils literal notranslate"><span class="pre">fractions</span></code>, du coup il remplit la commande</p></li>
+</ul>
+<p>la complétion est un outil <strong>indispensable</strong> pour ne pas perdre un temps précieux;
+apprenez à la maitriser</p>
+<p>notez d’ailleurs que <strong>ça existe aussi dans le terminal</strong>, typiquement très utile avec les
+noms de fichiers, entre autres</p>
+</div>
+<div class="section" id="rtfem">
+<h3><em>RTFEM</em><a class="headerlink" href="#rtfem" title="Permalink to this headline">¶</a></h3>
+<p>il est normal de faire des erreurs quand on code, tout le monde en fait</p>
+<p>on verra un peu plus loin comment les détecter le plus tôt possible (grâce à des
+extensions dans un éditeur de code)<br />
+mais les cas où ça se produit quand même, la première chose à faire est bien entendu de
+<strong>lire le message d’erreur</strong></p>
+<p>le langage Python s’efforce de vous donner des indications plutôt claires dans ces cas-là</p>
+<p>voici par exemple un fichier très proche de <code class="docutils literal notranslate"><span class="pre">fact.py</span></code> qu’on vient de faire tourner<br />
+mais j’y ai intentionnellement glissé une petite erreur de syntaxe<br />
+voici le code, et ce qui se produit si on essaie de le faire tourner</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat ../demo/fact-broken.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># ce fichier est intentionnellement cassé
+
+def factorial(n)
+    if n &lt;= 1:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+
+import sys
+n = int(sys.argv[1])
+
+print(f&quot;fact({n}) = {factorial(n)}&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python ../demo/fact-broken.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  File &quot;/home/runner/work/python-numerique/python-numerique/notebooks/../demo/fact-broken.py&quot;, line 3
+    def factorial(n)
+                    ^
+SyntaxError: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p>je vous demande en exercice de trouver l’erreur en question</p>
+<p>en pratique il arrive qu’on se trouve face à des erreurs plus difficiles à diagnostiquer,
+mais dans tous les cas <strong>commencez par <em>RTFEM</em></strong><br />
+ça va de soi mais ça va mieux en le disant, je suis certain qu’on aura l’occasion de le
+rappeler pendant les cours de langage :)</p>
+</div>
+</div>
+<div class="section" id="git">
+<h2>git<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="survol">
+<h3>survol<a class="headerlink" href="#survol" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span></code> fait partie des outils dits de “SCM” <em>source code management</em></p>
+<p>son rôle est d’aider les développeurs à s’y retrouver dans la gestion des versions d’un
+projet</p>
+<p>un projet est constitué d’un ensemble de fichiers dont vous souhaitez conserver un
+historique des modifications</p>
+<p>d’ailleurs ça n’est pas limité aux logiciels :</p>
+<ul class="simple">
+<li><p>jeux de données</p></li>
+<li><p>documentation</p></li>
+<li><p>lois (très utile pour gérer les modifications)</p></li>
+<li><p>…</p></li>
+</ul>
+</div>
+<div class="section" id="a-quoi-ca-sert-quand-on-travaille-seul">
+<h3>à quoi ça sert - quand on travaille seul<a class="headerlink" href="#a-quoi-ca-sert-quand-on-travaille-seul" title="Permalink to this headline">¶</a></h3>
+<p>en première approximation, on peut se servir de <code class="docutils literal notranslate"><span class="pre">git</span></code> pour :</p>
+<ul class="simple">
+<li><p>travailler “avec un filet”<br />
+pour facilement <strong>revenir en arrière</strong> à une version qui marche<br />
+ça sert donc en particulier de <strong>sauvegarde de luxe</strong></p></li>
+<li><p>lorsqu’on travaille sur plusieurs améliorations en même temps<br />
+on peut facilement créer <strong>des branches</strong><br />
+pour traiter les améliorations séparément<br />
+avant de tout (re)mettre ensemble</p></li>
+</ul>
+</div>
+<div class="section" id="a-quoi-ca-sert-en-equipe">
+<h3>à quoi ça sert - en équipe<a class="headerlink" href="#a-quoi-ca-sert-en-equipe" title="Permalink to this headline">¶</a></h3>
+<p>on peut aussi :</p>
+<ul class="simple">
+<li><p><strong>synchroniser</strong> le travail entre groupes / personnes</p></li>
+<li><p>dans un sens ou dans l’autre<br />
+c-a-d: chacun travaille de son coté, et on réconcilie le tout ensuite</p></li>
+</ul>
+<p>git ne fait pas de supposition sur le workflow ou l’organisation,<br />
+on peut l’adapter à tous les cas d’usage (un seule personne, un petit groupe, plusieurs
+groupes, open-source, …)</p>
+</div>
+<div class="section" id="les-notions-de-base">
+<h3>les notions de base<a class="headerlink" href="#les-notions-de-base" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>un dépôt (en anglais <em>repo</em>) :</p>
+<ul>
+<li><p>ça ressemble à <strong>un répertoire</strong> avec <strong>tout son contenu</strong></p></li>
+<li><p>mais ça contient aussi <strong>toutes les versions</strong> successives</p></li>
+</ul>
+</li>
+<li><p>un <em>commit</em> :</p>
+<ul>
+<li><p>ça correspond à une version particulière du dépôt (de tous les fichiers du dépôt)</p></li>
+</ul>
+</li>
+</ul>
+<p>et donc un dépôt contient autant de commits que de versions successives</p>
+</div>
+<div class="section" id="alice-et-bob">
+<h3>alice et bob<a class="headerlink" href="#alice-et-bob" title="Permalink to this headline">¶</a></h3>
+<p>un exemple de workflow <span class="xref myst">sous forme de présentation pdf</span></p>
+<p>(le pdf fait partie du dépôt git,<br />
+dans <code class="docutils literal notranslate"><span class="pre">media/git-workflow-animations.pdf</span></code>)</p>
+</div>
+<div class="section" id="compte-sous-github">
+<h3>compte sous github<a class="headerlink" href="#compte-sous-github" title="Permalink to this headline">¶</a></h3>
+<p>Dans la petite présentation alice a choisi <code class="docutils literal notranslate"><span class="pre">GitHub</span></code> pour rendre son travail disponible à
+tout le monde en open-source sur Internet.</p>
+<p>En effet, <code class="docutils literal notranslate"><span class="pre">GitHub</span></code> est un service web dédié à l’hébergement et à la gestion du
+développement de logiciels (open source ou pas). Il utilise le logiciel de gestion de
+versions <code class="docutils literal notranslate"><span class="pre">Git</span></code>. Il est actuellement le plus grand hébergeur de code source au monde aussi
+c’est celui que nous allons vous demander d’utiliser.</p>
+<p>Vous devrez (pas tout de suite) allez sur <a class="reference external" href="https://github.com/join">https://github.com/join</a> pour y créez un
+compte. Il va naturellement vous falloir un nom d’utilisateur … attention depuis janvier
+2020, il y a plus de 40 millions d’utilisateurs donc il se peut que le nom que vous
+vouliez soit déjà pris.</p>
+<p>Nous vous demanderons de nous <em>faire passer</em> vos identifiants <code class="docutils literal notranslate"><span class="pre">GitHub</span></code> vu que c’est le
+moyen que plusieurs UE vont employer pour <em>relever</em> vos projets.</p>
+<p>Pour prendre des projets dans <code class="docutils literal notranslate"><span class="pre">GitHub</span></code> vous n’avez pas besoin d’un nom d’utilisateur,
+c’est pour y mettre des projets que vous en avez besoin.</p>
+</div>
+<div class="section" id="installation">
+<h3>installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>les Windows : à ce stade, vous avez déjà installé <em>git for windows</em>, rien de plus à faire</p></li>
+<li><p>les MacOS: utilisez ce lien <a class="reference external" href="https://www.atlassian.com/git/tutorials/install-git#mac-os-x">https://www.atlassian.com/git/tutorials/install-git#mac-os-x</a></p></li>
+<li><p>les linux : utilisez ce lien <a class="reference external" href="https://www.atlassian.com/git/tutorials/install-git#linux">https://www.atlassian.com/git/tutorials/install-git#linux</a></p></li>
+</ul>
+<p><strong>vérification</strong></p>
+<p>pour vérifier votre installation, vous devez pouvoir taper dans le terminal</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git --version
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>git version 2.32.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="digression-url">
+<h3>digression : URL<a class="headerlink" href="#digression-url" title="Permalink to this headline">¶</a></h3>
+<p>lorsque bob copie le travail qu’alice a publié sur github, il va utiliser <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> (on
+va le faire dans un tout petit moment)</p>
+<p>mais il faut évidemment qu’il puisse dire à <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> exactement <strong>quoi copier</strong>, parce
+que l’Internet, c’est grand…</p>
+<p>pour ça il a besoin <a class="reference external" href="https://en.wikipedia.org/wiki/URL">d’une URL (Uniform Resource
+Locator)</a>, pour désigner le dépôt d’Alice</p>
+<p>c’est quoi une URL ? vous en connaissez déjà plein d’exemples, comme<br />
+http://google.com/<br />
+https://en.wikipedia.org/wiki/URL</p>
+<ul class="simple">
+<li><p>le premier terme (<code class="docutils literal notranslate"><span class="pre">http</span></code> ou <code class="docutils literal notranslate"><span class="pre">https</span></code>) désigne <strong>le protocole</strong> à utiliser pour joindre la
+ressource</p></li>
+<li><p>le second morceau (<code class="docutils literal notranslate"><span class="pre">google.com</span></code> ou <code class="docutils literal notranslate"><span class="pre">en.wikipedia.org</span></code>) désigne le <em>hostname</em> qu’il faut
+joindre; en fait on utilise un service réseau <a class="reference external" href="https://en.wikipedia.org/wiki/Domain_Name_System">qui s’appelle le DNS (Domain Name
+Server</a> pour traduire le nom
+<code class="docutils literal notranslate"><span class="pre">www.google.com</span></code> en une adresse réseau (et c’est comme ça qu’en fait deux requêtes
+n’aboutissent pas forcément sur le même serveur, heureusement d’ailleurs)</p></li>
+<li><p>la suite est optionnelle et permet de désigner un item particulier à l’intérieur de ce
+serveur; c’est comme ça qu’on peut ranger des milliers de pages à l’intérieur du serveur
+wikipedia</p></li>
+</ul>
+<div class="section" id="les-urls-sur-github">
+<h4>les URLs sur <code class="docutils literal notranslate"><span class="pre">github</span></code><a class="headerlink" href="#les-urls-sur-github" title="Permalink to this headline">¶</a></h4>
+<p>à l’intérieur du serveur github, les URLs des dépôts ressemblent toutes à celles-ci</p>
+<p>https://github.com/python/cpython<br />
+https://github.com/gvanrossum/cpython</p>
+<ul class="simple">
+<li><p>le premier étage (<code class="docutils literal notranslate"><span class="pre">python</span></code> ou <code class="docutils literal notranslate"><span class="pre">gvanrossum</span></code>) désigne une organisation ou un individu</p></li>
+<li><p>le second étage (<code class="docutils literal notranslate"><span class="pre">cpython</span></code>) désigne un dépôt<br />
+(ici par exemple <code class="docutils literal notranslate"><span class="pre">cpython</span></code> pour l’implémetation classique du langage Python)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="cloner-le-depot-du-cours">
+<h3>cloner le dépôt du cours<a class="headerlink" href="#cloner-le-depot-du-cours" title="Permalink to this headline">¶</a></h3>
+<p>vous avez maintenant tout le bagage pour pouvoir copier le dépôt du cours</p>
+<p>il vous suffit pour ça de faire</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/ue12/python-numerique
+</pre></div>
+</div>
+<p><strong>Attention toutefois</strong></p>
+<ul>
+<li><p>cette commande va créer sur votre disque tout un répertoire, dont le nom est
+<code class="docutils literal notranslate"><span class="pre">python-numerique</span></code></p></li>
+<li><p>notez qu’il sera créé <strong>dans votre répertoire de travail</strong> (<code class="docutils literal notranslate"><span class="pre">pwd</span></code>)</p></li>
+<li><p>donc commencez par <strong>vous mettre au bon endroit</strong></p></li>
+<li><p>le nom <code class="docutils literal notranslate"><span class="pre">python-numerique</span></code> est déduit de la dernière partie de l’URL<br />
+et si cela ne vous convient pas comme nom vous pouvez en choisir un autre :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/ue12/python-numerique ue12-python-numerique
+</pre></div>
+</div>
+</li>
+</ul>
+<p>pour vérifier que tout s’est bien passé :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># si vous avez utilisé la deuxième forme
+# votre répertoire local s&#39;appelle ue12-python-numerique et pas juste python-numerique
+cd ue12-python-numerique
+
+# le répertoire est rempli avec la dernière version du cours
+cat README.md
+</pre></div>
+</div>
+</div>
+<div class="section" id="suivre-les-evolutions">
+<h3>suivre les évolutions<a class="headerlink" href="#suivre-les-evolutions" title="Permalink to this headline">¶</a></h3>
+<p>pour terminer cette micro-introduction : imaginez que demain je publie des modifications
+dans ce dépôt</p>
+<p>alors pour mettre à jour votre dépôt local, il vous suffira de faire</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># toujours dans le même répertoire bien sûr
+git pull
+</pre></div>
+</div>
+<p>bon en pratique il arrive que ce soit un peu plus compliqué que ça, mais c’est l’idée
+générale</p>
+<p>on creusera tout ceci dans le cours dédié à git dans quelques semaines</p>
+</div>
+</div>
+<div class="section" id="notebooks-jupyter">
+<h2>notebooks Jupyter<a class="headerlink" href="#notebooks-jupyter" title="Permalink to this headline">¶</a></h2>
+<p>Les notebooks sont de petits <em>cahiers</em> d’exercices exécutables. Ils sont très pratiques
+pour expliquer pas à pas ce qu’on fait, comme dans ces cours mais ils ne servent pas
+uniquement aux cours.</p>
+<p>Nous allons vous montrer dans cette section comment installer et lancer <code class="docutils literal notranslate"><span class="pre">jupyter</span></code>, créer
+des notebooks avec des cellules de texte et des cellules de code…</p>
+<div class="section" id="id1">
+<h3>installation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>le socle s’installe comme ceci (ça peut prendre un moment) :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install jupyter</span>
+</pre></div>
+</div>
+<p>je vous invite à installer également ceci; c’est optionnel pour débuter avec Jupyter, mais
+ça sera nécessaire très vite pour lire les notebooks du cours</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install jupytext</span>
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h4>vérification<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>si tout s’est bien passé vous devez pouvoir voir les versions des différents morceaux de
+Jupyter comme ceci :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter --version
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jupyter core     : 4.7.1
+jupyter-notebook : 6.4.0
+qtconsole        : not installed
+ipython          : 7.25.0
+ipykernel        : 6.0.3
+jupyter client   : 6.1.12
+jupyter lab      : not installed
+nbconvert        : 5.6.1
+ipywidgets       : 7.6.3
+nbformat         : 5.1.3
+traitlets        : 5.0.5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="utilisation-de-base">
+<h3>utilisation de base<a class="headerlink" href="#utilisation-de-base" title="Permalink to this headline">¶</a></h3>
+<p>pour lancer un serveur jupyter vous tapez dans le terminal la commande</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">notebook</span>
+</pre></div>
+</div>
+<p><img alt="" src="_images/notebooks-001-run.png" /></p>
+<p>ce qui va avoir pour effet d’ouvrir une fenêtre ou un onglet dans votre navigateur Web</p>
+<p><img alt="" src="_images/notebooks-002-welcome.png" /></p>
+</div>
+<div class="section" id="le-processus-serveur">
+<h3>le processus serveur<a class="headerlink" href="#le-processus-serveur" title="Permalink to this headline">¶</a></h3>
+<p>en fait là on fait deux choses complémentaires</p>
+<ul class="simple">
+<li><p>on lance un programme (le serveur Jupyter) qui tourne dans le terminal</p></li>
+<li><p>on demande au browser de créer une page qui interagit avec ce serveur</p></li>
+</ul>
+<p>du coup ça signifie que <strong>le serveur Jupyter doit tourner en permanence</strong></p>
+<ul class="simple">
+<li><p>si vous le tuez depuis le terminal, le notebook dans le browser va cesser de fonctionner</p></li>
+<li><p>ça signifie aussi que cette session du terminal n’est plus utilisable pour autre chose…</p></li>
+</ul>
+</div>
+<div class="section" id="micro-demo-jupyter-classic">
+<h3>micro-démo Jupyter classic<a class="headerlink" href="#micro-demo-jupyter-classic" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>un notebook est associé à <strong>un langage</strong></p></li>
+<li><p>nos supports de cours :</p>
+<ul>
+<li><p>le plus souvent le langage est <strong>Python</strong></p></li>
+<li><p>le présent notebook est une exception, son langage est <strong>bash</strong></p></li>
+</ul>
+</li>
+<li><p>chaque cellule est <em>typée</em> comme <strong>markdown</strong> ou <strong>code</strong></p></li>
+<li><p>et bien sûr celles typées <strong>code</strong> sont exécutées par … le langage du notebook</p></li>
+</ul>
+<p>(il est possible aussi de mélanger plusieurs langages dans un notebook, mais c’est d’un
+usage plus complexe)</p>
+<p>pour créer un nouveau notebook</p>
+<p><img alt="" src="_images/notebooks-003-creating-py3.png" /></p>
+<p>pour renommer le notebook menu  <em>File</em> → <em>Rename</em></p>
+<p><img alt="" src="_images/notebooks-004-renaming.png" /></p>
+<p><img alt="" src="_images/notebooks-005-named.png" /></p>
+<p>comme toujours il faut sauver son travail régulièrement;<br />
+remarquez dans le terminal où vous avez lancé le serveur, un message de confirmation</p>
+<p><img alt="" src="_images/notebooks-006-saved.png" /></p>
+<p>choisir le type de la cellule; on peut aussi faire</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Control-M</span> <span class="pre">M</span></code> pour markdown</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Control-M</span> <span class="pre">Y</span></code> pour code (y comme pYthon)</p></li>
+</ul>
+<p><img alt="" src="_images/notebooks-007-markdown.png" /></p>
+<p>il y a aussi des raccourcis pratiques pour créer directement des sections</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Control-M</span> <span class="pre">1</span></code> met la cellule en markdown, et insère si nécessaire un <code class="docutils literal notranslate"><span class="pre">#</span></code> au début de la
+cellule; on crée ainsi une cellule de titre de rang 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Control-M</span> <span class="pre">2</span></code> : de rang 2, etc…</p></li>
+</ul>
+<p>insérer une cellule; souvent on fait aussi/plutôt</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">⌥-Enter</span></code> pour évaluer la cellule et en insérer une dessous</p></li>
+</ul>
+<p><img alt="" src="_images/notebooks-008-insert-cell.png" /></p>
+<p>une cellule de code</p>
+<p><img alt="" src="_images/notebooks-009-code-cell.png" /></p>
+<p>on est toujours dans un des deux modes :</p>
+<ul class="simple">
+<li><p>édition : pour changer le contenu d’une cellule</p></li>
+<li><p>commande : pour voir le résultat</p></li>
+<li><p>la couleur du bandeau vous dit dans quel mode vous êtes</p></li>
+<li><p>pour sortir du mode édition : tapez <code class="docutils literal notranslate"><span class="pre">Escape</span></code> ou encore <code class="docutils literal notranslate"><span class="pre">Control-M</span></code></p></li>
+</ul>
+<p><img alt="" src="_images/notebooks-010-edit-mode.png" /></p>
+<p><img alt="" src="_images/notebooks-011-cmd-mode.png" /></p>
+<p>à partir du menu, faites <em>Help</em> → <em>Keyboard Shortcuts</em></p>
+<p><img alt="" src="_images/notebooks-020-keyboard-shortcuts.png" /></p>
+<p>sélection multiple</p>
+<ul class="simple">
+<li><p>en général on a exactement <strong>une</strong> cellule courante</p></li>
+<li><p>mais avec <code class="docutils literal notranslate"><span class="pre">Shift-⬆</span></code> ou <code class="docutils literal notranslate"><span class="pre">Shift-⬇</span></code> on peut sélectionner plusieurs cellules contigües</p></li>
+</ul>
+<p><img alt="" src="_images/notebooks-030-sel-mult.png" /></p>
+<p>du coup on peut par exemple les déplacer toutes ensemble</p>
+<p><img alt="" src="_images/notebooks-031-sel-moved-down.png" /></p>
+</div>
+</div>
+<div class="section" id="lire-le-cours-localement-sur-votre-portable">
+<h2>lire le cours localement (sur votre portable)<a class="headerlink" href="#lire-le-cours-localement-sur-votre-portable" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="prerequis">
+<h3>prérequis<a class="headerlink" href="#prerequis" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="indispensable">
+<h4>indispensable<a class="headerlink" href="#indispensable" title="Permalink to this headline">¶</a></h4>
+<p>pour pouvoir ouvrir un notebook du cours - n’importe lequel - il faut avoir fait ceci</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install jupytext</span>
+</pre></div>
+</div>
+<p>autrement, vous allez avoir un affichage bizarre…</p>
+</div>
+<div class="section" id="utile-pour-ce-notebook">
+<h4>utile pour ce notebook<a class="headerlink" href="#utile-pour-ce-notebook" title="Permalink to this headline">¶</a></h4>
+<p>pour pouvoir exécuter les notebooks en bash (dont celui-ci, donc), il vous faut également
+faire</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install calysto_bash
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="epilogue">
+<h3>épilogue<a class="headerlink" href="#epilogue" title="Permalink to this headline">¶</a></h3>
+<p>à ce stade vous avez tout ce qu’il faut pour tout mettre ensemble, c’est-à-dire :</p>
+<ul class="simple">
+<li><p>cloner le repo du cours</p></li>
+<li><p>lancer jupyter à la racine</p></li>
+</ul>
+<p>puis vous pouvez</p>
+<ul class="simple">
+<li><p>ouvrir le notebook de démonstration  (<em>0-10-demonstration.md</em>)<br />
+(je ne recommande pas forcément de commencer avec le présent notebook, car il utilise un
+kernel <code class="docutils literal notranslate"><span class="pre">bash</span></code> qui n’est pas standard…)</p></li>
+<li><p>l’exécuter localement</p></li>
+<li><p>et vous amuser à le modifier</p></li>
+</ul>
+<p>je vous demande surtout de</p>
+<ul class="simple">
+<li><p>ouvrir le notebook de checklist, qui résume les compétences attendues</p></li>
+<li><p>et vérifier que vous avez bien tout installé</p></li>
+<li><p>et si vous êtes en avance, attaquez-vous à l’exercice qui figure à la fin de la
+checklist</p></li>
+</ul>
+</div>
+<div class="section" id="jupyter-lab">
+<h3>jupyter lab<a class="headerlink" href="#jupyter-lab" title="Permalink to this headline">¶</a></h3>
+<p>pour les curieux, sachez qu’il existe une nouvelle interface Jupyter qui s’appelle
+JupyterLab</p>
+<p>c’est un plus moderne que Jupyter classic que nous utilisons, mais c’est beaucoup plus
+compliqué à intégrer… quoi qu’il en soit, si vous voulez jeter un coup d’oeil à cet outil,
+il faut savoir que</p>
+<ul class="simple">
+<li><p>on le lance en tapant <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code> au lieu de <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code></p></li>
+<li><p>et pour ouvrir un notebook en <code class="docutils literal notranslate"><span class="pre">.md</span></code> - comme ceux du cours donc - on ne peut pas
+double-cliquer dans le .md, il faut utiliser <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">with</span></code> comme ceci</p></li>
+</ul>
+<p><img alt="" src="_images/fig-jupyter-lab-open-md.png" /></p>
+<hr class="docutils" />
+<hr class="docutils" />
+<hr class="docutils" />
+<p><strong>Partie optionnelle</strong></p>
+</div>
+</div>
+<div class="section" id="python-et-vs-code">
+<h2>Python et vs-code<a class="headerlink" href="#python-et-vs-code" title="Permalink to this headline">¶</a></h2>
+<p>si vous avez le temps (section intermédiaire)</p>
+<p>maintenant qu’on a installé Python, on peut retourner dans vs-code pour voir à quoi
+ressemble l’extension Python (vérifiez que vous l’avez bien installée)</p>
+<p>il y a quelques réglages à faire la toute première fois qu’on s’en sert, voyons cela :</p>
+<div class="section" id="pylint">
+<h3><code class="docutils literal notranslate"><span class="pre">pylint</span></code><a class="headerlink" href="#pylint" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pylint</span></code> est un outil pour trouver les erreurs dans le code Python</p></li>
+<li><p>il détecte beaucoup d’erreurs (erreurs de syntaxe, variables mal orthographiées, etc..)</p></li>
+</ul>
+<p>vs-code vous montre les erreurs :</p>
+<ul class="simple">
+<li><p>l’extension Python de vs-code permet d’afficher <strong>en permanence</strong>  (à chaque sauvegarde)
+les soucis détectés par <code class="docutils literal notranslate"><span class="pre">pylint</span></code></p></li>
+<li><p>c’est pourquoi si <code class="docutils literal notranslate"><span class="pre">pylint</span></code> n’est pas installé, vs-code va automatiquement vous proposer
+de le faire (choisissez alors de préférence l’option <em>install with pip</em>)</p></li>
+</ul>
+<p>pour information, le terme <code class="docutils literal notranslate"><span class="pre">lint</span></code> ou <code class="docutils literal notranslate"><span class="pre">linter</span></code> désigne, de manière générique, un outil qui
+fait des vérifications statiques (i.e. sans faire tourner le code); ça existe pour
+beaucoup de langages</p>
+</div>
+<div class="section" id="l-interpreteur-python">
+<h3>l’interpréteur Python<a class="headerlink" href="#l-interpreteur-python" title="Permalink to this headline">¶</a></h3>
+<p>vs-code a besoin de savoir où est installé Python, pour pouvoir le lancer</p>
+<p>ne serait-ce que pour lancer <code class="docutils literal notranslate"><span class="pre">pylint</span></code>,<br />
+mais il peut aussi, dans un usage plus avancé, vous aider à exécuter votre code;<br />
+bref il a besoin de savoir où se trouve l’interpréteur Python</p>
+<p>en fait il est malin et il sait trouver <strong>tous</strong> les interpréteurs qui sont installés<br />
+et donc ce dont il a besoin c’est que vous lui disiez <strong>lequel</strong> vous voulez utiliser</p>
+<p>lorsqu’on fait du développement professionnel, on a habituellement une installation Python
+par projet; une partie optionnelle avancée sera consacrée à ce sujet un peu plus loin</p>
+<p><img alt="" src="_images/fig-vscode-select-python.png" /></p>
+</div>
+<div class="section" id="voir-les-erreurs">
+<h3>voir les erreurs<a class="headerlink" href="#voir-les-erreurs" title="Permalink to this headline">¶</a></h3>
+<p>votre premier objectif est de pouvoir trouver les erreurs visuellement au fur et à mesure
+que vous écrivez votre code Python</p>
+<p>dans l’illustration suivante j’ai fait exprès d’importer le module <code class="docutils literal notranslate"><span class="pre">mathematic</span></code> qui est
+fantaisiste (on verra que la librarie mathématique s’appelle en fait simplement <code class="docutils literal notranslate"><span class="pre">math</span></code>)</p>
+<p>si votre installation est correcte vous devez pouvoir sauver un fichier qui se termine en
+<code class="docutils literal notranslate"><span class="pre">.py</span></code>, et si vous y insérez la même erreur (et que vous sauvez le fichier) vous devez voir
+apparaître un <em>zigouigoui</em> comme ceci <img alt="" src="_images/fig-vscode-zigouigoui.png" /></p>
+<p>lorsque le texte est souligné de cette manière, cela indique une erreur; apprenez à les
+lire et à les corriger <strong>avant même</strong> d’essayer de faire tourner votre code, cela vous
+fera gagner du temps</p>
+<p><img alt="" src="_images/fig-vscode-show-errors.png" /></p>
+<p><strong>Avertissement</strong></p>
+<p>Il faut toutefois toujours garder à l’esprit que cette phase de détection préliminaire des
+erreurs de programmation n’a <strong>qu’une valeur indicative</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">pylint</span></code> fait tous ses efforts pour vous faire gagner du temps en trouvant le maximum
+d’erreurs le plus tôt possible, <strong>mais</strong> :</p>
+<ul class="simple">
+<li><p>ce n’est pas parce qu’un programme n’a pas de zigouigoui qu’il va tourner à coup sûr</p></li>
+<li><p>et réciproquement, il y a des programmes qui tournent alors qu’ils ont exhibé des erreurs</p></li>
+</ul>
+<p>donc il faut garder votre cerveau en marche, et ne pas se fier aveuglément à cette
+information</p>
+</div>
+</div>
+<div class="section" id="extensions-jupyter">
+<h2>extensions Jupyter<a class="headerlink" href="#extensions-jupyter" title="Permalink to this headline">¶</a></h2>
+<p>si vous avez le temps (section intermédiaire)</p>
+<p>vous remarquerez que certaines <em>features</em>, disponibles sur nbhosting, ne le sont pas sur
+votre ordinateur à ce stade; par exemple, les codes de couleur des cellules par niveau, ou
+la table des matières navigable sur le coté</p>
+<p>Jupyter est un système extensible; sur nbhosting on a activé quelques-unes de ces
+extensions, et voici comment vous pouvez les activer également de votre côté</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># d&#39;abord on installe les extensions standard</span>
+
+pip install -U ipywidgets
+jupyter nbextension <span class="nb">enable</span> --py widgetsnbextension
+
+pip install -U jupyter_contrib_nbextensions
+jupyter contrib nbextension install
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ipywidgets in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (7.6.3)
+Requirement already satisfied: jupyterlab-widgets&gt;=1.0.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipywidgets) (1.0.0)
+Requirement already satisfied: ipython&gt;=4.0.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipywidgets) (7.25.0)
+Requirement already satisfied: traitlets&gt;=4.3.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipywidgets) (5.0.5)
+Requirement already satisfied: nbformat&gt;=4.2.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipywidgets) (5.1.3)
+Requirement already satisfied: ipykernel&gt;=4.5.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipywidgets) (6.0.3)
+Requirement already satisfied: widgetsnbextension~=3.5.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipywidgets) (3.5.1)
+Requirement already satisfied: debugpy&lt;2.0,&gt;=1.0.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (1.4.1)
+Requirement already satisfied: matplotlib-inline&lt;0.2.0,&gt;=0.1.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (0.1.2)
+Requirement already satisfied: tornado&lt;7.0,&gt;=4.2 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (6.1)
+Requirement already satisfied: jupyter-client&lt;7.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets) (6.1.12)
+Requirement already satisfied: pygments in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (2.9.0)
+Requirement already satisfied: pickleshare in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (0.7.5)
+Requirement already satisfied: decorator in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (5.0.9)
+Requirement already satisfied: setuptools&gt;=18.5 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (52.0.0.post20210125)
+Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (3.0.19)
+Requirement already satisfied: backcall in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (0.2.0)
+Requirement already satisfied: pexpect&gt;4.3 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (4.8.0)
+Requirement already satisfied: jedi&gt;=0.16 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython&gt;=4.0.0-&gt;ipywidgets) (0.18.0)
+Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jedi&gt;=0.16-&gt;ipython&gt;=4.0.0-&gt;ipywidgets) (0.8.2)
+Requirement already satisfied: jupyter-core&gt;=4.6.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter-client&lt;7.0-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets) (4.7.1)
+Requirement already satisfied: python-dateutil&gt;=2.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter-client&lt;7.0-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets) (2.8.2)
+Requirement already satisfied: pyzmq&gt;=13 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter-client&lt;7.0-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets) (22.1.0)
+Requirement already satisfied: ipython-genutils in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbformat&gt;=4.2.0-&gt;ipywidgets) (0.2.0)
+Requirement already satisfied: jsonschema!=2.5.0,&gt;=2.4 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbformat&gt;=4.2.0-&gt;ipywidgets) (3.2.0)
+Requirement already satisfied: pyrsistent&gt;=0.14.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets) (0.18.0)
+Requirement already satisfied: six&gt;=1.11.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets) (1.16.0)
+Requirement already satisfied: attrs&gt;=17.4.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets) (20.3.0)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from pexpect&gt;4.3-&gt;ipython&gt;=4.0.0-&gt;ipywidgets) (0.7.0)
+Requirement already satisfied: wcwidth in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0-&gt;ipython&gt;=4.0.0-&gt;ipywidgets) (0.2.5)
+Requirement already satisfied: notebook&gt;=4.4.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from widgetsnbextension~=3.5.0-&gt;ipywidgets) (6.4.0)
+Requirement already satisfied: prometheus-client in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.11.0)
+Requirement already satisfied: Send2Trash&gt;=1.5.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (1.7.1)
+Requirement already satisfied: terminado&gt;=0.8.3 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.10.1)
+Requirement already satisfied: argon2-cffi in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (20.1.0)
+Requirement already satisfied: jinja2 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (3.0.1)
+Requirement already satisfied: nbconvert in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (5.6.1)
+Requirement already satisfied: cffi&gt;=1.0.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (1.14.6)
+Requirement already satisfied: pycparser in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from cffi&gt;=1.0.0-&gt;argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (2.20)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jinja2-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (2.0.1)
+Requirement already satisfied: pandocfilters&gt;=1.4.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (1.4.3)
+Requirement already satisfied: mistune&lt;2,&gt;=0.8.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.8.4)
+Requirement already satisfied: entrypoints&gt;=0.2.2 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.3)
+Requirement already satisfied: testpath in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.5.0)
+Requirement already satisfied: defusedxml in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.7.1)
+Requirement already satisfied: bleach in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (3.3.1)
+Requirement already satisfied: packaging in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from bleach-&gt;nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (21.0)
+Requirement already satisfied: webencodings in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from bleach-&gt;nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (0.5.1)
+Requirement already satisfied: pyparsing&gt;=2.0.2 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from packaging-&gt;bleach-&gt;nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets) (2.4.7)
+Enabling notebook extension jupyter-js-widgets/extension...
+      - Validating: <span class=" -Color -Color-Green">OK</span>
+Requirement already satisfied: jupyter_contrib_nbextensions in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (0.5.1)
+Requirement already satisfied: nbconvert&gt;=4.2 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter_contrib_nbextensions) (5.6.1)
+Requirement already satisfied: notebook&gt;=4.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter_contrib_nbextensions) (6.4.0)
+Requirement already satisfied: jupyter-highlight-selected-word&gt;=0.1.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter_contrib_nbextensions) (0.2.0)
+Requirement already satisfied: jupyter-contrib-core&gt;=0.3.3 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter_contrib_nbextensions) (0.3.3)
+Requirement already satisfied: jupyter-latex-envs&gt;=1.3.8 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter_contrib_nbextensions) (1.4.6)
+Requirement already satisfied: jupyter-nbextensions-configurator&gt;=0.4.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter_contrib_nbextensions) (0.4.1)
+Requirement already satisfied: lxml in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter_contrib_nbextensions) (4.6.3)
+Requirement already satisfied: pyyaml in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter_contrib_nbextensions) (5.4.1)
+Requirement already satisfied: traitlets&gt;=4.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter_contrib_nbextensions) (5.0.5)
+Requirement already satisfied: jupyter-core in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter_contrib_nbextensions) (4.7.1)
+Requirement already satisfied: tornado in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter_contrib_nbextensions) (6.1)
+Requirement already satisfied: ipython-genutils in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter_contrib_nbextensions) (0.2.0)
+Requirement already satisfied: setuptools in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter-contrib-core&gt;=0.3.3-&gt;jupyter_contrib_nbextensions) (52.0.0.post20210125)
+Requirement already satisfied: ipython in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter-latex-envs&gt;=1.3.8-&gt;jupyter_contrib_nbextensions) (7.25.0)
+Requirement already satisfied: bleach in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert&gt;=4.2-&gt;jupyter_contrib_nbextensions) (3.3.1)
+Requirement already satisfied: nbformat&gt;=4.4 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert&gt;=4.2-&gt;jupyter_contrib_nbextensions) (5.1.3)
+Requirement already satisfied: jinja2&gt;=2.4 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert&gt;=4.2-&gt;jupyter_contrib_nbextensions) (3.0.1)
+Requirement already satisfied: testpath in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert&gt;=4.2-&gt;jupyter_contrib_nbextensions) (0.5.0)
+Requirement already satisfied: defusedxml in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert&gt;=4.2-&gt;jupyter_contrib_nbextensions) (0.7.1)
+Requirement already satisfied: entrypoints&gt;=0.2.2 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert&gt;=4.2-&gt;jupyter_contrib_nbextensions) (0.3)
+Requirement already satisfied: pandocfilters&gt;=1.4.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert&gt;=4.2-&gt;jupyter_contrib_nbextensions) (1.4.3)
+Requirement already satisfied: mistune&lt;2,&gt;=0.8.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert&gt;=4.2-&gt;jupyter_contrib_nbextensions) (0.8.4)
+Requirement already satisfied: pygments in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert&gt;=4.2-&gt;jupyter_contrib_nbextensions) (2.9.0)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jinja2&gt;=2.4-&gt;nbconvert&gt;=4.2-&gt;jupyter_contrib_nbextensions) (2.0.1)
+Requirement already satisfied: jsonschema!=2.5.0,&gt;=2.4 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbformat&gt;=4.4-&gt;nbconvert&gt;=4.2-&gt;jupyter_contrib_nbextensions) (3.2.0)
+Requirement already satisfied: pyrsistent&gt;=0.14.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat&gt;=4.4-&gt;nbconvert&gt;=4.2-&gt;jupyter_contrib_nbextensions) (0.18.0)
+Requirement already satisfied: six&gt;=1.11.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat&gt;=4.4-&gt;nbconvert&gt;=4.2-&gt;jupyter_contrib_nbextensions) (1.16.0)
+Requirement already satisfied: attrs&gt;=17.4.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat&gt;=4.4-&gt;nbconvert&gt;=4.2-&gt;jupyter_contrib_nbextensions) (20.3.0)
+Requirement already satisfied: terminado&gt;=0.8.3 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook&gt;=4.0-&gt;jupyter_contrib_nbextensions) (0.10.1)
+Requirement already satisfied: jupyter-client&gt;=5.3.4 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook&gt;=4.0-&gt;jupyter_contrib_nbextensions) (6.1.12)
+Requirement already satisfied: ipykernel in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook&gt;=4.0-&gt;jupyter_contrib_nbextensions) (6.0.3)
+Requirement already satisfied: Send2Trash&gt;=1.5.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook&gt;=4.0-&gt;jupyter_contrib_nbextensions) (1.7.1)
+Requirement already satisfied: prometheus-client in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook&gt;=4.0-&gt;jupyter_contrib_nbextensions) (0.11.0)
+Requirement already satisfied: pyzmq&gt;=17 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook&gt;=4.0-&gt;jupyter_contrib_nbextensions) (22.1.0)
+Requirement already satisfied: argon2-cffi in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook&gt;=4.0-&gt;jupyter_contrib_nbextensions) (20.1.0)
+Requirement already satisfied: python-dateutil&gt;=2.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter-client&gt;=5.3.4-&gt;notebook&gt;=4.0-&gt;jupyter_contrib_nbextensions) (2.8.2)
+Requirement already satisfied: ptyprocess in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from terminado&gt;=0.8.3-&gt;notebook&gt;=4.0-&gt;jupyter_contrib_nbextensions) (0.7.0)
+Requirement already satisfied: cffi&gt;=1.0.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from argon2-cffi-&gt;notebook&gt;=4.0-&gt;jupyter_contrib_nbextensions) (1.14.6)
+Requirement already satisfied: pycparser in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from cffi&gt;=1.0.0-&gt;argon2-cffi-&gt;notebook&gt;=4.0-&gt;jupyter_contrib_nbextensions) (2.20)
+Requirement already satisfied: packaging in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from bleach-&gt;nbconvert&gt;=4.2-&gt;jupyter_contrib_nbextensions) (21.0)
+Requirement already satisfied: webencodings in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from bleach-&gt;nbconvert&gt;=4.2-&gt;jupyter_contrib_nbextensions) (0.5.1)
+Requirement already satisfied: debugpy&lt;2.0,&gt;=1.0.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipykernel-&gt;notebook&gt;=4.0-&gt;jupyter_contrib_nbextensions) (1.4.1)
+Requirement already satisfied: matplotlib-inline&lt;0.2.0,&gt;=0.1.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipykernel-&gt;notebook&gt;=4.0-&gt;jupyter_contrib_nbextensions) (0.1.2)
+Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython-&gt;jupyter-latex-envs&gt;=1.3.8-&gt;jupyter_contrib_nbextensions) (3.0.19)
+Requirement already satisfied: jedi&gt;=0.16 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython-&gt;jupyter-latex-envs&gt;=1.3.8-&gt;jupyter_contrib_nbextensions) (0.18.0)
+Requirement already satisfied: decorator in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython-&gt;jupyter-latex-envs&gt;=1.3.8-&gt;jupyter_contrib_nbextensions) (5.0.9)
+Requirement already satisfied: pickleshare in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython-&gt;jupyter-latex-envs&gt;=1.3.8-&gt;jupyter_contrib_nbextensions) (0.7.5)
+Requirement already satisfied: pexpect&gt;4.3 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython-&gt;jupyter-latex-envs&gt;=1.3.8-&gt;jupyter_contrib_nbextensions) (4.8.0)
+Requirement already satisfied: backcall in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython-&gt;jupyter-latex-envs&gt;=1.3.8-&gt;jupyter_contrib_nbextensions) (0.2.0)
+Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jedi&gt;=0.16-&gt;ipython-&gt;jupyter-latex-envs&gt;=1.3.8-&gt;jupyter_contrib_nbextensions) (0.8.2)
+Requirement already satisfied: wcwidth in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0-&gt;ipython-&gt;jupyter-latex-envs&gt;=1.3.8-&gt;jupyter_contrib_nbextensions) (0.2.5)
+Requirement already satisfied: pyparsing&gt;=2.0.2 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from packaging-&gt;bleach-&gt;nbconvert&gt;=4.2-&gt;jupyter_contrib_nbextensions) (2.4.7)
+[I 17:25:51 InstallContribNbextensionsApp] jupyter contrib nbextension install 
+[I 17:25:51 InstallContribNbextensionsApp] Installing jupyter_contrib_nbextensions nbextension files to jupyter data directory
+[I 17:25:51 InstallContribNbextensionsApp] Installing /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages/jupyter_contrib_nbextensions/nbextensions/contrib_nbextensions_help_item -&gt; contrib_nbextensions_help_item
+Traceback (most recent call last):
+  File &quot;/usr/share/miniconda/envs/python-numérique/bin/jupyter-contrib&quot;, line 8, in &lt;module&gt;
+    sys.exit(main())
+  File &quot;/usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages/jupyter_core/application.py&quot;, line 254, in launch_instance
+    return super(JupyterApp, cls).launch_instance(argv=argv, **kwargs)
+  File &quot;/usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages/traitlets/config/application.py&quot;, line 845, in launch_instance
+    app.start()
+  File &quot;/usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages/jupyter_contrib_core/application.py&quot;, line 50, in start
+    super(JupyterContribApp, self).start()
+  File &quot;/usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages/jupyter_core/application.py&quot;, line 243, in start
+    self.subapp.start()
+  File &quot;/usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages/jupyter_contrib_nbextensions/application.py&quot;, line 231, in start
+    super(ContribNbextensionsApp, self).start()
+  File &quot;/usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages/jupyter_core/application.py&quot;, line 243, in start
+    self.subapp.start()
+  File &quot;/usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages/jupyter_contrib_nbextensions/application.py&quot;, line 178, in start
+    toggle_install_files(self._toggle_value, **kwargs_files)
+  File &quot;/usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages/jupyter_contrib_nbextensions/install.py&quot;, line 74, in toggle_install_files
+    nbextensions.install_nbextension_python(
+  File &quot;/usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages/notebook/nbextensions.py&quot;, line 214, in install_nbextension_python
+    full_dest = install_nbextension(
+  File &quot;/usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages/notebook/nbextensions.py&quot;, line 118, in install_nbextension
+    ensure_dir_exists(nbext)
+  File &quot;/usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages/jupyter_core/utils/__init__.py&quot;, line 11, in ensure_dir_exists
+    os.makedirs(path, mode=mode)
+  File &quot;/usr/share/miniconda/envs/python-numérique/lib/python3.9/os.py&quot;, line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File &quot;/usr/share/miniconda/envs/python-numérique/lib/python3.9/os.py&quot;, line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: &#39;/usr/local/share/jupyter&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># puis on active celles qui nous intéressent</span>
+
+<span class="c1"># la table des matières navigable</span>
+jupyter nbextension <span class="nb">enable</span> toc2/main
+<span class="c1"># les cellules qui ne prennent que la moitié de la largeur</span>
+jupyter nbextension <span class="nb">enable</span> splitcell/splitcell
+
+<span class="c1"># les codes de couleur</span>
+pip install nb-courselevels
+jupyter nbextension <span class="nb">enable</span> courselevels/index
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enabling notebook extension toc2/main...
+      - Validating: problems found:
+        - require? <span class=" -Color -Color-Red"> X</span> toc2/main
+Enabling notebook extension splitcell/splitcell...
+      - Validating: problems found:
+        - require? <span class=" -Color -Color-Red"> X</span> splitcell/splitcell
+Collecting nb-courselevels
+  Downloading nb_courselevels-0.4.0-py3-none-any.whl (8.9 kB)
+Requirement already satisfied: jupyter-nbextensions-configurator in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nb-courselevels) (0.4.1)
+Requirement already satisfied: notebook in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nb-courselevels) (6.4.0)
+Requirement already satisfied: traitlets in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter-nbextensions-configurator-&gt;nb-courselevels) (5.0.5)
+Requirement already satisfied: jupyter-contrib-core&gt;=0.3.3 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter-nbextensions-configurator-&gt;nb-courselevels) (0.3.3)
+Requirement already satisfied: tornado in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter-nbextensions-configurator-&gt;nb-courselevels) (6.1)
+Requirement already satisfied: jupyter-core in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter-nbextensions-configurator-&gt;nb-courselevels) (4.7.1)
+Requirement already satisfied: pyyaml in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter-nbextensions-configurator-&gt;nb-courselevels) (5.4.1)
+Requirement already satisfied: setuptools in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter-contrib-core&gt;=0.3.3-&gt;jupyter-nbextensions-configurator-&gt;nb-courselevels) (52.0.0.post20210125)
+Requirement already satisfied: Send2Trash&gt;=1.5.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook-&gt;nb-courselevels) (1.7.1)
+Requirement already satisfied: nbformat in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook-&gt;nb-courselevels) (5.1.3)
+Requirement already satisfied: argon2-cffi in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook-&gt;nb-courselevels) (20.1.0)
+Requirement already satisfied: ipykernel in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook-&gt;nb-courselevels) (6.0.3)
+Requirement already satisfied: pyzmq&gt;=17 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook-&gt;nb-courselevels) (22.1.0)
+Requirement already satisfied: ipython-genutils in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook-&gt;nb-courselevels) (0.2.0)
+Requirement already satisfied: jinja2 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook-&gt;nb-courselevels) (3.0.1)
+Requirement already satisfied: prometheus-client in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook-&gt;nb-courselevels) (0.11.0)
+Requirement already satisfied: nbconvert in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook-&gt;nb-courselevels) (5.6.1)
+Requirement already satisfied: terminado&gt;=0.8.3 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook-&gt;nb-courselevels) (0.10.1)
+Requirement already satisfied: jupyter-client&gt;=5.3.4 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook-&gt;nb-courselevels) (6.1.12)
+Requirement already satisfied: python-dateutil&gt;=2.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter-client&gt;=5.3.4-&gt;notebook-&gt;nb-courselevels) (2.8.2)
+Requirement already satisfied: six&gt;=1.5 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from python-dateutil&gt;=2.1-&gt;jupyter-client&gt;=5.3.4-&gt;notebook-&gt;nb-courselevels) (1.16.0)
+Requirement already satisfied: ptyprocess in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from terminado&gt;=0.8.3-&gt;notebook-&gt;nb-courselevels) (0.7.0)
+Requirement already satisfied: cffi&gt;=1.0.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from argon2-cffi-&gt;notebook-&gt;nb-courselevels) (1.14.6)
+Requirement already satisfied: pycparser in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from cffi&gt;=1.0.0-&gt;argon2-cffi-&gt;notebook-&gt;nb-courselevels) (2.20)
+Requirement already satisfied: debugpy&lt;2.0,&gt;=1.0.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipykernel-&gt;notebook-&gt;nb-courselevels) (1.4.1)
+Requirement already satisfied: matplotlib-inline&lt;0.2.0,&gt;=0.1.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipykernel-&gt;notebook-&gt;nb-courselevels) (0.1.2)
+Requirement already satisfied: ipython&lt;8.0,&gt;=7.23.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipykernel-&gt;notebook-&gt;nb-courselevels) (7.25.0)
+Requirement already satisfied: decorator in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython&lt;8.0,&gt;=7.23.1-&gt;ipykernel-&gt;notebook-&gt;nb-courselevels) (5.0.9)
+Requirement already satisfied: backcall in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython&lt;8.0,&gt;=7.23.1-&gt;ipykernel-&gt;notebook-&gt;nb-courselevels) (0.2.0)
+Requirement already satisfied: pygments in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython&lt;8.0,&gt;=7.23.1-&gt;ipykernel-&gt;notebook-&gt;nb-courselevels) (2.9.0)
+Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython&lt;8.0,&gt;=7.23.1-&gt;ipykernel-&gt;notebook-&gt;nb-courselevels) (3.0.19)
+Requirement already satisfied: pexpect&gt;4.3 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython&lt;8.0,&gt;=7.23.1-&gt;ipykernel-&gt;notebook-&gt;nb-courselevels) (4.8.0)
+Requirement already satisfied: jedi&gt;=0.16 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython&lt;8.0,&gt;=7.23.1-&gt;ipykernel-&gt;notebook-&gt;nb-courselevels) (0.18.0)
+Requirement already satisfied: pickleshare in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython&lt;8.0,&gt;=7.23.1-&gt;ipykernel-&gt;notebook-&gt;nb-courselevels) (0.7.5)
+Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jedi&gt;=0.16-&gt;ipython&lt;8.0,&gt;=7.23.1-&gt;ipykernel-&gt;notebook-&gt;nb-courselevels) (0.8.2)
+Requirement already satisfied: wcwidth in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0-&gt;ipython&lt;8.0,&gt;=7.23.1-&gt;ipykernel-&gt;notebook-&gt;nb-courselevels) (0.2.5)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jinja2-&gt;notebook-&gt;nb-courselevels) (2.0.1)
+Requirement already satisfied: pandocfilters&gt;=1.4.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert-&gt;notebook-&gt;nb-courselevels) (1.4.3)
+Requirement already satisfied: mistune&lt;2,&gt;=0.8.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert-&gt;notebook-&gt;nb-courselevels) (0.8.4)
+Requirement already satisfied: entrypoints&gt;=0.2.2 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert-&gt;notebook-&gt;nb-courselevels) (0.3)
+Requirement already satisfied: testpath in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert-&gt;notebook-&gt;nb-courselevels) (0.5.0)
+Requirement already satisfied: bleach in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert-&gt;notebook-&gt;nb-courselevels) (3.3.1)
+Requirement already satisfied: defusedxml in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert-&gt;notebook-&gt;nb-courselevels) (0.7.1)
+Requirement already satisfied: jsonschema!=2.5.0,&gt;=2.4 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbformat-&gt;notebook-&gt;nb-courselevels) (3.2.0)
+Requirement already satisfied: pyrsistent&gt;=0.14.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat-&gt;notebook-&gt;nb-courselevels) (0.18.0)
+Requirement already satisfied: attrs&gt;=17.4.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat-&gt;notebook-&gt;nb-courselevels) (20.3.0)
+Requirement already satisfied: packaging in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from bleach-&gt;nbconvert-&gt;notebook-&gt;nb-courselevels) (21.0)
+Requirement already satisfied: webencodings in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from bleach-&gt;nbconvert-&gt;notebook-&gt;nb-courselevels) (0.5.1)
+Requirement already satisfied: pyparsing&gt;=2.0.2 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from packaging-&gt;bleach-&gt;nbconvert-&gt;notebook-&gt;nb-courselevels) (2.4.7)
+Installing collected packages: nb-courselevels
+Successfully installed nb-courselevels-0.4.0
+Enabling notebook extension courselevels/index...
+      - Validating: <span class=" -Color -Color-Green">OK</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="multiples-environnements-python">
+<h2>multiples environnements Python<a class="headerlink" href="#multiples-environnements-python" title="Permalink to this headline">¶</a></h2>
+<p>pour ceux qui sont très en avance (section niveau avancée)</p>
+<p>on l’a mentionné un peu plus haut, cela peut être utile de créer plusieurs environnements
+Python différents; c’est utile notamment :</p>
+<ul class="simple">
+<li><p>si vous travaillez sur plusieurs projets différents, qui ont chacun leur ensemble de
+dépendances, pas forcément compatibles entre elles; par exemple, l’un utilise Django-2.x
+et l’autre Django-3.x</p></li>
+<li><p>et aussi, lors de la sortie d’une nouvelle release de Python, que vous voulez essayer
+sans tout casser</p></li>
+</ul>
+<p>il existe plusieurs solutions pour gérer cela, notamment la solution <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code>, mais
+nous allons pour notre part nous concentrer sur miniconda, puisque c’est ce qu’on a
+installé</p>
+<div class="section" id="miniconda">
+<h3>miniconda<a class="headerlink" href="#miniconda" title="Permalink to this headline">¶</a></h3>
+<p>c’est un des points forts de miniconda, que de permettre de facilement
+créer/activer/détruire des environnements multiples; on entend par environnement :</p>
+<ul class="simple">
+<li><p>un socle <code class="docutils literal notranslate"><span class="pre">Python</span></code> accessible par les commandes <code class="docutils literal notranslate"><span class="pre">python</span></code> et <code class="docutils literal notranslate"><span class="pre">pip</span></code></p></li>
+<li><p>installé au départ sans aucune librairie tierce (enfin si, disons plutôt le strict
+minimum, comme <code class="docutils literal notranslate"><span class="pre">pip</span></code>), pour que vous puissiez construire votre environnement de scratch</p></li>
+</ul>
+<p>les commandes utiles sont</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">list</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">-n</span> <span class="pre">mon_environnement</span> <span class="pre">python=3.8</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">remove</span> <span class="pre">-n</span> <span class="pre">mon_environnement</span></code></p></li>
+</ul>
+<p>et pour gérer tout cela, on dispose de commandes pour changer d’environnement; le modèle
+mental est simple :</p>
+<ul class="simple">
+<li><p>lorsque vous créez un terminal, vous êtes dans l’environnement qui s’appelle <code class="docutils literal notranslate"><span class="pre">base</span></code>,
+c’est celui que vous avez utilisé jusqu’ici</p></li>
+<li><p>vous pouvez passer dans un autre environnement avec<br />
+<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">mon_environnement</span></code><br />
+qui a pour effet, entre autres, de modifier votre <code class="docutils literal notranslate"><span class="pre">PATH</span></code> pour que la commande <code class="docutils literal notranslate"><span class="pre">python</span></code>
+soit cherchée ailleurs</p></li>
+<li><p>pour en sortir, et revenir dans <code class="docutils literal notranslate"><span class="pre">base</span></code>, vous faites<br />
+<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="exemple-de-session">
+<h3>exemple de session<a class="headerlink" href="#exemple-de-session" title="Permalink to this headline">¶</a></h3>
+<p>voici à titre indicatif une session sous MacOS pour illustrer tout ceci</p>
+<p>vous remarquerez comme le <em>prompt</em> bash reflète <strong>l’environnement dans lequel on se
+trouve</strong>, ça semble <strong>relativement impératif</strong> si on ne veut pas s’emmêler les pinceaux;
+surtout n’utilisez pas cette technologie si votre prompt ne montre pas l’environnement
+courant, c’est beaucoup trop facile de se tirer une balle dans le pied si on n’a pas cet
+aide-mémoire</p>
+<div class="section" id="la-liste-de-mes-environnements">
+<h4>la liste de mes environnements<a class="headerlink" href="#la-liste-de-mes-environnements" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[base] ~ $ conda env list
+# conda environments:
+#
+base                  *  /Users/tparment/miniconda3
+&lt;snip ...&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="j-en-cree-un-nouveau-avec-python-3-8">
+<h4>j’en crée un nouveau avec Python-3.8<a class="headerlink" href="#j-en-cree-un-nouveau-avec-python-3-8" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[base] ~ $ conda create -n demo-py38 python=3.8
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+&lt;snip ...&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="on-le-voit">
+<h4>on le voit<a class="headerlink" href="#on-le-voit" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[base] ~ $ conda env list
+# conda environments:
+#
+base                  *  /Users/tparment/miniconda3
+demo-py38                /Users/tparment/miniconda3/envs/demo-py38
+&lt;snip...&gt;
+</pre></div>
+</div>
+<div class="section" id="pour-entrer-dans-le-nouvel-environnement">
+<h5>pour entrer dans le nouvel environnement<a class="headerlink" href="#pour-entrer-dans-le-nouvel-environnement" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[base] ~ $ conda activate demo-py38
+[demo-py38] ~ $
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="les-packages-installes">
+<h4>les packages installés<a class="headerlink" href="#les-packages-installes" title="Permalink to this headline">¶</a></h4>
+<p>très peu de choses</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[demo-py38] ~ $ pip list
+Package    Version
+---------- -------------------
+certifi    2020.4.5.1
+pip        20.0.2
+setuptools 46.2.0.post20200511
+wheel      0.34.2
+</pre></div>
+</div>
+</div>
+<div class="section" id="on-y-installe-ce-qu-on-veut">
+<h4>on y installe ce qu’on veut<a class="headerlink" href="#on-y-installe-ce-qu-on-veut" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[demo-py38] ~ $ pip install numpy==1.15.3
+</pre></div>
+</div>
+</div>
+<div class="section" id="la-version-de-python">
+<h4>la version de python<a class="headerlink" href="#la-version-de-python" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[demo-py38] ~ $ python --version
+Python 3.8.2
+</pre></div>
+</div>
+</div>
+<div class="section" id="sortir">
+<h4>sortir<a class="headerlink" href="#sortir" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[demo-py38] ~ $ conda deactivate
+[base] ~ $
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h4>la version de python<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[base] ~ $ python --version
+Python 3.7.6
+</pre></div>
+</div>
+</div>
+<div class="section" id="on-n-a-pas-perturbe-l-environnement-de-depart">
+<h4>on n’a pas perturbé l’environnement de départ<a class="headerlink" href="#on-n-a-pas-perturbe-l-environnement-de-depart" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[base] ~ $ pip show numpy
+Name: numpy
+Version: 1.18.1
+</pre></div>
+</div>
+</div>
+<div class="section" id="pour-detruire-l-environnement-en-question">
+<h4>pour détruire l’environnement en question<a class="headerlink" href="#pour-detruire-l-environnement-en-question" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[base] ~ $ conda env remove -n demo-py38
+
+Remove all packages in environment /Users/tparment/miniconda3/envs/demo-py38:
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="retour-dans-vs-code">
+<h3>retour dans vs-code<a class="headerlink" href="#retour-dans-vs-code" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>créez un nouvel environnement miniconda avec Python-3.8</p></li>
+<li><p>de retour dans vs-code, sélectionnez cet environnement</p></li>
+</ul>
+<p>notez que ce réglage est associé au <em>workspace</em> vs-code</p>
+<p>c’est quoi un <em>workspace</em> ? ça correspond en gros à la sauvegarde de l’état de l’éditeur
+lui-même : la liste des fichiers en cours d’édition, les onglets ouverts, etc…</p>
+<p>pour expérimenter, créez une session vs-code dans un directory, choisissez votre
+environnement Python, sortez de la session; ré-ouvrez vs-code sur le même répertoire, vous
+devez retrouver ce réglage</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "calysto_bash"
+        },
+        kernelOptions: {
+            kernelName: "calysto_bash",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'calysto_bash'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="0-01-intro.html" title="previous page">UE 12 - Introduction</a>
+    <a class='right-next' id="next-link" href="1-01-environnement.html" title="next page">UE12 - Python : généralités</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thierry Parmentelat<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

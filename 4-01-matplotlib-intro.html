@@ -1,0 +1,893 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dataviz avec matplotlib &#8212; Python numérique</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="figures et sous-figures" href="4-03-matplotlib-figure-and-sub-figures.html" />
+    <link rel="prev" title="regroupement de données pandas.DataFrame.groupby" href="3-05-pandas-group-by.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Python numérique</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-01-intro.html">
+   UE 12 - Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  intro et installation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-02-outils.html">
+   outils de base
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-01-environnement.html">
+   UE12 - Python : généralités
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-02-rudiments.html">
+   rudiments de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-03-operateurs.html">
+   opérateurs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-04-fonctions.html">
+   fonctions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-05-types-methodes.html">
+   objets, types et méthodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-06-containers.html">
+   types évolués
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-07-references-partagees.html">
+   références partagées
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-08-iterations.html">
+   itérations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-09-modules.html">
+   modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-10-classes.html">
+   classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-01-numpy-intro.html">
+   UE12 - numpy : introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-02-numpy-type-memory.html">
+   numpy et la mémoire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-03-numpy-vectorization.html">
+   la vectorisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-04-numpy-indexing-slicing.html">
+   indexation et slicing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-05-numpy-broadcast.html">
+   broadcasting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-06-numpy-aggregate.html">
+   agrégation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-07-numpy-array-testing.html">
+   masques et tableaux booléens
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-08-numpy-linalg.html">
+   algèbre linéaire
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-01-pandas-intro.html">
+   UE12 - pandas et matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-02-pandas-modifying-slicing.html">
+   modifications et
+   <em>
+    slicing
+   </em>
+   de dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-04-pandas-sorting.html">
+   trier une dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-05-pandas-group-by.html">
+   regroupement de données
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas.DataFrame.groupby
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  matplotlib
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   dataviz avec
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-03-matplotlib-figure-and-sub-figures.html">
+   figures et sous-figures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-04-matplotlib-pandas-dataframe.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+   &amp;
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-05-matplotlib-plots-3D.html">
+   des graphiques en 3D
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/4-01-matplotlib-intro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/4-01-matplotlib-intro.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/boisgera/python-numerique"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/boisgera/python-numerique/issues/new?title=Issue%20on%20page%20%2F4-01-matplotlib-intro.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/boisgera/python-numerique/edit/master/notebooks/4-01-matplotlib-intro.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/boisgera/python-numerique/master?urlpath=tree/notebooks/4-01-matplotlib-intro.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tracer-une-courbe-plt-plot">
+   tracer une courbe (
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     plt.plot
+    </span>
+   </code>
+   )
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mettre-un-titre-a-la-figure-plt-title">
+   mettre un titre à la figure (
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     plt.title
+    </span>
+   </code>
+   )
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changer-la-taille-des-caracteres-fontsize">
+   changer la taille des caractères (
+   <em>
+    fontsize=
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mettre-des-legendes-aux-axes-plt-xlabel-et-plt-ylabel">
+   mettre des légendes aux axes (
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     plt.xlabel
+    </span>
+   </code>
+   et
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     plt.ylabel
+    </span>
+   </code>
+   )
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#afficher-les-points-plt-scatter">
+   afficher les points (
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     plt.scatter
+    </span>
+   </code>
+   )
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mettre-une-legende-a-plusieurs-plots-sur-la-meme-figure-label">
+   mettre une légende à plusieurs plots sur la même figure (
+   <em>
+    label=
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fixer-la-limite-des-axes-plt-xlim-et-plt-ylim">
+   fixer la limite des axes (
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     plt.xlim
+    </span>
+   </code>
+   et
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     plt.ylim
+    </span>
+   </code>
+   )
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preciser-les-ticks-des-axes-plt-xticks-et-plt-yticks">
+   préciser les
+   <em>
+    ticks
+   </em>
+   des axes (
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     plt.xticks
+    </span>
+   </code>
+   et
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     plt.yticks
+    </span>
+   </code>
+   )
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modifier-la-couleur-le-style-et-l-epaisseur">
+   modifier la couleur, le style et l’épaisseur
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#style-de-ligne-et-couleur-en-meme-temps">
+     style de ligne et couleur en même temps
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ecrire-du-texte-a-une-position">
+   écrire du texte à une position
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sauver-une-figure-dans-un-fichier-sans-clic-droit">
+   sauver une figure dans un fichier (sans clic-droit)
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="licence">
+<span>Licence CC BY-NC-ND</span>
+<span>Valérie Roy</span>
+</div>
+<img alt="_images/ensmp-25-alpha.png" src="_images/ensmp-25-alpha.png" />
+<div class="section" id="dataviz-avec-matplotlib">
+<h1>dataviz avec <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code><a class="headerlink" href="#dataviz-avec-matplotlib" title="Permalink to this headline">¶</a></h1>
+<p>Pour vous familiariser avec des données, rien ne remplace naturellement la visualisation !</p>
+<p>Nous allons voir rapidement quelques fonctions de visualisation de la librairie <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> (qui s’appelle de manière standard <code class="docutils literal notranslate"><span class="pre">plt</span></code>).</p>
+<p>Pour expliquer rapidement la génèse de <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, il s’agissait pour ses développeurs (en 2003) de donner une alternative à la visualisation de donnée sous <em>matlab</em>, mais dans l’écosystème Python.</p>
+<p>Cette librairie reste encore actuellement <strong>la</strong> librairie la plus populaire pour le dataviz en Python, il existe une communauté de développeurs et d’utilisateurs très active. Les autres librairies sont, le plus souvent, dérivées de <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> c’est donc celle dont nous allons illustrer quelques fonctions de base très utiles.</p>
+<p>Pour commencer nous allons dessiner des courbes en 2D.</p>
+<p>On l’importe sous son nom standard.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>On demande aux dessins de s’insérer en ligne dans le notebook et non pas d’être dessinés sur une fenêtre à part.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nous importons aussi les librairies numériques et de dataframe afin de voir leur relation avec <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>https://matplotlib.org/api/pyplot_summary.html</p>
+<p>La syntaxe se veut simple. La librairie est très complète et très optimisée. Elle peut traiter de grandes quantités de données (ce qui en fait une bonne librairie pour les sciences de données). Enfin les fonctions ont été <em>emballées</em> afin d’être utilisées facilement en <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
+<p>Vous allez y trouver les fonctions classiques: courbes, histogrammes, boîtes à moustache, nuages de points … que vous allez pouvoir personnaliser avec des textes, des grilles, des étiquettes, des légendes … et dont vous allez pouvoir contrôler les couleurs, les styles de ligne, les propriétés de police, les propriétés des axes …</p>
+<p>Nous savons faire des tableaux de nombres linéairement espacés avec la fonction <code class="docutils literal notranslate"><span class="pre">linspace</span></code>. Nous savons appliquer une fonction à tout un tableau <code class="docutils literal notranslate"><span class="pre">numpy</span></code> … apprenons maintenant à dessiner les résultats obtenus.</p>
+<p>Voilà vos données pour les abcisses: 50 nombres réels entre 0 et $2\pi$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Et pour les ordonnées : les sinus de ces points. J’applique simplement la fonction (vectorielle) <code class="docutils literal notranslate"><span class="pre">np.sin</span></code> à <code class="docutils literal notranslate"><span class="pre">x</span></code> qui est … on se rappelle, un <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tracer-une-courbe-plt-plot">
+<h2>tracer une courbe (<code class="docutils literal notranslate"><span class="pre">plt.plot</span></code>)<a class="headerlink" href="#tracer-une-courbe-plt-plot" title="Permalink to this headline">¶</a></h2>
+<p>En utilisant la fonction <code class="docutils literal notranslate"><span class="pre">plot</span></code> de <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> donc <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code>, nous allons tracer les 50 couples de points (abscisse, ordonnée) entre 0 et $2\pi$.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-01-matplotlib-intro_21_0.png" src="_images/4-01-matplotlib-intro_21_0.png" />
+</div>
+</div>
+<p>C’est très joli et très succinct. Tous les <em>réglages</em> ont pris leurs valeurs par défaut: taille de la figure, tailles et polices des caractères, couleurs du fond et de la courbe, titre …</p>
+<p>Améliorons un peu notre figure.</p>
+</div>
+<div class="section" id="mettre-un-titre-a-la-figure-plt-title">
+<h2>mettre un titre à la figure (<code class="docutils literal notranslate"><span class="pre">plt.title</span></code>)<a class="headerlink" href="#mettre-un-titre-a-la-figure-plt-title" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;un beau sinus&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>        
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-01-matplotlib-intro_24_0.png" src="_images/4-01-matplotlib-intro_24_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="changer-la-taille-des-caracteres-fontsize">
+<h2>changer la taille des caractères (<em>fontsize=</em>)<a class="headerlink" href="#changer-la-taille-des-caracteres-fontsize" title="Permalink to this headline">¶</a></h2>
+<p>Et si j’y vois mal et que je préfère un titre plus gros:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;un beau sinus&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-01-matplotlib-intro_27_0.png" src="_images/4-01-matplotlib-intro_27_0.png" />
+</div>
+</div>
+<p>on vous laisse leur mettre une taille de fonte</p>
+</div>
+<div class="section" id="mettre-des-legendes-aux-axes-plt-xlabel-et-plt-ylabel">
+<h2>mettre des légendes aux axes (<code class="docutils literal notranslate"><span class="pre">plt.xlabel</span></code> et <code class="docutils literal notranslate"><span class="pre">plt.ylabel</span></code>)<a class="headerlink" href="#mettre-des-legendes-aux-axes-plt-xlabel-et-plt-ylabel" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;abscisses&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;ordonnées&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-01-matplotlib-intro_30_0.png" src="_images/4-01-matplotlib-intro_30_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="afficher-les-points-plt-scatter">
+<h2>afficher les points (<code class="docutils literal notranslate"><span class="pre">plt.scatter</span></code>)<a class="headerlink" href="#afficher-les-points-plt-scatter" title="Permalink to this headline">¶</a></h2>
+<p>On affiche les points, plutôt que de les relier pour former une courbe continue.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-01-matplotlib-intro_33_0.png" src="_images/4-01-matplotlib-intro_33_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="mettre-une-legende-a-plusieurs-plots-sur-la-meme-figure-label">
+<h2>mettre une légende à plusieurs plots sur la même figure (<em>label=</em>)<a class="headerlink" href="#mettre-une-legende-a-plusieurs-plots-sur-la-meme-figure-label" title="Permalink to this headline">¶</a></h2>
+<p>Il faut leur donner un label et ajouter une légende qui utilisera ces labels:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sinus&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;cosinus&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9b77eeee80&gt;
+</pre></div>
+</div>
+<img alt="_images/4-01-matplotlib-intro_36_1.png" src="_images/4-01-matplotlib-intro_36_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="fixer-la-limite-des-axes-plt-xlim-et-plt-ylim">
+<h2>fixer la limite des axes (<code class="docutils literal notranslate"><span class="pre">plt.xlim</span></code> et <code class="docutils literal notranslate"><span class="pre">plt.ylim</span></code>)<a class="headerlink" href="#fixer-la-limite-des-axes-plt-xlim-et-plt-ylim" title="Permalink to this headline">¶</a></h2>
+<p>$y=sin(x)$ est calculé entre $0$ et $2\pi$ mais on l’affiche entre 0 et $\pi$ en abscisse et entre 0 et 1 en ordonnées:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-01-matplotlib-intro_39_0.png" src="_images/4-01-matplotlib-intro_39_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="preciser-les-ticks-des-axes-plt-xticks-et-plt-yticks">
+<h2>préciser les <em>ticks</em> des axes (<code class="docutils literal notranslate"><span class="pre">plt.xticks</span></code> et <code class="docutils literal notranslate"><span class="pre">plt.yticks</span></code>)<a class="headerlink" href="#preciser-les-ticks-des-axes-plt-xticks-et-plt-yticks" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-01-matplotlib-intro_41_0.png" src="_images/4-01-matplotlib-intro_41_0.png" />
+</div>
+</div>
+<p>On peut même donner des noms aux ticks:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;pi/2&#39;</span><span class="p">,</span> <span class="s1">&#39;pi&#39;</span><span class="p">,</span> <span class="s1">&#39;3pi/2&#39;</span><span class="p">,</span> <span class="s1">&#39;2pi&#39;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sinus&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-01-matplotlib-intro_43_0.png" src="_images/4-01-matplotlib-intro_43_0.png" />
+</div>
+</div>
+<p>On peut utiliser les formules latex - souvenez-vous c’est un trait de markdown, entre deux <code class="docutils literal notranslate"><span class="pre">$</span></code> :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">],</span>
+           <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;$\pi/2$&#39;</span><span class="p">,</span> <span class="s1">&#39;$\pi$&#39;</span><span class="p">,</span> <span class="s1">&#39;$3\pi/2$&#39;</span><span class="p">,</span> <span class="s1">&#39;$2\pi$&#39;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;$x^2$ heu non c&#39;est pas ca du tout ! &quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sinus&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-01-matplotlib-intro_45_0.png" src="_images/4-01-matplotlib-intro_45_0.png" />
+</div>
+</div>
+<p>À vous de jouer. Construisez un tableau d’entiers entre 1 et 10 (non compris) et afficher la courbe $x^3$. Indice utilisez <code class="docutils literal notranslate"><span class="pre">np.arange</span></code> et <code class="docutils literal notranslate"><span class="pre">np.power</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="modifier-la-couleur-le-style-et-l-epaisseur">
+<h2>modifier la couleur, le style et l’épaisseur<a class="headerlink" href="#modifier-la-couleur-le-style-et-l-epaisseur" title="Permalink to this headline">¶</a></h2>
+<p>On va le faire sur la courbe de la fonction $x^2$ entre 1 et 10.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">13</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-01-matplotlib-intro_50_0.png" src="_images/4-01-matplotlib-intro_50_0.png" />
+</div>
+</div>
+<p>Essayez: ‘-‘, ‘–’, ‘-.’, ‘:’, ou encore <code class="docutils literal notranslate"><span class="pre">solid</span></code>, <code class="docutils literal notranslate"><span class="pre">dashed</span></code>, <code class="docutils literal notranslate"><span class="pre">dashdot</span></code>, <code class="docutils literal notranslate"><span class="pre">dotted</span></code></p>
+<div class="section" id="style-de-ligne-et-couleur-en-meme-temps">
+<h3>style de ligne et couleur en même temps<a class="headerlink" href="#style-de-ligne-et-couleur-en-meme-temps" title="Permalink to this headline">¶</a></h3>
+<p>On précise aussi la taille des marqueurs de points.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;g--&#39;</span><span class="p">,)</span> <span class="c1"># pointillés verts green --</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;rs&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># rectangles r(red) et s(quare)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;y^&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">);</span> <span class="c1"># ^triangles y(yellow)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;mv&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">);</span> <span class="c1"># triangles tête en bas majenta ...</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-01-matplotlib-intro_54_0.png" src="_images/4-01-matplotlib-intro_54_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ecrire-du-texte-a-une-position">
+<h2>écrire du texte à une position<a class="headerlink" href="#ecrire-du-texte-a-une-position" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;you are here !&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;rx&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f9b77d13d30&gt;]
+</pre></div>
+</div>
+<img alt="_images/4-01-matplotlib-intro_56_1.png" src="_images/4-01-matplotlib-intro_56_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="sauver-une-figure-dans-un-fichier-sans-clic-droit">
+<h2>sauver une figure dans un fichier (sans clic-droit)<a class="headerlink" href="#sauver-une-figure-dans-un-fichier-sans-clic-droit" title="Permalink to this headline">¶</a></h2>
+<p>On dessine la fonction $f(x)=x^2$. Mettez au fichier l’extension du format que vous préférez: <em>jpeg</em>, <em>jpg</em>, <em>pdf</em>, <em>png</em>, <em>svg</em>…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;$f(x) = x^2$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$x^2$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$x^2$&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;my_figure.jpg&#39;</span><span class="p">)</span>
+<span class="c1">#plt.savefig(&#39;my_figure.png&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4-01-matplotlib-intro_59_0.png" src="_images/4-01-matplotlib-intro_59_0.png" />
+</div>
+</div>
+<p>Et pour voir le résultat..</p>
+<img alt="_images/my_figure.jpg" src="_images/my_figure.jpg" />
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="3-05-pandas-group-by.html" title="previous page">regroupement de données  <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame.groupby</span></code></a>
+    <a class='right-next' id="next-link" href="4-03-matplotlib-figure-and-sub-figures.html" title="next page">figures et sous-figures</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thierry Parmentelat<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

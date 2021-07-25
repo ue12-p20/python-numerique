@@ -1,0 +1,1164 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>modules &#8212; Python numérique</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="classes" href="1-10-classes.html" />
+    <link rel="prev" title="itérations" href="1-08-iterations.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Python numérique</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-01-intro.html">
+   UE 12 - Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  intro et installation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-02-outils.html">
+   outils de base
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-01-environnement.html">
+   UE12 - Python : généralités
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-02-rudiments.html">
+   rudiments de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-03-operateurs.html">
+   opérateurs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-04-fonctions.html">
+   fonctions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-05-types-methodes.html">
+   objets, types et méthodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-06-containers.html">
+   types évolués
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-07-references-partagees.html">
+   références partagées
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-08-iterations.html">
+   itérations
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-10-classes.html">
+   classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-01-numpy-intro.html">
+   UE12 - numpy : introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-02-numpy-type-memory.html">
+   numpy et la mémoire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-03-numpy-vectorization.html">
+   la vectorisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-04-numpy-indexing-slicing.html">
+   indexation et slicing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-05-numpy-broadcast.html">
+   broadcasting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-06-numpy-aggregate.html">
+   agrégation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-07-numpy-array-testing.html">
+   masques et tableaux booléens
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-08-numpy-linalg.html">
+   algèbre linéaire
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-01-pandas-intro.html">
+   UE12 - pandas et matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-02-pandas-modifying-slicing.html">
+   modifications et
+   <em>
+    slicing
+   </em>
+   de dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-04-pandas-sorting.html">
+   trier une dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-05-pandas-group-by.html">
+   regroupement de données
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas.DataFrame.groupby
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-01-matplotlib-intro.html">
+   dataviz avec
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-03-matplotlib-figure-and-sub-figures.html">
+   figures et sous-figures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-04-matplotlib-pandas-dataframe.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+   &amp;
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-05-matplotlib-plots-3D.html">
+   des graphiques en 3D
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/1-09-modules.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/1-09-modules.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/boisgera/python-numerique"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/boisgera/python-numerique/issues/new?title=Issue%20on%20page%20%2F1-09-modules.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/boisgera/python-numerique/edit/master/notebooks/1-09-modules.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/boisgera/python-numerique/master?urlpath=tree/notebooks/1-09-modules.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bibliotheque-standard">
+   bibliothèque standard
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     import
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#autres-formes">
+   autres formes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation-de-librairies-tierces">
+   installation de librairies tierces
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#c-est-quoi-un-module">
+   c’est quoi un module ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notion-de-point-d-entree">
+   notion de point d’entrée
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recherche-des-modules">
+   recherche des modules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#organisation-de-votre-code">
+   organisation de votre code
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#librairies-utiles">
+   librairies utiles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-pathlib">
+   module
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pathlib
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-random">
+   module
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     random
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-requests">
+   module
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     requests
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-json">
+   module
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     json
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gestion-de-fichiers">
+   gestion de fichiers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fichiers-suite">
+   fichiers - suite
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice">
+   exercice
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="licence">
+<span>Licence CC BY-NC-ND</span>
+<span>Thierry Parmentelat</span>
+</div>
+<img alt="_images/inria-25-alpha.png" src="_images/inria-25-alpha.png" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="modules">
+<h1>modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="bibliotheque-standard">
+<h2>bibliothèque standard<a class="headerlink" href="#bibliotheque-standard" title="Permalink to this headline">¶</a></h2>
+<p>un grand nombre d’outils installés d’office<br />
+pour des tâches très variées
+<a class="reference external" href="https://docs.python.org/3/library/#the-python-standard-library">voir liste complète</a></p>
+<p>cette boite à outils est exposée au travers de <strong>modules</strong><br />
+que l’on peut charger dans son appli grâce au mot-clé <code class="docutils literal notranslate"><span class="pre">import</span></code></p>
+</div>
+<div class="section" id="import">
+<h2><code class="docutils literal notranslate"><span class="pre">import</span></code><a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import permet de charger un code</span>
+<span class="kn">import</span> <span class="nn">math</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># cela définit une variable, ici &#39;math&#39;</span>
+<span class="c1"># qui est une référence</span>
+<span class="c1"># vers un objet module</span>
+<span class="n">math</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;module &#39;math&#39; from &#39;/usr/share/miniconda/envs/python-numérique/lib/python3.9/lib-dynload/math.cpython-39-x86_64-linux-gnu.so&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">math</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>module
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># cet objet possède des attributs</span>
+<span class="c1"># auxquels on peut accéder</span>
+<span class="c1"># avec la notation module.attribut</span>
+
+<span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141592653589793
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="autres-formes">
+<h2>autres formes<a class="headerlink" href="#autres-formes" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># avec cette forme on ne définit pas la variable math</span>
+<span class="c1"># mais directement la variable pi</span>
+
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+<span class="n">pi</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141592653589793
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ici cos n&#39;est pas défini, math.cos l&#39;est</span>
+
+<span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="installation-de-librairies-tierces">
+<h2>installation de librairies tierces<a class="headerlink" href="#installation-de-librairies-tierces" title="Permalink to this headline">¶</a></h2>
+<p>si on a besoin d’installer un module<br />
+qui ne fait pas partie de la bibliothèque standard :</p>
+<ul class="simple">
+<li><p>répertoire disponible sur <a class="reference external" href="https://pypi.org/">https://pypi.org/</a></p></li>
+<li><p>installation à faire avec l’outil <code class="docutils literal notranslate"><span class="pre">pip</span></code><br />
+(se lance depuis le terminal)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># cette astuce avec le ! me permet</span>
+<span class="c1"># d&#39;appeler une commande normalement destinée au terminal</span>
+<span class="c1"># mais depuis Python</span>
+  
+<span class="o">!</span>pip search nbautoeval
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">ERROR: XMLRPC request failed [code: -32500]</span>
+<span class=" -Color -Color-Red">RuntimeError: PyPI&#39;s XMLRPC API is currently disabled due to unmanageable load and will be deprecated in the near future. See https://status.python.org/ for more information.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install nbautoeval
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: nbautoeval in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (1.7.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbautoeval) (1.21.1)
+Requirement already satisfied: ipywidgets in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbautoeval) (7.6.3)
+Requirement already satisfied: ipython in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbautoeval) (7.25.0)
+Requirement already satisfied: myst-parser in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbautoeval) (0.13.7)
+Requirement already satisfied: PyYAML in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbautoeval) (5.4.1)
+Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython-&gt;nbautoeval) (3.0.19)
+Requirement already satisfied: setuptools&gt;=18.5 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython-&gt;nbautoeval) (52.0.0.post20210125)
+Requirement already satisfied: jedi&gt;=0.16 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython-&gt;nbautoeval) (0.18.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pickleshare in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython-&gt;nbautoeval) (0.7.5)
+Requirement already satisfied: pygments in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython-&gt;nbautoeval) (2.9.0)
+Requirement already satisfied: backcall in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython-&gt;nbautoeval) (0.2.0)
+Requirement already satisfied: matplotlib-inline in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython-&gt;nbautoeval) (0.1.2)
+Requirement already satisfied: pexpect&gt;4.3 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython-&gt;nbautoeval) (4.8.0)
+Requirement already satisfied: decorator in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython-&gt;nbautoeval) (5.0.9)
+Requirement already satisfied: traitlets&gt;=4.2 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipython-&gt;nbautoeval) (5.0.5)
+Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jedi&gt;=0.16-&gt;ipython-&gt;nbautoeval) (0.8.2)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from pexpect&gt;4.3-&gt;ipython-&gt;nbautoeval) (0.7.0)
+Requirement already satisfied: wcwidth in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0-&gt;ipython-&gt;nbautoeval) (0.2.5)
+Requirement already satisfied: ipython-genutils in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from traitlets&gt;=4.2-&gt;ipython-&gt;nbautoeval) (0.2.0)
+Requirement already satisfied: jupyterlab-widgets&gt;=1.0.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipywidgets-&gt;nbautoeval) (1.0.0)
+Requirement already satisfied: nbformat&gt;=4.2.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipywidgets-&gt;nbautoeval) (5.1.3)
+Requirement already satisfied: ipykernel&gt;=4.5.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipywidgets-&gt;nbautoeval) (6.0.3)
+Requirement already satisfied: widgetsnbextension~=3.5.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipywidgets-&gt;nbautoeval) (3.5.1)
+Requirement already satisfied: debugpy&lt;2.0,&gt;=1.0.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets-&gt;nbautoeval) (1.4.1)
+Requirement already satisfied: jupyter-client&lt;7.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets-&gt;nbautoeval) (6.1.12)
+Requirement already satisfied: tornado&lt;7.0,&gt;=4.2 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets-&gt;nbautoeval) (6.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: python-dateutil&gt;=2.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter-client&lt;7.0-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets-&gt;nbautoeval) (2.8.2)
+Requirement already satisfied: jupyter-core&gt;=4.6.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter-client&lt;7.0-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets-&gt;nbautoeval) (4.7.1)
+Requirement already satisfied: pyzmq&gt;=13 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jupyter-client&lt;7.0-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets-&gt;nbautoeval) (22.1.0)
+Requirement already satisfied: jsonschema!=2.5.0,&gt;=2.4 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbformat&gt;=4.2.0-&gt;ipywidgets-&gt;nbautoeval) (3.2.0)
+Requirement already satisfied: pyrsistent&gt;=0.14.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets-&gt;nbautoeval) (0.18.0)
+Requirement already satisfied: attrs&gt;=17.4.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets-&gt;nbautoeval) (20.3.0)
+Requirement already satisfied: six&gt;=1.11.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat&gt;=4.2.0-&gt;ipywidgets-&gt;nbautoeval) (1.16.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: notebook&gt;=4.4.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from widgetsnbextension~=3.5.0-&gt;ipywidgets-&gt;nbautoeval) (6.4.0)
+Requirement already satisfied: jinja2 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets-&gt;nbautoeval) (3.0.1)
+Requirement already satisfied: terminado&gt;=0.8.3 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets-&gt;nbautoeval) (0.10.1)
+Requirement already satisfied: prometheus-client in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets-&gt;nbautoeval) (0.11.0)
+Requirement already satisfied: argon2-cffi in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets-&gt;nbautoeval) (20.1.0)
+Requirement already satisfied: Send2Trash&gt;=1.5.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets-&gt;nbautoeval) (1.7.1)
+Requirement already satisfied: nbconvert in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets-&gt;nbautoeval) (5.6.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: cffi&gt;=1.0.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets-&gt;nbautoeval) (1.14.6)
+Requirement already satisfied: pycparser in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from cffi&gt;=1.0.0-&gt;argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets-&gt;nbautoeval) (2.20)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from jinja2-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets-&gt;nbautoeval) (2.0.1)
+Requirement already satisfied: sphinx&lt;4,&gt;=2.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from myst-parser-&gt;nbautoeval) (3.5.4)
+Requirement already satisfied: mdit-py-plugins~=0.2.5 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from myst-parser-&gt;nbautoeval) (0.2.6)
+Requirement already satisfied: docutils&lt;0.18,&gt;=0.15 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from myst-parser-&gt;nbautoeval) (0.16)
+Requirement already satisfied: markdown-it-py~=0.6.2 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from myst-parser-&gt;nbautoeval) (0.6.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sphinxcontrib-htmlhelp in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from sphinx&lt;4,&gt;=2.1-&gt;myst-parser-&gt;nbautoeval) (2.0.0)
+Requirement already satisfied: sphinxcontrib-devhelp in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from sphinx&lt;4,&gt;=2.1-&gt;myst-parser-&gt;nbautoeval) (1.0.2)
+Requirement already satisfied: sphinxcontrib-jsmath in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from sphinx&lt;4,&gt;=2.1-&gt;myst-parser-&gt;nbautoeval) (1.0.1)
+Requirement already satisfied: sphinxcontrib-qthelp in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from sphinx&lt;4,&gt;=2.1-&gt;myst-parser-&gt;nbautoeval) (1.0.3)
+Requirement already satisfied: snowballstemmer&gt;=1.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from sphinx&lt;4,&gt;=2.1-&gt;myst-parser-&gt;nbautoeval) (2.1.0)
+Requirement already satisfied: babel&gt;=1.3 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from sphinx&lt;4,&gt;=2.1-&gt;myst-parser-&gt;nbautoeval) (2.9.1)
+Requirement already satisfied: imagesize in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from sphinx&lt;4,&gt;=2.1-&gt;myst-parser-&gt;nbautoeval) (1.2.0)
+Requirement already satisfied: requests&gt;=2.5.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from sphinx&lt;4,&gt;=2.1-&gt;myst-parser-&gt;nbautoeval) (2.26.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: alabaster&lt;0.8,&gt;=0.7 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from sphinx&lt;4,&gt;=2.1-&gt;myst-parser-&gt;nbautoeval) (0.7.12)
+Requirement already satisfied: packaging in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from sphinx&lt;4,&gt;=2.1-&gt;myst-parser-&gt;nbautoeval) (21.0)
+Requirement already satisfied: sphinxcontrib-serializinghtml in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from sphinx&lt;4,&gt;=2.1-&gt;myst-parser-&gt;nbautoeval) (1.1.5)
+Requirement already satisfied: sphinxcontrib-applehelp in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from sphinx&lt;4,&gt;=2.1-&gt;myst-parser-&gt;nbautoeval) (1.0.2)
+Requirement already satisfied: pytz&gt;=2015.7 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from babel&gt;=1.3-&gt;sphinx&lt;4,&gt;=2.1-&gt;myst-parser-&gt;nbautoeval) (2021.1)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from requests&gt;=2.5.0-&gt;sphinx&lt;4,&gt;=2.1-&gt;myst-parser-&gt;nbautoeval) (2021.5.30)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from requests&gt;=2.5.0-&gt;sphinx&lt;4,&gt;=2.1-&gt;myst-parser-&gt;nbautoeval) (3.2)
+Requirement already satisfied: charset-normalizer~=2.0.0 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from requests&gt;=2.5.0-&gt;sphinx&lt;4,&gt;=2.1-&gt;myst-parser-&gt;nbautoeval) (2.0.3)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from requests&gt;=2.5.0-&gt;sphinx&lt;4,&gt;=2.1-&gt;myst-parser-&gt;nbautoeval) (1.26.6)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: testpath in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets-&gt;nbautoeval) (0.5.0)
+Requirement already satisfied: pandocfilters&gt;=1.4.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets-&gt;nbautoeval) (1.4.3)
+Requirement already satisfied: mistune&lt;2,&gt;=0.8.1 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets-&gt;nbautoeval) (0.8.4)
+Requirement already satisfied: entrypoints&gt;=0.2.2 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets-&gt;nbautoeval) (0.3)
+Requirement already satisfied: bleach in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets-&gt;nbautoeval) (3.3.1)
+Requirement already satisfied: defusedxml in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets-&gt;nbautoeval) (0.7.1)
+Requirement already satisfied: webencodings in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from bleach-&gt;nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.5.0-&gt;ipywidgets-&gt;nbautoeval) (0.5.1)
+Requirement already satisfied: pyparsing&gt;=2.0.2 in /usr/share/miniconda/envs/python-numérique/lib/python3.9/site-packages (from packaging-&gt;sphinx&lt;4,&gt;=2.1-&gt;myst-parser-&gt;nbautoeval) (2.4.7)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nbautoeval</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="c-est-quoi-un-module">
+<h2>c’est quoi un module ?<a class="headerlink" href="#c-est-quoi-un-module" title="Permalink to this headline">¶</a></h2>
+<p>un module est un objet Python qui correspond à un fichier (ou répertoire) source<br />
+depuis cet objet vous pouvez accéder à des <strong>attributs</strong><br />
+avec la notation <code class="docutils literal notranslate"><span class="pre">module.attribut</span></code><br />
+(qui est la même notion que, par ex., <code class="docutils literal notranslate"><span class="pre">str.capitalize</span></code>)<br />
+le module a autant d’attributs que d’objets globaux dans le source<br />
+dans le cas d’un répertoire les attributs référencent d’autres modules</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># regarder le contenu</span>
+<span class="o">!</span>cat mod.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># variable globale au module
+foo = 1
+
+# fonction globale au module
+def bar(n):
+    x = 10
+    print(f&quot;dans bar, n={n} et x={x}&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mod</span>
+
+<span class="c1"># tous les noms dans le module (y compris les noms &quot;internes&quot;)</span>
+<span class="nb">dir</span><span class="p">(</span><span class="n">mod</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__builtins__&#39;,
+ &#39;__cached__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__file__&#39;,
+ &#39;__loader__&#39;,
+ &#39;__name__&#39;,
+ &#39;__package__&#39;,
+ &#39;__spec__&#39;,
+ &#39;bar&#39;,
+ &#39;foo&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># une fois le bruit éliminé</span>
+<span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">mod</span><span class="p">)</span> <span class="k">if</span> <span class="s1">&#39;__&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;bar&#39;, &#39;foo&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="notion-de-point-d-entree">
+<h2>notion de point d’entrée<a class="headerlink" href="#notion-de-point-d-entree" title="Permalink to this headline">¶</a></h2>
+<p>votre programme Python est toujours exécuté par un interpréteur<br />
+qui “commence” quelque part: c’est le point d’entrée</p>
+<p>si vous lancez</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 foo.py
+</pre></div>
+</div>
+<p>le point d’entrée dans ce cas est
+(le module correspondant à) <code class="docutils literal notranslate"><span class="pre">foo.py</span></code></p>
+</div>
+<div class="section" id="recherche-des-modules">
+<h2>recherche des modules<a class="headerlink" href="#recherche-des-modules" title="Permalink to this headline">¶</a></h2>
+<p>Python recherche les modules dans plusieurs d’endroits (répertoires)</p>
+<ul class="simple">
+<li><p>le répertoire qui contient le point d’entrée</p></li>
+<li><p>en option, la variable d’environnement <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code></p></li>
+<li><p>là où sont installés les morceaux de la librairie standard</p></li>
+</ul>
+<p>conseil : évitez de bidouiller <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code></p>
+</div>
+<div class="section" id="organisation-de-votre-code">
+<h2>organisation de votre code<a class="headerlink" href="#organisation-de-votre-code" title="Permalink to this headline">¶</a></h2>
+<p>cela signifie que pour commencer,<br />
+on peut sans souci couper son code en fichiers<br />
+et les mettre tous dans le même répertoire</p>
+<p>c’est une pratique courante et recommandée<br />
+il faut apprendre à découper<br />
+notamment pour augmenter la réutilisabilité</p>
+</div>
+<div class="section" id="librairies-utiles">
+<h2>librairies utiles<a class="headerlink" href="#librairies-utiles" title="Permalink to this headline">¶</a></h2>
+<p>liste largement non exhaustive</p>
+<ul class="simple">
+<li><p>gestion des fichiers: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">pathlib</span> <span class="pre">import</span> <span class="pre">Path</span></code></p></li>
+<li><p>génération de nombres aléatoires <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">random</span></code></p></li>
+<li><p>télécharger depuis Internet: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">requests</span></code></p></li>
+<li><p>ouverture de fichiers au format JSON: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">json</span></code> (standard)</p></li>
+<li><p>Python scientifique: <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, …</p></li>
+</ul>
+</div>
+<div class="section" id="module-pathlib">
+<h2>module <code class="docutils literal notranslate"><span class="pre">pathlib</span></code><a class="headerlink" href="#module-pathlib" title="Permalink to this headline">¶</a></h2>
+<p>fait partie de la librairie standard<br />
+permet de faire des calculs sur les fichiers</p>
+<ul class="simple">
+<li><p>lister les fichiers présents</p></li>
+<li><p>calculs sur les chemins et noms de fichier</p></li>
+<li><p>accéder aux métadata (taille, date, …)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ici Path correspond à une classe</span>
+<span class="c1"># on verra la théorie très bientôt</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1"># on recherche dans le répertoire courant &#39;.&#39;</span>
+<span class="c1"># les fichiers/répertoires d&#39;extension &#39;.ipynb&#39;</span>
+<span class="n">local_files</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.ipynb&#39;</span><span class="p">)</span>
+
+<span class="c1"># observons les fichiers trouvés</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">local_files</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;stem&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">.</span><span class="n">stem</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;suffix&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">.</span><span class="n">suffix</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;absolute()&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">.</span><span class="n">absolute</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span><span class="p">)</span>
+    <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="module-random">
+<h2>module <code class="docutils literal notranslate"><span class="pre">random</span></code><a class="headerlink" href="#module-random" title="Permalink to this headline">¶</a></h2>
+<p>une fois que vous avez le nom du module,<br />
+il vous suffit de consulter <a class="reference external" href="https://docs.python.org/3/library/random.html">la doc
+complète</a><br />
+pour cela taper dans google <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">random</span> <span class="pre">module</span></code><br />
+(nous reviendrons sur ce module lors de l’étude des librairies numériques)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="c1"># entre 0 et 1</span>
+<span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6366640476498368
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># un entier entre deux bornes</span>
+<span class="c1"># inclusivement</span>
+<span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="module-requests">
+<h2>module <code class="docutils literal notranslate"><span class="pre">requests</span></code><a class="headerlink" href="#module-requests" title="Permalink to this headline">¶</a></h2>
+<p>télécharger du contenu depuis une URL<br />
+accéder à l’entête http
+plus flexible que l’équivalent dans la librairie standard <code class="docutils literal notranslate"><span class="pre">urllib2</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/timeline.json&quot;</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;code de retour HTTP: </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>code de retour HTTP: 410
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raw_content</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">text</span>
+<span class="c1"># une chaine de caractères</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">raw_content</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># le début de cette chaine</span>
+<span class="n">raw_content</span><span class="p">[:</span><span class="mi">120</span><span class="p">]</span>
+<span class="c1"># son contenu est en format json (voir slide suivante)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;{&quot;message&quot;:&quot;Hello there, wayfaring stranger. If you’re reading this then you probably didn’t see our blog post a couple &#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="module-json">
+<h2>module <code class="docutils literal notranslate"><span class="pre">json</span></code><a class="headerlink" href="#module-json" title="Permalink to this headline">¶</a></h2>
+<p>le cas qu’on vient de voir est très fréquent<br />
+JSON est un format texte (compatible réseau donc Internet)<br />
+mais qui conserve un minimum de structure :
+permet de transmettre listes et dictionnaires</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pour décoder le JSON qu&#39;on a lu</span>
+<span class="c1"># et qui est dans la str raw_content</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">decoded</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">raw_content</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">decoded</span><span class="p">)</span> <span class="c1"># la chaîne contenait un dict Pyhon</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># cette fois on a un peu</span>
+<span class="c1"># de structure</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">decoded</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="se">\n\t</span><span class="si">{</span><span class="n">v</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>message
+	Hello there, wayfari...
+documentation_url
+	https://docs.github....
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="gestion-de-fichiers">
+<h2>gestion de fichiers<a class="headerlink" href="#gestion-de-fichiers" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pour écrire dans un fichier</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;tutu.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">writer</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;i=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">writer</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">open...</span></code> ouvre le fichier <code class="docutils literal notranslate"><span class="pre">tutu.txt</span></code> en écriture <code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code><br />
+et crée la variable <code class="docutils literal notranslate"><span class="pre">writer</span></code> de type <code class="docutils literal notranslate"><span class="pre">File</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">writer</span></code> n’est visible que dans le <code class="docutils literal notranslate"><span class="pre">with</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">print(...,</span> <span class="pre">file=writer)</span></code> écrit dans ce fichier<br />
+<code class="docutils literal notranslate"><span class="pre">with</span></code> ferme le fichier à la sortie<br />
+(nous allons maintenant lire ce fichier)</p>
+</div>
+<div class="section" id="fichiers-suite">
+<h2>fichiers - suite<a class="headerlink" href="#fichiers-suite" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># à l&#39;envers, on relit le fichier</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;tutu.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">reader</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>i=0
+i=1
+i=2
+i=3
+</pre></div>
+</div>
+</div>
+</div>
+<p>sans préciser le mode d’ouverture<br />
+<code class="docutils literal notranslate"><span class="pre">open</span></code> ouvre le fichier en lecture<br />
+l’objet <code class="docutils literal notranslate"><span class="pre">reader</span></code> est <strong>itérable</strong></p>
+<p>la variable <code class="docutils literal notranslate"><span class="pre">line</span></code> contient une fin de ligne<br />
+pas besoin que <code class="docutils literal notranslate"><span class="pre">print</span></code> en rajoute une</p>
+</div>
+<div class="section" id="exercice">
+<h2>exercice<a class="headerlink" href="#exercice" title="Permalink to this headline">¶</a></h2>
+<p>écrire une fonction <code class="docutils literal notranslate"><span class="pre">json_random()</span></code> qui retourne :</p>
+<ul class="simple">
+<li><p>une chaine de caractères</p></li>
+<li><p>qui correspond à l’encodage en JSON</p></li>
+<li><p>d’une liste contenant - au hasard - entre 2 et 5 valeurs numériques</p></li>
+<li><p>elles-mêmes tirées au hasard dans l’intervalle $[2 .. 5]$</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="c1"># n&#39;oubliez pas d&#39;importer les modules</span>
+<span class="c1"># dont vous avez besoin</span>
+<span class="k">def</span> <span class="nf">random_json</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    returns a JSON-encoded of a list</span>
+<span class="sd">    of 2 to 5 values between 2 and 5</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># votre code ici</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">check_random_json</span> <span class="kn">import</span> <span class="n">check_random_json</span>
+
+<span class="n">check_random_json</span><span class="p">(</span><span class="n">random_json</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERROR:root:result None is not a str
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERROR:root:nope, try again
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="1-08-iterations.html" title="previous page">itérations</a>
+    <a class='right-next' id="next-link" href="1-10-classes.html" title="next page">classes</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thierry Parmentelat<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

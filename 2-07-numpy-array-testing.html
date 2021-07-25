@@ -1,0 +1,1327 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>masques et tableaux booléens &#8212; Python numérique</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="algèbre linéaire" href="2-08-numpy-linalg.html" />
+    <link rel="prev" title="agrégation" href="2-06-numpy-aggregate.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Python numérique</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-01-intro.html">
+   UE 12 - Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  intro et installation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-02-outils.html">
+   outils de base
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-01-environnement.html">
+   UE12 - Python : généralités
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-02-rudiments.html">
+   rudiments de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-03-operateurs.html">
+   opérateurs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-04-fonctions.html">
+   fonctions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-05-types-methodes.html">
+   objets, types et méthodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-06-containers.html">
+   types évolués
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-07-references-partagees.html">
+   références partagées
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-08-iterations.html">
+   itérations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-09-modules.html">
+   modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-10-classes.html">
+   classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  numpy
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-01-numpy-intro.html">
+   UE12 - numpy : introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-02-numpy-type-memory.html">
+   numpy et la mémoire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-03-numpy-vectorization.html">
+   la vectorisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-04-numpy-indexing-slicing.html">
+   indexation et slicing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-05-numpy-broadcast.html">
+   broadcasting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-06-numpy-aggregate.html">
+   agrégation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   masques et tableaux booléens
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-08-numpy-linalg.html">
+   algèbre linéaire
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-01-pandas-intro.html">
+   UE12 - pandas et matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-02-pandas-modifying-slicing.html">
+   modifications et
+   <em>
+    slicing
+   </em>
+   de dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-04-pandas-sorting.html">
+   trier une dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-05-pandas-group-by.html">
+   regroupement de données
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas.DataFrame.groupby
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-01-matplotlib-intro.html">
+   dataviz avec
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-03-matplotlib-figure-and-sub-figures.html">
+   figures et sous-figures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-04-matplotlib-pandas-dataframe.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+   &amp;
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-05-matplotlib-plots-3D.html">
+   des graphiques en 3D
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/2-07-numpy-array-testing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/2-07-numpy-array-testing.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/boisgera/python-numerique"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/boisgera/python-numerique/issues/new?title=Issue%20on%20page%20%2F2-07-numpy-array-testing.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/boisgera/python-numerique/edit/master/notebooks/2-07-numpy-array-testing.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/boisgera/python-numerique/master?urlpath=tree/notebooks/2-07-numpy-array-testing.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#appliquons-une-condition-a-un-np-ndarray">
+   appliquons une condition à un
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     np.ndarray
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prendre-le-resultat-global-d-une-condition">
+   prendre le résultat global d’une condition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtrer-les-elements-d-un-tableau-par-une-condition">
+   filtrer les éléments d’un tableau par une condition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#composer-les-conditions">
+   composer les conditions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mise-en-garde">
+     mise en garde
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compter-les-elements-repondant-a-une-condition">
+   compter les éléments répondant à une condition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calculer-les-indices-des-elements-dans-le-tableau-d-origine">
+   calculer les indices des éléments dans le tableau d’origine
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#la-fonction-np-nonzero">
+     la fonction
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       np.nonzero
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#la-fonction-np-argwhere">
+     la fonction
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       np.argwhere
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modifier-les-elements-d-un-np-ndarray-avec-putmask">
+   modifier les éléments d’un
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     np.ndarray
+    </span>
+   </code>
+   avec
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     putmask
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercices">
+   exercices
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modifier-la-gaussienne">
+     modifier la gaussienne
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#correction">
+   correction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     modifier la gaussienne
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="licence">
+<span>Licence CC BY-NC-ND</span>
+<span>Valérie Roy</span>
+</div>
+<img alt="_images/ensmp-25-alpha.png" src="_images/ensmp-25-alpha.png" />
+<div class="section" id="masques-et-tableaux-booleens">
+<h1>masques et tableaux booléens<a class="headerlink" href="#masques-et-tableaux-booleens" title="Permalink to this headline">¶</a></h1>
+<p>ou comment tester en même temps <em>tous les éléments d’un tableau</em></p>
+<p>Nous avons vu les fonctions vectorisées (qui s’appliquent à tout un tableau sans recours à une boucle for-Python). Nous avons aussi vu les fonctions qui aggrègent les valeurs suivant les axes des <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> et permettent par exemple de sommer les lignes ou les colonnes d’une matrice ou encore trouver le plus petit élément ou son index dans la <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>.</p>
+<p>Nous allons voir une dernière chose qui consiste à tester tous les éléments d’un <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> (ou bien sûr d’une slice d’un <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>).</p>
+<p>Il y a deux manières de tester:</p>
+<ul class="simple">
+<li><p>tester tous les éléments et combiner les résultats des tests unitaires en un seul résultat global (le nombre de valeurs paires de votre tableau)</p></li>
+<li><p>obtenir le <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> de booléens résultats des tests individuels (les éléments qui sont pairs)</p></li>
+</ul>
+<p>Nous allons voir rapidement ces deux manières de tester.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="appliquons-une-condition-a-un-np-ndarray">
+<h2>appliquons une condition à un <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code><a class="headerlink" href="#appliquons-une-condition-a-un-np-ndarray" title="Permalink to this headline">¶</a></h2>
+<p>Les conditions s’appliquent à tous les éléments d’un tableau en une seule fois, ce qui signifie que vous ne devez pas écrire de boucle en Python mais laisser les fonctions vectorisées le faire pour vous.</p>
+<p>Les opérateurs de comparaison sont des fonctions vectorisées (les fameuses <em>UFuncs</em>). Elles vont retourner un tableau contenant les résultats des comparaisons éléments-par-élément.</p>
+<p>Ce tableau est un <em>masque booléen</em> que vous pouvez ensuite utiliser pour filtrer les éléments de votre tableau pour, par exemple, ne garder que ceux pour lesquels la condition est vraie.</p>
+<p>On va faire tout de suite un exemple. Construisons une matrice de forme <code class="docutils literal notranslate"><span class="pre">(3</span> <span class="pre">x</span> <span class="pre">4)</span></code> qui contient des entiers générés aléatoirement entre <code class="docutils literal notranslate"><span class="pre">-10</span></code> et <code class="docutils literal notranslate"><span class="pre">10</span></code>.</p>
+<p>Vous rappelez-vous comment faire une telle matrice ? Essayer avec <code class="docutils literal notranslate"><span class="pre">np.random.randint</span></code> et <code class="docutils literal notranslate"><span class="pre">reshape</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici - la correction ci-dessous</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ -3,  -5, -10,  -5],
+       [  9,   8,   1,   1],
+       [ -8,  -2,  -9,  -1]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Testons la parité des élements (avec le modulo <code class="docutils literal notranslate"><span class="pre">%</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">%</span><span class="k">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 1, 0, 1],
+       [1, 0, 1, 1],
+       [0, 0, 1, 1]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Comparons les résultats à <code class="docutils literal notranslate"><span class="pre">0</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">%</span><span class="k">2</span> == 0
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[False, False,  True, False],
+       [False,  True, False, False],
+       [ True,  True, False, False]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nous obtenons un tableau un <em>masque</em> de booléens.</p>
+<p>Les deux manières d’utiliser ce masque sont:</p>
+<ul class="simple">
+<li><p>soit de manière globale pour savoir, par exemple, le nombre d’éléments pairs de votre tableau</p></li>
+<li><p>soit pour filtrer votre matrice initiale, en ne gardant par exemple que les éléments pairs.</p></li>
+</ul>
+</div>
+<div class="section" id="prendre-le-resultat-global-d-une-condition">
+<h2>prendre le résultat global d’une condition<a class="headerlink" href="#prendre-le-resultat-global-d-une-condition" title="Permalink to this headline">¶</a></h2>
+<p>Vous pouvez faire des manipulations, de la matrice des résultats d’une condition, de manière globale avec <code class="docutils literal notranslate"><span class="pre">np.all</span></code> et <code class="docutils literal notranslate"><span class="pre">np.any</span></code> - qu’on a déjà rencontrés, rappelez-vous, dans la section sur les agrégations</p>
+<p>La permière fonction vous dit si tous les éléments de votre matrice répondent à la condition et la seconde si au moins un élément de votre matrice répond à la condition.</p>
+<p>Tous les éléments de la matrice sont-ils pairs ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">a</span><span class="o">%</span><span class="k">2</span>==0)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Non (ou alors vous avez une chance incroyable, une chance sur 4096 que ça se produise).</p>
+<p>Y-a-t-il au moins un élément pair ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sans doute vrai </span>
+<span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">a</span><span class="o">%</span><span class="k">2</span>==0)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pour information, il existe aussi une fonction qui permet de compter les éléments qui ne sont pas nuls:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">a</span><span class="o">%</span><span class="k">2</span>==0)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filtrer-les-elements-d-un-tableau-par-une-condition">
+<h2>filtrer les éléments d’un tableau par une condition<a class="headerlink" href="#filtrer-les-elements-d-un-tableau-par-une-condition" title="Permalink to this headline">¶</a></h2>
+<p>Reprenons notre matrice des 12 entiers générés aléatoirement entre <code class="docutils literal notranslate"><span class="pre">-10</span></code> et <code class="docutils literal notranslate"><span class="pre">10</span></code>. Nous ne voulons garder que les éléments pairs de notre matrice.</p>
+<p>Générons le masque booléen des nombres pairs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pairs</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">%</span><span class="k">2</span>==0)
+<span class="n">pairs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[False, False,  True, False],
+       [False,  True, False, False],
+       [ True,  True, False, False]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ce masque a naturellement la même forme que votre matrice. Pour <strong>ne garder que</strong> les éléments pairs, (on dit qu’on filtre les éléments de la matrice par ce masque de booléens), nous allons <strong>indexer</strong> la matrice par ce masque:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># cette construction n&#39;est pas anodine</span>
+<span class="c1"># l&#39;expression dans les [] est **elle-même un tableau** !</span>
+<span class="n">a</span><span class="p">[</span><span class="n">a</span><span class="o">%</span><span class="k">2</span>==0] # ou faire a[pairs]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-10,   8,  -8,  -2])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># comme on peut le voir ici</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">pairs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">pairs</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vous avez obtenu un nouveau tableau de type <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> qui contient les éléments pairs. Maintenant essayons de composer les conditions sous forme d’une expression logique (e.g. pour faire des <code class="docutils literal notranslate"><span class="pre">et</span></code> ou des <code class="docutils literal notranslate"><span class="pre">ou</span></code> et <code class="docutils literal notranslate"><span class="pre">non</span></code> entre expressions)</p>
+</div>
+<div class="section" id="composer-les-conditions">
+<h2>composer les conditions<a class="headerlink" href="#composer-les-conditions" title="Permalink to this headline">¶</a></h2>
+<p>Pour composer les conditions</p>
+<ul class="simple">
+<li><p>vous <strong>devez</strong> utiliser les opérateurs logiques <em>bit-à-bit</em> (ou <em><strong>bitwise</strong></em>) <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> (pour et), <code class="docutils literal notranslate"><span class="pre">|</span></code> (pour ou), <code class="docutils literal notranslate"><span class="pre">~</span></code> (pour non)</p></li>
+<li><p>ou leur contrepartie <code class="docutils literal notranslate"><span class="pre">numpy</span></code> qui sont respectivement <code class="docutils literal notranslate"><span class="pre">np.logical_and</span></code>, <code class="docutils literal notranslate"><span class="pre">np.logical_or</span></code>, <code class="docutils literal notranslate"><span class="pre">np.logical_not</span></code>.</p></li>
+</ul>
+<p>Et vous devez parenthéser les sous-termes de vos expressions.</p>
+<p>Si nous voulons les éléments qui ne sont pas pairs et qui sont strictement inférieurs à 6, calculons le masque et indexons notre matrice avec ce masque:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">~</span><span class="p">(</span><span class="n">a</span><span class="o">%</span><span class="k">2</span>==0) # le masque
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ True,  True, False,  True],
+       [False, False,  True,  True],
+       [False, False,  True,  True]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">[(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">~</span><span class="p">(</span><span class="n">a</span><span class="o">%</span><span class="k">2</span>==0)] # l&#39;indexation du tableau par le masque
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-3, -5, -5,  1,  1, -9, -1])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ou en version <em>loooongue</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_not</span><span class="p">(</span><span class="n">a</span><span class="o">%</span><span class="k">2</span>==0))]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-3, -5, -5,  1,  1, -9, -1])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="mise-en-garde">
+<h3>mise en garde<a class="headerlink" href="#mise-en-garde" title="Permalink to this headline">¶</a></h3>
+<p>Cette façon de faire à base d’opérateurs <em>bitwise</em> n’est pas forcément très intuitive…
+en Python on aurait eu envie d’utiliser par exemple les opérateurs <code class="docutils literal notranslate"><span class="pre">and</span></code> et <code class="docutils literal notranslate"><span class="pre">not</span></code>, au lieu de <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> et <code class="docutils literal notranslate"><span class="pre">~</span></code></p>
+<p>Il ne faut pas le faire, et <strong>ça ne fonctionne pas</strong> de toutes façons (les opérateurs logiques Python <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> et <code class="docutils literal notranslate"><span class="pre">not</span></code> ne sont PAS vectorisés)</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># au lieu de (a &lt; 6) &amp; ~(a%2==0)</span>
+<span class="c1"># on pourrait avoir envie d&#39;écrire</span>
+<span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">a</span><span class="o">%</span><span class="k">2</span>==0)
+
+<span class="c1"># mais ça ne marche pas...</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1942</span><span class="o">/</span><span class="mf">3948634469.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># au lieu de (a &lt; 6) &amp; ~(a%2==0)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># on pourrait avoir envie d&#39;écrire</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">a</span><span class="o">%</span><span class="k">2</span>==0)
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># mais ça ne marche pas...</span>
+
+<span class="ne">ValueError</span>: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compter-les-elements-repondant-a-une-condition">
+<h2>compter les éléments répondant à une condition<a class="headerlink" href="#compter-les-elements-repondant-a-une-condition" title="Permalink to this headline">¶</a></h2>
+<p>Nous allons compter les éléments répondant à une condition:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># on pourrait à la rigueur utiliser sum() aussi</span>
+<span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">((</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">~</span><span class="p">(</span><span class="n">a</span><span class="o">%</span><span class="k">2</span>==0))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<p>Et naturellement vous pouvez compter ces éléments le long des axes de votre <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>. Par exemple pour avoir le nombre d’éléments impairs inférieurs à 6 de chaque colonne, je vais travailler dans l’axe des lignes (axe 0 ici):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">((</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">~</span><span class="p">(</span><span class="n">a</span><span class="o">%</span><span class="k">2</span>==0), axis=0)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 2, 3])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si on veut le nombre d’éléments impairs inférieurs à 6 dans les lignes, je vais compter dans l’axe des colonnes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">((</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">~</span><span class="p">(</span><span class="n">a</span><span class="o">%</span><span class="k">2</span>==0), axis=1)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3, 2, 2])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Et maintenant que nous avons extrait les éléments d’un <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> avec une condition, donnons-lui un nom et essayons de modifier un de ses éléments. Faisons simple, prenons le tableau des éléments négatifs et modifions (si il existe) le premier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nouveau_tableau</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">a</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">nouveau_tableau</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ -3,  -5, -10,  -5,  -8,  -2,  -9,  -1])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nouveau_tableau</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">999</span>
+<span class="n">nouveau_tableau</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-999,   -5,  -10,   -5,   -8,   -2,   -9,   -1])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notre <code class="docutils literal notranslate"><span class="pre">nouveau_tableau</span></code> est bien modifié. Pensez-vous qu’il en soit de même dans la matrice d’origine ? Non, ce <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> est un tableau complètement différent où les éléments de la matrice d’origine ont été recopiés ! Ce n’est pas une vue sur le tableau d’origine. Pour le voir affichons-le:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ -3,  -5, -10,  -5],
+       [  9,   8,   1,   1],
+       [ -8,  -2,  -9,  -1]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si nous voulions modifier les éléments de la matrice d’origine vous devez les repérer par leurs indices.</p>
+<p>Nous allons prendre les indices de ces éléments dans la matrice d’origine, accéder à ces eléments et les modifier les modifier.</p>
+</div>
+<div class="section" id="calculer-les-indices-des-elements-dans-le-tableau-d-origine">
+<h2>calculer les indices des éléments dans le tableau d’origine<a class="headerlink" href="#calculer-les-indices-des-elements-dans-le-tableau-d-origine" title="Permalink to this headline">¶</a></h2>
+<p>Nous venons de voir que quand nous “isolons” les éléments, d’une matrice, qui obéissent à une condition, ils sont recopiés dans un nouvel <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> et nous ne pouvons pas les modifier à partir de ce nouveau tableau.</p>
+<p>Si nous voulons accéder aux éléments, qui obéissent à la condition, dans la matrice d’origine: il faut passer par leurs indices.</p>
+<p>Ainsi il va nous falloir des fonctions qui nous retournent les indices de ces éléments. Non, il n’est toujours pas question de le faire à-la-main en parcourant le <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> avec des boucles for-Python: ce serait beaucoup trop cher en temps.</p>
+<p>Nous allons voir plusieurs manières de faire.</p>
+<div class="section" id="la-fonction-np-nonzero">
+<h3>la fonction <code class="docutils literal notranslate"><span class="pre">np.nonzero</span></code><a class="headerlink" href="#la-fonction-np-nonzero" title="Permalink to this headline">¶</a></h3>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">np.nonzero</span></code> renvoie les indices des éléments, qui ne sont pas <code class="docutils literal notranslate"><span class="pre">False</span></code> ou <code class="docutils literal notranslate"><span class="pre">0</span></code>, sous la forme d’un tuple de liste d’indices, le tuple étant de la même dimension que le tableau.</p>
+<p>Par exemple si notre tableau <code class="docutils literal notranslate"><span class="pre">num.ndarray</span></code> est de dimension 2: la fonction renvoie deux listes d’indices, la première liste contient les indices des lignes et la seconde des colonnes.</p>
+<p>À vous de jouer. Créez une matrice <em>b</em> de taille <em>(3, 4)</em> qui contient les entiers entre 1 et 12. Créez le masque des éléments qui sont divisibles par <em>3</em> et appliquez la fonction <code class="docutils literal notranslate"><span class="pre">np.nonzero</span></code> à ce masque.</p>
+<p>Que devez-vous obtenir ? Les éléments 3, 6, 9, 12 étant respectivement aux indices <em>(0, 2), (1, 1), (2, 0)</em> et <em>(2, 3)</em>, si on sépare les indices de lignes et les indices de colonne, on obtient un tuple contenant les deux ndarray <em>(0, 1, 2, 2)</em> et <em>(2, 1, 0, 3)</em>.</p>
+<p>Essayez de le faire:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici (la correction ci-dessous)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># la correction</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  2,  3,  4],
+       [ 5,  6,  7,  8],
+       [ 9, 10, 11, 12]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">view_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">b</span><span class="o">%</span><span class="k">3</span>==0)
+
+<span class="c1"># comme b est de dimension 2,</span>
+<span class="c1"># view_index est un tuple de 2 ndarray</span>
+<span class="n">view_index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0, 1, 2, 2]), array([2, 1, 0, 3]))
+</pre></div>
+</div>
+</div>
+</div>
+<p>C’est là que ça devient un peu <strong>magique</strong><br />
+car si je prends la matrice <code class="docutils literal notranslate"><span class="pre">b</span></code>, je peux <strong>l’indicer avec ce tuple</strong> et créer ainsi <strong>une vue</strong> sur la matrice <code class="docutils literal notranslate"><span class="pre">b</span></code> qui ne contient <strong>QUE les éléments</strong> qui nous intéressent et les modifier !</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="p">[</span><span class="n">view_index</span><span class="p">]</span> <span class="c1"># voila les éléments</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 3,  6,  9, 12])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Que je peux donc modifier !</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="p">[</span><span class="n">view_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">view_index</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span>
+<span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[  1,   2,  30,   4],
+       [  5,  60,   7,   8],
+       [ 90,  10,  11, 120]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Voila qui est bien utile pour créer une vue sur un ensemble d’arbitraire d’éléments donnés par leurs indices.</p>
+</div>
+<div class="section" id="la-fonction-np-argwhere">
+<h3>la fonction <code class="docutils literal notranslate"><span class="pre">np.argwhere</span></code><a class="headerlink" href="#la-fonction-np-argwhere" title="Permalink to this headline">¶</a></h3>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">np.argwhere</span></code> renvoie les indices des éléments pour lesquels un masque est vrai. Elle renvoie un tableau (<code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>), de dimension 2, avec autant de lignes que d’éléments qui <em>matchent</em> et chaque ligne donne les index de l’élément dans chacune des colonnes de la matrice d’origine.</p>
+<p>si on cherche les éléments pairs de la matrice $\begin{bmatrix} [1 &amp; 2 &amp; 3] \ [4 &amp; 5 &amp; 6] \end{bmatrix}$ on obtient le <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> suivant $\begin{bmatrix}[ 0&amp;1 ]\ [1&amp;0]\ [1&amp;2]\end{bmatrix}$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="n">aux</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2, 3],
+       [4, 5, 6]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">aux</span><span class="o">%</span><span class="k">2</span>==0)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 1],
+       [1, 0],
+       [1, 2]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>En fait donc les deux utilitaires <code class="docutils literal notranslate"><span class="pre">np.nonzero</span></code> et <code class="docutils literal notranslate"><span class="pre">np.argwhere</span></code> font à peu près le même travail, simplement les coordonnées des points qui <em>matchent</em> sont retournés dans des formats qui sont différents</p>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># si on reprend l&#39;exemple précédent</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  2,  3,  4],
+       [ 5,  6,  7,  8],
+       [ 9, 10, 11, 12]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># le résultat de nonzero</span>
+<span class="c1"># est un tuple conçu </span>
+<span class="c1"># pour pouvoir créer une vue</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">b</span><span class="o">%</span><span class="k">3</span>==0)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0, 1, 2, 2]), array([2, 1, 0, 3]))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># le résultat de argwhere est</span>
+<span class="c1"># disons plus *human-friendly*</span>
+<span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">b</span><span class="o">%</span><span class="k">3</span>==0)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 2],
+       [1, 1],
+       [2, 0],
+       [2, 3]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># remarquez que pour reconstruire le résultat de argwhere</span>
+<span class="c1"># à partir de celui de nonzero </span>
+<span class="c1"># on pourrait faire par exemple</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">view_index</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0, 2), (1, 1), (2, 0), (2, 3)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>À vous de jouer. Faites un tableau de dimension 3 de taille <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">3,</span> <span class="pre">4)</span></code> initialisé avec les entiers de <code class="docutils literal notranslate"><span class="pre">1</span></code> à <code class="docutils literal notranslate"><span class="pre">25</span></code> et demandez les indices des nombres divisibles par <code class="docutils literal notranslate"><span class="pre">5</span></code>.</p>
+<p>Imprimer le masque et sa forme:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici (la correction dessous)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># la correction</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">a</span><span class="o">%</span><span class="k">5</span> == 0
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[False, False, False, False],
+        [ True, False, False, False],
+        [False,  True, False, False]],
+
+       [[False, False,  True, False],
+        [False, False, False,  True],
+        [False, False, False, False]]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">a</span><span class="o">%</span><span class="k">5</span>==0)
+<span class="n">indices</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0, 1, 0],
+       [0, 2, 1],
+       [1, 0, 2],
+       [1, 1, 3]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># il y a 4 points qui matchent</span>
+<span class="c1"># et pour chacun 3 dimensions, c&#39;est pourquoi</span>
+<span class="n">indices</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Il n’y a pas de manière directe d’indices votre tableau <code class="docutils literal notranslate"><span class="pre">a</span></code> par ces indices, il faudrait reconstruire le tuple des listes d’indices dans toutes les dimensions.</p>
+<p>Ici il faudrait reconstruire: <code class="docutils literal notranslate"><span class="pre">([0,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1],</span> <span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">0,</span> <span class="pre">1],</span> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3])</span></code> et faire:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">[([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])]</span> <span class="c1"># oui on utilise un tuple de listes et pas de ndarray</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 5, 10, 15, 20])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Maintenant que vous avez calculé les indices des éléments divisibles par 5 de votre tableau <code class="docutils literal notranslate"><span class="pre">a</span></code>, comment atteindre ces éléments dans la matrice <code class="docutils literal notranslate"><span class="pre">a</span></code> ?</p>
+<p>À vous de jouer. Essayez, à partir du tableau <code class="docutils literal notranslate"><span class="pre">indices</span></code> de modifier les éléments de votre tableau <code class="docutils literal notranslate"><span class="pre">a</span></code> (par exemple pour les remplacer par <em>999</em>).</p>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># votre code ici (une correction ci-dessous)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># une correction</span>
+<span class="n">a</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">indices</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">indices</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 5, 10, 15, 20])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_level_advanced docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># une autre correction qui utilise la transposition de matrice (que nous verrons un peu après)</span>
+<span class="n">a</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">indices</span><span class="o">.</span><span class="n">T</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 5, 10, 15, 20])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="modifier-les-elements-d-un-np-ndarray-avec-putmask">
+<h2>modifier les éléments d’un <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> avec <code class="docutils literal notranslate"><span class="pre">putmask</span></code><a class="headerlink" href="#modifier-les-elements-d-un-np-ndarray-avec-putmask" title="Permalink to this headline">¶</a></h2>
+<p>Dans un <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>, la fonction <code class="docutils literal notranslate"><span class="pre">np.putmask</span></code> remplace, les éléments obéissant à un masque, par une valeur donnée en argument. On ne verra que l’exemple avec une valeur unique.</p>
+<p>La modification est effectuée dans le tableau (en place).</p>
+<p>On va voir l’exemple avec une seule valeur. Construisons un tableau de forme <em>(2, 5)</em> de <em>10</em> nombre aléatoires de loi normale $N(0, 1)$ (avec <code class="docutils literal notranslate"><span class="pre">np.random.randn</span></code>) et remplacons tous les éléments entre <em>-0.5</em> et <em>0.5</em> par 1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.441431  ,  0.28528017, -0.24982733, -1.78841097,  0.63434839],
+       [-1.16390808, -1.71645579, -0.62590701,  0.87624943,  0.39401518]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.441431  ,  0.        ,  0.        , -1.78841097,  0.63434839],
+       [-1.16390808, -1.71645579, -0.62590701,  0.87624943,  0.        ]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exercices">
+<h2>exercices<a class="headerlink" href="#exercices" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="modifier-la-gaussienne">
+<h3>modifier la gaussienne<a class="headerlink" href="#modifier-la-gaussienne" title="Permalink to this headline">¶</a></h3>
+<p>À vous de jouer. Faites un <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> que vous initialisez-le avec des nombres aléatoirement tirés d’une distribution de loi normale de moyenne <em>3</em> et de variance <em>6.25</em> ($N(3, 6.25)$ avec <code class="docutils literal notranslate"><span class="pre">np.random.randn</span></code>. Comptez les éléments qui sont inférieurs à <em>-5</em> ainsi que ceux qui sont supérieurs à <em>10</em> et remplacez les tous par la moyenne. Faites le de plusieurs manières différentes.</p>
+<p>Avant de commencer, dans la cellule suivante je vous montre comment afficher un histogramme d’un vecteur de points. Afin que nous voyez graphiquement ce qui se passe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<span class="c1"># vous avez une gaussienne de moyenne 0 et d&#39;écart-type 1</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([  2.,   1.,  12.,  12.,  36.,  52., 110., 165., 280., 411., 579.,
+        668., 782., 949., 966., 969., 904., 814., 696., 517., 374., 286.,
+        183., 100.,  80.,  28.,  13.,   6.,   4.,   1.]),
+ array([-3.69336082, -3.44771811, -3.20207541, -2.95643271, -2.71079001,
+        -2.4651473 , -2.2195046 , -1.9738619 , -1.72821919, -1.48257649,
+        -1.23693379, -0.99129108, -0.74564838, -0.50000568, -0.25436297,
+        -0.00872027,  0.23692243,  0.48256513,  0.72820784,  0.97385054,
+         1.21949324,  1.46513595,  1.71077865,  1.95642135,  2.20206406,
+         2.44770676,  2.69334946,  2.93899216,  3.18463487,  3.43027757,
+         3.67592027]),
+ &lt;BarContainer object of 30 artists&gt;)
+</pre></div>
+</div>
+<img alt="_images/2-07-numpy-array-testing_95_1.png" src="_images/2-07-numpy-array-testing_95_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="correction">
+<h2>correction<a class="headerlink" href="#correction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>modifier la gaussienne<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Une solution avec <code class="docutils literal notranslate"><span class="pre">putmask</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">6.25</span><span class="p">)</span><span class="o">+</span><span class="mi">3</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2-07-numpy-array-testing_99_0.png" src="_images/2-07-numpy-array-testing_99_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="p">(</span><span class="n">b</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">5</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2-07-numpy-array-testing_101_0.png" src="_images/2-07-numpy-array-testing_101_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="2-06-numpy-aggregate.html" title="previous page">agrégation</a>
+    <a class='right-next' id="next-link" href="2-08-numpy-linalg.html" title="next page">algèbre linéaire</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thierry Parmentelat<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

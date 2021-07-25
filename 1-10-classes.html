@@ -1,0 +1,1101 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>classes &#8212; Python numérique</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="UE12 - numpy : introduction" href="2-01-numpy-intro.html" />
+    <link rel="prev" title="modules" href="1-09-modules.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Python numérique</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-01-intro.html">
+   UE 12 - Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  intro et installation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-02-outils.html">
+   outils de base
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-01-environnement.html">
+   UE12 - Python : généralités
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-02-rudiments.html">
+   rudiments de Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-03-operateurs.html">
+   opérateurs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-04-fonctions.html">
+   fonctions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-05-types-methodes.html">
+   objets, types et méthodes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-06-containers.html">
+   types évolués
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-07-references-partagees.html">
+   références partagées
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-08-iterations.html">
+   itérations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-09-modules.html">
+   modules
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   classes
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  numpy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-01-numpy-intro.html">
+   UE12 - numpy : introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-02-numpy-type-memory.html">
+   numpy et la mémoire
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-03-numpy-vectorization.html">
+   la vectorisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-04-numpy-indexing-slicing.html">
+   indexation et slicing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-05-numpy-broadcast.html">
+   broadcasting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-06-numpy-aggregate.html">
+   agrégation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-07-numpy-array-testing.html">
+   masques et tableaux booléens
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-08-numpy-linalg.html">
+   algèbre linéaire
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  pandas
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-01-pandas-intro.html">
+   UE12 - pandas et matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-02-pandas-modifying-slicing.html">
+   modifications et
+   <em>
+    slicing
+   </em>
+   de dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-04-pandas-sorting.html">
+   trier une dataframe
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-05-pandas-group-by.html">
+   regroupement de données
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas.DataFrame.groupby
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-01-matplotlib-intro.html">
+   dataviz avec
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-03-matplotlib-figure-and-sub-figures.html">
+   figures et sous-figures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-04-matplotlib-pandas-dataframe.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+   &amp;
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-05-matplotlib-plots-3D.html">
+   des graphiques en 3D
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/1-10-classes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/1-10-classes.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/boisgera/python-numerique"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/boisgera/python-numerique/issues/new?title=Issue%20on%20page%20%2F1-10-classes.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/boisgera/python-numerique/edit/master/notebooks/1-10-classes.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/boisgera/python-numerique/master?urlpath=tree/notebooks/1-10-classes.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#types-predefinis-et-monde-reel">
+   types prédéfinis et monde réel
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#typiquement">
+   typiquement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#class">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     class
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instances">
+   instances
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#affichage">
+   affichage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methodes">
+   méthodes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methodes-suite">
+   méthodes - suite
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interets-de-cette-approche">
+   intérêts de cette approche
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objets-et-langage">
+   objets et langage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exemple-if-obj">
+   exemple -
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     if
+    </span>
+    <span class="pre">
+     obj:
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methodes-speciales">
+   méthodes spéciales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exemple-de-methode-speciale">
+   exemple de méthode spéciale
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resume">
+   résumé
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#la-classe-quaternion">
+   la classe
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Quaternion
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="licence">
+<span>Licence CC BY-NC-ND</span>
+<span>Thierry Parmentelat</span>
+</div>
+<img alt="_images/inria-25-alpha.png" src="_images/inria-25-alpha.png" />
+<div class="section" id="classes">
+<h1>classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="types-predefinis-et-monde-reel">
+<h2>types prédéfinis et monde réel<a class="headerlink" href="#types-predefinis-et-monde-reel" title="Permalink to this headline">¶</a></h2>
+<p>les types prédéfinis que l’on a vus jusqu’ici<br />
+i.e. nombres, chaines, containers<br />
+(pour rappel: <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>)<br />
+sont pratiques et puissants</p>
+<p><strong>MAIS</strong> souvent cela n’est pas suffisant
+pour traiter des problèmes réels</p>
+</div>
+<div class="section" id="typiquement">
+<h2>typiquement<a class="headerlink" href="#typiquement" title="Permalink to this headline">¶</a></h2>
+<p>on a très souvent besoin de manipuler des données ‘composites’<br />
+e.g. un ensemble de personnes, de villes, de compagnies aériennes<br />
+en termes de modèle de données, ce sont des ‘enregistrements’<br />
+c’est-à-dire en fait des données composites</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># une façon naive d&#39;implémenter une donnée composite</span>
+<span class="c1"># est d&#39;utiliser un dictionnaire</span>
+
+<span class="n">personne</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Dupont&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>utiliser un dictionnaire peut faire l’affaire<br />
+pour des applications simples<br />
+(c’est par exemple ce qu’on récupère d’un fichier JSON)<br />
+mais c’est vite un peu lourd et très limité</p>
+</div>
+<div class="section" id="class">
+<h2><code class="docutils literal notranslate"><span class="pre">class</span></code><a class="headerlink" href="#class" title="Permalink to this headline">¶</a></h2>
+<p>dans ces cas-là (et dans bien d’autres)<br />
+il est plus flexible de se définir <strong>un nouveau type</strong><br />
+qui permette de créer des objets qui ont les propriétés en question<br />
+que dans ce contexte on appelle <strong>des attributs</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># voici comment définir</span>
+<span class="c1"># une classe `User`</span>
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># une fois qu&#39;on a défini une classe,</span>
+<span class="c1"># on peut s&#39;en servir pour créer</span>
+<span class="c1"># des objets - on dit des instances</span>
+<span class="c1"># de la classe</span>
+
+<span class="n">user1</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="s2">&quot;Lambert&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="instances">
+<h2>instances<a class="headerlink" href="#instances" title="Permalink to this headline">¶</a></h2>
+<p>remarquez qu’ici</p>
+<ul class="simple">
+<li><p>on a défini la méthode spéciale <code class="docutils literal notranslate"><span class="pre">__init__</span></code> avec <strong>3</strong> paramètres</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>ce qui fait qu’on peut appeler (une fonction du nom de) la classe avec <strong>2</strong> paramètres</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>User(&quot;Lambert&quot;, 25)`
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>car le <strong>premier paramètre</strong> est l’objet en cours de création !</p></li>
+<li><p>et la phrase <code class="docutils literal notranslate"><span class="pre">self.name</span> <span class="pre">=</span> <span class="pre">name</span></code><br />
+signifie que l’on attache le paramètre <code class="docutils literal notranslate"><span class="pre">name</span></code><br />
+dans l’attribut <code class="docutils literal notranslate"><span class="pre">name</span></code> de l’objet en cours de création</p></li>
+</ul>
+</div>
+<div class="section" id="affichage">
+<h2>affichage<a class="headerlink" href="#affichage" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># si on ne fait rien de spécial,</span>
+<span class="c1"># l&#39;affichage est vraiment vilain</span>
+<span class="n">user1</span>
+<span class="c1"># qui vous dit que user1 est un objet dans le module __main__</span>
+<span class="c1"># qu&#39;il est de de type User</span>
+<span class="c1"># et où il est dans la mémoire de votre ordi</span>
+<span class="c1"># mais ce n&#39;est sûrement pas ce que vous voulez voir !</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.User at 0x7f0dc0b369d0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pour améliorer cela:</span>
+<span class="c1"># vous définissez la représentation de vos objets de type User</span>
+<span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+    <span class="c1"># définit comment afficher</span>
+    <span class="c1"># les objets de cette classe</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2"> ans&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user2</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="s2">&quot;Martin&quot;</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span>
+<span class="n">user2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Martin, 22 ans
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="methodes">
+<h2>méthodes<a class="headerlink" href="#methodes" title="Permalink to this headline">¶</a></h2>
+<p>comme on l’a évoqué dans la section “objets, types et méthodes”<br />
+dans une classe on peut définir <strong>des méthodes</strong><br />
+qui sont des fonctions qui s’appliquent sur un objet (de cette classe)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># une implémentation très simple</span>
+<span class="c1"># d&#39;une file FILO</span>
+<span class="c1"># premier entré dernier sorti</span>
+
+<span class="k">class</span> <span class="nc">Stack</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">frames</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot; &gt; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frames</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># instance</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
+
+<span class="n">stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s1">&#39;fact(3)&#39;</span><span class="p">)</span>
+<span class="n">stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s1">&#39;fact(2)&#39;</span><span class="p">)</span>
+<span class="n">stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="s1">&#39;fact(1)&#39;</span><span class="p">)</span>
+
+<span class="n">stack</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fact(3) &gt; fact(2) &gt; fact(1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;fact(1)&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stack</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fact(3) &gt; fact(2)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="methodes-suite">
+<h2>méthodes - suite<a class="headerlink" href="#methodes-suite" title="Permalink to this headline">¶</a></h2>
+<p>à nouveau, remarquez que la <strong>définition</strong> d’une méthode<br />
+prévoit un paramètre de plus que l’appel de la méthode<br />
+car <code class="docutils literal notranslate"><span class="pre">obj.methode(...)</span></code><br />
+est équivalent à
+<code class="docutils literal notranslate"><span class="pre">methode(obj,</span> <span class="pre">...)</span></code></p>
+</div>
+<div class="section" id="interets-de-cette-approche">
+<h2>intérêts de cette approche<a class="headerlink" href="#interets-de-cette-approche" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>définir vos propres types de données</p></li>
+<li><p>grouper les données qui vont ensemble dans un objet<br />
+facile à passer à d’autres fonctions</p></li>
+<li><p>invariants: garantir de bonnes propriétés<br />
+si on utilise les objets au travers des méthodes</p></li>
+<li><p>organise les espaces de noms<br />
+e.g. pas de conflit entre Class1.name et Class2.name</p></li>
+<li><p>héritage - ne sera pas détaillé dans ce cours</p></li>
+</ul>
+</div>
+<div class="section" id="objets-et-langage">
+<h2>objets et langage<a class="headerlink" href="#objets-et-langage" title="Permalink to this headline">¶</a></h2>
+<p>le langage “connaît” bien sûr les types prédéfinis<br />
+c’-à-d qu’il sait “faire la bonne chose”<br />
+selon le type des objets qu’il manipule</p>
+<p>exemples, selon le type de <code class="docutils literal notranslate"><span class="pre">obj</span></code> :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">print(obj)</span></code></p></li>
+<li><p>opérateurs comme <code class="docutils literal notranslate"><span class="pre">obj</span> <span class="pre">+</span> <span class="pre">x</span></code></p></li>
+<li><p>itération <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">item</span> <span class="pre">in</span> <span class="pre">obj</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">len(obj)</span></code></p></li>
+<li><p>test d’appartenance <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">in</span> <span class="pre">obj</span></code></p></li>
+<li><p>indexation <code class="docutils literal notranslate"><span class="pre">obj[x]</span></code></p></li>
+<li><p>etc..</p></li>
+</ul>
+</div>
+<div class="section" id="exemple-if-obj">
+<h2>exemple - <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">obj:</span></code><a class="headerlink" href="#exemple-if-obj" title="Permalink to this headline">¶</a></h2>
+<p>remarquez qu’on peut toujours écrire un test <code class="docutils literal notranslate"><span class="pre">if</span></code> (ou <code class="docutils literal notranslate"><span class="pre">while</span></code>)
+même si le sujet du test n’est pas un booléen</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;bingo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;bingo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bingo
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">[]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;bingo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;bingo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bingo
+</pre></div>
+</div>
+</div>
+</div>
+<p>la règle pour les types prédéfinis est que dans un test<br />
+<code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">0.0</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">[]</span></code>, <code class="docutils literal notranslate"><span class="pre">set()</span></code>, <code class="docutils literal notranslate"><span class="pre">{}</span></code> sont considérés comme <code class="docutils literal notranslate"><span class="pre">False</span></code><br />
+les autres valeurs sont considérées comme <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+</div>
+<div class="section" id="methodes-speciales">
+<h2>méthodes spéciales<a class="headerlink" href="#methodes-speciales" title="Permalink to this headline">¶</a></h2>
+<p>les méthodes spéciales sont toutes de la forme <code class="docutils literal notranslate"><span class="pre">__bidule__</span></code><br />
+on en a déjà vu 2 : <code class="docutils literal notranslate"><span class="pre">__init__</span></code> et <code class="docutils literal notranslate"><span class="pre">__repr__</span></code><br />
+le langage en prévoit plusieurs dizaines (optionnelles)</p>
+</div>
+<div class="section" id="exemple-de-methode-speciale">
+<h2>exemple de méthode spéciale<a class="headerlink" href="#exemple-de-methode-speciale" title="Permalink to this headline">¶</a></h2>
+<p><strong>exemple</strong><br />
+lorsqu’un objet est utilisé dans un <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">obj:</span></code><br />
+il est d’abord converti en booléen par <code class="docutils literal notranslate"><span class="pre">bool(obj)</span></code></p>
+<p>pour redéfinir ce que cela veut dire sur une classe<br />
+on peut définir la méthode spéciale <code class="docutils literal notranslate"><span class="pre">__bool__</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># une classe jouet</span>
+<span class="c1"># uniquement à but pédagogique ...</span>
+
+<span class="k">class</span> <span class="nc">Fool</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    les objets de cette classe</span>
+<span class="sd">    se comportent à l&#39;envers</span>
+<span class="sd">    par rapport aux tests</span>
+<span class="sd">    if ou while</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="c1"># on triche, le test</span>
+    <span class="c1"># va marcher à l&#39;envers !</span>
+    <span class="k">def</span> <span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># un test sur un objet</span>
+<span class="c1"># de cette classe</span>
+<span class="n">fool_true</span> <span class="o">=</span> <span class="n">Fool</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># a un comportement inattendu</span>
+<span class="k">if</span> <span class="n">fool_true</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;bingo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">Fool</span><span class="p">([]):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;bingo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bingo
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="resume">
+<h2>résumé<a class="headerlink" href="#resume" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>on définit une classe avec le mot clé <code class="docutils literal notranslate"><span class="pre">class</span></code></p></li>
+<li><p>avec les classes on peut étendre les types prédéfinis <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, …</p></li>
+<li><p>un objet dans une classe contient typiquement des attributs</p></li>
+<li><p>une classe définit typiquement des méthodes</p></li>
+<li><p>on accède aux attributs et méthodes avec la syntaxe<br />
+<code class="docutils literal notranslate"><span class="pre">object.attribut</span></code>  ou <code class="docutils literal notranslate"><span class="pre">object.methode()</span></code></p></li>
+<li><p>grâce aux méthodes spéciales, on peut bien intégrer une classe dans le langage</p></li>
+</ul>
+</div>
+<div class="section" id="la-classe-quaternion">
+<h2>la classe <code class="docutils literal notranslate"><span class="pre">Quaternion</span></code><a class="headerlink" href="#la-classe-quaternion" title="Permalink to this headline">¶</a></h2>
+<p><strong>En option</strong></p>
+<p>on peut aussi redéfinir les opérateurs arithmétiques<br />
+comme <code class="docutils literal notranslate"><span class="pre">+</span></code> et <code class="docutils literal notranslate"><span class="pre">*</span></code> avec les<br />
+méthodes spéciales <code class="docutils literal notranslate"><span class="pre">__add__</span></code> et <code class="docutils literal notranslate"><span class="pre">__mul__</span></code></p>
+<p>Application: une micro-classe qui implémente les quaternions</p>
+<ul>
+<li><p>https://fr.wikipedia.org/wiki/Quaternion</p></li>
+<li><p>le corps non commutatif engendré sur $\mathbb{R}$
+par trois éléments $i, j, k$ tels que</p>
+<p>$$i^2 = j^2 = k^2 = ijk = -1$$</p>
+</li>
+<li><p>un quaternion s’écrit donc</p>
+<p>$q = a + bi + cj + dk$ avec $(a, b, c, d) \in \mathbb{R}^4$</p>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Quaternion</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">implem</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>  
+    <span class="c1"># c&#39;est la partie intéressante</span>
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;defines q1 + q2)&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Quaternion</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">implem</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">implem</span><span class="p">)))</span>  
+    <span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;defines q1 * q2&quot;&quot;&quot;</span>
+        <span class="n">a1</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">d1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">implem</span>
+        <span class="n">a2</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">d2</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">implem</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">a2</span> <span class="o">-</span> <span class="n">b1</span> <span class="o">*</span> <span class="n">b2</span> <span class="o">-</span> <span class="n">c1</span> <span class="o">*</span> <span class="n">c2</span> <span class="o">-</span> <span class="n">d1</span> <span class="o">*</span> <span class="n">d2</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">b2</span> <span class="o">+</span> <span class="n">b1</span> <span class="o">*</span> <span class="n">a2</span> <span class="o">+</span> <span class="n">c1</span> <span class="o">*</span> <span class="n">d2</span> <span class="o">-</span> <span class="n">d1</span> <span class="o">*</span> <span class="n">c2</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">c2</span> <span class="o">+</span> <span class="n">c1</span> <span class="o">*</span> <span class="n">a2</span> <span class="o">+</span> <span class="n">d1</span> <span class="o">*</span> <span class="n">b2</span> <span class="o">-</span> <span class="n">b1</span> <span class="o">*</span> <span class="n">d2</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">d2</span> <span class="o">+</span> <span class="n">d1</span> <span class="o">*</span> <span class="n">a2</span> <span class="o">+</span> <span class="n">b1</span> <span class="o">*</span> <span class="n">c2</span> <span class="o">-</span> <span class="n">c1</span> <span class="o">*</span> <span class="n">b2</span>
+        <span class="k">return</span> <span class="n">Quaternion</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>  
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;implements q1 == q2&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">implem</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">implem</span>  
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">implem</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">)&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q0</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">q1</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">q_1</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="n">q_1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1, 0, 0, 0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">j</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">k</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 0, 0, 1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">*</span> <span class="n">i</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1, 0, 0, 0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="o">*</span><span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="o">*</span><span class="n">j</span> <span class="o">==</span> <span class="n">k</span><span class="o">*</span><span class="n">k</span> <span class="o">==</span> <span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="o">*</span><span class="n">k</span> <span class="o">==</span> <span class="n">q_1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">Quaternion</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">*</span> <span class="n">q</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-28, 4, 6, 8)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">*</span> <span class="n">i</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-2, 1, 4, -3)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">*</span> <span class="n">q</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-2, 1, -4, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<p>limitations pour cette version rustique :</p>
+<ul class="simple">
+<li><p>manque des opérations</p></li>
+<li><p>égalité sans doute trop stricte (arrondis)</p></li>
+<li><p>ne sait pas interagir avec <code class="docutils literal notranslate"><span class="pre">int</span></code> ou <code class="docutils literal notranslate"><span class="pre">float</span></code></p></li>
+<li><p>affichage</p></li>
+<li><p>…</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># pour affichage</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;j&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">]</span>  
+    <span class="c1"># un code possible pour un affichage plus élégant</span>
+
+    <span class="c1"># affichage</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># on prépare des morceaux comme &#39;3&#39;, &#39;2i&#39;, &#39;4j&#39;, &#39;5k&#39;</span>
+        <span class="c1"># mais seulement si la dimension en question n&#39;est pas nulle</span>
+        <span class="n">parts</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}{</span><span class="n">label</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">implem</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="p">)</span>
+
+        <span class="c1"># on les assemble avec un + au milieu</span>
+        <span class="n">full</span> <span class="o">=</span> <span class="s2">&quot; + &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span>
+
+        <span class="c1"># si c&#39;est vide c&#39;est que self est nul</span>
+        <span class="k">return</span> <span class="n">full</span> <span class="k">if</span> <span class="n">full</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span> <span class="k">else</span> <span class="s2">&quot;0&quot;</span>
+
+        <span class="c1"># ce qui donnerait aussi en version un peu plus condensée</span>
+        <span class="c1"># mais beaucoup moins lisible</span>
+        <span class="c1"># return (&quot; + &quot;.join(f&quot;{x:.2f}{label}&quot; for x, label in zip(self.implem, labels) if x) or &quot;0&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="1-09-modules.html" title="previous page">modules</a>
+    <a class='right-next' id="next-link" href="2-01-numpy-intro.html" title="next page">UE12 - numpy : introduction</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Thierry Parmentelat<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
