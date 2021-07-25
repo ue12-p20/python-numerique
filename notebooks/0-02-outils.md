@@ -12,8 +12,10 @@ kernelspec:
   language: bash
   name: calysto_bash
 language_info:
-  name: python
-  pygments_lexer: ipython3
+  help_links:
+  - text: MetaKernel Magics
+    url: https://metakernel.readthedocs.io/en/latest/source/README.html
+  name: bash
 notebookname: outils de base
 version: '1.0'
 ---
@@ -24,11 +26,10 @@ version: '1.0'
     <span>Thierry Parmentelat</span>
     <span>Valérie Roy</span>
 </div>
-<div style="display:grid">
-    <span><img src="media/inria-25-alpha.png" /></span>
-    <span><img src="media/ensmp-25-alpha.png" /></span>
 </div>
-</div>
+
+<span><img src="media/inria-25-alpha.png" /></span>
+<span><img src="media/ensmp-25-alpha.png" /></span>
 
 +++
 
@@ -547,13 +548,13 @@ hello world
 dans le répertoire de votre choix, ouvrez *vs-code* et créez un fichier qui s'appelle
 `fact.py` contenant ce texte (n'hésitez pas à copier-coller) :
 
-```{code-cell} ipython3
+```{code-cell}
 cat ../demo/fact.py
 ```
 
 et dans le même répertoire lancez python pour calculer le factoriel d'un nombre
 
-```{code-cell} ipython3
+```{code-cell}
 python ../demo/fact.py 10
 ```
 
@@ -564,7 +565,7 @@ python ../demo/fact.py 10
 c'est toujours utile d'être bien sûr de la version qu'on a sous la main (surtout avec les
 environnments virtuels)
 
-```{code-cell} ipython3
+```{code-cell}
 python --version
 ```
 
@@ -582,7 +583,7 @@ c'est très facile d'installer d'autres librairies au delà de cet ensemble mini
 pour cela python vient avec une commande qui s'appelle `pip`  
 qui s'utilise directement **depuis le terminal**
 
-```{code-cell} ipython3
+```{code-cell}
 # pour avoir la liste des librairies installées on peut faire
 pip list
 ```
@@ -596,7 +597,7 @@ nous allons utliser `pip install` pour installer IPython, et pour ça vous allez
 pip install ipython
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 # la première fois qu'on installe une librairie, ça peut prendre
 # un petit moment pour aller chercher les packages
 # sur Internet et les installer
@@ -722,13 +723,13 @@ voici par exemple un fichier très proche de `fact.py` qu'on vient de faire tour
 mais j'y ai intentionnellement glissé une petite erreur de syntaxe  
 voici le code, et ce qui se produit si on essaie de le faire tourner
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 cat ../demo/fact-broken.py
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :cell_style: split
 
 python ../demo/fact-broken.py
@@ -870,7 +871,7 @@ c'est pour y mettre des projets que vous en avez besoin.
 
 pour vérifier votre installation, vous devez pouvoir taper dans le terminal
 
-```{code-cell} ipython3
+```{code-cell}
 git --version
 ```
 
@@ -1015,7 +1016,7 @@ pip install jupytext
 si tout s'est bien passé vous devez pouvoir voir les versions des différents morceaux de
 Jupyter comme ceci :
 
-```{code-cell} ipython3
+```{code-cell}
 jupyter --version
 ```
 
@@ -1357,7 +1358,7 @@ la table des matières navigable sur le coté
 Jupyter est un système extensible; sur nbhosting on a activé quelques-unes de ces
 extensions, et voici comment vous pouvez les activer également de votre côté
 
-```{code-cell} ipython3
+```{code-cell}
 :tags: []
 
 # d'abord on installe les extensions standard
@@ -1369,7 +1370,7 @@ pip install -U jupyter_contrib_nbextensions
 jupyter contrib nbextension install
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 :tags: []
 
 # puis on active celles qui nous intéressent

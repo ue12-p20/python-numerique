@@ -16,8 +16,9 @@ notebookname: "alg\xE8bre lin\xE9aire"
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Valérie Roy</span>
-<span><img src="media/ensmp-25-alpha.png" /></span>
 </div>
+
+<img src="media/ensmp-25-alpha.png" />
 
 ```{code-cell} ipython3
 import numpy as np

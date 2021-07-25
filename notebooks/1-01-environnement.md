@@ -8,11 +8,12 @@ jupytext:
     extension: .md
     format_name: myst
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 language_info:
   name: python
+  nbconvert_exporter: python
   pygments_lexer: ipython3
 notebookname: primer programmation Python
 rise:
@@ -27,8 +28,9 @@ version: '1.0'
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat</span>
-<span><img src="media/inria-25-alpha.png" /></span>
 </div>
+
+<img src="media/inria-25-alpha.png" />
 
 +++ {"slideshow": {"slide_type": ""}}
 

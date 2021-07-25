@@ -21,8 +21,9 @@ version: '1.0'
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Thierry Parmentelat</span>
-<span><img src="media/inria-25-alpha.png" /></span>
 </div>
+
+<img src="media/inria-25-alpha.png" />
 
 +++
 

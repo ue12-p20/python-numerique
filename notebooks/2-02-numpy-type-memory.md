@@ -20,8 +20,9 @@ notebookname: les types en numpy
 <div class="licence">
 <span>Licence CC BY-NC-ND</span>
 <span>Valérie Roy</span>
-<span><img src="media/ensmp-25-alpha.png" /></span>
 </div>
+
+<img src="media/ensmp-25-alpha.png" />
 
 +++
 
