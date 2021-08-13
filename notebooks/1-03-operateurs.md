@@ -70,6 +70,21 @@ b = 25
 25 // 10
 ```
 
+```{code-cell} ipython3
+:cell_style: split
+
+# et le reste la division entière
+# se note %
+
+25 % 10
+```
+
+```{code-cell} ipython3
+# et on peut combiner les deux précédents
+f"{25} = {25 // 10} * 10 + {25 % 10}"
+```
+
+
 +++ {"slideshow": {"slide_type": "slide"}}
 
 ## typage
