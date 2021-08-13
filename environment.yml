@@ -1,4 +1,4 @@
-name: python-numérique
+name: python-numerique
 dependencies:
   - python >= 3.9
   - pip
