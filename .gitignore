@@ -13,3 +13,6 @@ my_figure.jpg
 
 # Generated HTML
 notebooks/_build
+
+# Mac stuff
+.DS_Store
