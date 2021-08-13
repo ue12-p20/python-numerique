@@ -42,6 +42,24 @@ Ainsi pour y accéder, le plus simple est dans doute de lancer Jupyter directeme
 
 Puis on peut ouvrir les notesbooks un par un depuis l'insterface de Jupyter.
 
+## Slides
+
+Certains notebooks contiennent des slides Rise.
+On peut alors passer facilement des slides au notebook et inversement.
+
+On commence par démarrer Jupyter:
+
+```bash
+# On démarre Jupyter
+(PyNum) $ cd notebooks
+(PyNum) $ jupyter notebook
+```
+
+Puis lorsqu'on sélectionne un notebook compatible (par ex. "04-fonctions") on verra apparaître le slideshow.
+
+- pour passer du slideshow au notebook, cliquer sur **la croix en haut à gauche**
+- pour (re)-passer du notebook au slidedhow, cliquer sur **le bouton avec un barchart** situé tout à droite de la barre d'outils de Jupyter
+
 ## Création de la documentation HTML avec `jupyter book`
 
 Le projet dispose d'une `Makefile` dédié rendant très simple la génération de la documentation HTML.
@@ -59,4 +77,3 @@ Pour se faire:
 Le résultat du build sera alors diposbile dans le sous-répertoire
 [`notebooks/_build/html`](notebooks/_build/html/) et le point d'entrée est le fichier
 [`index.htmlz](notebooks/_build/html/index.html) qu'il contient.
-
