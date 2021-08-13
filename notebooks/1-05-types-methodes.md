@@ -180,3 +180,10 @@ par rapport à un appel de fonction, 2 avantages
 
 * espaces de nom plus propres  
   pas besoin d'inventer des noms comme `str_capitalize`
+
+## pour aller plus loin
+
+vous trouverez sur le site officiel du langage Python la documentation des différents types
+disponibles et des méthodes associées. Par exemple parcourez la 
+[documentation du type `str`](https://docs.python.org/3/library/stdtypes.html?highlight=str#str) et
+essayez de retrouver les méthodes utilisées ci-dessus: `split`, `center` et `capitalize`.
