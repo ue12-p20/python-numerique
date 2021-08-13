@@ -44,16 +44,27 @@ pour être sûr que vous avez tout ce qu'il faut pour travailler
 
 ## lancer Python
 
-1. exécuter un programme déjà fait  
+Pour exécuter du code Python, vous devez ouvrir une fenêtre de terminal et vous rendre dans le répertoire contenant vos fichiers:
+
+```bash
+# par ex. si vous avez placés vos fichiers dans un répertoire travail
+$ cd travail
+```
+
+Puis on saisit une des commandes suivantes:
+
+1. exécuter un programme déjà fait (en supposant votre travail sauvegardé dans un fichier `monprogramme.py`)
   `$ python monprogramme.py`
-1. lancer un interpréteur interactif  
+2. lancer un interpréteur interactif  
   `$ python`  
   ou encore mieux  
   `$ ipython`
-1. mode 'mixte' dans des notebooks  
+3. mode 'mixte' dans des notebooks: cette commande va ouvrir votre navigateur internet montrant l'interface Jupyter
   `$ jupyter notebook`
 
 +++ {"cell_style": "split"}
+
+Dans tous les cas, faites bien attention au répertoire de travail de votre session de terminal, que vous pouvez afficher à tout moment via la commande `pwd` ("print working directory").
 
 **illustration**
 
@@ -166,7 +177,7 @@ Python2 est une version plus ancienne du langage
 * vous avez cloné [le cours sur
   github](https://github.com/ue12/python-numerique/tree/master/demo)
 
-* si ce n'est pas déjà fait, dans un terminal, utilisez `git clone` pour dupliquer le repo
+* si ce n'est pas déjà fait, dans un terminal, utilisez `git clone` depuis un terminal pour dupliquer le repo
   sur votre ordinateur
   ```bash
   $ git clone https://github.com/ue12/python-numerique
@@ -183,7 +194,13 @@ Python2 est une version plus ancienne du langage
 
 +++ {"slideshow": {"slide_type": "-"}, "cell_style": "center"}
 
-Vous êtes dans le répertoire `demo`, lancez les deux programmes
+Commencez par vous rendre dans le répertoire `demo`
+
+```bash
+$ cd demo
+```
+
+puis lancez les deux programmes
 
 ```bash
 $ python3 fact.py
