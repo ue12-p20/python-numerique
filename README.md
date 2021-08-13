@@ -2,6 +2,25 @@
 
 Cours d'introduction à Python et à l'écosystème Python scientifique
 
+# Installation
+
+Afin de pouvoir visualiser et exécuter localement les éléments du cours, il est nécessaire d'installer les dépendances associées, via `pip` ou `conda`.
+
+## Installation via `pip`
+
+```bash
+$ pip install -r requirements.txt
+```
+
+## Installation via `conda`
+
+```bash
+$ conda env create -f environment.yml
+$ conda activate python-numerique
+```
+
+# Objectif des cours
+
 ## cours 1
 
 installer et découvrir l'environnement Python / IPython / Jupyter; où on gratte le vernis en ce qui concerne
