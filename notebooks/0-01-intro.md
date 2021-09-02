@@ -193,7 +193,7 @@ s'agissant du premier bloc de 4 x 3h :
  (notamment mathématiques et machine-learning)
 * 4 parties
   * installations (ce cours-ci)
-  * le langage Pythonå
+  * le langage Python
   * tableaux et programmation vectorielle (`numpy`)
   * préparation (`pandas`) et  
     visualisation (`matplotlib`) des données
